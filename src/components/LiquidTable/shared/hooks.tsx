@@ -1,7 +1,6 @@
-import { createContext, useContext } from "react";
-import { ContextType } from "./liquidTableComponent.types";
-
-export const Context = createContext<ContextType | undefined>(undefined);
+import { useContext } from "react";
+import { ContextType } from "../liquidTableComponent.types";
+import { Context } from "./Provider";
 
 export const useTableContext = (): ContextType => {
     const context = useContext(Context);

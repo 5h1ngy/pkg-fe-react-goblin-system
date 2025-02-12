@@ -1,1 +1,1 @@
-export { default } from "./LiquidTableComponent.Provider"
+export { default } from "./shared/Provider"

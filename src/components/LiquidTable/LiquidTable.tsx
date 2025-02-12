@@ -2,10 +2,10 @@ import { FC } from "react";
 import { Stack } from "@chakra-ui/react"
 import { Table } from "@chakra-ui/react"
 
-import Header from "./LiquidTableComponent.header";
-import Body from "./LiquidTableComponent.body";
-import Pagination from "./LiquidTableComponent.pagination";
-import ActionBar from "./LiquidTableComponent.actionBar";
+import Header from "./Header";
+import Body from "./Body";
+import Pagination from "./Pagination";
+import ActionBar from "./ActionBar";
 
 const DynamicTable: FC = () => {
 

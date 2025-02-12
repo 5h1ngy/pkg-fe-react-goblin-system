@@ -3,7 +3,7 @@ import { HStack } from "@chakra-ui/react"
 
 import { PaginationItems, PaginationNextTrigger, PaginationPrevTrigger, PaginationRoot, } from "@/components/Factory/Chakra/pagination"
 
-import { useTableContext } from "./liquidTableComponent.shared.providers";
+import { useTableContext } from "./shared/hooks";
 
 const DynamicTable: FC = () => {
     const { pagination } = useTableContext();
