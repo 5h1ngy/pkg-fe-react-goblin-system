@@ -1,6 +1,6 @@
 import { Path, UseFormReturn } from 'react-hook-form';
 import { z, ZodObject, ZodTypeAny } from 'zod';
-import { Meta } from "./dynamicFormFactory.types";
+import { Meta } from "./dynamicForm.types";
 
 /**
  * Props definition for the dynamic field component.

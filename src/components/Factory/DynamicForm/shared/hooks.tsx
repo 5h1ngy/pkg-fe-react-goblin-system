@@ -2,7 +2,7 @@ import { DefaultValues, useForm } from 'react-hook-form';
 import { TypeOf, z, ZodObject } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { MetaSchema } from './dynamicFormFactory.types';
+import { MetaSchema } from '../dynamicForm.types';
 
 /**
  * @typedef {Array<Record<string, [string, unknown][]>>} Fields

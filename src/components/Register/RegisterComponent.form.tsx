@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { withMeta } from '@/components/Factory/DynamicForm/dynamicFormFactory.types';
+import { withMeta } from '@/components/Factory/DynamicForm/dynamicForm.types';
 
 const schema = z.object({
     /**

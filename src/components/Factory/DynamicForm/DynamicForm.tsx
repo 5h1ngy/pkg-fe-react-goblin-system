@@ -2,10 +2,10 @@ import { FormProvider, Path } from 'react-hook-form';
 import { Flex } from '@chakra-ui/react';
 import { TypeOf, z, ZodObject, ZodTypeAny } from 'zod';
 
-import { ComponentProps, MetaSchema } from './dynamicFormFactory.types';
-import Field from './DynamicFormFactory.field';
-import { useNormalizeFields } from "./dynamicFormFactory.hooks";
-import { getMaxStep } from './dynamicFormFactory.utils';
+import { useNormalizeFields } from "./shared/hooks";
+import { getMaxStep } from './shared/utils';
+import { ComponentProps, MetaSchema } from './dynamicForm.types';
+import Field from './Field';
 
 function Component<T extends z.ZodEffects<ZodObject<any>>>({
   width, schema, defaultValues,

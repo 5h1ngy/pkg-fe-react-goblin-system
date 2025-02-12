@@ -3,7 +3,7 @@ import { Card, HStack, VStack } from "@chakra-ui/react"
 import { Image } from "@chakra-ui/react"
 import { Heading, Stack } from "@chakra-ui/react"
 
-import DynamicForm from '@/components/Factory/DynamicForm/DynamicFormFactory';
+import DynamicForm from '@/components/Factory/DynamicForm/DynamicForm';
 import { Button } from "@/components/Factory/Chakra/button"
 
 import { schema } from "./RegisterComponent.form"

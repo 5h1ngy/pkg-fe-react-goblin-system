@@ -4,9 +4,9 @@ import { Select } from 'chakra-react-select';
 import { Input, VStack } from "@chakra-ui/react";
 
 import { Field } from "@/components/Factory/Chakra/field"
-import { ComponentProps } from './dynamicFormFactory.field.props';
+import { ComponentProps } from './field.types';
 import { Checkbox } from '../Chakra/checkbox';
-import { getBaseType } from './dynamicFormFactory.utils';
+import { getBaseType } from './shared/utils';
 
 function Component<T extends ZodObject<any>>({ methods, name, meta, fieldSchema, }: ComponentProps<T>) {
   const baseSchema = getBaseType(fieldSchema);

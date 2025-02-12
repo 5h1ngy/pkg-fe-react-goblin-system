@@ -1,7 +1,7 @@
 import { HStack, VStack } from "@chakra-ui/react"
 import { z, ZodObject } from 'zod';
 
-import DynamicForm from '@/components/Factory/DynamicForm/DynamicFormFactory';
+import DynamicForm from '@/components/Factory/DynamicForm/DynamicForm';
 import { Button } from "@/components/Factory/Chakra/button"
 
 type Props<T> = {
