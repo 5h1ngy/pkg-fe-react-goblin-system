@@ -1,12 +1,11 @@
 import { FC } from "react";
 import { Flex, chakra } from "@chakra-ui/react";
 
-import { usePageContext } from "./TransformerLayout.Provider";
-import { useMouse } from "./TransformerLayout.hooks";
-import Header from "./TransformerLayout.component.Header";
-import Body from "./TransformerLayout.component.Body";
+import { usePageContext, useMouse } from "./shared/hooks";
+import Header from "./Header";
+import Body from "./Body";
 
-const Component: FC = () => {
+const Transformer: FC = () => {
     const { isMobileRef, circleRef } = useMouse()
     const { props, } = usePageContext()
     const { background } = props;
@@ -52,4 +51,4 @@ const Component: FC = () => {
     </Flex>;
 }
 
-export default Component;
+export default Transformer;

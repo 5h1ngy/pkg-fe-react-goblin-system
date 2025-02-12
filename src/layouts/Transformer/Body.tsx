@@ -2,9 +2,9 @@ import { FC, useRef, useEffect } from "react";
 import { Flex } from "@chakra-ui/react";
 import gsap from "gsap";
 
-import { usePageContext } from "./TransformerLayout.Provider";
+import { usePageContext } from "./shared/hooks";
 
-const Component: FC = () => {
+const Body: FC = () => {
     const { props } = usePageContext();
     const { children } = props;
 
@@ -38,4 +38,4 @@ const Component: FC = () => {
     );
 };
 
-export default Component;
+export default Body;

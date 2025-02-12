@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Flex, Spacer, Image, Text } from "@chakra-ui/react";
 import { IconButton, Tabs } from "@chakra-ui/react";
 import { CiGlobe } from "react-icons/ci";
@@ -8,9 +8,8 @@ import { ColorModeButtonExtended } from "@/components/Factory/Chakra/color-mode"
 import { DrawerBackdrop, DrawerBody, DrawerCloseTrigger } from "@/components/Factory/Chakra/drawer";
 import { DrawerContent, DrawerRoot, DrawerTrigger } from "@/components/Factory/Chakra/drawer";
 
-import { usePageContext } from "./TransformerLayout.Provider";
-import { useMouse } from "./TransformerLayout.hooks";
-import { findMatchingNavbarValue } from "./TransformerLayout.utils";
+import { usePageContext, useMouse } from "./shared/hooks";
+import { findMatchingNavbarValue } from "./shared/utils";
 
 const Component: FC = () => {
     const { isMobileRef, handleNavigationAndScroll, } = useMouse()
