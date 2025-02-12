@@ -1,9 +1,9 @@
 import { FC } from "react"
 import { Flex, Spacer, Text } from "@chakra-ui/react";
 
-import { ComponentTypes } from "./sectionCardRowComponent.types";
+import { ComponentTypes } from "./sectionCardRow.types";
 
-const Component: FC<ComponentTypes> = ({ field, value }) => {
+const SectionCardRow: FC<ComponentTypes> = ({ field, value }) => {
 
     return field
         ? <Flex wrap={"wrap"} gapX={"5rem"} justifyContent={"space-between"}>
@@ -26,4 +26,4 @@ const Component: FC<ComponentTypes> = ({ field, value }) => {
         </Text>
 }
 
-export default Component;
+export default SectionCardRow;
