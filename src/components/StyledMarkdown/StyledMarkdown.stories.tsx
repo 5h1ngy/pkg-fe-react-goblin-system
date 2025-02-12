@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Component from './StyledMarkdownComponent'; // Path al file del componente
+import StyledMarkdown from './StyledMarkdown'; // Path al file del componente
 
-const meta: Meta<typeof Component> = {
+const meta: Meta<typeof StyledMarkdown> = {
   title: 'Components/MarkdownRenderer', // Nome della sezione in Storybook
-  component: Component,
+  component: StyledMarkdown,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered', // Disposizione centrata delle storie
@@ -12,7 +12,7 @@ const meta: Meta<typeof Component> = {
     // Valori di default per le storie
     content: `# Welcome to Markdown Renderer\n\nThis is an example of **Markdown** rendering in React. \n\n\`\`\`javascript\nconsole.log('Hello World!');\n\`\`\`\n\n- Supports lists\n- Code blocks\n- **Styling**`,
   },
-} satisfies Meta<typeof Component>;
+} satisfies Meta<typeof StyledMarkdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

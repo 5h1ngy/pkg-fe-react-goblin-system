@@ -3,12 +3,9 @@ import ReactMarkdown from "react-markdown"; // Libreria per il rendering di cont
 import remarkGfm from "remark-gfm"; // Plugin Remark per supportare sintassi GitHub Flavored Markdown (GFM).
 import rehypeHighlight from "rehype-highlight"; // Plugin Rehype per evidenziare sintassi del codice nei blocchi di codice Markdown.
 
+import { CoimponentProps } from "./StyledMarkdown.types";
 import "highlight.js/styles/github.css"; // Importa lo stile GitHub per l'evidenziazione della sintassi.
 import "./StyledMarkdownComponent.scss"; // Importa gli stili personalizzati del componente.
-
-type Props = {
-    content: string; // Tipo per le proprietà del componente: `content` è una stringa che rappresenta il contenuto Markdown.
-};
 
 /**
  * Componente `Component`.
@@ -16,10 +13,10 @@ type Props = {
  * Renderizza contenuto Markdown formattato, con supporto per GitHub Flavored Markdown e
  * evidenziazione della sintassi del codice.
  * 
- * @param {Props} props - Proprietà del componente, include il contenuto Markdown.
+ * @param {CoimponentProps} props - Proprietà del componente, include il contenuto Markdown.
  * @returns {JSX.Element} - Un elemento che visualizza il contenuto Markdown renderizzato.
  */
-const Component: React.FC<Props> = ({ content }) => {
+const StyledMarkdown: React.FC<CoimponentProps> = ({ content }) => {
     return (
         <div className="markdown-container"> {/* Contenitore con una classe CSS per la personalizzazione degli stili. */}
             <ReactMarkdown
@@ -31,4 +28,4 @@ const Component: React.FC<Props> = ({ content }) => {
     );
 };
 
-export default Component; // Esporta il componente per l'utilizzo in altri file.
+export default StyledMarkdown; // Esporta il componente per l'utilizzo in altri file.
