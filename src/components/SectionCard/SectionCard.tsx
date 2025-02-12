@@ -6,9 +6,9 @@ import { EmptyState } from "@/components/Factory/Chakra/empty-state";
 
 import { Skeleton, SkeletonCircle, SkeletonText } from "../Factory/Chakra/skeleton";
 import { Avatar } from "../Factory/Chakra/avatar";
-import { STATUS, ComponentTypes } from "./sectionCardComponent.types";
+import { STATUS, ComponentTypes } from "./sectionCard.types";
 
-const Component: FC<ComponentTypes> = ({
+const SectionCard: FC<ComponentTypes> = ({
     status, isEmpty = true,
     header, subHeader, body,
     empty,
@@ -71,4 +71,4 @@ const Component: FC<ComponentTypes> = ({
         }
     </VStack>
 
-export default Component;
+export default SectionCard;
