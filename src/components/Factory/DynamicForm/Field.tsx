@@ -3,12 +3,12 @@ import { z, ZodEnum, ZodObject, ZodType } from 'zod';
 import { Select } from 'chakra-react-select';
 import { Input, VStack } from "@chakra-ui/react";
 
-import { Field } from "@/components/Factory/Chakra/field"
+import { Field as ChakraField } from "@/components/Factory/Chakra/field"
 import { ComponentProps } from './field.types';
 import { Checkbox } from '../Chakra/checkbox';
 import { getBaseType } from './shared/utils';
 
-function Component<T extends ZodObject<any>>({ methods, name, meta, fieldSchema, }: ComponentProps<T>) {
+function Field<T extends ZodObject<any>>({ methods, name, meta, fieldSchema, }: ComponentProps<T>) {
   const baseSchema = getBaseType(fieldSchema);
 
   function checkInputType(key: string): string {
@@ -42,7 +42,7 @@ function Component<T extends ZodObject<any>>({ methods, name, meta, fieldSchema,
       baseSchema instanceof z.ZodDate
     ) {
       return <VStack {...!meta?.style ? { width: "100%" } : { ...meta?.style }} alignItems={'left'}>
-        <Field
+        <ChakraField
           label={meta?.label && meta.label}
           invalid={methods.formState.errors[name] !== undefined}
           errorText={methods.formState.errors[name]?.message as string}
@@ -58,7 +58,7 @@ function Component<T extends ZodObject<any>>({ methods, name, meta, fieldSchema,
             onChange={field.onChange}
             value={field.value ?? ""}
           />
-        </Field>
+        </ChakraField>
       </VStack>
 
     } else if (baseSchema instanceof ZodEnum) {
@@ -74,7 +74,7 @@ function Component<T extends ZodObject<any>>({ methods, name, meta, fieldSchema,
         value: value ?? null
       }))
 
-      return <Field
+      return <ChakraField
         label={meta?.label && meta.label}>
         <Select<OptionType>
           {...field}
@@ -84,11 +84,11 @@ function Component<T extends ZodObject<any>>({ methods, name, meta, fieldSchema,
           placeholder={meta?.label ? `Select ${meta?.label}` : undefined}
           defaultValue={null}
         />
-      </Field>
+      </ChakraField>
 
     } else if (baseSchema instanceof z.ZodBoolean) {
 
-      return <Field
+      return <ChakraField
         invalid={methods.formState.errors[name] !== undefined}
         errorText={methods.formState.errors[name]?.message as string}
       >
@@ -107,7 +107,7 @@ function Component<T extends ZodObject<any>>({ methods, name, meta, fieldSchema,
         >
           {meta?.label}
         </Checkbox>
-      </Field>
+      </ChakraField>
 
     }
 
@@ -124,4 +124,4 @@ function Component<T extends ZodObject<any>>({ methods, name, meta, fieldSchema,
   );
 }
 
-export default Component;
+export default Field;

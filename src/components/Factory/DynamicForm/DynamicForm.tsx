@@ -7,7 +7,7 @@ import { getMaxStep } from './shared/utils';
 import { ComponentProps, MetaSchema } from './dynamicForm.types';
 import Field from './Field';
 
-function Component<T extends z.ZodEffects<ZodObject<any>>>({
+function DynamicForm<T extends z.ZodEffects<ZodObject<any>>>({
   width, schema, defaultValues,
   step = 0,
   onNext, onBack,
@@ -101,4 +101,4 @@ function Component<T extends z.ZodEffects<ZodObject<any>>>({
   </Flex>
 }
 
-export default Component;
+export default DynamicForm;

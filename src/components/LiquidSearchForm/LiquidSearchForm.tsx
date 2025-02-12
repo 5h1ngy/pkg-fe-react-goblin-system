@@ -3,12 +3,10 @@ import { z, ZodObject } from 'zod';
 
 import DynamicForm from '@/components/Factory/DynamicForm/DynamicForm';
 import { Button } from "@/components/Factory/Chakra/button"
+import { ComponentProps } from "./liquidSearchForm.types";
 
-type Props<T> = {
-    schema: T;
-}
 
-function Component<T extends z.ZodEffects<ZodObject<any>>>({ schema }: Props<T>) {
+function LiquidSearchForm<T extends z.ZodEffects<ZodObject<any>>>({ schema }: ComponentProps<T>) {
 
     return <DynamicForm
         schema={schema}
@@ -28,4 +26,4 @@ function Component<T extends z.ZodEffects<ZodObject<any>>>({ schema }: Props<T>)
     />
 }
 
-export default Component
+export default LiquidSearchForm
