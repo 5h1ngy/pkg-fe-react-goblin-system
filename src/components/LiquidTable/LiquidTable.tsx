@@ -7,7 +7,7 @@ import Body from "./Body";
 import Pagination from "./Pagination";
 import ActionBar from "./ActionBar";
 
-const DynamicTable: FC = () => {
+const LiquidTable: FC = () => {
 
     return (
         <Stack width="full" gap="3" alignItems={"flex-end"}>
@@ -26,4 +26,4 @@ const DynamicTable: FC = () => {
     );
 };
 
-export default DynamicTable;
+export default LiquidTable;

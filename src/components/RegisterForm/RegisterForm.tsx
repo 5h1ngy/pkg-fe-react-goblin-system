@@ -6,10 +6,10 @@ import { Heading, Stack } from "@chakra-ui/react"
 import DynamicForm from '@/components/Factory/DynamicForm/DynamicForm';
 import { Button } from "@/components/Factory/Chakra/button"
 
-import { schema } from "./RegisterComponent.form"
-import { ComponentProps } from "./registerComponent.types";
+import { schema } from "./RegisterForm.form"
+import { ComponentProps } from "./registerForm.types";
 
-const Component: FC<ComponentProps> = ({ rootStyle, children, submit }) => {
+const RegisterForm: FC<ComponentProps> = ({ rootStyle, children, submit }) => {
     const [step, setStep] = useState(0)
     const [stepComplete, setStepComplete] = useState(false)
 
@@ -62,4 +62,4 @@ const Component: FC<ComponentProps> = ({ rootStyle, children, submit }) => {
     </Card.Root>
 }
 
-export default Component
+export default RegisterForm

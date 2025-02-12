@@ -1,6 +1,6 @@
 import { Card } from '@chakra-ui/react';
 import React from 'react';
-import { FormInputs } from './RegisterComponent.form';
+import { FormInputs } from './RegisterForm.form';
 
 export interface ComponentProps {
     children?: React.ReactNode

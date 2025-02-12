@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ContextType } from "../liquidTableComponent.types";
+import { ContextType } from "../liquidTable.types";
 import { Context } from "./Provider";
 
 export const useTableContext = (): ContextType => {

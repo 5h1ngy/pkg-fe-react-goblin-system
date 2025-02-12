@@ -1,6 +1,6 @@
 import React, { createContext, useState, FC } from 'react';
 import { parseItems } from './utils';
-import { ComponentProps, ContextType } from '../liquidTableComponent.types';
+import { ComponentProps, ContextType } from '../liquidTable.types';
 
 export const Context = createContext<ContextType | undefined>(undefined);
 

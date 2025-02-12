@@ -4,7 +4,7 @@ import { withMeta } from './dynamicForm.types';
 import DynamicForm from './DynamicForm';
 
 export default {
-  title: 'Components/DynamicForm',
+  title: 'Components/Factory/DynamicForm',
   component: DynamicForm,
   parameters: {
     layout: 'centered',

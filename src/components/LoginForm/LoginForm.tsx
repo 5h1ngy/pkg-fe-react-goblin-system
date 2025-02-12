@@ -6,16 +6,10 @@ import { Heading } from "@chakra-ui/react"
 import DynamicForm from '@/components/Factory/DynamicForm/DynamicForm';
 import { Button } from "@/components/Factory/Chakra/button"
 
-import { schema } from "./LoginComponent.form"
+import { schema } from "./loginForm.form"
+import { ComponentProps } from "./loginForm.types";
 
-interface Props {
-    root?: Card.RootProps & React.RefAttributes<HTMLDivElement>,
-    header?: React.ReactNode
-    submit: Function,
-    children?: React.ReactNode
-}
-
-const Component: FC<Props> = ({ header, submit, children, root }) => {
+const LoginForm: FC<ComponentProps> = ({ header, submit, children, root }) => {
 
     return <Card.Root borderRadius={"10px"} {...root}>
         <HStack gap={"1rem"} padding={"2rem"} justifyContent={"center"}>
@@ -60,4 +54,4 @@ const Component: FC<Props> = ({ header, submit, children, root }) => {
     </Card.Root>
 }
 
-export default Component
+export default LoginForm

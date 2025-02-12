@@ -5,7 +5,7 @@ import { PaginationItems, PaginationNextTrigger, PaginationPrevTrigger, Paginati
 
 import { useTableContext } from "./shared/hooks";
 
-const DynamicTable: FC = () => {
+const Pagination: FC = () => {
     const { pagination } = useTableContext();
 
     return pagination && <PaginationRoot
@@ -26,4 +26,4 @@ const DynamicTable: FC = () => {
     </PaginationRoot>
 };
 
-export default DynamicTable;
+export default Pagination;
