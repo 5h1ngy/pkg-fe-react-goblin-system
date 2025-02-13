@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import { FC, JSX } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { useAuth } from './authProvider.hooks';
+import { useAuth } from './shared/hooks';
 
-export const PrivateRoute: FC<{ render: JSX.Element }> = ({ render }) => {
+const PrivateRoute: FC<{ render: JSX.Element }> = ({ render }) => {
     const { accessToken } = useAuth();
 
     if (!accessToken) {
@@ -12,3 +12,5 @@ export const PrivateRoute: FC<{ render: JSX.Element }> = ({ render }) => {
 
     return render;
 };
+
+export default PrivateRoute
