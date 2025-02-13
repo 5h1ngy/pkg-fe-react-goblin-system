@@ -4,7 +4,7 @@ import { EmptyState } from "@/components/Factory/Chakra/empty-state";
 import { ProgressBar, ProgressRoot } from "@/components/Factory/Chakra/progress";
 import { TbLoader3 } from "react-icons/tb";
 
-const Component: FC = () =>
+const Loading: FC = () =>
     <Flex
         position={"fixed"}
         flexDirection="column"
@@ -23,4 +23,4 @@ const Component: FC = () =>
         </EmptyState>
     </Flex>
 
-export default Component;
+export default Loading;

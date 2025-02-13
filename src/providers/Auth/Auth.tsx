@@ -7,7 +7,7 @@ export interface AuthContextType {
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
+const Auth: React.FC<{ children: ReactNode }> = ({ children }) =>
     <AuthContext.Provider
         value={{
             accessToken: useSelector((state: any) => state.authSlice.accessToken)
@@ -16,4 +16,4 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         {children}
     </AuthContext.Provider>
 
-export default AuthProvider;
+export default Auth;
