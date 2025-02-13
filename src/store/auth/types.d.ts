@@ -1,6 +1,6 @@
 import { ResponseRegisterError, ResponseLoginError } from "@/services/auth/types";
 
-import { STATUS } from "../types";
+import { STATUS } from "../shared";
 
 export type State = {
     accessToken?: string;

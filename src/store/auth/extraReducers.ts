@@ -3,7 +3,7 @@ import { ActionReducerMapBuilder, Draft, PayloadAction } from '@reduxjs/toolkit'
 import { ResponseRegisterError, ResponseLoginError, ResponseRefresh } from '@/services/auth/types';
 import { ResponseLogin, ResponseRegister } from '@/services/auth/types';
 
-import { STATUS } from '../types';
+import { STATUS } from '../shared';
 import { State } from "./types";
 import { doLogin, doRefresh, doRegister } from './asyncThunks';
 

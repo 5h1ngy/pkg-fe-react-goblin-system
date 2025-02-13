@@ -5,7 +5,7 @@ import rehypeHighlight from "rehype-highlight"; // Plugin Rehype per evidenziare
 
 import { CoimponentProps } from "./StyledMarkdown.types";
 import "highlight.js/styles/github.css"; // Importa lo stile GitHub per l'evidenziazione della sintassi.
-import "./StyledMarkdownComponent.scss"; // Importa gli stili personalizzati del componente.
+import "./StyledMarkdown.scss"; // Importa gli stili personalizzati del componente.
 
 /**
  * Componente `Component`.

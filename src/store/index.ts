@@ -1,2 +1,4 @@
-export * as auth from "./auth"
-export { STATUS } from "./types"
+import * as auth from "./auth"
+import { STATUS } from "./shared"
+
+export default { auth, STATUS }

@@ -1,4 +1,4 @@
-import { STATUS } from '../types';
+import { STATUS } from '../shared';
 import { State } from "./types";
 
 export const initialState: State = {

@@ -15,6 +15,12 @@
   },
   "packageManager": "yarn@4.5.1",
   "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
@@ -27,7 +33,7 @@
     "build:storybook": "storybook build --output-dir build/storybook/",
     "build:docs": "docusaurus build",
     "build:lib": "rollup -c",
-    "clean": "rm -rfdv node_modules"
+    "clean": "rm -rfdv node_modules dist"
   },
   "dependencies": {
     "axios": "^1.7.9",
@@ -51,6 +57,7 @@
     "@eslint/js": "^9.20.0",
     "@hookform/resolvers": "^4.0.0",
     "@reduxjs/toolkit": "^2.5.1",
+    "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
@@ -90,7 +97,11 @@
     "rollup": "^4.34.6",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-tsconfig-paths": "^1.5.2",
     "rollup-plugin-typescript2": "^0.36.0",
+    "sass": "^1.84.0",
     "sass-embedded": "^1.83.4",
     "storybook": "^8.5.4",
     "tslib": "^2.8.1",

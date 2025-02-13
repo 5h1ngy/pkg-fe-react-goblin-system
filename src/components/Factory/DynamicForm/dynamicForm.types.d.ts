@@ -16,14 +16,6 @@ export interface MetaSchema extends ZodTypeAny {
     meta?: Meta;
 }
 
-export function withMeta<T extends ZodTypeAny>(schema: T, meta?: Meta): MetaSchema {
-    const metaSchema = schema as MetaSchema;
-
-    if (meta) metaSchema.meta = meta || {};
-
-    return metaSchema;
-}
-
 export interface ComponentProps<T extends z.ZodEffects<ZodObject<any>>> {
     width?: string;
     schema: T;

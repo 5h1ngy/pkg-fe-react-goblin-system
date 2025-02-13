@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { withMeta } from '@/components/Factory/DynamicForm/dynamicForm.types';
+import { withMeta } from '@/components/Factory/DynamicForm/DynamicForm';
 
 const schema = z.object({
     /**
@@ -32,8 +32,8 @@ const schema = z.object({
         }).max(new Date(), {
             message: 'La data non può essere nel futuro'
         })
-        // .transform(date => date.toISOString().split("T")[0]), // Converti in YYYY-MM-DD,
-        .transform(date => date.getTime()), // Converti in timestamp epoch
+            // .transform(date => date.toISOString().split("T")[0]), // Converti in YYYY-MM-DD,
+            .transform(date => date.getTime()), // Converti in timestamp epoch
         { label: 'Data di Nascita', autocomplete: "bday", row: 'row-2', step: 0 }
     ),
     /**

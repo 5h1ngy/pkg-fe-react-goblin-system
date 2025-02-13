@@ -1,7 +1,5 @@
 import { FlexProps } from "@chakra-ui/react";
 
-export enum STATUS { IDLE, LOADING, SUCCESS, FAILED }
-
 export type ComponentTypes = {
     status: STATUS;
     isEmpty: boolean;

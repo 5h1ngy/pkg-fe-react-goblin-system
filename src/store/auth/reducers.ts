@@ -1,5 +1,5 @@
 import { Draft } from '@reduxjs/toolkit';
-import { STATUS } from '../types';
+import { STATUS } from '../shared';
 import { State } from "./types";
 
 export const reducers = {

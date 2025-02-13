@@ -1,4 +1,4 @@
-"use client";
+;
 
 import type { ConditionalValue, IconButtonProps } from "@chakra-ui/react";
 import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react";

@@ -4,8 +4,16 @@ import { TypeOf, z, ZodObject, ZodTypeAny } from 'zod';
 
 import { useNormalizeFields } from "./shared/hooks";
 import { getMaxStep } from './shared/utils';
-import { ComponentProps, MetaSchema } from './dynamicForm.types';
+import { ComponentProps, Meta, MetaSchema } from './dynamicForm.types';
 import Field from './Field';
+
+export function withMeta<T extends ZodTypeAny>(schema: T, meta?: Meta): MetaSchema {
+  const metaSchema = schema as MetaSchema;
+
+  if (meta) metaSchema.meta = meta || {};
+
+  return metaSchema;
+}
 
 function DynamicForm<T extends z.ZodEffects<ZodObject<any>>>({
   width, schema, defaultValues,

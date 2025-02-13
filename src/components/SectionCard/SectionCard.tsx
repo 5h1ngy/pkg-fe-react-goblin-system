@@ -6,7 +6,9 @@ import { EmptyState } from "@/components/Factory/Chakra/empty-state";
 
 import { Skeleton, SkeletonCircle, SkeletonText } from "../Factory/Chakra/skeleton";
 import { Avatar } from "../Factory/Chakra/avatar";
-import { STATUS, ComponentTypes } from "./sectionCard.types";
+import { ComponentTypes } from "./sectionCard.types";
+
+enum STATUS { IDLE, LOADING, SUCCESS, FAILED }
 
 const SectionCard: FC<ComponentTypes> = ({
     status, isEmpty = true,

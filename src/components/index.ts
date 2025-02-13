@@ -7,7 +7,7 @@ import SectionCard from "./SectionCard";
 import SectionCardRow from "./SectionCardRow";
 import StyledMarkdown from "./StyledMarkdown";
 
-export {
+export default {
     DynamicForm,
     LiquidSearchForm,
     LiquidTable,

@@ -1,5 +1,7 @@
-export * from "./components";
-export * from "./layouts";
-export * from "./providers";
-export * from "./hocs";
-export * from "./store";
+import components from "@/components";
+import layouts from "@/layouts";
+import providers from "@/providers";
+import hocs from "@/hocs";
+import store from "@/store";
+
+export { components, layouts, providers, hocs, store }

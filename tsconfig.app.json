@@ -12,11 +12,11 @@
     "skipLibCheck": true,
     // enabling declaration (.d.ts) emit
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": "dist/types",
     "emitDeclarationOnly": true,
     /* Bundler mode */
     "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": false,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": false,
@@ -29,9 +29,12 @@
     "noUncheckedSideEffectImports": true,
     /* Alias */
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@providers/*": ["./src/providers/*"],
+      "@hocs/*": ["./src/hocs/*"],
+      "@store/*": ["./src/store/*"]
     }
   },
   "include": [

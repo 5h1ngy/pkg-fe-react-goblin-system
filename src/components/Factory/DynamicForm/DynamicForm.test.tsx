@@ -2,8 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { z } from 'zod';
 
-import { withMeta } from './dynamicForm.types';
-import DynamicForm from './DynamicForm';
+import DynamicForm, { withMeta } from './DynamicForm';
 
 const schema = z.object({
     name: withMeta(z.string().min(2), { label: 'Name' }),
