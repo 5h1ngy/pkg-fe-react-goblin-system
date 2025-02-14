@@ -100,7 +100,7 @@ function Field<T extends ZodObject<any>>({ methods, name, meta, fieldSchema, }: 
           id={name}
           name={name}
           checked={field.value ?? false}
-          onCheckedChange={({ checked }) => field.onChange(checked)}
+          onCheckedChange={({ checked }: { checked: boolean }) => field.onChange(checked)}
         // onBlur={field.onBlur}
         // onChange={field.onChange}
         // value={field.value ?? ""}

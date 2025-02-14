@@ -17,7 +17,7 @@ const DynamicTable: FC = () => {
                 <Checkbox
                     top="1" aria-label="Select all rows"
                     checked={indeterminate ? "indeterminate" : select.selection.length > 0}
-                    onCheckedChange={(changes) => changes.checked
+                    onCheckedChange={(changes: { checked: boolean }) => changes.checked
                         ? select.setSelection(rows.map((row) => row.id))
                         : select.setSelection([])
                     }

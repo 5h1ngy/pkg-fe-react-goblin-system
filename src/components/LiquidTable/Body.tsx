@@ -15,7 +15,7 @@ const DynamicTable: FC = () => {
                         top="1"
                         aria-label="Select row"
                         checked={select.selection.includes(row.id)}
-                        onCheckedChange={(changes) => select.setSelection((prev) => changes.checked
+                        onCheckedChange={(changes: { checked: boolean }) => select.setSelection((prev) => changes.checked
                             ? [...prev, row.id]
                             : prev.filter((id) => id !== row.id))
                         }

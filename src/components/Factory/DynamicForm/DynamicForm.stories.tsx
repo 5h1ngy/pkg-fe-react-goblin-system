@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
-import { withMeta } from './dynamicForm.types';
+import { withMeta } from './DynamicForm';
 import DynamicForm from './DynamicForm';
 
 export default {

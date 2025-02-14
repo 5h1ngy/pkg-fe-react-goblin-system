@@ -2,7 +2,7 @@ import React from "react";
 import type { Preview } from "@storybook/react"
 import { withThemeByClassName } from "@storybook/addon-themes"
 
-import ThemeProvider from "../src/providers/ThemeProvider"
+import Theme from "../src/providers/Theme"
 
 const preview: Preview = {
   parameters: {
@@ -14,9 +14,9 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => <ThemeProvider>
+    (Story) => <Theme>
       <Story />
-    </ThemeProvider>,
+    </Theme>,
     withThemeByClassName({
       defaultTheme: "light",
       themes: { light: "", dark: "dark" },

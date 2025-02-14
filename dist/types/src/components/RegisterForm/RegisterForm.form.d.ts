@@ -19,44 +19,44 @@ declare const schema: z.ZodEffects<z.ZodObject<{
     password: import("../Factory/DynamicForm/dynamicForm.types").MetaSchema;
     confirm_password: import("../Factory/DynamicForm/dynamicForm.types").MetaSchema;
 }, "strip", z.ZodTypeAny, {
-    email?: any;
-    username?: any;
-    password?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
+    username?: any;
     gender?: any;
+    email?: any;
     confirm_email?: any;
+    password?: any;
     confirm_password?: any;
 }, {
-    email?: any;
-    username?: any;
-    password?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
+    username?: any;
     gender?: any;
+    email?: any;
     confirm_email?: any;
+    password?: any;
     confirm_password?: any;
 }>, {
-    email?: any;
-    username?: any;
-    password?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
+    username?: any;
     gender?: any;
+    email?: any;
     confirm_email?: any;
+    password?: any;
     confirm_password?: any;
 }, {
-    email?: any;
-    username?: any;
-    password?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
+    username?: any;
     gender?: any;
+    email?: any;
     confirm_email?: any;
+    password?: any;
     confirm_password?: any;
 }>;
 declare const inputs: z.ZodObject<{
@@ -79,24 +79,24 @@ declare const inputs: z.ZodObject<{
     password: import("../Factory/DynamicForm/dynamicForm.types").MetaSchema;
     confirm_password: import("../Factory/DynamicForm/dynamicForm.types").MetaSchema;
 }, "strip", z.ZodTypeAny, {
-    email?: any;
-    username?: any;
-    password?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
+    username?: any;
     gender?: any;
+    email?: any;
     confirm_email?: any;
+    password?: any;
     confirm_password?: any;
 }, {
-    email?: any;
-    username?: any;
-    password?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
+    username?: any;
     gender?: any;
+    email?: any;
     confirm_email?: any;
+    password?: any;
     confirm_password?: any;
 }>;
 type FormInputs = z.infer<typeof inputs>;

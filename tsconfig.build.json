@@ -1,0 +1,75 @@
+{
+    "compilerOptions": {
+        // 📌 Specifica le librerie che TypeScript deve includere
+        "lib": [
+            "ES2020", // ✅ Usa le funzionalità di JavaScript ES2020 (es. Optional Chaining, Nullish Coalescing)
+            "DOM", // ✅ Permette di usare le API del DOM (es. document.querySelector)
+            "DOM.Iterable" // ✅ Abilita l'iterazione su NodeList, HTMLCollection, ecc. (es. document.querySelectorAll().forEach())
+        ],
+        // 📌 Definisce la versione ECMAScript a cui compilare il codice
+        "target": "ES2020", // ✅ Supporta funzioni moderne di JavaScript come async/await, Optional Chaining (?.) e Nullish Coalescing (??)
+        // 📌 Definisce il sistema di moduli da usare
+        "module": "ESNext", // ✅ Usa import/export nativi e migliora la tree shaking nei bundler come Rollup/Webpack
+        // 📌 Configura il supporto per JSX (React)
+        "jsx": "react-jsx", // ✅ Usa la sintassi JSX senza bisogno di importare React manualmente (React 17+)
+        // 📌 Genera file di dichiarazione `.d.ts` per supportare l'autocompletamento nei progetti che importano questa libreria
+        "declaration": true,
+        // 📌 Specifica la directory in cui salvare i file di dichiarazione `.d.ts`
+        "declarationDir": "dist/types",
+        // 📌 Directory in cui verranno salvati i file compilati
+        "outDir": "dist",
+        // 📌 Attiva il controllo rigoroso dei tipi
+        "strict": true, // ✅ Abilita tutte le regole di TypeScript per un controllo più forte
+        // 📌 Specifica il metodo di risoluzione dei moduli
+        "moduleResolution": "Bundler", // ✅ Ottimizzato per bundler come Rollup e Webpack, evita problemi con alias e moduli esterni
+        // 📌 Permette l'uso di `import` da moduli CommonJS
+        "esModuleInterop": true, // ✅ Evita problemi di compatibilità con moduli che usano `module.exports` (CommonJS)
+        // 📌 Evita il controllo delle dichiarazioni nei file `.d.ts` delle dipendenze
+        "skipLibCheck": true, // ✅ Velocizza la compilazione e previene errori inutili nei pacchetti npm
+        // 📌 Permette di importare moduli ES6 senza usare `import * as` o `default`
+        "allowSyntheticDefaultImports": true,
+        // 📌 Permette di importare file JSON
+        "resolveJsonModule": true,
+        // 📌 Forza la compilazione file per file, utile per ambienti che usano ESBuild e Rollup
+        "isolatedModules": true,
+        // 📌 Controlla come TypeScript determina il tipo di file nel progetto
+        "moduleDetection": "force", // ✅ Forza TypeScript a trattare qualsiasi file come un modulo
+        // 📌 Non genera output se ci sono errori di compilazione
+        "noEmitOnError": false,
+        // 📌 Usa la sintassi `define` per le proprietà delle classi (React 18+)
+        "useDefineForClassFields": true,
+        // 📌 Permette la destrutturazione su iterabili in ES5/ES6
+        "downlevelIteration": true, // ✅ Necessario per supportare `[...array]` su target più vecchi di ES6
+        // 📌 Disattiva il controllo aggressivo sugli accessi a proprietà opzionali
+        "noUncheckedIndexedAccess": false, // ✅ Previene errori quando si accede a proprietà opzionali sugli oggetti
+        // 📌 Evita problemi con proprietà opzionali strettamente tipizzate
+        "exactOptionalPropertyTypes": false,
+        // 📌 Disattiva il controllo sui valori `null` e `undefined`
+        "strictNullChecks": false,
+        // 📌 Evita il controllo sui file `.d.ts` delle librerie standard di TypeScript
+        "skipDefaultLibCheck": true,
+        // 📌 Mantiene i symlink originali quando si risolvono moduli npm
+        "preserveSymlinks": true, // ✅ Evita problemi con `node_modules` e librerie che dipendono da symlink
+        // 📌 Permette di importare file `.js` nei progetti TypeScript
+        "allowJs": true, // ✅ Utile se il progetto contiene anche file JavaScript
+        /* 📌 Configura alias per importazioni più semplici */
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ] // ✅ Permette di usare `@/component` invece di `../../component`
+        }
+    },
+    // 📌 Specifica quali file includere nella compilazione
+    "include": [
+        "src/**/*" // ✅ Include tutti i file TypeScript e JSX/TSX nella cartella `src`
+    ],
+    // 📌 Specifica quali file escludere dalla compilazione
+    "exclude": [
+        "node_modules", // ✅ Esclude la cartella `node_modules` dalla compilazione
+        "dist", // ✅ Evita di ricompilare i file già generati in `dist`
+        "**/*.stories.tsx", // ✅ IGNORA TUTTI I FILE DI STORYBOOK
+        "**/*.stories.ts", // ✅ Evita di compilare anche le varianti `.ts` di Storybook
+        "**/*.test.tsx", // ✅ IGNORA TUTTI I FILE DI TEST (Jest)
+        "**/*.test.ts" // ✅ Esclude anche le varianti `.ts` dei test
+    ]
+}

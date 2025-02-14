@@ -11,7 +11,7 @@ export declare const PaginationEllipsis: import("react").ForwardRefExoticCompone
 export declare const PaginationItem: import("react").ForwardRefExoticComponent<ChakraPagination.ItemProps & import("react").RefAttributes<HTMLButtonElement>>;
 export declare const PaginationPrevTrigger: import("react").ForwardRefExoticComponent<ChakraPagination.PrevTriggerProps & import("react").RefAttributes<HTMLButtonElement>>;
 export declare const PaginationNextTrigger: import("react").ForwardRefExoticComponent<ChakraPagination.NextTriggerProps & import("react").RefAttributes<HTMLButtonElement>>;
-export declare const PaginationItems: (props: React.HTMLAttributes<HTMLElement>) => import("react").JSX.Element;
+export declare const PaginationItems: (props: React.HTMLAttributes<HTMLElement>) => import("react/jsx-runtime").JSX.Element;
 interface PageTextProps extends TextProps {
     format?: "short" | "compact" | "long";
 }

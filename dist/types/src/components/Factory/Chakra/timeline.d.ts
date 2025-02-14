@@ -5,4 +5,4 @@ export declare const TimelineItem: import("react").ForwardRefExoticComponent<Cha
 export declare const TimelineIndicator: import("react").ForwardRefExoticComponent<ChakraTimeline.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>;
 export declare const TimelineTitle: import("react").ForwardRefExoticComponent<ChakraTimeline.TitleProps & import("react").RefAttributes<HTMLDivElement>>;
 export declare const TimelineDescription: import("react").ForwardRefExoticComponent<ChakraTimeline.DescriptionProps & import("react").RefAttributes<HTMLDivElement>>;
-export declare const TimelineConnector: (props: ChakraTimeline.IndicatorProps) => import("react").JSX.Element;
+export declare const TimelineConnector: (props: ChakraTimeline.IndicatorProps) => import("react/jsx-runtime").JSX.Element;

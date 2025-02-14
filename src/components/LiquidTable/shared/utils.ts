@@ -1,4 +1,4 @@
-import { ParsedColumn, ParsedRow, ParsedTableData } from "./liquidTableComponent.types";
+import { ParsedColumn, ParsedRow, ParsedTableData } from "../liquidTable.types";
 
 /**
  * Trasforma una stringa camelCase in una forma "First Name".

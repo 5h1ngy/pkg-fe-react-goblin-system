@@ -2,7 +2,7 @@ import type { SkeletonProps as ChakraSkeletonProps, CircleProps } from "@chakra-
 export interface SkeletonCircleProps extends ChakraSkeletonProps {
     size?: CircleProps["size"];
 }
-export declare const SkeletonCircle: (props: SkeletonCircleProps) => import("react").JSX.Element;
+export declare const SkeletonCircle: (props: SkeletonCircleProps) => import("react/jsx-runtime").JSX.Element;
 export interface SkeletonTextProps extends ChakraSkeletonProps {
     noOfLines?: number;
 }
