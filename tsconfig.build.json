@@ -15,7 +15,7 @@
         // 📌 Genera file di dichiarazione `.d.ts` per supportare l'autocompletamento nei progetti che importano questa libreria
         "declaration": true,
         // 📌 Specifica la directory in cui salvare i file di dichiarazione `.d.ts`
-        "declarationDir": "dist/types",
+        "declarationDir": "dist",
         // 📌 Directory in cui verranno salvati i file compilati
         "outDir": "dist",
         // 📌 Attiva il controllo rigoroso dei tipi
