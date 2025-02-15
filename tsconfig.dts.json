@@ -1,11 +1,5 @@
 {
   "compilerOptions": {
-    /* Alias */
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    },
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "node",
@@ -14,7 +8,12 @@
     "skipLibCheck": true,
     "noEmit": false,
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
   },
   "include": [
     "src"
