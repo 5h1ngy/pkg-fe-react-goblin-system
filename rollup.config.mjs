@@ -1,4 +1,3 @@
-import { readFileSync } from 'fs';
 import { defineConfig } from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -32,6 +31,8 @@ const jsConfig = defineConfig(
       dir: 'dist', // Utilizza "dir" invece di "file"
       format: 'esm',
       exports: 'named',
+      preserveModules: true, // Mantenere i moduli originali
+
       sourcemap: false,
       entryFileNames: '[name]/index.js', // Ogni entry verrà esportata in una cartella dedicata
     },
@@ -88,18 +89,30 @@ const dtsConfigs = Object.entries(entries).map(([key, entry]) =>
   defineConfig({
     input: entry,
     output: {
-      file: `dist/${key}/index.d.ts`, // Unico file .d.ts per la categoria
-      format: 'esm',
+      // Genera un file bundle per la categoria
+      file: `dist/${key}/index.d.ts`,
+      format: 'esm'
     },
     plugins: [
       alias({
-        entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+        entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
       }),
       dts({
-        tsconfig: './tsconfig.dts.json'
+        tsconfig: './tsconfig.dts.json',
+        // Questa opzione indica di inlinare tutto nell'output unico
+        // respectExternal: true,
+        // compilerOptions: {
+          // Forza l'output in un unico file
+          // outFile: `dist/${key}/index.d.ts`
+        // },
+        // Assicuriamoci di lasciare "react" (e il JSX) esterno
+        // external: ['react', 'react/jsx-runtime']
       })
-    ],
+    ]
   })
 );
 
-export default [jsConfig, ...dtsConfigs];
+export default [
+  jsConfig,
+  ...dtsConfigs
+];

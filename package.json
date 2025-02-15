@@ -65,6 +65,7 @@
     "build:storybook": "storybook build --output-dir build/storybook/",
     "build:docs": "docusaurus build",
     "build:lib": "rollup -c",
+    "build:dts:components": "api-extractor run --local --config api-extractor.components.json",
     "clean": "rm -rfdv node_modules dist"
   },
   "dependencies": {
@@ -152,7 +153,6 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-tsconfig-paths": "^1.5.2",
-    "rollup-plugin-typescript2": "^0.36.0",
     "sass": "^1.85.0",
     "sass-embedded": "^1.85.0",
     "storybook": "^8.5.6",

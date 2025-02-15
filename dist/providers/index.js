@@ -1,1 +1,0 @@
-import{jsx as r}from"react/jsx-runtime";import{createContext as e}from"react";import{useSelector as o}from"react-redux";import"react-router-dom";const t=e(void 0);var c={Auth:({children:e})=>r(t.Provider,{value:{accessToken:o((r=>r.authSlice.accessToken))},children:e})};export{c as default};
