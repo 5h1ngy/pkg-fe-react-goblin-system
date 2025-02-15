@@ -21,6 +21,32 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./components": {
+      "import": "./dist/components/index.esm.js",
+      "require": "./dist/components/index.cjs.js"
+    },
+    "./hocs": {
+      "import": "./dist/hocs/index.esm.js",
+      "require": "./dist/hocs/index.cjs.js"
+    },
+    "./layouts": {
+      "import": "./dist/layouts/index.esm.js",
+      "require": "./dist/layouts/index.cjs.js"
+    },
+    "./providers": {
+      "import": "./dist/providers/index.esm.js",
+      "require": "./dist/providers/index.cjs.js"
+    },
+    "./store": {
+      "import": "./dist/store/index.esm.js",
+      "require": "./dist/store/index.cjs.js"
+    }
+  },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
