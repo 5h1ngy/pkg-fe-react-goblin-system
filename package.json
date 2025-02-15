@@ -25,32 +25,38 @@
     ".": {
       "import": "./dist/index.esm.js",
       "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.esm.js"
     },
     "./components": {
       "import": "./dist/components/index.esm.js",
       "require": "./dist/components/index.cjs.js",
-      "types": "./dist/components/index.d.ts"
+      "types": "./dist/components/index.d.ts",
+      "default": "./distt/components/index.esm.js"
     },
     "./hocs": {
       "import": "./dist/hocs/index.esm.js",
       "require": "./dist/hocs/index.cjs.js",
-      "types": "./dist/hocs/index.d.ts"
+      "types": "./dist/hocs/index.d.ts",
+      "default": "./dist/hocs/index.esm.js"
     },
     "./layouts": {
       "import": "./dist/layouts/index.esm.js",
       "require": "./dist/layouts/index.cjs.js",
-      "types": "./dist/layouts/index.d.ts"
+      "types": "./dist/layouts/index.d.ts",
+      "default": "./dist/layouts/index.esm.js"
     },
     "./providers": {
       "import": "./dist/providers/index.esm.js",
       "require": "./dist/providers/index.cjs.js",
-      "types": "./dist/providers/index.d.ts"
+      "types": "./dist/providers/index.d.ts",
+      "default": "./dist/providers/index.esm.js"
     },
     "./store": {
       "import": "./dist/store/index.esm.js",
       "require": "./dist/store/index.cjs.js",
-      "types": "./dist/store/index.d.ts"
+      "types": "./dist/store/index.d.ts",
+      "default": "./dist/store/index.esm.js"
     }
   },
   "eslintConfig": {
