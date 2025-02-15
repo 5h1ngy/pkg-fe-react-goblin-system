@@ -92,6 +92,9 @@ const dtsConfigs = Object.entries(entries).map(([key, entry]) =>
       format: 'esm',
     },
     plugins: [
+      alias({
+        entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+      }),
       dts({
         tsconfig: './tsconfig.dts.json'
       })

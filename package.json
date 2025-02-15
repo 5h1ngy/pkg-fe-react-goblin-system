@@ -15,13 +15,6 @@
   },
   "packageManager": "yarn@4.5.1",
   "type": "module",
-  "typesVersions": {
-    "*": {
-      "@/*": [
-        "./dist/*"
-      ]
-    }
-  },
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -59,7 +52,7 @@
       "require": "./dist/store/index.cjs.js",
       "types": "./dist/store/index.d.ts"
     }
-  }
+  },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
