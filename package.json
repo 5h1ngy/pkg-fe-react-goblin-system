@@ -18,6 +18,28 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.esm.js",
+      "require": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "react-goblin-system": [
+        "dist/index.d.ts"
+      ],
+      "react-goblin-system/*": [
+        "dist/*"
+      ]
+    }
+  },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"

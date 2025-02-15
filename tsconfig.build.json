@@ -26,7 +26,10 @@
     "baseUrl": "./src",
     "paths": {
       "react-goblin-system": [
-        "./src/index.ts"
+        "dist/index.d.ts"
+      ],
+      "react-goblin-system/*": [
+        "dist/*"
       ],
       "@/*": [
         "./*"
