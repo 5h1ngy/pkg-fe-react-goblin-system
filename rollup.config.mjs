@@ -1,118 +1,65 @@
-import { defineConfig } from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-import url from '@rollup/plugin-url';
-import terser from '@rollup/plugin-terser';
-import svgr from '@svgr/rollup';
-import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import dts from 'rollup-plugin-dts';
-import typescriptEngine from 'typescript';
-import alias from '@rollup/plugin-alias';
-import path from "path";
+import alias from 'rollup-plugin-alias';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { fileURLToPath } from 'url';
+import path from 'path';
+import babel from '@rollup/plugin-babel';
+import react from '@vitejs/plugin-react';
+import json from '@rollup/plugin-json'; // 👈 Aggiunto
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const entries = {
-  components: path.resolve(__dirname, 'src/components/index.ts'),
-  hocs: path.resolve(__dirname, 'src/hocs/index.ts'),
-  layouts: path.resolve(__dirname, 'src/layouts/index.ts'),
-  providers: path.resolve(__dirname, 'src/providers/index.ts'),
-  store: path.resolve(__dirname, 'src/store/index.ts'),
-};
-
-const jsConfig = defineConfig(
-  {
-    input: entries,
-    output: {
-      dir: 'dist', // Utilizza "dir" invece di "file"
-      format: 'esm',
+export default {
+  input: 'src/index.ts',
+  output: [
+    {
+      file: 'dist/index.js',
+      format: 'cjs',
+      sourcemap: true,
       exports: 'named',
-      preserveModules: true, // Mantenere i moduli originali
-
-      sourcemap: false,
-      entryFileNames: '[name]/index.js', // Ogni entry verrà esportata in una cartella dedicata
     },
-    plugins: [
-      alias({
-        entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
-      }),
-      external({ includeDependencies: true }),
-      resolve({
-        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx']
-      }),
-      commonjs(),
-      svgr(),
-      url(),
-      postcss({
-        plugins: [],
-        minimize: true,
-      }),
-      typescript({
-        tsconfig: './tsconfig.build.json',
-        typescript: typescriptEngine,
-        sourceMap: false,
-        exclude: [
-          'coverage',
-          '.storybook',
-          'storybook-static',
-          'config',
-          'dist',
-          'node_modules/**',
-          '*.cjs',
-          '*.mjs',
-          '**/__snapshots__/*',
-          '**/.storybook/*',
-          '**/__tests__',
-          '**/*.test.js+(|x)',
-          '**/*.test.ts+(|x)',
-          '**/*.mdx',
-          '**/*.story.ts+(|x)',
-          '**/*.story.js+(|x)',
-          '**/*.stories.ts+(|x)',
-          '**/*.stories.js+(|x)',
-          'setupTests.ts',
-          'vite.config.ts',
-          'vitest.config.ts',
-        ],
-      }),
-      terser(),
-    ],
-  },
-);
+    {
+      file: 'dist/index.esm.js',
+      format: 'esm',
+      sourcemap: true,
+    }
+  ],
+  plugins: [
+    react(),
+    peerDepsExternal(),
+    resolve({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }), // Aggiungi .tsx
+    json(), // 👈 Aggiunto qui
 
-// Genera una configurazione dts separata per ogni categoria:
-const dtsConfigs = Object.entries(entries).map(([key, entry]) =>
-  defineConfig({
-    input: entry,
-    output: {
-      // Genera un file bundle per la categoria
-      file: `dist/${key}/index.d.ts`,
-      format: 'esm'
-    },
-    plugins: [
-      alias({
-        entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
-      }),
-      dts({
-        tsconfig: './tsconfig.dts.json',
-        // Questa opzione indica di inlinare tutto nell'output unico
-        // respectExternal: true,
-        // compilerOptions: {
-          // Forza l'output in un unico file
-          // outFile: `dist/${key}/index.d.ts`
-        // },
-        // Assicuriamoci di lasciare "react" (e il JSX) esterno
-        // external: ['react', 'react/jsx-runtime']
-      })
-    ]
-  })
-);
-
-export default [
-  jsConfig,
-  ...dtsConfigs
-];
+    commonjs(),
+    typescript({
+      tsconfig: './tsconfig.build.json',
+      exclude: ['**/__tests__', '**/*.stories.tsx'],
+      compilerOptions: {
+        declaration: true,
+        allowJs: true, // Permette di compilare anche file JS
+        isolatedModules: true, // Forza una migliore compatibilità con Babel
+        noImplicitAny: false,
+      }
+    }),
+    babel({
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],  // Aggiunto .tsx
+      babelHelpers: 'bundled',
+      exclude: ['node_modules/**'] // Escludi TypeScript
+    }),
+    postcss({
+      extract: true,
+      modules: true,
+      use: ['sass'],
+    }),
+    alias({
+      entries: [
+        { find: '@', replacement: path.resolve(__dirname, 'src') }
+      ]
+    })
+  ],
+  external: ['react', 'react-dom', '@chakra-ui/react']
+};

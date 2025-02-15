@@ -15,44 +15,9 @@
   },
   "packageManager": "yarn@4.5.1",
   "type": "module",
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./components": {
-      "import": "./dist/components/index.esm.js",
-      "require": "./dist/components/index.cjs.js",
-      "types": "./dist/components/index.d.ts"
-    },
-    "./hocs": {
-      "import": "./dist/hocs/index.esm.js",
-      "require": "./dist/hocs/index.cjs.js",
-      "types": "./dist/hocs/index.d.ts"
-    },
-    "./layouts": {
-      "import": "./dist/layouts/index.esm.js",
-      "require": "./dist/layouts/index.cjs.js",
-      "types": "./dist/layouts/index.d.ts"
-    },
-    "./providers": {
-      "import": "./dist/providers/index.esm.js",
-      "require": "./dist/providers/index.cjs.js",
-      "types": "./dist/providers/index.d.ts"
-    },
-    "./store": {
-      "import": "./dist/store/index.esm.js",
-      "require": "./dist/store/index.cjs.js",
-      "types": "./dist/store/index.d.ts"
-    }
-  },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
@@ -65,7 +30,6 @@
     "build:storybook": "storybook build --output-dir build/storybook/",
     "build:docs": "docusaurus build",
     "build:lib": "rollup -c",
-    "build:dts:components": "api-extractor run --local --config api-extractor.components.json",
     "clean": "rm -rfdv node_modules dist"
   },
   "dependencies": {
@@ -80,6 +44,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.26.0",
     "@chakra-ui/react": "^3.8.0",
     "@chromatic-com/storybook": "^3.2.4",
     "@docusaurus/core": "^3.7.0",
@@ -91,6 +56,7 @@
     "@hookform/resolvers": "^4.0.0",
     "@reduxjs/toolkit": "^2.5.1",
     "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
@@ -121,6 +87,7 @@
     "@types/react-helmet": "^6.1.11",
     "@types/rollup-plugin-peer-deps-external": "^2.2.5",
     "@vitejs/plugin-react": "^4.3.4",
+    "babel-plugin-module-resolver": "^5.0.2",
     "chakra-react-select": "^6.0.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
@@ -148,6 +115,7 @@
     "regenerator-runtime": "^0.14.1",
     "rimraf": "^6.0.1",
     "rollup": "^4.34.7",
+    "rollup-plugin-alias": "^2.2.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
@@ -173,13 +141,11 @@
     "@hookform/resolvers": "*",
     "@reduxjs/toolkit": "*",
     "chakra-react-select": "*",
-    "next-themes": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "*",
     "react-helmet-async": "*",
     "react-hook-form": "*",
-    "react-icons": "*",
     "react-redux": "*",
     "react-router-dom": "*"
   }

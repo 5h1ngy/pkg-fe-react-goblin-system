@@ -1,51 +1,28 @@
 {
-    "compilerOptions": {
-      "baseUrl": "./src",
-      
-      /* Alias */
-      "paths": {
-        "@/*": [
-          "./*"
-        ]
-      },
-
-      "allowJs": true,
-      "target": "ES2023",
-      "module": "ESNext",
-      "useDefineForClassFields": true,
-      "lib": ["DOM", "DOM.Iterable", "ESNext"],
-      "types": ["@testing-library/jest-dom"],
-      "skipLibCheck": true,
-      "sourceMap": true,
-      "outDir": "dist",
-      "declaration": true,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "resolveJsonModule": true,
-      "downlevelIteration": true,
-  
-      /* Bundler mode */
-      "moduleResolution": "bundler",
-      "isolatedModules": true,
-      "allowSyntheticDefaultImports": true,
-      "moduleDetection": "force",
-      "noEmit": false,
-      "jsx": "react-jsx",
-  
-      /* Linting */
-      "strict": true,
-      "strictNullChecks": true,
-      "noImplicitAny": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "noFallthroughCasesInSwitch": true,
-      "noImplicitReturns": true,
-    },
-    "include": ["src", "*.tsx", "*.ts", "eslint.config.js"],
-    "exclude": [
-      "coverage",
-      "config",
-      "dist",
-      "node_modules/**"
-    ]
-  }
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "ESNext",
+    "target": "ES6",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "allowJs": true,  
+    "isolatedModules": true ,
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": false,
+    "jsxImportSource": "react",
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
