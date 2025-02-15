@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    /* Alias */
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "skipLibCheck": true,
+    "noEmit": false,
+    "outDir": "./dist",
+    "baseUrl": "./src"
+  },
+  "include": [
+    "src"
+  ]
+}

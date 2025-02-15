@@ -1,6 +1,9 @@
+import * as react from 'react';
+
 declare const _default: {
-    Auth: import("react").FC<{
-        children: import("react").ReactNode;
+    Auth: react.FC<{
+        children: react.ReactNode;
     }>;
 };
-export default _default;
+
+export { _default as default };

@@ -17,27 +17,32 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const packageJson = JSON.parse(readFileSync('./package.json'));
+const entries = {
+  components: path.resolve(__dirname, 'src/components/index.ts'),
+  hocs: path.resolve(__dirname, 'src/hocs/index.ts'),
+  layouts: path.resolve(__dirname, 'src/layouts/index.ts'),
+  providers: path.resolve(__dirname, 'src/providers/index.ts'),
+  store: path.resolve(__dirname, 'src/store/index.ts'),
+};
 
-export default defineConfig(
+const jsConfig = defineConfig(
   {
-    input: './src/index.ts',
-    output: [
-      {
-        file: packageJson.module,
-        format: 'es',
-        exports: 'named',
-        sourcemap: false,
-      },
-    ],
+    input: entries,
+    output: {
+      dir: 'dist', // Utilizza "dir" invece di "file"
+      format: 'esm',
+      exports: 'named',
+      sourcemap: false,
+      entryFileNames: '[name]/index.js', // Ogni entry verrà esportata in una cartella dedicata
+    },
     plugins: [
       alias({
-        entries: [
-          { find: '@', replacement: path.resolve(__dirname, 'src') }
-        ]
+        entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
       }),
       external({ includeDependencies: true }),
-      resolve(),
+      resolve({
+        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx']
+      }),
       commonjs(),
       svgr(),
       url(),
@@ -76,10 +81,22 @@ export default defineConfig(
       terser(),
     ],
   },
-  {
-    input: 'dist/src/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-    external: [/\.(sc|sa|c)ss$/],
-    plugins: [dts()],
-  },
 );
+
+// Genera una configurazione dts separata per ogni categoria:
+const dtsConfigs = Object.entries(entries).map(([key, entry]) =>
+  defineConfig({
+    input: entry,
+    output: {
+      file: `dist/${key}/index.d.ts`, // Unico file .d.ts per la categoria
+      format: 'esm',
+    },
+    plugins: [
+      dts({
+        tsconfig: './tsconfig.dts.json'
+      })
+    ],
+  })
+);
+
+export default [jsConfig, ...dtsConfigs];
