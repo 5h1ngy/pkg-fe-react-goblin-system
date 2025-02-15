@@ -1,10 +1,10 @@
+import { jsxs, jsx, Fragment } from 'react/jsx-runtime';
 import { useForm, Controller, FormProvider } from 'react-hook-form';
 import { Field as Field$2, Checkbox as Checkbox$1, VStack, Input, Flex, Button as Button$1, AbsoluteCenter, Spinner, Span, HStack, Table, createRecipeContext, createContext as createContext$1, Pagination as Pagination$1, usePaginationContext, IconButton, Text, ActionBar, Portal, Kbd, Stack, Card, Image, Heading, EmptyState as EmptyState$1, Skeleton as Skeleton$1, Circle, Avatar as Avatar$1, Group, Icon, Spacer, Popover, Progress, createToaster, Toaster as Toaster$1, Toast, ClientOnly, Tabs, Drawer, chakra } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Select } from 'chakra-react-select';
 import * as t from 'react';
 import t__default, { forwardRef, createContext, useState, useContext, useMemo, useEffect, useRef, Suspense, lazy } from 'react';
-import { jsxs, jsx, Fragment } from 'react/jsx-runtime';
 import { useLocation, useNavigate, NavLink, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
@@ -31,48 +31,6 @@ function _arrayWithHoles(r) {
 }
 function _arrayWithoutHoles(r) {
   if (Array.isArray(r)) return _arrayLikeToArray(r);
-}
-function asyncGeneratorStep(n, t, e, r, o, a, c) {
-  try {
-    var i = n[a](c),
-      u = i.value;
-  } catch (n) {
-    return void e(n);
-  }
-  i.done ? t(u) : Promise.resolve(u).then(r, o);
-}
-function _asyncToGenerator(n) {
-  return function () {
-    var t = this,
-      e = arguments;
-    return new Promise(function (r, o) {
-      var a = n.apply(t, e);
-      function _next(n) {
-        asyncGeneratorStep(a, r, o, _next, _throw, "next", n);
-      }
-      function _throw(n) {
-        asyncGeneratorStep(a, r, o, _next, _throw, "throw", n);
-      }
-      _next(void 0);
-    });
-  };
-}
-function _defineProperty$1(e, r, t) {
-  return (r = _toPropertyKey$1(r)) in e ? Object.defineProperty(e, r, {
-    value: t,
-    enumerable: true,
-    configurable: true,
-    writable: true
-  }) : e[r] = t, e;
-}
-function _extends$1() {
-  return _extends$1 = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends$1.apply(null, arguments);
 }
 function _iterableToArray(r) {
   if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r);
@@ -109,47 +67,6 @@ function _nonIterableRest() {
 }
 function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function ownKeys$1(e, r) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r && (o = o.filter(function (r) {
-      return Object.getOwnPropertyDescriptor(e, r).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread2(e) {
-  for (var r = 1; r < arguments.length; r++) {
-    var t = null != arguments[r] ? arguments[r] : {};
-    r % 2 ? ownKeys$1(Object(t), true).forEach(function (r) {
-      _defineProperty$1(e, r, t[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$1(Object(t)).forEach(function (r) {
-      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
-    });
-  }
-  return e;
-}
-function _objectWithoutProperties$1(e, t) {
-  if (null == e) return {};
-  var o,
-    r,
-    i = _objectWithoutPropertiesLoose$1(e, t);
-  if (Object.getOwnPropertySymbols) {
-    var n = Object.getOwnPropertySymbols(e);
-    for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
-  }
-  return i;
-}
-function _objectWithoutPropertiesLoose$1(r, e) {
-  if (null == r) return {};
-  var t = {};
-  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r[n];
-  }
-  return t;
 }
 function _regeneratorRuntime() {
   _regeneratorRuntime = function () {
@@ -457,20 +374,6 @@ function _slicedToArray(r, e) {
 }
 function _toConsumableArray(r) {
   return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread();
-}
-function _toPrimitive$1(t, r) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r);
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r ? String : Number)(t);
-}
-function _toPropertyKey$1(t) {
-  var i = _toPrimitive$1(t, "string");
-  return "symbol" == typeof i ? i : i + "";
 }
 function _unsupportedIterableToArray(r, a) {
   if (r) {
@@ -1222,6 +1125,50 @@ exports.registerExportsForReactRefresh = registerExportsForReactRefresh;
 exports.validateRefreshBoundaryAndEnqueueUpdate =
   validateRefreshBoundaryAndEnqueueUpdate;
 
+/******************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+/* global Reflect, Promise, SuppressedError, Symbol, Iterator */
+
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+    var e = new Error(message);
+    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+};
+
 var inWebWorker$H = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$H;
 var prevRefreshSig$H;
@@ -1244,24 +1191,20 @@ function useNormalizeFields(schema, defaultValues) {
     defaultValues: defaultValues
   });
   var fields = schema.innerType().shape ? Object.entries(schema.innerType().shape).reduce(function (fields, _ref) {
-    var _typedFieldSchema$met, _typedFieldSchema$met2;
     var _ref2 = _slicedToArray(_ref, 2),
       name = _ref2[0],
       fieldSchema = _ref2[1];
+    var _a, _b, _c;
     var typedFieldSchema = fieldSchema;
-
     // Extract metadata for step and row organization
-    var step = ((_typedFieldSchema$met = typedFieldSchema.meta) === null || _typedFieldSchema$met === void 0 ? void 0 : _typedFieldSchema$met.step) || 0;
-    var key = ((_typedFieldSchema$met2 = typedFieldSchema.meta) === null || _typedFieldSchema$met2 === void 0 || (_typedFieldSchema$met2 = _typedFieldSchema$met2.row) === null || _typedFieldSchema$met2 === void 0 ? void 0 : _typedFieldSchema$met2.toString()) || '__NO_ROW__';
-
+    var step = ((_a = typedFieldSchema.meta) === null || _a === void 0 ? void 0 : _a.step) || 0;
+    var key = ((_c = (_b = typedFieldSchema.meta) === null || _b === void 0 ? void 0 : _b.row) === null || _c === void 0 ? void 0 : _c.toString()) || '__NO_ROW__';
     // Define the field's schema shape as a tuple
     var shape = [name, fieldSchema];
-
     // Ensure the step exists in the fields structure
     if (!fields[step]) {
       fields[step] = {};
     }
-
     // Ensure the row exists within the current step
     if (!fields[step]["".concat(key)]) {
       fields[step]["".concat(key)] = [shape];
@@ -5697,11 +5640,11 @@ var z$1 = /*#__PURE__*/Object.freeze({
 });
 
 var getMaxStep = function getMaxStep(schema) {
+  var _a;
   var maxStep = -Infinity;
   var schemaShape = schema.shape;
   for (var key in schemaShape) {
-    var _schemaShape$key;
-    var fieldMeta = (_schemaShape$key = schemaShape[key]) === null || _schemaShape$key === void 0 ? void 0 : _schemaShape$key.meta;
+    var fieldMeta = (_a = schemaShape[key]) === null || _a === void 0 ? void 0 : _a.meta;
     if ((fieldMeta === null || fieldMeta === void 0 ? void 0 : fieldMeta.step) !== undefined && (fieldMeta === null || fieldMeta === void 0 ? void 0 : fieldMeta.step) > maxStep) {
       maxStep = fieldMeta.step;
     }
@@ -5725,7 +5668,6 @@ function getBaseType(schema) {
   return schema;
 }
 
-var _excluded$b = ["label", "children", "helperText", "errorText", "optionalText"];
 var inWebWorker$G = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$G;
 var prevRefreshSig$G;
@@ -5740,23 +5682,31 @@ if (import.meta.hot && !inWebWorker$G) {
   };
   window.$RefreshSig$ = exports.createSignatureFunctionForTransform;
 }
-var Field$1 = /*#__PURE__*/forwardRef(_c$z = function Field(props, ref) {
+var Field$1 = /*#__PURE__*/forwardRef(_c$y = function Field(props, ref) {
   var label = props.label,
     children = props.children,
     helperText = props.helperText,
     errorText = props.errorText,
     optionalText = props.optionalText,
-    rest = _objectWithoutProperties$1(props, _excluded$b);
-  return /*#__PURE__*/React.createElement(Field$2.Root, _extends$1({
+    rest = __rest(props, ["label", "children", "helperText", "errorText", "optionalText"]);
+  return jsxs(Field$2.Root, Object.assign({
     ref: ref
-  }, rest), label && /*#__PURE__*/React.createElement(Field$2.Label, null, label, /*#__PURE__*/React.createElement(Field$2.RequiredIndicator, {
-    fallback: optionalText
-  })), children, helperText && /*#__PURE__*/React.createElement(Field$2.HelperText, null, helperText), errorText && /*#__PURE__*/React.createElement(Field$2.ErrorText, null, errorText));
+  }, rest, {
+    children: [label && jsxs(Field$2.Label, {
+      children: [label, jsx(Field$2.RequiredIndicator, {
+        fallback: optionalText
+      })]
+    }), children, helperText && jsx(Field$2.HelperText, {
+      children: helperText
+    }), errorText && jsx(Field$2.ErrorText, {
+      children: errorText
+    })]
+  }));
 });
-_c2$c = Field$1;
-var _c$z, _c2$c;
-$RefreshReg$(_c$z, "Field$forwardRef");
-$RefreshReg$(_c2$c, "Field");
+_c2$d = Field$1;
+var _c$y, _c2$d;
+$RefreshReg$(_c$y, "Field$forwardRef");
+$RefreshReg$(_c2$d, "Field");
 if (import.meta.hot && !inWebWorker$G) {
   window.$RefreshReg$ = prevRefreshReg$G;
   window.$RefreshSig$ = prevRefreshSig$G;
@@ -5772,7 +5722,6 @@ if (import.meta.hot && !inWebWorker$G) {
   });
 }
 
-var _excluded$a = ["icon", "children", "inputProps", "rootRef"];
 var inWebWorker$F = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$F;
 var prevRefreshSig$F;
@@ -5787,22 +5736,28 @@ if (import.meta.hot && !inWebWorker$F) {
   };
   window.$RefreshSig$ = exports.createSignatureFunctionForTransform;
 }
-var Checkbox = /*#__PURE__*/forwardRef(_c$y = function Checkbox(props, ref) {
+var Checkbox = /*#__PURE__*/forwardRef(_c$x = function Checkbox(props, ref) {
   var icon = props.icon,
     children = props.children,
     inputProps = props.inputProps,
     rootRef = props.rootRef,
-    rest = _objectWithoutProperties$1(props, _excluded$a);
-  return /*#__PURE__*/React.createElement(Checkbox$1.Root, _extends$1({
+    rest = __rest(props, ["icon", "children", "inputProps", "rootRef"]);
+  return jsxs(Checkbox$1.Root, Object.assign({
     ref: rootRef
-  }, rest), /*#__PURE__*/React.createElement(Checkbox$1.HiddenInput, _extends$1({
-    ref: ref
-  }, inputProps)), /*#__PURE__*/React.createElement(Checkbox$1.Control, null, icon || /*#__PURE__*/React.createElement(Checkbox$1.Indicator, null)), children != null && /*#__PURE__*/React.createElement(Checkbox$1.Label, null, children));
+  }, rest, {
+    children: [jsx(Checkbox$1.HiddenInput, Object.assign({
+      ref: ref
+    }, inputProps)), jsx(Checkbox$1.Control, {
+      children: icon || jsx(Checkbox$1.Indicator, {})
+    }), children != null && jsx(Checkbox$1.Label, {
+      children: children
+    })]
+  }));
 });
-_c2$b = Checkbox;
-var _c$y, _c2$b;
-$RefreshReg$(_c$y, "Checkbox$forwardRef");
-$RefreshReg$(_c2$b, "Checkbox");
+_c2$c = Checkbox;
+var _c$x, _c2$c;
+$RefreshReg$(_c$x, "Checkbox$forwardRef");
+$RefreshReg$(_c2$c, "Checkbox");
 if (import.meta.hot && !inWebWorker$F) {
   window.$RefreshReg$ = prevRefreshReg$F;
   window.$RefreshSig$ = prevRefreshSig$F;
@@ -5850,88 +5805,85 @@ function Field(_ref) {
     }
   }
   function checkRenderType(field) {
+    var _a, _b, _c, _d, _e;
     if (baseSchema instanceof z$1.ZodString || baseSchema instanceof z$1.ZodDate) {
-      var _methods$formState$er, _meta$autocomplete, _field$value;
-      return /*#__PURE__*/React.createElement(VStack, _extends$1({}, !(meta !== null && meta !== void 0 && meta.style) ? {
+      return jsx(VStack, Object.assign({}, !(meta === null || meta === void 0 ? void 0 : meta.style) ? {
         width: "100%"
-      } : _objectSpread2({}, meta === null || meta === void 0 ? void 0 : meta.style), {
-        alignItems: 'left'
-      }), /*#__PURE__*/React.createElement(Field$1, {
-        label: (meta === null || meta === void 0 ? void 0 : meta.label) && meta.label,
-        invalid: methods.formState.errors[name] !== undefined,
-        errorText: (_methods$formState$er = methods.formState.errors[name]) === null || _methods$formState$er === void 0 ? void 0 : _methods$formState$er.message
-      }, /*#__PURE__*/React.createElement(Input, {
-        disabled: field.disabled,
-        type: checkInputType(name),
-        ref: field.ref,
-        id: name,
-        name: name,
-        autoComplete: (_meta$autocomplete = meta === null || meta === void 0 ? void 0 : meta.autocomplete) !== null && _meta$autocomplete !== void 0 ? _meta$autocomplete : "",
-        onBlur: field.onBlur,
-        onChange: field.onChange,
-        value: (_field$value = field.value) !== null && _field$value !== void 0 ? _field$value : ""
-      })));
+      } : Object.assign({}, meta === null || meta === void 0 ? void 0 : meta.style), {
+        alignItems: 'left',
+        children: jsx(Field$1, {
+          label: (meta === null || meta === void 0 ? void 0 : meta.label) && meta.label,
+          invalid: methods.formState.errors[name] !== undefined,
+          errorText: (_a = methods.formState.errors[name]) === null || _a === void 0 ? void 0 : _a.message,
+          children: jsx(Input, {
+            disabled: field.disabled,
+            type: checkInputType(name),
+            ref: field.ref,
+            id: name,
+            name: name,
+            autoComplete: (_b = meta === null || meta === void 0 ? void 0 : meta.autocomplete) !== null && _b !== void 0 ? _b : "",
+            onBlur: field.onBlur,
+            onChange: field.onChange,
+            value: (_c = field.value) !== null && _c !== void 0 ? _c : ""
+          })
+        })
+      }));
     } else if (baseSchema instanceof ZodEnum) {
       var zodSchemaEnum = baseSchema;
       var options = zodSchemaEnum.options.map(function (value, index) {
-        var _meta$labels$index, _meta$labels;
+        var _a, _b;
         return {
-          label: (_meta$labels$index = meta === null || meta === void 0 || (_meta$labels = meta.labels) === null || _meta$labels === void 0 ? void 0 : _meta$labels[index]) !== null && _meta$labels$index !== void 0 ? _meta$labels$index : "",
+          label: (_b = (_a = meta === null || meta === void 0 ? void 0 : meta.labels) === null || _a === void 0 ? void 0 : _a[index]) !== null && _b !== void 0 ? _b : "",
           value: value !== null && value !== void 0 ? value : null
         };
       });
-      return /*#__PURE__*/React.createElement(Field$1, {
-        label: (meta === null || meta === void 0 ? void 0 : meta.label) && meta.label
-      }, /*#__PURE__*/React.createElement(Select, _extends$1({}, field, {
-        options: options,
-        value: options.find(function (option) {
-          return option.value === field.value;
-        }) || null // Imposta `null` invece di `undefined`
-        ,
-        onChange: function onChange(selectedOption) {
-          return field.onChange(selectedOption ? selectedOption.value : null);
-        } // Imposta `undefined` se vuoto
-        ,
-        placeholder: meta !== null && meta !== void 0 && meta.label ? "Select ".concat(meta === null || meta === void 0 ? void 0 : meta.label) : undefined,
-        defaultValue: null
-      })));
+      return jsx(Field$1, {
+        label: (meta === null || meta === void 0 ? void 0 : meta.label) && meta.label,
+        children: jsx(Select, Object.assign({}, field, {
+          options: options,
+          value: options.find(function (option) {
+            return option.value === field.value;
+          }) || null,
+          onChange: function onChange(selectedOption) {
+            return field.onChange(selectedOption ? selectedOption.value : null);
+          },
+          placeholder: (meta === null || meta === void 0 ? void 0 : meta.label) ? "Select ".concat(meta === null || meta === void 0 ? void 0 : meta.label) : undefined,
+          defaultValue: null
+        }))
+      });
     } else if (baseSchema instanceof z$1.ZodBoolean) {
-      var _methods$formState$er2, _field$value2;
-      return /*#__PURE__*/React.createElement(Field$1, {
+      return jsx(Field$1, {
         invalid: methods.formState.errors[name] !== undefined,
-        errorText: (_methods$formState$er2 = methods.formState.errors[name]) === null || _methods$formState$er2 === void 0 ? void 0 : _methods$formState$er2.message
-      }, /*#__PURE__*/React.createElement(Checkbox, _extends$1({}, field, {
-        variant: "solid",
-        disabled: field.disabled
-        // ref={field.ref}
-        ,
-        id: name,
-        name: name,
-        checked: (_field$value2 = field.value) !== null && _field$value2 !== void 0 ? _field$value2 : false,
-        onCheckedChange: function onCheckedChange(_ref2) {
-          var checked = _ref2.checked;
-          return field.onChange(checked);
-        }
-        // onBlur={field.onBlur}
-        // onChange={field.onChange}
-        // value={field.value ?? ""}
-      }), meta === null || meta === void 0 ? void 0 : meta.label));
+        errorText: (_d = methods.formState.errors[name]) === null || _d === void 0 ? void 0 : _d.message,
+        children: jsx(Checkbox, Object.assign({}, field, {
+          variant: "solid",
+          disabled: field.disabled,
+          // ref={field.ref}
+          id: name,
+          name: name,
+          checked: (_e = field.value) !== null && _e !== void 0 ? _e : false,
+          onCheckedChange: function onCheckedChange(_ref2) {
+            var checked = _ref2.checked;
+            return field.onChange(checked);
+          },
+          children: meta === null || meta === void 0 ? void 0 : meta.label
+        }))
+      });
     }
-    return /*#__PURE__*/React.createElement(React.Fragment, null);
+    return jsx(Fragment, {});
   }
-  return /*#__PURE__*/React.createElement(Controller, {
-    key: crypto.randomUUID(),
+  return jsx(Controller, {
     name: name,
     control: methods.control,
     render: function render(_ref3) {
       var field = _ref3.field;
       return checkRenderType(field);
     }
-  });
+  }, crypto.randomUUID());
 }
-_c$x = Field;
-var _c$x;
-$RefreshReg$(_c$x, "Field");
+_c2$b = Field;
+var _c2$b;
+$RefreshReg$(_c2$b, "Field");
 if (import.meta.hot && !inWebWorker$E) {
   window.$RefreshReg$ = prevRefreshReg$E;
   window.$RefreshSig$ = prevRefreshSig$E;
@@ -5968,7 +5920,6 @@ function withMeta(schema, meta) {
   return metaSchema;
 }
 function DynamicForm(_ref) {
-  var _fields$step, _fields$step2;
   var width = _ref.width,
     schema = _ref.schema,
     defaultValues = _ref.defaultValues,
@@ -5978,11 +5929,12 @@ function DynamicForm(_ref) {
     onBack = _ref.onBack,
     render = _ref.render;
   _s$g();
+  var _a, _b;
   // Normalize fields and methods from the schema using a custom hook
   var _useNormalizeFields = useNormalizeFields(schema, defaultValues),
     fields = _useNormalizeFields.fields,
     methods = _useNormalizeFields.methods;
-  var stepFields = fields.length !== 0 ? Object.entries((_fields$step = fields[step]) !== null && _fields$step !== void 0 ? _fields$step : {}).flatMap(function (_ref2) {
+  var stepFields = fields.length !== 0 ? Object.entries((_a = fields[step]) !== null && _a !== void 0 ? _a : {}).flatMap(function (_ref2) {
     var _ref3 = _slicedToArray(_ref2, 2);
       _ref3[0];
       var fieldArray = _ref3[1];
@@ -5992,9 +5944,8 @@ function DynamicForm(_ref) {
       return fieldName;
     });
   }) : [];
-
   // Generate rows of fields for the specified step
-  var rows = fields.length !== 0 ? Object.entries((_fields$step2 = fields[step]) !== null && _fields$step2 !== void 0 ? _fields$step2 : {}).map(function (_ref6) {
+  var rows = fields.length !== 0 ? Object.entries((_b = fields[step]) !== null && _b !== void 0 ? _b : {}).map(function (_ref6) {
     var _ref7 = _slicedToArray(_ref6, 2),
       key = _ref7[0],
       value = _ref7[1];
@@ -6002,48 +5953,43 @@ function DynamicForm(_ref) {
       case "__NO_ROW__":
         {
           return value.map(function (_ref8) {
-            var _meta;
             var _ref9 = _slicedToArray(_ref8, 2),
               name = _ref9[0],
               fieldSchema = _ref9[1];
-            return /*#__PURE__*/React.createElement(Field, {
-              key: crypto.randomUUID(),
+            var _a;
+            return jsx(Field, {
               methods: methods,
               name: name,
-              meta: (_meta = fieldSchema.meta) !== null && _meta !== void 0 ? _meta : undefined,
+              meta: (_a = fieldSchema.meta) !== null && _a !== void 0 ? _a : undefined,
               fieldSchema: fieldSchema
-            });
+            }, crypto.randomUUID());
           });
         }
       default:
         {
-          return /*#__PURE__*/React.createElement(Flex, {
-            key: crypto.randomUUID(),
+          return jsx(Flex, {
             width: "100%",
             direction: 'row',
             gap: "0.8rem",
-            justifyContent: 'start'
-          }, value.map(function (_ref10) {
-            var _meta2;
-            var _ref11 = _slicedToArray(_ref10, 2),
-              name = _ref11[0],
-              fieldSchema = _ref11[1];
-            return /*#__PURE__*/React.createElement(Field, {
-              key: crypto.randomUUID(),
-              methods: methods,
-              name: name,
-              meta: (_meta2 = fieldSchema.meta) !== null && _meta2 !== void 0 ? _meta2 : undefined,
-              fieldSchema: fieldSchema
-            });
-          }));
+            justifyContent: 'start',
+            children: value.map(function (_ref10) {
+              var _ref11 = _slicedToArray(_ref10, 2),
+                name = _ref11[0],
+                fieldSchema = _ref11[1];
+              var _a;
+              return jsx(Field, {
+                methods: methods,
+                name: name,
+                meta: (_a = fieldSchema.meta) !== null && _a !== void 0 ? _a : undefined,
+                fieldSchema: fieldSchema
+              }, crypto.randomUUID());
+            })
+          }, crypto.randomUUID());
         }
     }
   }) : [];
   function next() {
-    return _next.apply(this, arguments);
-  }
-  function _next() {
-    _next = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    return __awaiter(this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
       var isValid, maxStep, nextStep;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
@@ -6063,13 +6009,9 @@ function DynamicForm(_ref) {
         }
       }, _callee);
     }));
-    return _next.apply(this, arguments);
   }
   function back() {
-    return _back.apply(this, arguments);
-  }
-  function _back() {
-    _back = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    return __awaiter(this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
       var maxStep, nextStep;
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
@@ -6083,14 +6025,19 @@ function DynamicForm(_ref) {
         }
       }, _callee2);
     }));
-    return _back.apply(this, arguments);
   }
-  return /*#__PURE__*/React.createElement(Flex, {
+  return jsx(Flex, {
     flexDirection: 'column',
-    width: width
-  }, /*#__PURE__*/React.createElement(FormProvider, methods, render ? render(rows, methods.handleSubmit, next, back) : /*#__PURE__*/React.createElement(React.Fragment, null, rows, /*#__PURE__*/React.createElement("button", {
-    type: "submit"
-  }, "Invia"))));
+    width: width,
+    children: jsx(FormProvider, Object.assign({}, methods, {
+      children: render ? render(rows, methods.handleSubmit, next, back) : jsxs(Fragment, {
+        children: [rows, jsx("button", {
+          type: "submit",
+          children: "Invia"
+        })]
+      })
+    }))
+  });
 }
 _s$g(DynamicForm, "2vMK1gONI5ya6veSIle/hqdETm8=", false, function () {
   return [useNormalizeFields];
@@ -6113,7 +6060,6 @@ if (import.meta.hot && !inWebWorker$D) {
   });
 }
 
-var _excluded$9 = ["loading", "disabled", "loadingText", "children"];
 var inWebWorker$C = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$C;
 var prevRefreshSig$C;
@@ -6133,21 +6079,29 @@ var Button = /*#__PURE__*/forwardRef(_c$v = function Button(props, ref) {
     disabled = props.disabled,
     loadingText = props.loadingText,
     children = props.children,
-    rest = _objectWithoutProperties$1(props, _excluded$9);
-  return /*#__PURE__*/React.createElement(Button$1, _extends$1({
+    rest = __rest(props, ["loading", "disabled", "loadingText", "children"]);
+  return jsx(Button$1, Object.assign({
     disabled: loading || disabled,
     ref: ref
-  }, rest), loading && !loadingText ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(AbsoluteCenter, {
-    display: "inline-flex"
-  }, /*#__PURE__*/React.createElement(Spinner, {
-    size: "inherit",
-    color: "inherit"
-  })), /*#__PURE__*/React.createElement(Span, {
-    opacity: 0
-  }, children)) : loading && loadingText ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Spinner, {
-    size: "inherit",
-    color: "inherit"
-  }), loadingText) : children);
+  }, rest, {
+    children: loading && !loadingText ? jsxs(Fragment, {
+      children: [jsx(AbsoluteCenter, {
+        display: "inline-flex",
+        children: jsx(Spinner, {
+          size: "inherit",
+          color: "inherit"
+        })
+      }), jsx(Span, {
+        opacity: 0,
+        children: children
+      })]
+    }) : loading && loadingText ? jsxs(Fragment, {
+      children: [jsx(Spinner, {
+        size: "inherit",
+        color: "inherit"
+      }), loadingText]
+    }) : children
+  }));
 });
 _c2$a = Button;
 var _c$v, _c2$a;
@@ -6184,30 +6138,34 @@ if (import.meta.hot && !inWebWorker$B) {
 }
 function LiquidSearchForm(_ref) {
   var schema = _ref.schema;
-  return /*#__PURE__*/React.createElement(DynamicForm, {
+  return jsx(DynamicForm, {
     schema: schema,
     width: "100%",
     render: function render(fields) {
-      return /*#__PURE__*/React.createElement(VStack, {
+      return jsxs(VStack, {
         gap: "1rem",
         padding: "1.5rem",
         borderRadius: "10px",
         backgroundColor: "gray.100",
         _dark: {
           backgroundColor: "gray.950"
-        }
-      }, /*#__PURE__*/React.createElement(HStack, {
-        gap: "4",
-        width: "100%"
-      }, fields), /*#__PURE__*/React.createElement(VStack, {
-        gap: "4",
-        width: "100%",
-        alignItems: "flex-end"
-      }, /*#__PURE__*/React.createElement(Button, {
-        variant: "outline",
-        type: "submit",
-        colorPalette: "teal"
-      }, "Crea Account")));
+        },
+        children: [jsx(HStack, {
+          gap: "4",
+          width: "100%",
+          children: fields
+        }), jsx(VStack, {
+          gap: "4",
+          width: "100%",
+          alignItems: "flex-end",
+          children: jsx(Button, {
+            variant: "outline",
+            type: "submit",
+            colorPalette: "teal",
+            children: "Crea Account"
+          })
+        })]
+      });
     }
   });
 }
@@ -6236,15 +6194,12 @@ if (import.meta.hot && !inWebWorker$B) {
  */
 function prettifyFieldName(fieldName) {
   if (!fieldName) return "";
-
   // 1. Inserisce uno spazio prima di ogni lettera maiuscola (tranne la prima).
   //    Esempio: "firstName" -> "first Name"
   //    Poi la prima lettera verrà capitalizzata nel passo successivo.
   var spaced = fieldName.replace(/([A-Z])/g, " $1");
-
   // 2. Trim per rimuovere eventuali spazi iniziali
   spaced = spaced.trim();
-
   // 3. Capitalizza la prima lettera dell'intera stringa
   return spaced.charAt(0).toUpperCase() + spaced.slice(1);
 }
@@ -6271,12 +6226,11 @@ function parseItems(items) {
       isNumeric: false
     };
   });
-
   // Creiamo le righe
   var rows = items.map(function (item, index) {
-    var _item$id;
+    var _a;
     return {
-      id: (_item$id = item.id) !== null && _item$id !== void 0 ? _item$id : String(index),
+      id: (_a = item.id) !== null && _a !== void 0 ? _a : String(index),
       data: item
     };
   });
@@ -6312,7 +6266,7 @@ var withContext$2 = function withContext(WrappedComponent) {
       _useState2 = _slicedToArray(_useState, 2),
       selection = _useState2[0],
       setSelection = _useState2[1];
-    return /*#__PURE__*/t__default.createElement(Context$2.Provider, {
+    return jsx(Context$2.Provider, {
       value: {
         columns: columns,
         rows: rows,
@@ -6321,8 +6275,9 @@ var withContext$2 = function withContext(WrappedComponent) {
           selection: selection,
           setSelection: setSelection
         }
-      }
-    }, /*#__PURE__*/t__default.createElement(WrappedComponent, props));
+      },
+      children: jsx(WrappedComponent, Object.assign({}, props))
+    });
   };
   _s(Provider, "Bu+rj+qdK4QMXdJLAfI0ticqCgc=");
   return Provider;
@@ -6404,27 +6359,31 @@ var DynamicTable$2 = function DynamicTable() {
     select = _useTableContext.select;
   var hasSelection = select.selection.length > 0;
   var indeterminate = hasSelection && select.selection.length < rows.length;
-  return /*#__PURE__*/React.createElement(Table.Header, null, /*#__PURE__*/React.createElement(Table.Row, {
-    bg: "bg.subtle"
-  }, /*#__PURE__*/React.createElement(Table.ColumnHeader, {
-    w: "6"
-  }, /*#__PURE__*/React.createElement(Checkbox, {
-    top: "1",
-    "aria-label": "Select all rows",
-    checked: indeterminate ? "indeterminate" : select.selection.length > 0,
-    onCheckedChange: function onCheckedChange(changes) {
-      return changes.checked ? select.setSelection(rows.map(function (row) {
-        return row.id;
-      })) : select.setSelection([]);
-    }
-  })), columns.filter(function (col) {
-    return col.visible;
-  }).map(function (col) {
-    return /*#__PURE__*/React.createElement(Table.ColumnHeader, {
-      key: crypto.randomUUID(),
-      textAlign: col.isNumeric ? "end" : "start"
-    }, col.label);
-  })));
+  return jsx(Table.Header, {
+    children: jsxs(Table.Row, {
+      bg: "bg.subtle",
+      children: [jsx(Table.ColumnHeader, {
+        w: "6",
+        children: jsx(Checkbox, {
+          top: "1",
+          "aria-label": "Select all rows",
+          checked: indeterminate ? "indeterminate" : select.selection.length > 0,
+          onCheckedChange: function onCheckedChange(changes) {
+            return changes.checked ? select.setSelection(rows.map(function (row) {
+              return row.id;
+            })) : select.setSelection([]);
+          }
+        })
+      }), columns.filter(function (col) {
+        return col.visible;
+      }).map(function (col) {
+        return jsx(Table.ColumnHeader, {
+          textAlign: col.isNumeric ? "end" : "start",
+          children: col.label
+        }, crypto.randomUUID());
+      })]
+    })
+  });
 };
 _s$e(DynamicTable$2, "pBx7+ooVv9eomkuJPC9Z0O/8aA8=", false, function () {
   return [useTableContext];
@@ -6468,29 +6427,33 @@ var DynamicTable$1 = function DynamicTable() {
     columns = _useTableContext.columns,
     rows = _useTableContext.rows,
     select = _useTableContext.select;
-  return /*#__PURE__*/React.createElement(Table.Body, null, rows.map(function (row) {
-    return /*#__PURE__*/React.createElement(Table.Row, {
-      key: crypto.randomUUID()
-    }, /*#__PURE__*/React.createElement(Table.Cell, null, /*#__PURE__*/React.createElement(Checkbox, {
-      top: "1",
-      "aria-label": "Select row",
-      checked: select.selection.includes(row.id),
-      onCheckedChange: function onCheckedChange(changes) {
-        return select.setSelection(function (prev) {
-          return changes.checked ? [].concat(_toConsumableArray(prev), [row.id]) : prev.filter(function (id) {
-            return id !== row.id;
-          });
-        });
-      }
-    })), columns.filter(function (col) {
-      return col.visible;
-    }).map(function (col) {
-      return /*#__PURE__*/React.createElement(Table.Cell, {
-        key: crypto.randomUUID(),
-        textAlign: col.isNumeric ? "end" : "start"
-      }, row.data[col.field] == null ? "/" : row.data[col.field]);
-    }));
-  }));
+  return jsx(Table.Body, {
+    children: rows.map(function (row) {
+      return jsxs(Table.Row, {
+        children: [jsx(Table.Cell, {
+          children: jsx(Checkbox, {
+            top: "1",
+            "aria-label": "Select row",
+            checked: select.selection.includes(row.id),
+            onCheckedChange: function onCheckedChange(changes) {
+              return select.setSelection(function (prev) {
+                return changes.checked ? [].concat(_toConsumableArray(prev), [row.id]) : prev.filter(function (id) {
+                  return id !== row.id;
+                });
+              });
+            }
+          })
+        }), columns.filter(function (col) {
+          return col.visible;
+        }).map(function (col) {
+          return jsx(Table.Cell, {
+            textAlign: col.isNumeric ? "end" : "start",
+            children: row.data[col.field] == null ? "/" : row.data[col.field]
+          }, crypto.randomUUID());
+        })]
+      }, crypto.randomUUID());
+    })
+  });
 };
 _s$d(DynamicTable$1, "pBx7+ooVv9eomkuJPC9Z0O/8aA8=", false, function () {
   return [useTableContext];
@@ -6522,7 +6485,7 @@ var DefaultContext = {
 };
 var IconContext = t__default.createContext && /*#__PURE__*/t__default.createContext(DefaultContext);
 
-var _excluded$8 = ["attr", "size", "title"];
+var _excluded = ["attr", "size", "title"];
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } } return target; }
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -6548,7 +6511,7 @@ function IconBase(props) {
         size,
         title
       } = props,
-      svgProps = _objectWithoutProperties(props, _excluded$8);
+      svgProps = _objectWithoutProperties(props, _excluded);
     var computedSize = size || conf.size || "1em";
     var className;
     if (conf.className) className = conf.className;
@@ -6587,12 +6550,9 @@ var _createRecipeContext = createRecipeContext({
     key: "button"
   }),
   withContext$1 = _createRecipeContext.withContext;
-
 // Replace "a" with your framework's link component
 var LinkButton = withContext$1("a");
 
-var _excluded$7 = ["size", "variant", "getHref"],
-  _excluded2$3 = ["format"];
 var inWebWorker$w = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$w;
 var prevRefreshSig$w;
@@ -6641,17 +6601,18 @@ var PaginationRoot = /*#__PURE__*/forwardRef(_c$r = function PaginationRoot(prop
     _props$variant = props.variant,
     variant = _props$variant === void 0 ? "outline" : _props$variant,
     getHref = props.getHref,
-    rest = _objectWithoutProperties$1(props, _excluded$7);
-  return /*#__PURE__*/React.createElement(RootPropsProvider, {
+    rest = __rest(props, ["size", "variant", "getHref"]);
+  return jsx(RootPropsProvider, {
     value: {
       size: size,
       variantMap: variantMap[variant],
       getHref: getHref
-    }
-  }, /*#__PURE__*/React.createElement(Pagination$1.Root, _extends$1({
-    ref: ref,
-    type: getHref ? "link" : "button"
-  }, rest)));
+    },
+    children: jsx(Pagination$1.Root, Object.assign({
+      ref: ref,
+      type: getHref ? "link" : "button"
+    }, rest))
+  });
 });
 _c2$9 = PaginationRoot;
 var PaginationEllipsis = _s$c(/*#__PURE__*/forwardRef(_c3$7 = _s$c(function PaginationEllipsis(props, ref) {
@@ -6659,15 +6620,17 @@ var PaginationEllipsis = _s$c(/*#__PURE__*/forwardRef(_c3$7 = _s$c(function Pagi
   var _useRootProps = useRootProps(),
     size = _useRootProps.size,
     variantMap = _useRootProps.variantMap;
-  return /*#__PURE__*/React.createElement(Pagination$1.Ellipsis, _extends$1({
+  return jsx(Pagination$1.Ellipsis, Object.assign({
     ref: ref
   }, props, {
-    asChild: true
-  }), /*#__PURE__*/React.createElement(Button$1, {
-    as: "span",
-    variant: variantMap.ellipsis,
-    size: size
-  }, /*#__PURE__*/React.createElement(HiMiniEllipsisHorizontal, null)));
+    asChild: true,
+    children: jsx(Button$1, {
+      as: "span",
+      variant: variantMap.ellipsis,
+      size: size,
+      children: jsx(HiMiniEllipsisHorizontal, {})
+    })
+  }));
 }, "eeV8voY8tAPkgbXd81fsAEyYrQg=", false, function () {
   return [useRootProps];
 })), "eeV8voY8tAPkgbXd81fsAEyYrQg=", false, function () {
@@ -6685,20 +6648,23 @@ var PaginationItem = _s2$2(/*#__PURE__*/forwardRef(_c5$2 = _s2$2(function Pagina
   var current = page === props.value;
   var variant = current ? variantMap.current : variantMap["default"];
   if (getHref) {
-    return /*#__PURE__*/React.createElement(LinkButton, {
+    return jsx(LinkButton, {
       href: getHref(props.value),
       variant: variant,
-      size: size
-    }, props.value);
+      size: size,
+      children: props.value
+    });
   }
-  return /*#__PURE__*/React.createElement(Pagination$1.Item, _extends$1({
+  return jsx(Pagination$1.Item, Object.assign({
     ref: ref
   }, props, {
-    asChild: true
-  }), /*#__PURE__*/React.createElement(Button$1, {
-    variant: variant,
-    size: size
-  }, props.value));
+    asChild: true,
+    children: jsx(Button$1, {
+      variant: variant,
+      size: size,
+      children: props.value
+    })
+  }));
 }, "5LBkGXkfHRf83G69GyBTJfJ8mZ4=", false, function () {
   return [usePaginationContext, useRootProps];
 })), "5LBkGXkfHRf83G69GyBTJfJ8mZ4=", false, function () {
@@ -6714,19 +6680,23 @@ var PaginationPrevTrigger = _s3$2(/*#__PURE__*/forwardRef(_c7 = _s3$2(function P
   var _usePaginationContext2 = usePaginationContext(),
     previousPage = _usePaginationContext2.previousPage;
   if (getHref) {
-    return /*#__PURE__*/React.createElement(LinkButton, {
+    return jsx(LinkButton, {
       href: previousPage != null ? getHref(previousPage) : undefined,
       variant: variantMap["default"],
-      size: size
-    }, /*#__PURE__*/React.createElement(HiChevronLeft, null));
+      size: size,
+      children: jsx(HiChevronLeft, {})
+    });
   }
-  return /*#__PURE__*/React.createElement(Pagination$1.PrevTrigger, _extends$1({
+  return jsx(Pagination$1.PrevTrigger, Object.assign({
     ref: ref,
     asChild: true
-  }, props), /*#__PURE__*/React.createElement(IconButton, {
-    variant: variantMap["default"],
-    size: size
-  }, /*#__PURE__*/React.createElement(HiChevronLeft, null)));
+  }, props, {
+    children: jsx(IconButton, {
+      variant: variantMap["default"],
+      size: size,
+      children: jsx(HiChevronLeft, {})
+    })
+  }));
 }, "275csCvPE2c7aNMAyN/dD2f7DIw=", false, function () {
   return [useRootProps, usePaginationContext];
 })), "275csCvPE2c7aNMAyN/dD2f7DIw=", false, function () {
@@ -6742,19 +6712,23 @@ var PaginationNextTrigger = _s4$1(/*#__PURE__*/forwardRef(_c9 = _s4$1(function P
   var _usePaginationContext3 = usePaginationContext(),
     nextPage = _usePaginationContext3.nextPage;
   if (getHref) {
-    return /*#__PURE__*/React.createElement(LinkButton, {
+    return jsx(LinkButton, {
       href: nextPage != null ? getHref(nextPage) : undefined,
       variant: variantMap["default"],
-      size: size
-    }, /*#__PURE__*/React.createElement(HiChevronRight, null));
+      size: size,
+      children: jsx(HiChevronRight, {})
+    });
   }
-  return /*#__PURE__*/React.createElement(Pagination$1.NextTrigger, _extends$1({
+  return jsx(Pagination$1.NextTrigger, Object.assign({
     ref: ref,
     asChild: true
-  }, props), /*#__PURE__*/React.createElement(IconButton, {
-    variant: variantMap["default"],
-    size: size
-  }, /*#__PURE__*/React.createElement(HiChevronRight, null)));
+  }, props, {
+    children: jsx(IconButton, {
+      variant: variantMap["default"],
+      size: size,
+      children: jsx(HiChevronRight, {})
+    })
+  }));
 }, "bSfQlZXWNQ59u/Y2VNbX9ht1Hwg=", false, function () {
   return [useRootProps, usePaginationContext];
 })), "bSfQlZXWNQ59u/Y2VNbX9ht1Hwg=", false, function () {
@@ -6762,18 +6736,18 @@ var PaginationNextTrigger = _s4$1(/*#__PURE__*/forwardRef(_c9 = _s4$1(function P
 });
 _c10 = PaginationNextTrigger;
 var PaginationItems = function PaginationItems(props) {
-  return /*#__PURE__*/React.createElement(Pagination$1.Context, null, function (_ref) {
-    var pages = _ref.pages;
-    return pages.map(function (page, index) {
-      return page.type === "ellipsis" ? /*#__PURE__*/React.createElement(PaginationEllipsis, _extends$1({
-        key: index,
-        index: index
-      }, props)) : /*#__PURE__*/React.createElement(PaginationItem, _extends$1({
-        key: index,
-        type: "page",
-        value: page.value
-      }, props));
-    });
+  return jsx(Pagination$1.Context, {
+    children: function children(_ref) {
+      var pages = _ref.pages;
+      return pages.map(function (page, index) {
+        return page.type === "ellipsis" ? jsx(PaginationEllipsis, Object.assign({
+          index: index
+        }, props), index) : jsx(PaginationItem, Object.assign({
+          type: "page",
+          value: page.value
+        }, props), index);
+      });
+    }
   });
 };
 _c11 = PaginationItems;
@@ -6781,7 +6755,7 @@ var PaginationPageText = _s5$1(/*#__PURE__*/forwardRef(_c12 = _s5$1(function Pag
   _s5$1();
   var _props$format = props.format,
     format = _props$format === void 0 ? "compact" : _props$format,
-    rest = _objectWithoutProperties$1(props, _excluded2$3);
+    rest = __rest(props, ["format"]);
   var _usePaginationContext4 = usePaginationContext(),
     page = _usePaginationContext4.page,
     pages = _usePaginationContext4.pages,
@@ -6792,10 +6766,12 @@ var PaginationPageText = _s5$1(/*#__PURE__*/forwardRef(_c12 = _s5$1(function Pag
     if (format === "compact") return "".concat(page, " of ").concat(pages.length);
     return "".concat(pageRange.start + 1, " - ").concat(pageRange.end, " of ").concat(count);
   }, [format, page, pages.length, pageRange, count]);
-  return /*#__PURE__*/React.createElement(Text, _extends$1({
+  return jsx(Text, Object.assign({
     fontWeight: "medium",
     ref: ref
-  }, rest), content);
+  }, rest, {
+    children: content
+  }));
 }, "j7/E9TTE+dU4ePA5UIratnkEaJA=", false, function () {
   return [usePaginationContext];
 })), "j7/E9TTE+dU4ePA5UIratnkEaJA=", false, function () {
@@ -6850,7 +6826,7 @@ var Pagination = function Pagination() {
   _s$b();
   var _useTableContext = useTableContext(),
     pagination = _useTableContext.pagination;
-  return pagination && /*#__PURE__*/React.createElement(PaginationRoot, {
+  return pagination && jsx(PaginationRoot, {
     padding: "0.3rem",
     count: pagination.totalPages,
     width: "fit-content",
@@ -6860,10 +6836,12 @@ var Pagination = function Pagination() {
     backgroundColor: "gray.100",
     _dark: {
       backgroundColor: "gray.950"
-    }
-  }, /*#__PURE__*/React.createElement(HStack, {
-    wrap: "wrap"
-  }, /*#__PURE__*/React.createElement(PaginationPrevTrigger, null), /*#__PURE__*/React.createElement(PaginationItems, null), /*#__PURE__*/React.createElement(PaginationNextTrigger, null)));
+    },
+    children: jsxs(HStack, {
+      wrap: "wrap",
+      children: [jsx(PaginationPrevTrigger, {}), jsx(PaginationItems, {}), jsx(PaginationNextTrigger, {})]
+    })
+  });
 };
 _s$b(Pagination, "Ti3kXJRuSB6c3YSL+gaTW3B7llM=", false, function () {
   return [useTableContext];
@@ -6910,12 +6888,14 @@ if (import.meta.hot && !inWebWorker$u) {
   window.$RefreshSig$ = exports.createSignatureFunctionForTransform;
 }
 var CloseButton = /*#__PURE__*/forwardRef(_c$p = function CloseButton(props, ref) {
-  var _props$children;
-  return /*#__PURE__*/React.createElement(IconButton, _extends$1({
+  var _a;
+  return jsx(IconButton, Object.assign({
     variant: "ghost",
     "aria-label": "Close",
     ref: ref
-  }, props), (_props$children = props.children) !== null && _props$children !== void 0 ? _props$children : /*#__PURE__*/React.createElement(LuX, null));
+  }, props, {
+    children: (_a = props.children) !== null && _a !== void 0 ? _a : jsx(LuX, {})
+  }));
 });
 _c2$8 = CloseButton;
 var _c$p, _c2$8;
@@ -6936,7 +6916,6 @@ if (import.meta.hot && !inWebWorker$u) {
   });
 }
 
-var _excluded$6 = ["children", "portalled", "portalRef"];
 var inWebWorker$t = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$t;
 var prevRefreshSig$t;
@@ -6956,23 +6935,28 @@ var ActionBarContent = /*#__PURE__*/forwardRef(_c$o = function ActionBarContent(
     _props$portalled = props.portalled,
     portalled = _props$portalled === void 0 ? true : _props$portalled,
     portalRef = props.portalRef,
-    rest = _objectWithoutProperties$1(props, _excluded$6);
-  return /*#__PURE__*/React.createElement(Portal, {
+    rest = __rest(props, ["children", "portalled", "portalRef"]);
+  return jsx(Portal, {
     disabled: !portalled,
-    container: portalRef
-  }, /*#__PURE__*/React.createElement(ActionBar.Positioner, null, /*#__PURE__*/React.createElement(ActionBar.Content, _extends$1({
-    ref: ref
-  }, rest, {
-    asChild: false
-  }), children)));
+    container: portalRef,
+    children: jsx(ActionBar.Positioner, {
+      children: jsx(ActionBar.Content, Object.assign({
+        ref: ref
+      }, rest, {
+        asChild: false,
+        children: children
+      }))
+    })
+  });
 });
 _c2$7 = ActionBarContent;
 var ActionBarCloseTrigger = /*#__PURE__*/forwardRef(_c3$6 = function ActionBarCloseTrigger(props, ref) {
-  return /*#__PURE__*/React.createElement(ActionBar.CloseTrigger, _extends$1({}, props, {
+  return jsx(ActionBar.CloseTrigger, Object.assign({}, props, {
     asChild: true,
-    ref: ref
-  }), /*#__PURE__*/React.createElement(CloseButton, {
-    size: "sm"
+    ref: ref,
+    children: jsx(CloseButton, {
+      size: "sm"
+    })
   }));
 });
 _c4$4 = ActionBarCloseTrigger;
@@ -7025,15 +7009,26 @@ var DynamicTable = function DynamicTable() {
       elements[i].style.zIndex = "9999";
     }
   }, []);
-  return /*#__PURE__*/React.createElement(ActionBarRoot, {
-    open: hasSelection
-  }, /*#__PURE__*/React.createElement(ActionBarContent, null, /*#__PURE__*/React.createElement(ActionBarSelectionTrigger, null, select.selection.length, " selected"), /*#__PURE__*/React.createElement(ActionBarSeparator, null), /*#__PURE__*/React.createElement(Button, {
-    variant: "outline",
-    size: "sm"
-  }, "Delete ", /*#__PURE__*/React.createElement(Kbd, null, "\u232B")), /*#__PURE__*/React.createElement(Button, {
-    variant: "outline",
-    size: "sm"
-  }, "Share ", /*#__PURE__*/React.createElement(Kbd, null, "T"))));
+  return jsx(ActionBarRoot, {
+    open: hasSelection,
+    children: jsxs(ActionBarContent, {
+      children: [jsxs(ActionBarSelectionTrigger, {
+        children: [select.selection.length, " selected"]
+      }), jsx(ActionBarSeparator, {}), jsxs(Button, {
+        variant: "outline",
+        size: "sm",
+        children: ["Delete ", jsx(Kbd, {
+          children: "\u232B"
+        })]
+      }), jsxs(Button, {
+        variant: "outline",
+        size: "sm",
+        children: ["Share ", jsx(Kbd, {
+          children: "T"
+        })]
+      })]
+    })
+  });
 };
 _s$a(DynamicTable, "1pk6MZbXAsAhBpNnLGYCbY0ab+M=", false, function () {
   return [useTableContext];
@@ -7071,20 +7066,23 @@ if (import.meta.hot && !inWebWorker$r) {
   window.$RefreshSig$ = exports.createSignatureFunctionForTransform;
 }
 var LiquidTable$1 = function LiquidTable() {
-  return /*#__PURE__*/React.createElement(Stack, {
+  return jsxs(Stack, {
     width: "full",
     gap: "3",
-    alignItems: "flex-end"
-  }, /*#__PURE__*/React.createElement(Pagination, null), /*#__PURE__*/React.createElement(Table.ScrollArea, {
-    borderWidth: "1px",
-    rounded: "md",
-    width: "100%",
-    height: "100%"
-  }, /*#__PURE__*/React.createElement(Table.Root, {
-    size: "lg",
-    stickyHeader: true,
-    interactive: true
-  }, /*#__PURE__*/React.createElement(DynamicTable$2, null), /*#__PURE__*/React.createElement(DynamicTable$1, null))), /*#__PURE__*/React.createElement(DynamicTable, null));
+    alignItems: "flex-end",
+    children: [jsx(Pagination, {}), jsx(Table.ScrollArea, {
+      borderWidth: "1px",
+      rounded: "md",
+      width: "100%",
+      height: "100%",
+      children: jsxs(Table.Root, {
+        size: "lg",
+        stickyHeader: true,
+        interactive: true,
+        children: [jsx(DynamicTable$2, {}), jsx(DynamicTable$1, {})]
+      })
+    }), jsx(DynamicTable, {})]
+  });
 };
 _c$m = LiquidTable$1;
 var _c$m;
@@ -7142,42 +7140,57 @@ var LoginForm = function LoginForm(_ref) {
     submit = _ref.submit,
     children = _ref.children,
     root = _ref.root;
-  return /*#__PURE__*/React.createElement(Card.Root, _extends$1({
+  return jsx(Card.Root, Object.assign({
     borderRadius: "10px"
-  }, root), /*#__PURE__*/React.createElement(HStack, {
-    gap: "1rem",
-    padding: "2rem",
-    justifyContent: "center"
-  }, /*#__PURE__*/React.createElement(Image, {
-    borderRadius: "10px",
-    display: {
-      base: "none",
-      lg: "block"
-    },
-    objectFit: "cover",
-    height: "15rem",
-    src: "".concat(import.meta.env.VITE_BASENAME, "/assets/background_card_login.png"),
-    alt: ""
-  }), /*#__PURE__*/React.createElement(VStack, null, /*#__PURE__*/React.createElement(VStack, null, /*#__PURE__*/React.createElement(Heading, {
-    textStyle: "4xl"
-  }, "Login"), header), /*#__PURE__*/React.createElement(DynamicForm, {
-    schema: schema$1,
-    render: function render(rows, onSubmit) {
-      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Card.Body, null, /*#__PURE__*/React.createElement(Stack, {
-        gap: "4",
-        width: {
-          md: "fit-content"
-        }
-      }, rows)), /*#__PURE__*/React.createElement(Card.Footer, {
-        justifyContent: "center",
-        paddingY: "1rem"
-      }, /*#__PURE__*/React.createElement(Button, {
-        onClick: onSubmit(submit),
-        variant: "solid",
-        width: "100%"
-      }, "Accedi")), children);
-    }
-  }))));
+  }, root, {
+    children: jsxs(HStack, {
+      gap: "1rem",
+      padding: "2rem",
+      justifyContent: "center",
+      children: [jsx(Image, {
+        borderRadius: "10px",
+        display: {
+          base: "none",
+          lg: "block"
+        },
+        objectFit: "cover",
+        height: "15rem",
+        src: "".concat(import.meta.env.VITE_BASENAME, "/assets/background_card_login.png"),
+        alt: ""
+      }), jsxs(VStack, {
+        children: [jsxs(VStack, {
+          children: [jsx(Heading, {
+            textStyle: "4xl",
+            children: "Login"
+          }), header]
+        }), jsx(DynamicForm, {
+          schema: schema$1,
+          render: function render(rows, onSubmit) {
+            return jsxs(Fragment, {
+              children: [jsx(Card.Body, {
+                children: jsx(Stack, {
+                  gap: "4",
+                  width: {
+                    md: "fit-content"
+                  },
+                  children: rows
+                })
+              }), jsx(Card.Footer, {
+                justifyContent: "center",
+                paddingY: "1rem",
+                children: jsx(Button, {
+                  onClick: onSubmit(submit),
+                  variant: "solid",
+                  width: "100%",
+                  children: "Accedi"
+                })
+              }), children]
+            });
+          }
+        })]
+      })]
+    })
+  }));
 };
 _c$l = LoginForm;
 var _c$l;
@@ -7314,7 +7327,6 @@ var schema = z$1.object({
       path: ['confirm_email']
     });
   }
-
   // Controllo che password e conferma password siano uguali
   if (data.password !== data.confirm_password) {
     ctx.addIssue({
@@ -7354,11 +7366,8 @@ var RegisterForm = function RegisterForm(_ref) {
     _useState4 = _slicedToArray(_useState3, 2),
     stepComplete = _useState4[0],
     setStepComplete = _useState4[1];
-  function next(_x, _x2) {
-    return _next.apply(this, arguments);
-  }
-  function _next() {
-    _next = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(step, stepComplete) {
+  function next(step, stepComplete) {
+    return __awaiter(this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -7370,13 +7379,9 @@ var RegisterForm = function RegisterForm(_ref) {
         }
       }, _callee);
     }));
-    return _next.apply(this, arguments);
   }
-  function back(_x3, _x4) {
-    return _back.apply(this, arguments);
-  }
-  function _back() {
-    _back = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(step, stepComplete) {
+  function back(step, stepComplete) {
+    return __awaiter(this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
@@ -7388,64 +7393,80 @@ var RegisterForm = function RegisterForm(_ref) {
         }
       }, _callee2);
     }));
-    return _back.apply(this, arguments);
   }
-  return /*#__PURE__*/React.createElement(Card.Root, _extends$1({
+  return jsx(Card.Root, Object.assign({
     flexDirection: "row",
     borderRadius: "10px"
-  }, rootStyle), /*#__PURE__*/React.createElement(HStack, {
-    gap: "1rem",
-    padding: "2rem",
-    justifyContent: "center"
-  }, /*#__PURE__*/React.createElement(Image, {
-    borderRadius: "10px",
-    display: {
-      base: "none",
-      lg: "block"
-    },
-    objectFit: "cover",
-    height: "15rem",
-    src: "".concat(import.meta.env.VITE_BASENAME, "/assets/background_card_register.png"),
-    alt: ""
-  }), /*#__PURE__*/React.createElement(VStack, null, /*#__PURE__*/React.createElement(VStack, null, /*#__PURE__*/React.createElement(Heading, {
-    textStyle: "4xl"
-  }, "Registrazione"), children), /*#__PURE__*/React.createElement(DynamicForm, {
-    schema: schema,
-    step: step,
-    onNext: next,
-    onBack: back,
-    render: function render(rows, onSubmit, onNext, onBack) {
-      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Card.Body, null, /*#__PURE__*/React.createElement(Stack, {
-        gap: "4",
-        width: {
-          md: "fit-content"
-        }
-      }, rows)), /*#__PURE__*/React.createElement(Card.Footer, {
-        justifyContent: "flex-end",
-        paddingY: "1rem",
-        flexWrap: "wrap"
-      }, step !== 0 && /*#__PURE__*/React.createElement(Button, {
-        onClick: function onClick() {
-          return onBack();
+  }, rootStyle, {
+    children: jsxs(HStack, {
+      gap: "1rem",
+      padding: "2rem",
+      justifyContent: "center",
+      children: [jsx(Image, {
+        borderRadius: "10px",
+        display: {
+          base: "none",
+          lg: "block"
         },
-        variant: "outline",
-        colorPalette: "cyan",
-        width: "40%"
-      }, "Indietro"), !stepComplete ? /*#__PURE__*/React.createElement(Button, {
-        onClick: function onClick() {
-          return onNext();
-        },
-        variant: "subtle",
-        colorPalette: "cyan",
-        width: "40%"
-      }, "Avanti") : /*#__PURE__*/React.createElement(Button, {
-        onClick: onSubmit(submit),
-        variant: "solid",
-        colorPalette: "cyan",
-        width: "40%"
-      }, "Crea Account")));
-    }
-  }))));
+        objectFit: "cover",
+        height: "15rem",
+        src: "".concat(import.meta.env.VITE_BASENAME, "/assets/background_card_register.png"),
+        alt: ""
+      }), jsxs(VStack, {
+        children: [jsxs(VStack, {
+          children: [jsx(Heading, {
+            textStyle: "4xl",
+            children: "Registrazione"
+          }), children]
+        }), jsx(DynamicForm, {
+          schema: schema,
+          step: step,
+          onNext: next,
+          onBack: back,
+          render: function render(rows, onSubmit, onNext, onBack) {
+            return jsxs(Fragment, {
+              children: [jsx(Card.Body, {
+                children: jsx(Stack, {
+                  gap: "4",
+                  width: {
+                    md: "fit-content"
+                  },
+                  children: rows
+                })
+              }), jsxs(Card.Footer, {
+                justifyContent: "flex-end",
+                paddingY: "1rem",
+                flexWrap: "wrap",
+                children: [step !== 0 && jsx(Button, {
+                  onClick: function onClick() {
+                    return onBack();
+                  },
+                  variant: "outline",
+                  colorPalette: "cyan",
+                  width: "40%",
+                  children: "Indietro"
+                }), !stepComplete ? jsx(Button, {
+                  onClick: function onClick() {
+                    return onNext();
+                  },
+                  variant: "subtle",
+                  colorPalette: "cyan",
+                  width: "40%",
+                  children: "Avanti"
+                }) : jsx(Button, {
+                  onClick: onSubmit(submit),
+                  variant: "solid",
+                  colorPalette: "cyan",
+                  width: "40%",
+                  children: "Crea Account"
+                })]
+              })]
+            });
+          }
+        })]
+      })]
+    })
+  }));
 };
 _s$9(RegisterForm, "BrYhUh49xZKVxMnXjtyYCB5XxIk=");
 _c$k = RegisterForm;
@@ -7473,7 +7494,6 @@ function CiFolderOff (props) {
   return GenIcon({"attr":{"viewBox":"0 0 24 24"},"child":[{"tag":"g","attr":{"id":"Globe"},"child":[{"tag":"path","attr":{"d":"M14.645,2.428a8.1,8.1,0,0,0-1.61-.3,9.332,9.332,0,0,0-3.6.28l-.07.02a9.928,9.928,0,0,0,.01,19.15,9.091,9.091,0,0,0,2.36.34,1.274,1.274,0,0,0,.27.02,9.65,9.65,0,0,0,2.63-.36,9.931,9.931,0,0,0,.01-19.15Zm-.27.96a8.943,8.943,0,0,1,5.84,5.11h-4.26a13.778,13.778,0,0,0-2.74-5.35A8.254,8.254,0,0,1,14.375,3.388Zm-2.37-.09a12.78,12.78,0,0,1,2.91,5.2H9.075A12.545,12.545,0,0,1,12.005,3.3Zm3.16,6.2a13.193,13.193,0,0,1,0,5.01H8.845a12.185,12.185,0,0,1-.25-2.5,12.353,12.353,0,0,1,.25-2.51Zm-5.6-6.09.07-.02a9.152,9.152,0,0,1,1.16-.23A13.618,13.618,0,0,0,8.045,8.5H3.8A9,9,0,0,1,9.565,3.408Zm-6.5,8.6a8.71,8.71,0,0,1,.37-2.51h4.39a13.95,13.95,0,0,0-.23,2.51,13.757,13.757,0,0,0,.23,2.5H3.435A8.591,8.591,0,0,1,3.065,12.008Zm6.57,8.61a8.9,8.9,0,0,1-5.84-5.11h4.24a13.632,13.632,0,0,0,2.77,5.35A8.1,8.1,0,0,1,9.635,20.618Zm-.56-5.11h5.84a12.638,12.638,0,0,1-2.91,5.21A12.872,12.872,0,0,1,9.075,15.508Zm5.3,5.11a11.551,11.551,0,0,1-1.17.24,13.8,13.8,0,0,0,2.75-5.35h4.26A8.924,8.924,0,0,1,14.375,20.618Zm1.8-6.11a13.611,13.611,0,0,0,0-5.01h4.39a8.379,8.379,0,0,1,.37,2.51,8.687,8.687,0,0,1-.36,2.5Z"},"child":[]}]}]})(props);
 }
 
-var _excluded$5 = ["title", "description", "icon", "children"];
 var inWebWorker$o = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$o;
 var prevRefreshSig$o;
@@ -7493,12 +7513,25 @@ var EmptyState = /*#__PURE__*/forwardRef(_c$j = function EmptyState(props, ref) 
     description = props.description,
     icon = props.icon,
     children = props.children,
-    rest = _objectWithoutProperties$1(props, _excluded$5);
-  return /*#__PURE__*/React.createElement(EmptyState$1.Root, _extends$1({
+    rest = __rest(props, ["title", "description", "icon", "children"]);
+  return jsx(EmptyState$1.Root, Object.assign({
     ref: ref
-  }, rest), /*#__PURE__*/React.createElement(EmptyState$1.Content, null, icon && /*#__PURE__*/React.createElement(EmptyState$1.Indicator, null, icon), description ? /*#__PURE__*/React.createElement(VStack, {
-    textAlign: "center"
-  }, /*#__PURE__*/React.createElement(EmptyState$1.Title, null, title), /*#__PURE__*/React.createElement(EmptyState$1.Description, null, description)) : /*#__PURE__*/React.createElement(EmptyState$1.Title, null, title), children));
+  }, rest, {
+    children: jsxs(EmptyState$1.Content, {
+      children: [icon && jsx(EmptyState$1.Indicator, {
+        children: icon
+      }), description ? jsxs(VStack, {
+        textAlign: "center",
+        children: [jsx(EmptyState$1.Title, {
+          children: title
+        }), jsx(EmptyState$1.Description, {
+          children: description
+        })]
+      }) : jsx(EmptyState$1.Title, {
+        children: title
+      }), children]
+    })
+  }));
 });
 _c2$6 = EmptyState;
 var _c$j, _c2$6;
@@ -7519,8 +7552,6 @@ if (import.meta.hot && !inWebWorker$o) {
   });
 }
 
-var _excluded$4 = ["size"],
-  _excluded2$2 = ["noOfLines", "gap"];
 var inWebWorker$n = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$n;
 var prevRefreshSig$n;
@@ -7537,34 +7568,35 @@ if (import.meta.hot && !inWebWorker$n) {
 }
 var SkeletonCircle = function SkeletonCircle(props) {
   var size = props.size,
-    rest = _objectWithoutProperties$1(props, _excluded$4);
-  return /*#__PURE__*/React.createElement(Circle, {
+    rest = __rest(props, ["size"]);
+  return jsx(Circle, {
     size: size,
-    asChild: true
-  }, /*#__PURE__*/React.createElement(Skeleton$1, rest));
+    asChild: true,
+    children: jsx(Skeleton$1, Object.assign({}, rest))
+  });
 };
 _c$i = SkeletonCircle;
 var SkeletonText = /*#__PURE__*/forwardRef(_c2$5 = function SkeletonText(props, ref) {
   var _props$noOfLines = props.noOfLines,
     noOfLines = _props$noOfLines === void 0 ? 3 : _props$noOfLines,
     gap = props.gap,
-    rest = _objectWithoutProperties$1(props, _excluded2$2);
-  return /*#__PURE__*/React.createElement(Stack, {
+    rest = __rest(props, ["noOfLines", "gap"]);
+  return jsx(Stack, {
     gap: gap,
     width: "full",
-    ref: ref
-  }, Array.from({
-    length: noOfLines
-  }).map(function (_, index) {
-    return /*#__PURE__*/React.createElement(Skeleton$1, _extends$1({
-      height: "4",
-      key: index
-    }, props, {
-      _last: {
-        maxW: "80%"
-      }
-    }, rest));
-  }));
+    ref: ref,
+    children: Array.from({
+      length: noOfLines
+    }).map(function (_, index) {
+      return jsx(Skeleton$1, Object.assign({
+        height: "4"
+      }, props, {
+        _last: {
+          maxW: "80%"
+        }
+      }, rest), index);
+    })
+  });
 });
 _c3$5 = SkeletonText;
 var Skeleton = Skeleton$1;
@@ -7587,9 +7619,6 @@ if (import.meta.hot && !inWebWorker$n) {
   });
 }
 
-var _excluded$3 = ["name", "src", "srcSet", "loading", "icon", "fallback", "children"],
-  _excluded2$1 = ["name", "icon", "children"],
-  _excluded3 = ["size", "variant", "borderless"];
 var inWebWorker$m = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$m;
 var prevRefreshSig$m;
@@ -7612,29 +7641,37 @@ var Avatar = /*#__PURE__*/forwardRef(_c$h = function Avatar(props, ref) {
     icon = props.icon,
     fallback = props.fallback,
     children = props.children,
-    rest = _objectWithoutProperties$1(props, _excluded$3);
-  return /*#__PURE__*/React.createElement(Avatar$1.Root, _extends$1({
+    rest = __rest(props, ["name", "src", "srcSet", "loading", "icon", "fallback", "children"]);
+  return jsxs(Avatar$1.Root, Object.assign({
     ref: ref
-  }, rest), /*#__PURE__*/React.createElement(AvatarFallback, {
-    name: name,
-    icon: icon
-  }, fallback), /*#__PURE__*/React.createElement(Avatar$1.Image, {
-    src: src,
-    srcSet: srcSet,
-    loading: loading
-  }), children);
+  }, rest, {
+    children: [jsx(AvatarFallback, {
+      name: name,
+      icon: icon,
+      children: fallback
+    }), jsx(Avatar$1.Image, {
+      src: src,
+      srcSet: srcSet,
+      loading: loading
+    }), children]
+  }));
 });
 _c2$4 = Avatar;
 var AvatarFallback = /*#__PURE__*/forwardRef(_c3$4 = function AvatarFallback(props, ref) {
   var name = props.name,
     icon = props.icon,
     children = props.children,
-    rest = _objectWithoutProperties$1(props, _excluded2$1);
-  return /*#__PURE__*/React.createElement(Avatar$1.Fallback, _extends$1({
+    rest = __rest(props, ["name", "icon", "children"]);
+  return jsxs(Avatar$1.Fallback, Object.assign({
     ref: ref
-  }, rest), children, name != null && children == null && /*#__PURE__*/React.createElement(React.Fragment, null, getInitials(name)), name == null && children == null && /*#__PURE__*/React.createElement(Avatar$1.Icon, {
-    asChild: !!icon
-  }, icon));
+  }, rest, {
+    children: [children, name != null && children == null && jsx(Fragment, {
+      children: getInitials(name)
+    }), name == null && children == null && jsx(Avatar$1.Icon, {
+      asChild: !!icon,
+      children: icon
+    })]
+  }));
 });
 _c4$3 = AvatarFallback;
 function getInitials(name) {
@@ -7647,18 +7684,19 @@ var AvatarGroup = /*#__PURE__*/forwardRef(_c5$1 = function AvatarGroup(props, re
   var size = props.size,
     variant = props.variant,
     borderless = props.borderless,
-    rest = _objectWithoutProperties$1(props, _excluded3);
-  return /*#__PURE__*/React.createElement(Avatar$1.PropsProvider, {
+    rest = __rest(props, ["size", "variant", "borderless"]);
+  return jsx(Avatar$1.PropsProvider, {
     value: {
       size: size,
       variant: variant,
       borderless: borderless
-    }
-  }, /*#__PURE__*/React.createElement(Group, _extends$1({
-    gap: "0",
-    spaceX: "-3",
-    ref: ref
-  }, rest)));
+    },
+    children: jsx(Group, Object.assign({
+      gap: "0",
+      spaceX: "-3",
+      ref: ref
+    }, rest))
+  });
 });
 _c6 = AvatarGroup;
 var _c$h, _c2$4, _c3$4, _c4$3, _c5$1, _c6;
@@ -7697,15 +7735,14 @@ if (import.meta.hot && !inWebWorker$l) {
   };
   window.$RefreshSig$ = exports.createSignatureFunctionForTransform;
 }
-var STATUS$1 = /*#__PURE__*/function (STATUS) {
+var STATUS$1;
+(function (STATUS) {
   STATUS[STATUS["IDLE"] = 0] = "IDLE";
   STATUS[STATUS["LOADING"] = 1] = "LOADING";
   STATUS[STATUS["SUCCESS"] = 2] = "SUCCESS";
   STATUS[STATUS["FAILED"] = 3] = "FAILED";
-  return STATUS;
-}(STATUS$1 || {});
+})(STATUS$1 || (STATUS$1 = {}));
 var SectionCard = function SectionCard(_ref) {
-  var _empty$title, _empty$description;
   var status = _ref.status,
     _ref$isEmpty = _ref.isEmpty,
     isEmpty = _ref$isEmpty === void 0 ? true : _ref$isEmpty,
@@ -7713,51 +7750,62 @@ var SectionCard = function SectionCard(_ref) {
     subHeader = _ref.subHeader,
     body = _ref.body,
     empty = _ref.empty;
-  return /*#__PURE__*/React.createElement(VStack, {
-    gapY: "1rem"
-  }, header && /*#__PURE__*/React.createElement(VStack, {
-    gapY: "1rem"
-  }, status === STATUS$1.LOADING && /*#__PURE__*/React.createElement(React.Fragment, null, ((header === null || header === void 0 ? void 0 : header.avatar) || subHeader) && /*#__PURE__*/React.createElement(HStack, {
-    gapY: "2rem"
-  }, (header === null || header === void 0 ? void 0 : header.avatar) && /*#__PURE__*/React.createElement(SkeletonCircle, {
-    size: "20"
-  }), subHeader && /*#__PURE__*/React.createElement(SkeletonText, {
-    noOfLines: 2,
-    gap: "4",
-    width: "18rem"
-  })), /*#__PURE__*/React.createElement(VStack, {
-    gapY: "2rem"
-  }, /*#__PURE__*/React.createElement(Skeleton, {
-    width: "25rem",
-    height: "20rem"
-  }))), isEmpty !== true && status !== STATUS$1.LOADING && status === STATUS$1.SUCCESS && /*#__PURE__*/React.createElement(HStack, {
-    gapX: "1rem"
-  }, (header === null || header === void 0 ? void 0 : header.avatar) && /*#__PURE__*/React.createElement(Avatar, {
-    size: "2xl",
-    variant: "subtle",
-    name: header.avatar
-  }), (header === null || header === void 0 ? void 0 : header.title) && /*#__PURE__*/React.createElement(Heading, {
-    size: "4xl"
-  }, header.title)), isEmpty !== true && status !== STATUS$1.LOADING && status === STATUS$1.SUCCESS && (subHeader === null || subHeader === void 0 ? void 0 : subHeader.content)), isEmpty !== true && status !== STATUS$1.LOADING && status === STATUS$1.SUCCESS && /*#__PURE__*/React.createElement(Flex, _extends$1({
-    direction: "column"
-  }, !body.disableStyle && {
-    borderRadius: '10px',
-    borderWidth: "1px",
-    backgroundColor: "gray.100",
-    _dark: {
-      backgroundColor: "gray.950"
-    },
-    height: "fit-content",
-    padding: '2rem',
-    gapY: '1rem',
-    justifyContent: "start"
-  }, body.style), body.content), isEmpty && status !== STATUS$1.LOADING && (status === STATUS$1.SUCCESS || status === STATUS$1.FAILED) && empty && /*#__PURE__*/React.createElement(EmptyState, {
-    icon: empty.icon ? /*#__PURE__*/React.createElement(Icon, {
-      as: CiFolderOff
-    }) : undefined,
-    title: (_empty$title = empty.title) !== null && _empty$title !== void 0 ? _empty$title : "No results found",
-    description: (_empty$description = empty.description) !== null && _empty$description !== void 0 ? _empty$description : undefined
-  }));
+  var _a, _b;
+  return jsxs(VStack, {
+    gapY: "1rem",
+    children: [header && jsxs(VStack, {
+      gapY: "1rem",
+      children: [status === STATUS$1.LOADING && jsxs(Fragment, {
+        children: [((header === null || header === void 0 ? void 0 : header.avatar) || subHeader) && jsxs(HStack, {
+          gapY: "2rem",
+          children: [(header === null || header === void 0 ? void 0 : header.avatar) && jsx(SkeletonCircle, {
+            size: "20"
+          }), subHeader && jsx(SkeletonText, {
+            noOfLines: 2,
+            gap: "4",
+            width: "18rem"
+          })]
+        }), jsx(VStack, {
+          gapY: "2rem",
+          children: jsx(Skeleton, {
+            width: "25rem",
+            height: "20rem"
+          })
+        })]
+      }), isEmpty !== true && status !== STATUS$1.LOADING && status === STATUS$1.SUCCESS && jsxs(HStack, {
+        gapX: "1rem",
+        children: [(header === null || header === void 0 ? void 0 : header.avatar) && jsx(Avatar, {
+          size: "2xl",
+          variant: "subtle",
+          name: header.avatar
+        }), (header === null || header === void 0 ? void 0 : header.title) && jsx(Heading, {
+          size: "4xl",
+          children: header.title
+        })]
+      }), isEmpty !== true && status !== STATUS$1.LOADING && status === STATUS$1.SUCCESS && (subHeader === null || subHeader === void 0 ? void 0 : subHeader.content)]
+    }), isEmpty !== true && status !== STATUS$1.LOADING && status === STATUS$1.SUCCESS && jsx(Flex, Object.assign({
+      direction: "column"
+    }, !body.disableStyle && {
+      borderRadius: '10px',
+      borderWidth: "1px",
+      backgroundColor: "gray.100",
+      _dark: {
+        backgroundColor: "gray.950"
+      },
+      height: "fit-content",
+      padding: '2rem',
+      gapY: '1rem',
+      justifyContent: "start"
+    }, body.style, {
+      children: body.content
+    })), isEmpty && status !== STATUS$1.LOADING && (status === STATUS$1.SUCCESS || status === STATUS$1.FAILED) && empty && jsx(EmptyState, {
+      icon: empty.icon ? jsx(Icon, {
+        as: CiFolderOff
+      }) : undefined,
+      title: (_a = empty.title) !== null && _a !== void 0 ? _a : "No results found",
+      description: (_b = empty.description) !== null && _b !== void 0 ? _b : undefined
+    })]
+  });
 };
 _c$g = SectionCard;
 var _c$g;
@@ -7794,32 +7842,36 @@ if (import.meta.hot && !inWebWorker$k) {
 var SectionCardRow = function SectionCardRow(_ref) {
   var field = _ref.field,
     value = _ref.value;
-  return field ? /*#__PURE__*/React.createElement(Flex, {
+  return field ? jsxs(Flex, {
     wrap: "wrap",
     gapX: "5rem",
-    justifyContent: "space-between"
-  }, /*#__PURE__*/React.createElement(Text, {
+    justifyContent: "space-between",
+    children: [jsx(Text, {
+      textStyle: "lg",
+      style: {
+        wordWrap: "break-word",
+        overflowWrap: "break-word",
+        whiteSpace: "normal"
+      },
+      children: field
+    }), jsx(Spacer, {}), jsx(Text, {
+      textStyle: "lg",
+      style: {
+        wordWrap: "break-word",
+        overflowWrap: "break-word",
+        whiteSpace: "normal"
+      },
+      children: value
+    })]
+  }) : jsx(Text, {
     textStyle: "lg",
     style: {
       wordWrap: "break-word",
       overflowWrap: "break-word",
       whiteSpace: "normal"
-    }
-  }, field), /*#__PURE__*/React.createElement(Spacer, null), /*#__PURE__*/React.createElement(Text, {
-    textStyle: "lg",
-    style: {
-      wordWrap: "break-word",
-      overflowWrap: "break-word",
-      whiteSpace: "normal"
-    }
-  }, value)) : /*#__PURE__*/React.createElement(Text, {
-    textStyle: "lg",
-    style: {
-      wordWrap: "break-word",
-      overflowWrap: "break-word",
-      whiteSpace: "normal"
-    }
-  }, value);
+    },
+    children: value
+  });
 };
 _c$f = SectionCardRow;
 var _c$f;
@@ -52753,27 +52805,25 @@ if (import.meta.hot && !inWebWorker$i) {
   };
   window.$RefreshSig$ = exports.createSignatureFunctionForTransform;
 }
-
 /**
  * Componente `Component`.
- * 
+ *
  * Renderizza contenuto Markdown formattato, con supporto per GitHub Flavored Markdown e
  * evidenziazione della sintassi del codice.
- * 
+ *
  * @param {CoimponentProps} props - Proprietà del componente, include il contenuto Markdown.
  * @returns {JSX.Element} - Un elemento che visualizza il contenuto Markdown renderizzato.
  */
 var StyledMarkdown = function StyledMarkdown(_ref) {
   var content = _ref.content;
-  return /*#__PURE__*/t__default.createElement("div", {
-    className: "markdown-container"
-  }, " ", /*#__PURE__*/t__default.createElement(Markdown, {
-    children: content // Contenuto Markdown passato come proprietà.
-    ,
-    remarkPlugins: [remarkGfm] // Plugin per supportare GFM (esempio: tabelle, liste di controllo).
-    ,
-    rehypePlugins: [rehypeHighlight] // Plugin per evidenziare la sintassi nei blocchi di codice.
-  }));
+  return jsxs("div", {
+    className: "markdown-container",
+    children: [" ", jsx(Markdown, {
+      children: content,
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeHighlight]
+    })]
+  });
 };
 _c$d = StyledMarkdown;
 var _c$d;
@@ -52824,20 +52874,21 @@ if (import.meta.hot && !inWebWorker$h) {
   window.$RefreshSig$ = exports.createSignatureFunctionForTransform;
 }
 var Error$1 = function Error() {
-  return /*#__PURE__*/React.createElement(Flex, {
+  return jsx(Flex, {
     position: "fixed",
     flexDirection: "column",
     justifyContent: "center",
     width: "100%",
-    height: "100vh"
-  }, /*#__PURE__*/React.createElement(EmptyState, {
-    icon: /*#__PURE__*/React.createElement(Icon, {
-      as: BiError,
-      boxSize: 6
-    }),
-    title: "ERROR",
-    description: "An error occurred while running the application"
-  }));
+    height: "100vh",
+    children: jsx(EmptyState, {
+      icon: jsx(Icon, {
+        as: BiError,
+        boxSize: 6
+      }),
+      title: "ERROR",
+      description: "An error occurred while running the application"
+    })
+  });
 };
 _c$c = Error$1;
 var _c$c;
@@ -52862,8 +52913,6 @@ function HiOutlineInformationCircle (props) {
   return GenIcon({"attr":{"fill":"none","viewBox":"0 0 24 24","strokeWidth":"2","stroke":"currentColor","aria-hidden":"true"},"child":[{"tag":"path","attr":{"strokeLinecap":"round","strokeLinejoin":"round","d":"M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"},"child":[]}]})(props);
 }
 
-var _excluded$2 = ["showArrow", "children", "portalled", "content", "portalRef"],
-  _excluded2 = ["children"];
 var inWebWorker$g = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$g;
 var prevRefreshSig$g;
@@ -52885,36 +52934,47 @@ var ToggleTip = /*#__PURE__*/forwardRef(_c$b = function ToggleTip(props, ref) {
     portalled = _props$portalled === void 0 ? true : _props$portalled,
     content = props.content,
     portalRef = props.portalRef,
-    rest = _objectWithoutProperties$1(props, _excluded$2);
-  return /*#__PURE__*/React.createElement(Popover.Root, _extends$1({}, rest, {
-    positioning: _objectSpread2(_objectSpread2({}, rest.positioning), {}, {
+    rest = __rest(props, ["showArrow", "children", "portalled", "content", "portalRef"]);
+  return jsxs(Popover.Root, Object.assign({}, rest, {
+    positioning: Object.assign(Object.assign({}, rest.positioning), {
       gutter: 4
-    })
-  }), /*#__PURE__*/React.createElement(Popover.Trigger, {
-    asChild: true
-  }, children), /*#__PURE__*/React.createElement(Portal, {
-    disabled: !portalled,
-    container: portalRef
-  }, /*#__PURE__*/React.createElement(Popover.Positioner, null, /*#__PURE__*/React.createElement(Popover.Content, {
-    width: "auto",
-    px: "2",
-    py: "1",
-    textStyle: "xs",
-    rounded: "sm",
-    ref: ref
-  }, showArrow && /*#__PURE__*/React.createElement(Popover.Arrow, null, /*#__PURE__*/React.createElement(Popover.ArrowTip, null)), content))));
+    }),
+    children: [jsx(Popover.Trigger, {
+      asChild: true,
+      children: children
+    }), jsx(Portal, {
+      disabled: !portalled,
+      container: portalRef,
+      children: jsx(Popover.Positioner, {
+        children: jsxs(Popover.Content, {
+          width: "auto",
+          px: "2",
+          py: "1",
+          textStyle: "xs",
+          rounded: "sm",
+          ref: ref,
+          children: [showArrow && jsx(Popover.Arrow, {
+            children: jsx(Popover.ArrowTip, {})
+          }), content]
+        })
+      })
+    })]
+  }));
 });
 _c2$3 = ToggleTip;
 var InfoTip = function InfoTip(props) {
   var children = props.children,
-    rest = _objectWithoutProperties$1(props, _excluded2);
-  return /*#__PURE__*/React.createElement(ToggleTip, _extends$1({
+    rest = __rest(props, ["children"]);
+  return jsx(ToggleTip, Object.assign({
     content: children
-  }, rest), /*#__PURE__*/React.createElement(IconButton, {
-    variant: "ghost",
-    "aria-label": "info",
-    size: "2xs"
-  }, /*#__PURE__*/React.createElement(HiOutlineInformationCircle, null)));
+  }, rest, {
+    children: jsx(IconButton, {
+      variant: "ghost",
+      "aria-label": "info",
+      size: "2xs",
+      children: jsx(HiOutlineInformationCircle, {})
+    })
+  }));
 };
 _c3$3 = InfoTip;
 var _c$b, _c2$3, _c3$3;
@@ -52936,7 +52996,6 @@ if (import.meta.hot && !inWebWorker$g) {
   });
 }
 
-var _excluded$1 = ["children", "info"];
 var inWebWorker$f = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$f;
 var prevRefreshSig$f;
@@ -52952,9 +53011,10 @@ if (import.meta.hot && !inWebWorker$f) {
   window.$RefreshSig$ = exports.createSignatureFunctionForTransform;
 }
 var ProgressBar = /*#__PURE__*/forwardRef(_c$a = function ProgressBar(props, ref) {
-  return /*#__PURE__*/React.createElement(Progress.Track, _extends$1({}, props, {
-    ref: ref
-  }), /*#__PURE__*/React.createElement(Progress.Range, null));
+  return jsx(Progress.Track, Object.assign({}, props, {
+    ref: ref,
+    children: jsx(Progress.Range, {})
+  }));
 });
 _c2$2 = ProgressBar;
 var ProgressRoot = Progress.Root;
@@ -52962,17 +53022,20 @@ Progress.ValueText;
 var ProgressLabel = /*#__PURE__*/forwardRef(_c3$2 = function ProgressLabel(props, ref) {
   var children = props.children,
     info = props.info,
-    rest = _objectWithoutProperties$1(props, _excluded$1);
-  return /*#__PURE__*/React.createElement(Progress.Label, _extends$1({}, rest, {
-    ref: ref
-  }), children, info && /*#__PURE__*/React.createElement(ToggleTip, {
-    content: info
-  }, /*#__PURE__*/React.createElement(IconButton, {
-    variant: "ghost",
-    "aria-label": "info",
-    size: "2xs",
-    ms: "1"
-  }, /*#__PURE__*/React.createElement(HiOutlineInformationCircle, null))));
+    rest = __rest(props, ["children", "info"]);
+  return jsxs(Progress.Label, Object.assign({}, rest, {
+    ref: ref,
+    children: [children, info && jsx(ToggleTip, {
+      content: info,
+      children: jsx(IconButton, {
+        variant: "ghost",
+        "aria-label": "info",
+        size: "2xs",
+        ms: "1",
+        children: jsx(HiOutlineInformationCircle, {})
+      })
+    })]
+  }));
 });
 _c4$2 = ProgressLabel;
 var _c$a, _c2$2, _c3$2, _c4$2;
@@ -53015,23 +53078,26 @@ if (import.meta.hot && !inWebWorker$e) {
   window.$RefreshSig$ = exports.createSignatureFunctionForTransform;
 }
 var Loading = function Loading() {
-  return /*#__PURE__*/React.createElement(Flex, {
+  return jsx(Flex, {
     position: "fixed",
     flexDirection: "column",
     justifyContent: "center",
     width: "100%",
-    height: "100vh"
-  }, /*#__PURE__*/React.createElement(EmptyState, {
-    icon: /*#__PURE__*/React.createElement(Icon, {
-      as: TbLoader3,
-      boxSize: 6
-    }),
-    title: "Fetching...",
-    description: "Wait please!"
-  }, /*#__PURE__*/React.createElement(ProgressRoot, {
-    width: "25vw",
-    value: null
-  }, /*#__PURE__*/React.createElement(ProgressBar, null))));
+    height: "100vh",
+    children: jsx(EmptyState, {
+      icon: jsx(Icon, {
+        as: TbLoader3,
+        boxSize: 6
+      }),
+      title: "Fetching...",
+      description: "Wait please!",
+      children: jsx(ProgressRoot, {
+        width: "25vw",
+        value: null,
+        children: jsx(ProgressBar, {})
+      })
+    })
+  });
 };
 _c$9 = Loading;
 var _c$9;
@@ -53070,26 +53136,37 @@ var toaster = createToaster({
   pauseOnPageIdle: true
 });
 var Toaster = function Toaster() {
-  return /*#__PURE__*/React.createElement(Portal, null, /*#__PURE__*/React.createElement(Toaster$1, {
-    toaster: toaster,
-    insetInline: {
-      mdDown: "4"
-    }
-  }, function (toast) {
-    var _toast$meta;
-    return /*#__PURE__*/React.createElement(Toast.Root, {
-      width: {
-        md: "sm"
+  return jsx(Portal, {
+    children: jsx(Toaster$1, {
+      toaster: toaster,
+      insetInline: {
+        mdDown: "4"
+      },
+      children: function children(toast) {
+        var _a;
+        return jsxs(Toast.Root, {
+          width: {
+            md: "sm"
+          },
+          children: [toast.type === "loading" ? jsx(Spinner, {
+            size: "sm",
+            color: "blue.solid"
+          }) : jsx(Toast.Indicator, {}), jsxs(Stack, {
+            gap: "1",
+            flex: "1",
+            maxWidth: "100%",
+            children: [toast.title && jsx(Toast.Title, {
+              children: toast.title
+            }), toast.description && jsx(Toast.Description, {
+              children: toast.description
+            })]
+          }), toast.action && jsx(Toast.ActionTrigger, {
+            children: toast.action.label
+          }), ((_a = toast.meta) === null || _a === void 0 ? void 0 : _a.closable) && jsx(Toast.CloseTrigger, {})]
+        });
       }
-    }, toast.type === "loading" ? /*#__PURE__*/React.createElement(Spinner, {
-      size: "sm",
-      color: "blue.solid"
-    }) : /*#__PURE__*/React.createElement(Toast.Indicator, null), /*#__PURE__*/React.createElement(Stack, {
-      gap: "1",
-      flex: "1",
-      maxWidth: "100%"
-    }, toast.title && /*#__PURE__*/React.createElement(Toast.Title, null, toast.title), toast.description && /*#__PURE__*/React.createElement(Toast.Description, null, toast.description)), toast.action && /*#__PURE__*/React.createElement(Toast.ActionTrigger, null, toast.action.label), ((_toast$meta = toast.meta) === null || _toast$meta === void 0 ? void 0 : _toast$meta.closable) && /*#__PURE__*/React.createElement(Toast.CloseTrigger, null));
-  }));
+    })
+  });
 };
 _c$8 = Toaster;
 var _c$8;
@@ -53136,14 +53213,15 @@ function withContext(WrappedComponent) {
     useEffect(function () {
       setBackground(props.background);
     }, [location.pathname]);
-    return /*#__PURE__*/t__default.createElement(Context$1.Provider, {
+    return jsxs(Context$1.Provider, {
       value: {
-        props: _objectSpread2(_objectSpread2({}, props), {}, {
+        props: Object.assign(Object.assign({}, props), {
           background: background
         }),
         setBackground: setBackground
-      }
-    }, /*#__PURE__*/t__default.createElement(WrappedComponent, props), /*#__PURE__*/t__default.createElement(Toaster, null));
+      },
+      children: [jsx(WrappedComponent, Object.assign({}, props)), jsx(Toaster, {})]
+    });
   };
   _s(HOC, "zFwJ+S4UhRmDiF/5A1m5fCd6evo=", false, function () {
     return [useLocation];
@@ -59674,17 +59752,13 @@ var _s$7 = $RefreshSig$(),
   _s3 = $RefreshSig$(),
   _s4 = $RefreshSig$(),
   _s5 = $RefreshSig$();
-
-// Interfaccia che estende le proprietà di ThemeProvider
-
 // Componente per fornire il contesto del tema a tutta l'applicazione
 function ColorModeProvider(props) {
-  return /*#__PURE__*/React.createElement(J, _extends$1({
+  return jsx(J, Object.assign({
     attribute: "class",
     disableTransitionOnChange: true
   }, props));
 }
-
 // Hook personalizzato per ottenere e gestire la modalità colore (chiaro/scuro)
 _c$7 = ColorModeProvider;
 function useColorMode() {
@@ -59692,7 +59766,6 @@ function useColorMode() {
   var _useTheme = z(),
     resolvedTheme = _useTheme.resolvedTheme,
     setTheme = _useTheme.setTheme;
-
   // Funzione per alternare la modalità colore
   var toggleColorMode = function toggleColorMode() {
     setTheme(resolvedTheme === "light" ? "dark" : "light");
@@ -59703,7 +59776,6 @@ function useColorMode() {
     toggleColorMode: toggleColorMode
   };
 }
-
 // Hook per ottenere un valore diverso in base alla modalità colore
 _s$7(useColorMode, "ejWDJnui7w93Zr0cEZ1cyBPw8dI=", false, function () {
   return [z];
@@ -59714,7 +59786,6 @@ function useColorModeValue(light, dark) {
     colorMode = _useColorMode.colorMode;
   return colorMode === "light" ? light : dark;
 }
-
 // Componente icona che mostra un'icona diversa in base alla modalità colore
 _s2(useColorModeValue, "2Uu86IH3do63pkN3s1ysdRMmJuc=", false, function () {
   return [useColorMode];
@@ -59723,15 +59794,13 @@ function ColorModeIcon() {
   _s3();
   var _useColorMode2 = useColorMode(),
     colorMode = _useColorMode2.colorMode;
-  return colorMode === "light" ? /*#__PURE__*/React.createElement(LuSun, null) : /*#__PURE__*/React.createElement(LuMoon, null);
+  return colorMode === "light" ? jsx(LuSun, {}) : jsx(LuMoon, {});
 }
-
-// Proprietà per il bottone di cambio modalità colore esteso
+// Componente esteso di bottone per il cambio della modalità colore con controllo segmentato
 _s3(ColorModeIcon, "2Uu86IH3do63pkN3s1ysdRMmJuc=", false, function () {
   return [useColorMode];
 });
 _c2$1 = ColorModeIcon;
-// Componente esteso di bottone per il cambio della modalità colore con controllo segmentato
 var ColorModeButtonExtended = function ColorModeButtonExtended(props) {
   _s4();
   var _useColorMode3 = useColorMode(),
@@ -59740,33 +59809,33 @@ var ColorModeButtonExtended = function ColorModeButtonExtended(props) {
   var variant = props.variant,
     size = props.size;
   return (
-    /*#__PURE__*/
     // Usa ClientOnly per assicurarsi che il componente venga renderizzato solo sul client
-    React.createElement(ClientOnly, {
-      fallback: /*#__PURE__*/React.createElement(Skeleton$1, {
+    jsx(ClientOnly, {
+      fallback: jsx(Skeleton$1, {
         boxSize: "8"
-      })
-    }, /*#__PURE__*/React.createElement(Tabs.Root, {
-      key: crypto.randomUUID(),
-      defaultValue: colorMode,
-      variant: variant,
-      size: size,
-      onValueChange: toggleColorMode
-      // 'gray' | 'red' | 'orange' | 'yellow' | 'green' | 'teal' | 'blue' | 'cyan' | 'purple' | 'pink' | 'accent'
-      // colorPalette={'red'}
-    }, /*#__PURE__*/React.createElement(Tabs.List, {
-      backgroundColor: "gray.100",
-      _dark: {
-        backgroundColor: "gray.950"
-      }
-    }, /*#__PURE__*/React.createElement(Tabs.Trigger, {
-      value: "light"
-    }, /*#__PURE__*/React.createElement(HiSun, null)), /*#__PURE__*/React.createElement(Tabs.Trigger, {
-      value: "dark"
-    }, /*#__PURE__*/React.createElement(HiMoon, null)))))
+      }),
+      children: jsx(Tabs.Root, {
+        defaultValue: colorMode,
+        variant: variant,
+        size: size,
+        onValueChange: toggleColorMode,
+        children: jsxs(Tabs.List, {
+          backgroundColor: "gray.100",
+          _dark: {
+            backgroundColor: "gray.950"
+          },
+          children: [jsx(Tabs.Trigger, {
+            value: "light",
+            children: jsx(HiSun, {})
+          }), jsx(Tabs.Trigger, {
+            value: "dark",
+            children: jsx(HiMoon, {})
+          })]
+        })
+      }, crypto.randomUUID())
+    })
   );
 };
-
 // Bottone per il cambio di modalità colore con IconButton
 _s4(ColorModeButtonExtended, "X0gT0RVVqiqHCYV2Hg+UTj69VyA=", false, function () {
   return [useColorMode];
@@ -59777,27 +59846,28 @@ var ColorModeButton = _s5(/*#__PURE__*/forwardRef(_c4$1 = _s5(function ColorMode
   var _useColorMode4 = useColorMode(),
     toggleColorMode = _useColorMode4.toggleColorMode;
   return (
-    /*#__PURE__*/
     // Usa ClientOnly per garantire che il bottone venga renderizzato solo sul client
-    React.createElement(ClientOnly, {
-      fallback: /*#__PURE__*/React.createElement(Skeleton$1, {
+    jsx(ClientOnly, {
+      fallback: jsx(Skeleton$1, {
         boxSize: "8"
-      })
-    }, /*#__PURE__*/React.createElement(IconButton, _extends$1({
-      onClick: toggleColorMode,
-      variant: "ghost",
-      "aria-label": "Toggle color mode",
-      size: "sm",
-      ref: ref
-    }, props, {
-      // Stile personalizzato per l'icona del bottone
-      css: {
-        _icon: {
-          width: "5",
-          height: "5"
-        }
-      }
-    }), /*#__PURE__*/React.createElement(ColorModeIcon, null)))
+      }),
+      children: jsx(IconButton, Object.assign({
+        onClick: toggleColorMode,
+        variant: "ghost",
+        "aria-label": "Toggle color mode",
+        size: "sm",
+        ref: ref
+      }, props, {
+        // Stile personalizzato per l'icona del bottone
+        css: {
+          _icon: {
+            width: "5",
+            height: "5"
+          }
+        },
+        children: jsx(ColorModeIcon, {})
+      }))
+    })
   );
 }, "pCB/HNB8FhZAEYh1hiUHUsp1udk=", false, function () {
   return [useColorMode];
@@ -59826,7 +59896,6 @@ if (import.meta.hot && !inWebWorker$a) {
   });
 }
 
-var _excluded = ["children", "portalled", "portalRef", "offset"];
 var inWebWorker$9 = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 var prevRefreshReg$9;
 var prevRefreshSig$9;
@@ -59847,29 +59916,33 @@ var DrawerContent = /*#__PURE__*/forwardRef(_c$6 = function DrawerContent(props,
     portalled = _props$portalled === void 0 ? true : _props$portalled,
     portalRef = props.portalRef,
     offset = props.offset,
-    rest = _objectWithoutProperties$1(props, _excluded);
-  return /*#__PURE__*/React.createElement(Portal, {
+    rest = __rest(props, ["children", "portalled", "portalRef", "offset"]);
+  return jsx(Portal, {
     disabled: !portalled,
-    container: portalRef
-  }, /*#__PURE__*/React.createElement(Drawer.Positioner, {
-    padding: offset
-  }, /*#__PURE__*/React.createElement(Drawer.Content, _extends$1({
-    ref: ref
-  }, rest, {
-    asChild: false
-  }), children)));
+    container: portalRef,
+    children: jsx(Drawer.Positioner, {
+      padding: offset,
+      children: jsx(Drawer.Content, Object.assign({
+        ref: ref
+      }, rest, {
+        asChild: false,
+        children: children
+      }))
+    })
+  });
 });
 _c2 = DrawerContent;
 var DrawerCloseTrigger = /*#__PURE__*/forwardRef(_c3 = function DrawerCloseTrigger(props, ref) {
-  return /*#__PURE__*/React.createElement(Drawer.CloseTrigger, _extends$1({
+  return jsx(Drawer.CloseTrigger, Object.assign({
     position: "absolute",
     top: "2",
     insetEnd: "2"
   }, props, {
-    asChild: true
-  }), /*#__PURE__*/React.createElement(CloseButton, {
-    size: "sm",
-    ref: ref
+    asChild: true,
+    children: jsx(CloseButton, {
+      size: "sm",
+      ref: ref
+    })
   }));
 });
 _c4 = DrawerCloseTrigger;
@@ -59931,12 +60004,12 @@ var Component = function Component() {
     navbarItems = props.navbarItems,
     navbarSubItems = props.navbarSubItems;
   var Logo = function Logo() {
-    return logo && /*#__PURE__*/React.createElement(Image, {
+    return logo && jsx(Image, {
       src: logo,
       width: '42px'
     });
   };
-  return /*#__PURE__*/React.createElement(Flex, {
+  return jsx(Flex, {
     wrap: "wrap",
     position: "fixed",
     zIndex: 4,
@@ -59945,99 +60018,116 @@ var Component = function Component() {
     backgroundColor: "white",
     _dark: {
       backgroundColor: "black"
-    }
-  }, !isMobileRef ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Flex, {
-    wrap: "wrap",
-    direction: "row",
-    width: '100%',
-    gapX: '1rem',
-    justifyContent: "center",
-    justifyItems: "center",
-    alignContent: 'center',
-    alignItems: 'center',
-    paddingX: '5%',
-    paddingY: !navbarSubItems ? "1rem" : '',
-    paddingTop: navbarSubItems ? "1rem" : ''
-  }, /*#__PURE__*/React.createElement(Logo, null), navbarItems === null || navbarItems === void 0 ? void 0 : navbarItems.map(function (item) {
-    return /*#__PURE__*/React.createElement(Text, {
-      key: item.value,
-      onClick: function onClick() {
-        return handleNavigationAndScroll(item.value, navigationScroll);
-      },
-      style: {
-        cursor: 'pointer'
-      },
-      textStyle: "xl",
-      fontWeight: "medium"
-    }, item.label);
-  }), /*#__PURE__*/React.createElement(Spacer, null), /*#__PURE__*/React.createElement(ColorModeButtonExtended, {
-    variant: "enclosed",
-    size: "sm"
-  })), navbarSubItems && /*#__PURE__*/React.createElement(Flex, {
-    wrap: "wrap",
-    direction: "row",
-    width: '100%',
-    gapX: '1rem',
-    justifyContent: "start",
-    justifyItems: "center",
-    alignContent: 'center',
-    alignItems: 'center',
-    paddingX: '10%'
-  }, /*#__PURE__*/React.createElement(Tabs.Root, {
-    key: crypto.randomUUID(),
-    defaultValue: findMatchingNavbarValue(location.pathname, navbarItems, navbarSubItems),
-    variant: "line",
-    size: "sm",
-    onValueChange: function onValueChange(details) {
-      return navigate(details.value);
-    }
-  }, /*#__PURE__*/React.createElement(Tabs.List, null, navbarSubItems.filter(function (subItem) {
-    var _subItem$group, _navbarItems$find;
-    return subItem.group ? (_subItem$group = subItem.group) === null || _subItem$group === void 0 ? void 0 : _subItem$group.includes((navbarItems === null || navbarItems === void 0 || (_navbarItems$find = navbarItems.find(function (item) {
-      return location.pathname.search(new RegExp(item.value, 'g')) !== -1;
-    })) === null || _navbarItems$find === void 0 ? void 0 : _navbarItems$find.group) || "") : true;
-  }).map(function (item) {
-    return /*#__PURE__*/React.createElement(Tabs.Trigger, {
-      key: crypto.randomUUID(),
-      value: item.value
-    }, item.icon, " ", item.label);
-  }))))) : /*#__PURE__*/React.createElement(Flex, {
-    wrap: "wrap",
-    direction: "row",
-    width: '100%',
-    gapX: '1rem',
-    justifyContent: "start",
-    justifyItems: "center",
-    alignContent: 'center',
-    alignItems: 'center',
-    paddingX: '5%',
-    paddingY: '1rem'
-  }, /*#__PURE__*/React.createElement(DrawerRoot, {
-    size: "full"
-  }, /*#__PURE__*/React.createElement(DrawerBackdrop, null), /*#__PURE__*/React.createElement(DrawerTrigger, {
-    asChild: true
-  }, /*#__PURE__*/React.createElement(IconButton, {
-    "aria-label": "",
-    variant: "subtle"
-  }, /*#__PURE__*/React.createElement(CiGlobe, null))), /*#__PURE__*/React.createElement(Spacer, null), /*#__PURE__*/React.createElement(ColorModeButtonExtended, {
-    variant: "enclosed",
-    size: "sm"
-  }), /*#__PURE__*/React.createElement(DrawerContent, null, /*#__PURE__*/React.createElement(DrawerBody, null, /*#__PURE__*/React.createElement(Flex, {
-    direction: "column",
-    gap: "3rem",
-    height: "100%",
-    alignItems: "center",
-    justifyContent: "center"
-  }, navbarItems === null || navbarItems === void 0 ? void 0 : navbarItems.map(function (item) {
-    return /*#__PURE__*/React.createElement(NavLink, {
-      key: crypto.randomUUID(),
-      to: item.value,
-      end: true
-    }, /*#__PURE__*/React.createElement(Text, {
-      textStyle: "3xl",
-      fontWeight: "medium"
-    }, item.label));
-  }))), /*#__PURE__*/React.createElement(DrawerCloseTrigger, null)))));
+    },
+    children: !isMobileRef ? jsxs(Fragment, {
+      children: [jsxs(Flex, {
+        wrap: "wrap",
+        direction: "row",
+        width: '100%',
+        gapX: '1rem',
+        justifyContent: "center",
+        justifyItems: "center",
+        alignContent: 'center',
+        alignItems: 'center',
+        paddingX: '5%',
+        paddingY: !navbarSubItems ? "1rem" : '',
+        paddingTop: navbarSubItems ? "1rem" : '',
+        children: [jsx(Logo, {}), navbarItems === null || navbarItems === void 0 ? void 0 : navbarItems.map(function (item) {
+          return jsx(Text, {
+            onClick: function onClick() {
+              return handleNavigationAndScroll(item.value, navigationScroll);
+            },
+            style: {
+              cursor: 'pointer'
+            },
+            textStyle: "xl",
+            fontWeight: "medium",
+            children: item.label
+          }, item.value);
+        }), jsx(Spacer, {}), jsx(ColorModeButtonExtended, {
+          variant: "enclosed",
+          size: "sm"
+        })]
+      }), navbarSubItems && jsx(Flex, {
+        wrap: "wrap",
+        direction: "row",
+        width: '100%',
+        gapX: '1rem',
+        justifyContent: "start",
+        justifyItems: "center",
+        alignContent: 'center',
+        alignItems: 'center',
+        paddingX: '10%',
+        children: jsx(Tabs.Root, {
+          defaultValue: findMatchingNavbarValue(location.pathname, navbarItems, navbarSubItems),
+          variant: "line",
+          size: "sm",
+          onValueChange: function onValueChange(details) {
+            return navigate(details.value);
+          },
+          children: jsx(Tabs.List, {
+            children: navbarSubItems.filter(function (subItem) {
+              var _a, _b;
+              return subItem.group ? (_a = subItem.group) === null || _a === void 0 ? void 0 : _a.includes(((_b = navbarItems === null || navbarItems === void 0 ? void 0 : navbarItems.find(function (item) {
+                return location.pathname.search(new RegExp(item.value, 'g')) !== -1;
+              })) === null || _b === void 0 ? void 0 : _b.group) || "") : true;
+            }).map(function (item) {
+              return jsxs(Tabs.Trigger, {
+                value: item.value,
+                children: [item.icon, " ", item.label]
+              }, crypto.randomUUID());
+            })
+          })
+        }, crypto.randomUUID())
+      })]
+    }) : jsx(Flex, {
+      wrap: "wrap",
+      direction: "row",
+      width: '100%',
+      gapX: '1rem',
+      justifyContent: "start",
+      justifyItems: "center",
+      alignContent: 'center',
+      alignItems: 'center',
+      paddingX: '5%',
+      paddingY: '1rem',
+      children: jsxs(DrawerRoot, {
+        size: "full",
+        children: [jsx(DrawerBackdrop, {}), jsx(DrawerTrigger, {
+          asChild: true,
+          children: jsx(IconButton, {
+            "aria-label": "",
+            variant: "subtle",
+            children: jsx(CiGlobe, {})
+          })
+        }), jsx(Spacer, {}), jsx(ColorModeButtonExtended, {
+          variant: "enclosed",
+          size: "sm"
+        }), jsxs(DrawerContent, {
+          children: [jsx(DrawerBody, {
+            children: jsx(Flex, {
+              direction: "column",
+              gap: "3rem",
+              height: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              children: navbarItems === null || navbarItems === void 0 ? void 0 : navbarItems.map(function (item) {
+                return jsx(NavLink, {
+                  to: item.value,
+                  end: true,
+                  children: jsx(Text, {
+                    textStyle: "3xl",
+                    fontWeight: "medium",
+                    children: item.label
+                  })
+                }, crypto.randomUUID());
+              })
+            })
+          }), jsx(DrawerCloseTrigger, {})]
+        })]
+      })
+    })
+  });
 };
 _s$6(Component, "BJsV3Ct2EhDaGOkQ5kqFYjcQOYI=", false, function () {
   return [useMouse, usePageContext, useNavigate, useLocation];
@@ -60080,7 +60170,6 @@ var Body = function Body() {
   var _usePageContext = usePageContext(),
     props = _usePageContext.props;
   var children = props.children;
-
   // 1. Creiamo un ref per il Flex
   var flexRef = useRef(null);
   useEffect(function () {
@@ -60097,7 +60186,7 @@ var Body = function Body() {
       });
     }
   }, []);
-  return /*#__PURE__*/React.createElement(Flex, {
+  return jsx(Flex, {
     ref: flexRef,
     zIndex: "3",
     minHeight: "100vh",
@@ -60114,8 +60203,9 @@ var Body = function Body() {
       "2xl": "10%"
     },
     gap: "8rem",
-    justifyContent: "center"
-  }, children);
+    justifyContent: "center",
+    children: children
+  });
 };
 _s$5(Body, "O0WDPb8kqfjolxBXTTL4uJ8yBCI=", false, function () {
   return [usePageContext];
@@ -60161,50 +60251,52 @@ var Transformer$1 = function Transformer() {
   var _usePageContext = usePageContext(),
     props = _usePageContext.props;
   var background = props.background;
-  return /*#__PURE__*/React.createElement(Flex, {
+  return jsxs(Flex, {
     position: "relative",
     overflow: "hidden",
     direction: "column",
     width: "100%",
-    minHeight: '100vh'
-  }, background && /*#__PURE__*/React.createElement(chakra.div, {
-    position: "absolute",
-    zIndex: 1,
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundAttachment: "fixed",
-    backgroundPosition: "top",
-    backgroundSize: "cover",
-    filter: background.opacity ? "blur(".concat(background.opacity, "px)") : undefined,
-    backgroundColor: "gray.100",
-    backgroundImage: background.image ? "url(".concat(import.meta.env.VITE_BASENAME, "/assets/background_white.png)") : undefined,
-    _dark: {
-      backgroundColor: "gray.950",
-      backgroundImage: background.imageDark ? "url(".concat(import.meta.env.VITE_BASENAME, "/assets/background_dark.png)") : undefined
-    }
-  }), !isMobileRef && /*#__PURE__*/React.createElement(chakra.div, {
-    ref: circleRef,
-    pointerEvents: "none",
-    position: "fixed",
-    zIndex: 2,
-    top: 0,
-    left: 0,
-    width: "100px",
-    height: "100px",
-    borderRadius: "50%",
-    background: "radial-gradient(circle, {colors.gray.100} 0%, transparent 70%)",
-    _dark: {
-      background: "radial-gradient(circle, {colors.gray.950} 0%, transparent 70%)"
-    }
-  }), /*#__PURE__*/React.createElement(Flex, {
-    position: "relative",
-    zIndex: 3,
-    direction: "column",
-    width: "100%",
-    minHeight: '100vh'
-  }, /*#__PURE__*/React.createElement(Component, null), /*#__PURE__*/React.createElement(Body, null)));
+    minHeight: '100vh',
+    children: [background && jsx(chakra.div, {
+      position: "absolute",
+      zIndex: 1,
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundAttachment: "fixed",
+      backgroundPosition: "top",
+      backgroundSize: "cover",
+      filter: background.opacity ? "blur(".concat(background.opacity, "px)") : undefined,
+      backgroundColor: "gray.100",
+      backgroundImage: background.image ? "url(".concat(import.meta.env.VITE_BASENAME, "/assets/background_white.png)") : undefined,
+      _dark: {
+        backgroundColor: "gray.950",
+        backgroundImage: background.imageDark ? "url(".concat(import.meta.env.VITE_BASENAME, "/assets/background_dark.png)") : undefined
+      }
+    }), !isMobileRef && jsx(chakra.div, {
+      ref: circleRef,
+      pointerEvents: "none",
+      position: "fixed",
+      zIndex: 2,
+      top: 0,
+      left: 0,
+      width: "100px",
+      height: "100px",
+      borderRadius: "50%",
+      background: "radial-gradient(circle, {colors.gray.100} 0%, transparent 70%)",
+      _dark: {
+        background: "radial-gradient(circle, {colors.gray.950} 0%, transparent 70%)"
+      }
+    }), jsxs(Flex, {
+      position: "relative",
+      zIndex: 3,
+      direction: "column",
+      width: "100%",
+      minHeight: '100vh',
+      children: [jsx(Component, {}), jsx(Body, {})]
+    })]
+  });
 };
 _s$4(Transformer$1, "kcqWyDK3DTJvvqLeWVRIwD7B5f4=", false, function () {
   return [useMouse, usePageContext];
@@ -60254,13 +60346,14 @@ var AuthContext = /*#__PURE__*/createContext(undefined);
 var Auth = function Auth(_ref) {
   var children = _ref.children;
   _s$3();
-  return /*#__PURE__*/React.createElement(AuthContext.Provider, {
+  return jsx(AuthContext.Provider, {
     value: {
       accessToken: useSelector(function (state) {
         return state.authSlice.accessToken;
       })
-    }
-  }, children);
+    },
+    children: children
+  });
 };
 _s$3(Auth, "nKHvd/QB6hocKEk0fSJoSYcCyR8=", false, function () {
   return [useSelector];
@@ -60343,7 +60436,7 @@ var PrivateRoute = function PrivateRoute(_ref) {
   var _useAuth = useAuth(),
     accessToken = _useAuth.accessToken;
   if (!accessToken) {
-    return /*#__PURE__*/React.createElement(Navigate, {
+    return jsx(Navigate, {
       to: "/auth/login"
     });
   }
@@ -60391,7 +60484,7 @@ var RedirectPublicRoute = function RedirectPublicRoute(_ref) {
   var _useAuth = useAuth(),
     accessToken = _useAuth.accessToken;
   if (accessToken) {
-    return /*#__PURE__*/React.createElement(Navigate, {
+    return jsx(Navigate, {
       to: "/dashboard/profile/overview"
     });
   }
@@ -60451,79 +60544,88 @@ function withGsapAnimation(WrappedComponent) {
         });
       }
     }, []);
-    return /*#__PURE__*/React.createElement("div", {
+    return jsx("div", {
       ref: ref,
       style: {
         width: "100%",
         display: "flex",
         justifyContent: "center"
-      }
-    }, /*#__PURE__*/React.createElement(WrappedComponent, props));
+      },
+      children: jsx(WrappedComponent, Object.assign({}, props))
+    });
   };
   _s(GsapAnimated, "8uVE59eA/r6b92xF80p7sH8rXLk=");
   return GsapAnimated;
 }
 function withDynamicLayouts(opts, props) {
-  var Page = /*#__PURE__*/lazy(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var pageName, directoryName, module, GsapWrapped;
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return new Promise(function (resolve) {
-            return setTimeout(resolve, 500);
-          });
-        case 2:
-          pageName = opts.layoutName;
-          directoryName = pageName.charAt(0).toLowerCase() + pageName.slice(1);
-          _context.next = 6;
-          return import("./../layouts/".concat(directoryName, "/").concat(opts.layoutName, "Layout.ts"));
-        case 6:
-          module = _context.sent;
-          GsapWrapped = withGsapAnimation(module["default"]);
-          return _context.abrupt("return", {
-            "default": GsapWrapped
-          });
-        case 9:
-        case "end":
-          return _context.stop();
-      }
-    }, _callee);
-  })));
-  return /*#__PURE__*/React.createElement(Suspense, {
-    fallback: opts.loader
-  }, /*#__PURE__*/React.createElement(Page, props));
+  var _this = this;
+  var Page = /*#__PURE__*/lazy(function () {
+    return __awaiter(_this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var pageName, directoryName, module, GsapWrapped;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return new Promise(function (resolve) {
+              return setTimeout(resolve, 500);
+            });
+          case 2:
+            pageName = opts.layoutName;
+            directoryName = pageName.charAt(0).toLowerCase() + pageName.slice(1);
+            _context.next = 6;
+            return import("./../layouts/".concat(directoryName, "/").concat(opts.layoutName, "Layout.ts"));
+          case 6:
+            module = _context.sent;
+            GsapWrapped = withGsapAnimation(module["default"]);
+            return _context.abrupt("return", {
+              "default": GsapWrapped
+            });
+          case 9:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee);
+    }));
+  });
+  return jsx(Suspense, {
+    fallback: opts.loader,
+    children: jsx(Page, Object.assign({}, props))
+  });
 }
 function withDynamicPages(opts, props) {
-  var Content = /*#__PURE__*/lazy(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var pageName, directoryName, module, GsapWrapped;
-    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-      while (1) switch (_context2.prev = _context2.next) {
-        case 0:
-          _context2.next = 2;
-          return new Promise(function (resolve) {
-            return setTimeout(resolve, 500);
-          });
-        case 2:
-          pageName = opts.pageName;
-          directoryName = pageName.charAt(0).toLowerCase() + pageName.slice(1);
-          _context2.next = 6;
-          return import("./../pages/".concat(directoryName, "/").concat(opts.pageName, "Page.ts"));
-        case 6:
-          module = _context2.sent;
-          GsapWrapped = withGsapAnimation(module["default"]);
-          return _context2.abrupt("return", {
-            "default": GsapWrapped
-          });
-        case 9:
-        case "end":
-          return _context2.stop();
-      }
-    }, _callee2);
-  })));
-  return /*#__PURE__*/React.createElement(Suspense, {
-    fallback: opts.loader
-  }, /*#__PURE__*/React.createElement(Content, props));
+  var _this2 = this;
+  var Content = /*#__PURE__*/lazy(function () {
+    return __awaiter(_this2, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var pageName, directoryName, module, GsapWrapped;
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return new Promise(function (resolve) {
+              return setTimeout(resolve, 500);
+            });
+          case 2:
+            pageName = opts.pageName;
+            directoryName = pageName.charAt(0).toLowerCase() + pageName.slice(1);
+            _context2.next = 6;
+            return import("./../pages/".concat(directoryName, "/").concat(opts.pageName, "Page.ts"));
+          case 6:
+            module = _context2.sent;
+            GsapWrapped = withGsapAnimation(module["default"]);
+            return _context2.abrupt("return", {
+              "default": GsapWrapped
+            });
+          case 9:
+          case "end":
+            return _context2.stop();
+        }
+      }, _callee2);
+    }));
+  });
+  return jsx(Suspense, {
+    fallback: opts.loader,
+    children: jsx(Content, Object.assign({}, props))
+  });
 }
 if (import.meta.hot && !inWebWorker$1) {
   window.$RefreshReg$ = prevRefreshReg$1;
@@ -60561,7 +60663,7 @@ function withRouter(WrappedComponent) {
     _s();
     var location = useLocation();
     var navigate = useNavigate();
-    return /*#__PURE__*/React.createElement(WrappedComponent, _extends$1({}, props, {
+    return jsx(WrappedComponent, Object.assign({}, props, {
       router: {
         location: location,
         navigate: navigate
@@ -79631,12 +79733,9 @@ var refreshResponse = {
   refreshToken: "MOCK"
 };
 
-function errorHandler(_x) {
-  return _errorHandler.apply(this, arguments);
-}
-function _errorHandler() {
-  _errorHandler = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(cb) {
-    var _exeception$response, _exeception$response2, exeception;
+function errorHandler(cb) {
+  return __awaiter(this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    var _a, _b, exeception;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
@@ -79649,7 +79748,7 @@ function _errorHandler() {
           _context.prev = 6;
           _context.t0 = _context["catch"](0);
           exeception = _context.t0;
-          if (!((_exeception$response = exeception.response) !== null && _exeception$response !== void 0 && _exeception$response.data)) {
+          if (!((_a = exeception.response) === null || _a === void 0 ? void 0 : _a.data)) {
             _context.next = 13;
             break;
           }
@@ -79658,7 +79757,7 @@ function _errorHandler() {
             message: exeception.response.data.message
           };
         case 13:
-          if (!(exeception.status === 500 && !((_exeception$response2 = exeception.response) !== null && _exeception$response2 !== void 0 && _exeception$response2.data))) {
+          if (!(exeception.status === 500 && !((_b = exeception.response) === null || _b === void 0 ? void 0 : _b.data))) {
             _context.next = 21;
             break;
           }
@@ -79689,14 +79788,11 @@ function _errorHandler() {
       }
     }, _callee, null, [[0, 6]]);
   }));
-  return _errorHandler.apply(this, arguments);
 }
 
-function register(_x) {
-  return _register.apply(this, arguments);
-}
-function _register() {
-  _register = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(payload) {
+function register(payload) {
+  return __awaiter(this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    var _this = this;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
@@ -79712,20 +79808,22 @@ function _register() {
           }));
         case 5:
           _context2.next = 7;
-          return errorHandler(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-            return _regeneratorRuntime().wrap(function _callee$(_context) {
-              while (1) switch (_context.prev = _context.next) {
-                case 0:
-                  _context.next = 2;
-                  return axios.post("".concat(import.meta.env.VITE_API, "/auth/register"), payload);
-                case 2:
-                  return _context.abrupt("return", _context.sent.data);
-                case 3:
-                case "end":
-                  return _context.stop();
-              }
-            }, _callee);
-          })));
+          return errorHandler(function () {
+            return __awaiter(_this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+              return _regeneratorRuntime().wrap(function _callee$(_context) {
+                while (1) switch (_context.prev = _context.next) {
+                  case 0:
+                    _context.next = 2;
+                    return axios.post("".concat(import.meta.env.VITE_API, "/auth/register"), payload);
+                  case 2:
+                    return _context.abrupt("return", _context.sent.data);
+                  case 3:
+                  case "end":
+                    return _context.stop();
+                }
+              }, _callee);
+            }));
+          });
         case 7:
           return _context2.abrupt("return", _context2.sent);
         case 8:
@@ -79734,13 +79832,10 @@ function _register() {
       }
     }, _callee2);
   }));
-  return _register.apply(this, arguments);
 }
-function login(_x2) {
-  return _login.apply(this, arguments);
-}
-function _login() {
-  _login = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee4(payload) {
+function login(payload) {
+  return __awaiter(this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+    var _this2 = this;
     return _regeneratorRuntime().wrap(function _callee4$(_context4) {
       while (1) switch (_context4.prev = _context4.next) {
         case 0:
@@ -79756,20 +79851,22 @@ function _login() {
           }));
         case 5:
           _context4.next = 7;
-          return errorHandler(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-              while (1) switch (_context3.prev = _context3.next) {
-                case 0:
-                  _context3.next = 2;
-                  return axios.post("".concat(import.meta.env.VITE_API, "/auth/login"), payload);
-                case 2:
-                  return _context3.abrupt("return", _context3.sent.data);
-                case 3:
-                case "end":
-                  return _context3.stop();
-              }
-            }, _callee3);
-          })));
+          return errorHandler(function () {
+            return __awaiter(_this2, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+              return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+                while (1) switch (_context3.prev = _context3.next) {
+                  case 0:
+                    _context3.next = 2;
+                    return axios.post("".concat(import.meta.env.VITE_API, "/auth/login"), payload);
+                  case 2:
+                    return _context3.abrupt("return", _context3.sent.data);
+                  case 3:
+                  case "end":
+                    return _context3.stop();
+                }
+              }, _callee3);
+            }));
+          });
         case 7:
           return _context4.abrupt("return", _context4.sent);
         case 8:
@@ -79778,13 +79875,10 @@ function _login() {
       }
     }, _callee4);
   }));
-  return _login.apply(this, arguments);
 }
-function refresh(_x3) {
-  return _refresh.apply(this, arguments);
-}
-function _refresh() {
-  _refresh = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee6(payload) {
+function refresh(payload) {
+  return __awaiter(this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+    var _this3 = this;
     return _regeneratorRuntime().wrap(function _callee6$(_context6) {
       while (1) switch (_context6.prev = _context6.next) {
         case 0:
@@ -79800,20 +79894,22 @@ function _refresh() {
           }));
         case 5:
           _context6.next = 7;
-          return errorHandler(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
-            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
-              while (1) switch (_context5.prev = _context5.next) {
-                case 0:
-                  _context5.next = 2;
-                  return axios.post("".concat(import.meta.env.VITE_API, "/auth/refresh"), payload);
-                case 2:
-                  return _context5.abrupt("return", _context5.sent.data);
-                case 3:
-                case "end":
-                  return _context5.stop();
-              }
-            }, _callee5);
-          })));
+          return errorHandler(function () {
+            return __awaiter(_this3, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+              return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+                while (1) switch (_context5.prev = _context5.next) {
+                  case 0:
+                    _context5.next = 2;
+                    return axios.post("".concat(import.meta.env.VITE_API, "/auth/refresh"), payload);
+                  case 2:
+                    return _context5.abrupt("return", _context5.sent.data);
+                  case 3:
+                  case "end":
+                    return _context5.stop();
+                }
+              }, _callee5);
+            }));
+          });
         case 7:
           return _context6.abrupt("return", _context6.sent);
         case 8:
@@ -79822,83 +79918,76 @@ function _refresh() {
       }
     }, _callee6);
   }));
-  return _refresh.apply(this, arguments);
 }
 
-var doRegister = createAsyncThunk('slice/auth/doRegister', /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(payload, _ref) {
-    var rejectWithValue;
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) switch (_context.prev = _context.next) {
-        case 0:
-          rejectWithValue = _ref.rejectWithValue;
-          return _context.abrupt("return", register(payload).then(function (response) {
-            return response;
-          })["catch"](function (error) {
-            return rejectWithValue(error);
-          }));
-        case 2:
-        case "end":
-          return _context.stop();
-      }
-    }, _callee);
-  }));
-  return function (_x, _x2) {
-    return _ref2.apply(this, arguments);
-  };
-}());
-var doLogin = createAsyncThunk('slice/auth/doLogin', /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(payload, _ref3) {
-    var rejectWithValue;
-    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-      while (1) switch (_context2.prev = _context2.next) {
-        case 0:
-          rejectWithValue = _ref3.rejectWithValue;
-          return _context2.abrupt("return", login(payload).then(function (response) {
-            return response;
-          })["catch"](function (error) {
-            return rejectWithValue(error);
-          }));
-        case 2:
-        case "end":
-          return _context2.stop();
-      }
-    }, _callee2);
-  }));
-  return function (_x3, _x4) {
-    return _ref4.apply(this, arguments);
-  };
-}());
-var doRefresh = createAsyncThunk('slice/auth/doRefresh', /*#__PURE__*/function () {
-  var _ref6 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3(payload, _ref5) {
-    var rejectWithValue;
-    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-      while (1) switch (_context3.prev = _context3.next) {
-        case 0:
-          rejectWithValue = _ref5.rejectWithValue;
-          return _context3.abrupt("return", refresh(payload).then(function (response) {
-            return response;
-          })["catch"](function (error) {
-            return rejectWithValue(error);
-          }));
-        case 2:
-        case "end":
-          return _context3.stop();
-      }
-    }, _callee3);
-  }));
-  return function (_x5, _x6) {
-    return _ref6.apply(this, arguments);
-  };
-}());
+var doRegister = createAsyncThunk('slice/auth/doRegister', function (payload_1, _a) {
+  return __awaiter(void 0, [payload_1, _a], void 0, function (payload, _ref) {
+    var rejectWithValue = _ref.rejectWithValue;
+    return /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            return _context.abrupt("return", register(payload).then(function (response) {
+              return response;
+            })["catch"](function (error) {
+              return rejectWithValue(error);
+            }));
+          case 1:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee);
+    })();
+  });
+});
+var doLogin = createAsyncThunk('slice/auth/doLogin', function (payload_1, _a) {
+  return __awaiter(void 0, [payload_1, _a], void 0, function (payload, _ref2) {
+    var rejectWithValue = _ref2.rejectWithValue;
+    return /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            return _context2.abrupt("return", login(payload).then(function (response) {
+              return response;
+            })["catch"](function (error) {
+              return rejectWithValue(error);
+            }));
+          case 1:
+          case "end":
+            return _context2.stop();
+        }
+      }, _callee2);
+    })();
+  });
+});
+var doRefresh = createAsyncThunk('slice/auth/doRefresh', function (payload_1, _a) {
+  return __awaiter(void 0, [payload_1, _a], void 0, function (payload, _ref3) {
+    var rejectWithValue = _ref3.rejectWithValue;
+    return /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            return _context3.abrupt("return", refresh(payload).then(function (response) {
+              return response;
+            })["catch"](function (error) {
+              return rejectWithValue(error);
+            }));
+          case 1:
+          case "end":
+            return _context3.stop();
+        }
+      }, _callee3);
+    })();
+  });
+});
 
-var STATUS = /*#__PURE__*/function (STATUS) {
+var STATUS;
+(function (STATUS) {
   STATUS[STATUS["IDLE"] = 0] = "IDLE";
   STATUS[STATUS["LOADING"] = 1] = "LOADING";
   STATUS[STATUS["SUCCESS"] = 2] = "SUCCESS";
   STATUS[STATUS["FAILED"] = 3] = "FAILED";
-  return STATUS;
-}({});
+})(STATUS || (STATUS = {}));
 
 var initialState = {
   accessToken: localStorage.getItem('accessToken') || undefined,
@@ -79926,7 +80015,6 @@ var reducers = {
 
 var extraReducers = function extraReducers(builder) {
   return builder
-
   /**
    * LOGIN
    */.addCase(doLogin.pending, function (state) {
@@ -79944,7 +80032,6 @@ var extraReducers = function extraReducers(builder) {
     state.login.status = STATUS.FAILED;
     state.login.error = action.payload;
   })
-
   /**
    * REGISTER
    */.addCase(doRegister.pending, function (state) {
@@ -79962,7 +80049,6 @@ var extraReducers = function extraReducers(builder) {
     state.register.status = STATUS.FAILED;
     state.register.error = action.payload;
   })
-
   /**
   * REFRESH
   */.addCase(doRefresh.pending, function (state) {

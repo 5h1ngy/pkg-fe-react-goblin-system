@@ -1,0 +1,1 @@
+{"version":3,"file":"Provider.d.ts","sourceRoot":"","sources":["../../../../src/layouts/Transformer/shared/Provider.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAiD,MAAM,OAAO,CAAC;AAItE,OAAO,EAAE,cAAc,EAAE,WAAW,EAAE,MAAM,sBAAsB,CAAC;AAEnE,eAAO,MAAM,OAAO,4BAAoD,CAAC;AAEzE,MAAM,CAAC,OAAO,UAAU,WAAW,CAAC,CAAC,SAAS,cAAc,EACxD,gBAAgB,EAAE,KAAK,CAAC,aAAa,CAAC,CAAC,CAAC,eAqB3C"}
