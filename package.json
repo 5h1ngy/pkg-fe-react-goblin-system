@@ -17,7 +17,7 @@
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "types": "dist/src/index.d.ts",
+  "types": "dist/index.d.ts",
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
