@@ -22,11 +22,6 @@
     "dist"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
-    },
     "./components": {
       "import": "./dist/components/index.esm.js",
       "require": "./dist/components/index.cjs.js",
