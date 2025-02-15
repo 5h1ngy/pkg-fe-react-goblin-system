@@ -31,29 +31,35 @@
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js"
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
     },
     "./components": {
       "import": "./dist/components/index.esm.js",
-      "require": "./dist/components/index.cjs.js"
+      "require": "./dist/components/index.cjs.js",
+      "types": "./dist/components/index.d.ts"
     },
     "./hocs": {
       "import": "./dist/hocs/index.esm.js",
-      "require": "./dist/hocs/index.cjs.js"
+      "require": "./dist/hocs/index.cjs.js",
+      "types": "./dist/hocs/index.d.ts"
     },
     "./layouts": {
       "import": "./dist/layouts/index.esm.js",
-      "require": "./dist/layouts/index.cjs.js"
+      "require": "./dist/layouts/index.cjs.js",
+      "types": "./dist/layouts/index.d.ts"
     },
     "./providers": {
       "import": "./dist/providers/index.esm.js",
-      "require": "./dist/providers/index.cjs.js"
+      "require": "./dist/providers/index.cjs.js",
+      "types": "./dist/providers/index.d.ts"
     },
     "./store": {
       "import": "./dist/store/index.esm.js",
-      "require": "./dist/store/index.cjs.js"
+      "require": "./dist/store/index.cjs.js",
+      "types": "./dist/store/index.d.ts"
     }
-  },
+  }
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
