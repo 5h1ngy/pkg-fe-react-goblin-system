@@ -21,21 +21,19 @@
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
-      "require": "./dist/index.js",
-      "types": "./dist/types/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./*": {
       "import": "./dist/*",
-      "require": "./dist/*",
-      "types": "./dist/types/*"
+      "require": "./dist/*"
     }
   },
+  "files": [
+    "dist"
+  ],
   "typesVersions": {
     "*": {
-      "react-goblin-system": [
-        "dist/types/index.d.ts"
-      ],
-      "react-goblin-system/*": [
+      "*": [
         "dist/types/*"
       ]
     }
@@ -44,9 +42,6 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
-  },
-  "alias": {
-    "@": "./src"
   },
   "scripts": {
     "start:storybook": "storybook dev -p 6006 --no-open",

@@ -15,9 +15,9 @@ export default defineConfig({
     ],
     build: {
         lib: {
-            entry: path.resolve(__dirname, "src/index.ts"), // Punto d'ingresso della libreria
-            name: "ReactGoblinSystem", // Nome globale della libreria (per UMD)
-            fileName: (format) => `react-goblin-system.${format}.js`
+            entry: path.resolve(__dirname, "src/index.ts"),
+            name: "ReactGoblinSystem",
+            fileName: (format) => `index.${format}.js`
         },
         rollupOptions: {
             // Externalizza le peer dependencies
