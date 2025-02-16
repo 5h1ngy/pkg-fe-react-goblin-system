@@ -17,26 +17,26 @@
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
       "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/types/index.d.ts"
     },
     "./*": {
-      "import": "./dist/*.esm.js",
-      "require": "./dist/*.js",
-      "types": "./dist/*.d.ts"
+      "import": "./dist/*",
+      "require": "./dist/*",
+      "types": "./dist/types/*"
     }
   },
   "typesVersions": {
     "*": {
       "react-goblin-system": [
-        "dist/index.d.ts"
+        "dist/types/index.d.ts"
       ],
       "react-goblin-system/*": [
-        "dist/*"
+        "dist/types/*"
       ]
     }
   },
@@ -45,13 +45,17 @@
       "plugin:storybook/recommended"
     ]
   },
+  "alias": {
+    "@": "./src"
+  },
   "scripts": {
     "start:storybook": "storybook dev -p 6006 --no-open",
     "start:docs": "docusaurus start",
     "test": "jest --passWithNoTests",
     "build:storybook": "storybook build --output-dir build/storybook/",
     "build:docs": "docusaurus build",
-    "build:lib": "rollup -c",
+    "build:lib": "vite build --config vite.config.lib.ts",
+    "build:types": "tsc --project tsconfig.types.json",
     "clean": "rm -rfdv node_modules dist"
   },
   "dependencies": {
@@ -66,7 +70,6 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.26.0",
     "@chakra-ui/react": "^3.8.0",
     "@chromatic-com/storybook": "^3.2.4",
     "@docusaurus/core": "^3.7.0",
@@ -77,14 +80,6 @@
     "@eslint/js": "^9.20.0",
     "@hookform/resolvers": "^4.0.0",
     "@reduxjs/toolkit": "^2.5.1",
-    "@rollup/plugin-alias": "^5.1.1",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.2",
-    "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^16.0.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.1.2",
-    "@rollup/plugin-url": "^8.0.2",
     "@storybook/addon-docs": "^8.5.6",
     "@storybook/addon-essentials": "^8.5.6",
     "@storybook/addon-interactions": "^8.5.6",
@@ -95,7 +90,6 @@
     "@storybook/react": "^8.5.6",
     "@storybook/react-vite": "^8.5.6",
     "@storybook/test": "^8.5.6",
-    "@svgr/rollup": "^8.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -107,9 +101,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@types/react-helmet": "^6.1.11",
-    "@types/rollup-plugin-peer-deps-external": "^2.2.5",
     "@vitejs/plugin-react": "^4.3.4",
-    "babel-plugin-module-resolver": "^5.0.2",
     "chakra-react-select": "^6.0.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
@@ -135,14 +127,6 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.5",
     "regenerator-runtime": "^0.14.1",
-    "rimraf": "^6.0.1",
-    "rollup": "^4.34.7",
-    "rollup-plugin-alias": "^2.2.0",
-    "rollup-plugin-dts": "^6.1.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-tsconfig-paths": "^1.5.2",
     "sass": "^1.85.0",
     "sass-embedded": "^1.85.0",
     "storybook": "^8.5.6",

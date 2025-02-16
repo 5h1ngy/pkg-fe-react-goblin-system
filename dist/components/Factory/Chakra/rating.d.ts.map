@@ -1,1 +1,0 @@
-{"version":3,"file":"rating.d.ts","sourceRoot":"","sources":["../../../../src/components/Factory/Chakra/rating.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,kBAAkB,CAAA;AAG9C,MAAM,WAAW,WAAY,SAAQ,WAAW,CAAC,SAAS;IACxD,IAAI,CAAC,EAAE,KAAK,CAAC,YAAY,CAAA;IACzB,KAAK,CAAC,EAAE,MAAM,CAAA;IACd,KAAK,CAAC,EAAE,KAAK,CAAC,SAAS,CAAA;CACxB;AAED,eAAO,MAAM,MAAM,wGAiBlB,CAAA"}
