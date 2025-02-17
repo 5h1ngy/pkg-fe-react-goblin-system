@@ -16,7 +16,7 @@ const config: StorybookConfig = {
     const { mergeConfig } = await import('vite');
 
     return mergeConfig(config, {
-      base: "/storybook/fe-react-auth",
+      base: "/storybook/pkg-fe-react-goblin-system",
     });
   },
   refs: {
