@@ -15,29 +15,25 @@
   },
   "packageManager": "yarn@4.5.1",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.js"
+    "./components/Factory/DynamicForm": {
+      "import": "./dist/components/Factory/DynamicForm/index.mjs",
+      "types": "./dist/types/components/Factory/DynamicForm/index.d.ts"
     },
-    "./*": {
-      "import": "./dist/*",
-      "require": "./dist/*"
+    "./components/SectionCard": {
+      "import": "./dist/components/SectionCard/index.mjs",
+      "types": "./dist/types/components/SectionCard/index.d.ts"
+    },
+    "./components/SectionCardRow": {
+      "import": "./dist/components/SectionCardRow/index.mjs",
+      "types": "./dist/types/components/SectionCardRow/index.d.ts"
     }
   },
   "files": [
     "dist"
   ],
-  "typesVersions": {
-    "*": {
-      "*": [
-        "dist/types/*"
-      ]
-    }
-  },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
@@ -122,6 +118,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.5",
     "regenerator-runtime": "^0.14.1",
+    "rollup-plugin-visualizer": "^5.14.0",
     "sass": "^1.85.0",
     "sass-embedded": "^1.85.0",
     "storybook": "^8.5.6",
