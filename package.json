@@ -13,7 +13,11 @@
     "node": ">=20.18.0",
     "yarn": ">=4.5.1"
   },
+  "private": true,
   "packageManager": "yarn@4.5.1",
+  "workspaces": [
+    "docs"
+  ],
   "type": "module",
   "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -332,12 +336,11 @@
     ]
   },
   "scripts": {
-    "postinstall": "cd docs && yarn install",
     "start:storybook": "storybook dev -p 6006 --no-open",
-    "start:docs": "cd docs && docusaurus start",
+    "start:docs": "yarn workspace react-goblin-system-docs docusaurus start",
     "test": "jest --passWithNoTests",
     "build:storybook": "storybook build --output-dir build/storybook/",
-    "build:docs": "cd docs && docusaurus build",
+    "build:docs": "yarn workspace react-goblin-system-docs docusaurus build",
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:types": "tsc --project tsconfig.types.json",
     "clean": "rm -rfdv node_modules dist"
