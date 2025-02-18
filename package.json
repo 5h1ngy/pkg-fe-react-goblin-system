@@ -343,7 +343,7 @@
     "build:docs": "yarn workspace react-goblin-system-docs docusaurus build",
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:types": "tsc --project tsconfig.types.json",
-    "deploy:storybook": "gh-pages -d build/storybook --branch gh-pages-storybook --message 'Deploy Storybook 🚀'",
+    "deploy:storybook": "gh-pages -d build/storybook --branch gh-pages-storybook --message 'Deploy Storybook 🚀'  --dest storybook",
     "deploy:docs": "USE_SSH=true yarn workspace react-goblin-system-docs docusaurus deploy",
     "clean": "rm -rfdv node_modules dist"
   },
