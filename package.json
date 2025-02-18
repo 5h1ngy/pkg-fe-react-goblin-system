@@ -343,6 +343,7 @@
     "build:docs": "yarn workspace react-goblin-system-docs docusaurus build",
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:types": "tsc --project tsconfig.types.json",
+    "deploy:docs": "yarn workspace react-goblin-system-docs docusaurus deploy",
     "clean": "rm -rfdv node_modules dist"
   },
   "dependencies": {
