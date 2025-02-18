@@ -20,8 +20,8 @@ declare const schema: z.ZodEffects<z.ZodObject<{
     confirm_password: import("../Factory/DynamicForm/dynamicForm.types").MetaSchema;
 }, "strip", z.ZodTypeAny, {
     email?: any;
-    username?: any;
     password?: any;
+    username?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
@@ -30,8 +30,8 @@ declare const schema: z.ZodEffects<z.ZodObject<{
     confirm_password?: any;
 }, {
     email?: any;
-    username?: any;
     password?: any;
+    username?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
@@ -40,8 +40,8 @@ declare const schema: z.ZodEffects<z.ZodObject<{
     confirm_password?: any;
 }>, {
     email?: any;
-    username?: any;
     password?: any;
+    username?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
@@ -50,8 +50,8 @@ declare const schema: z.ZodEffects<z.ZodObject<{
     confirm_password?: any;
 }, {
     email?: any;
-    username?: any;
     password?: any;
+    username?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
@@ -80,8 +80,8 @@ declare const inputs: z.ZodObject<{
     confirm_password: import("../Factory/DynamicForm/dynamicForm.types").MetaSchema;
 }, "strip", z.ZodTypeAny, {
     email?: any;
-    username?: any;
     password?: any;
+    username?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
@@ -90,8 +90,8 @@ declare const inputs: z.ZodObject<{
     confirm_password?: any;
 }, {
     email?: any;
-    username?: any;
     password?: any;
+    username?: any;
     first_name?: any;
     last_name?: any;
     bday?: any;
