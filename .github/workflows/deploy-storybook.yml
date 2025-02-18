@@ -40,25 +40,12 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      # 7) Builda Storybook
-      - name: Build Storybook
-        run: yarn build:storybook
-
-      # 8) Deploy su GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/storybook
-          publish_branch: gh-pages
-          destination_dir: storybook
-
       # 7) Builda docusaurus
       - name: Build Docusaurus
         run: yarn build:docs
 
       # 8) Deploy su GitHub Pages
-      - name: Deploy to GitHub Pages
+      - name: Deploy Docusaurus to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -66,3 +53,16 @@ jobs:
           publish_branch: gh-pages
           # destination_dir: docusaurus
 
+      # 7) Builda Storybook
+      - name: Build Storybook
+        run: yarn build:storybook
+
+      # 8) Deploy su GitHub Pages
+      - name: Deploy Storybook to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/storybook
+          publish_branch: gh-pages
+          destination_dir: storybook
+          keep_files: true
