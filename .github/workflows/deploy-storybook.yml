@@ -3,7 +3,7 @@ name: Deploy Storybook to GitHub Pages
 on:
   push:
     branches:
-      - develop  # Cambia con il tuo branch principale, se necessario
+      - develop  # O il tuo branch di riferimento
 
 permissions:
   contents: write
@@ -13,30 +13,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1) Checkout del repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2) Installa Node.js SENZA usare la cache Yarn
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'yarn'
+          # non usare "cache: yarn", altrimenti gira Yarn 1.x prima di Corepack
 
+      # 3) Abilita Corepack
       - name: Enable Corepack
         run: corepack enable
 
+      # 4) Installa la versione specifica di Yarn
       - name: Use the correct Yarn version
         run: corepack prepare yarn@4.5.1 --activate
 
+      # 5) Verifica di avere Yarn 4.5.1
       - name: Verify Yarn version
-        run: yarn --version  # Controlla che sia installato Yarn 4.5.1
+        run: yarn --version
 
+      # 6) Installa le dipendenze (ora con Yarn 4)
       - name: Install dependencies
         run: yarn install --immutable
 
+      # 7) Builda Storybook
       - name: Build Storybook
         run: yarn build:storybook
 
+      # 8) Deploy su GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
