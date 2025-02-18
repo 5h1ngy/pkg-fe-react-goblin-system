@@ -21,7 +21,7 @@ const config: Config = {
   projectName: 'pkg-fe-react-goblin-system', // Usually your repo name.
 
   trailingSlash: false, // Imposta esplicitamente il trailing slash
-  deploymentBranch: 'gh-pages',
+  deploymentBranch: 'gh-pages-docusaurus',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
