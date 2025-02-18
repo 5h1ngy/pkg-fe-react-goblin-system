@@ -52,6 +52,7 @@ jobs:
           publish_dir: ./build/storybook
           publish_branch: gh-pages
           dest: storybook
+          keepFiles: true
 
       # 7) Builda docusaurus
       - name: Build Docusaurus
@@ -65,4 +66,5 @@ jobs:
           publish_dir: ./docs/build
           publish_branch: gh-pages
           dest: docusaurus
+          keepFiles: true
 
