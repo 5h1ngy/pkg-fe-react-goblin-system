@@ -9,6 +9,7 @@ lerna-debug.log*
 
 .yarn
 node_modules
+build
 build-ssr
 *.local
 
