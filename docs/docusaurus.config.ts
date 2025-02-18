@@ -18,7 +18,10 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: '5h1ngy', // Usually your GitHub org/user name.
-  projectName: 'react-goblin-system-docs', // Usually your repo name.
+  projectName: 'pkg-fe-react-goblin-system', // Usually your repo name.
+
+  trailingSlash: false, // Imposta esplicitamente il trailing slash
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
