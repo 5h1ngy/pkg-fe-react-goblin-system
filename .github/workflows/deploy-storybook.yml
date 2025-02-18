@@ -1,4 +1,4 @@
-name: Deploy: Storybook & Docusaurus, to GitHub Pages
+name: Deploy -> Storybook & Docusaurus -> to GitHub Pages
 
 on:
   push:
