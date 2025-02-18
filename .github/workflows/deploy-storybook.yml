@@ -51,9 +51,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/storybook
           publish_branch: gh-pages
-          dest: storybook
-          keepFiles: true                # non cancellare i file se già esistenti
-          forceOrphan: false             # non ricreare il branch da zero
+          destination_dir: storybook
 
       # 7) Builda docusaurus
       - name: Build Docusaurus
@@ -66,7 +64,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/build
           publish_branch: gh-pages
-          # dest: docusaurus
-          keepFiles: true                # non cancellare i file se già esistenti
-          forceOrphan: false             # non ricreare il branch da zero
+          # destination_dir: docusaurus
 
