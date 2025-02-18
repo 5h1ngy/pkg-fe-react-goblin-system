@@ -3,7 +3,7 @@ name: pages-build
 on:
   push:
     branches:
-      - develop  # O il tuo branch di riferimento
+      - main  # O il tuo branch di riferimento
 
 permissions:
   contents: write
