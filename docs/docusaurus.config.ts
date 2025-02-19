@@ -31,7 +31,7 @@ const config: Config = {
   themeConfig: {
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: true,
+      disableSwitch: false,
     },
     navbar: {
       title: 'RG System',
