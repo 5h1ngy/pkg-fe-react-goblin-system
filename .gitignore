@@ -9,9 +9,11 @@ lerna-debug.log*
 
 .yarn
 node_modules
-build
+build-docusaurus
+build-storybook
 build-ssr
 *.local
+.docusaurus
 
 # Editor directories and files
 .vscode/*

@@ -41,7 +41,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/docusaurus
+          publish_dir: ./build-docusaurus
           publish_branch: gh-pages
           # destination_dir: docusaurus
 
@@ -52,7 +52,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/storybook
+          publish_dir: ./build-storybook
           publish_branch: gh-pages
           destination_dir: storybook
           keep_files: true
