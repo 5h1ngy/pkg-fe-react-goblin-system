@@ -2,11 +2,11 @@
 
 <div align="center">
   <!-- Logo (from assets/logo.png) centered -->
-  <img src="assets/logo.png" alt="pkg-fe-react-goblin-system Logo" width="200">
+  <img src="assets/logo.png" alt="pkg-fe-react-goblin-system Logo" width="300">
 </div>
 
 <!-- Example badges from img.shields.io (customize as desired) -->
-<div align="center">
+<div align="start">
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License MIT">
   </a>
@@ -21,16 +21,12 @@
   </a>
 </div>
 
----
-
 ## URLs
 
 | Key       | Value                                                                           |
 |-----------|---------------------------------------------------------------------------------|
 | Website   | https://5h1ngy.github.io/pkg-fe-react-goblin-system/                            |
 | Storybook | https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook                   |
-
----
 
 ## Overview
 
@@ -47,8 +43,6 @@
   - **Storybook** for component development and interactive demos.
   - **Jest** & **Testing Library** for unit/integration tests.
   - **Docusaurus** for extensive documentation (`docs` folder).
-
----
 
 ## Project Structure
 
@@ -75,8 +69,6 @@ pkg-fe-react-goblin-system/
 ├─ jest.config.js        # Jest test configuration
 └─ ... (other configs)
 ```
-
----
 
 ## Installation
 
@@ -127,8 +119,6 @@ pkg-fe-react-goblin-system/
    ```
    Removes `node_modules` and `dist`.
 
----
-
 ## Usage Example
 
 Once the library is built (or used as an internal workspace), you can import its components, services, or providers. For example:
@@ -169,8 +159,6 @@ createRoot(document.getElementById("root")).render(
 );
 ```
 
----
-
 ## Scripts from `package.json`
 
 - **`start:storybook`** – Start Storybook in dev mode (default at port 6006).  
@@ -182,21 +170,15 @@ createRoot(document.getElementById("root")).render(
 - **`build:types`** – Generate `.d.ts` TypeScript declarations.  
 - **`clean`** – Remove `node_modules` and `dist`.
 
----
-
 ## Contributing
 
 1. **Fork** the repository or create a new branch in your clone.  
 2. **Install** dependencies, then work on your feature or fix inside `src/`.  
 3. **Open a pull request** describing your changes and improvements.
 
----
-
 ## License
 
 This project is licensed under the **MIT License**. See the `LICENSE` file or reference the information within the `package.json` for details.
-
----
 
 ## References
 
@@ -206,8 +188,6 @@ This project is licensed under the **MIT License**. See the `LICENSE` file or re
 - [Docusaurus](https://docusaurus.io/)  
 - [Vite](https://vitejs.dev/)  
 - [Jest](https://jestjs.io/) & [Testing Library](https://testing-library.com/)  
-
----
 
 ### Example: Importing the logo in code
 
