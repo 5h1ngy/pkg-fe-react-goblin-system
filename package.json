@@ -278,10 +278,6 @@
       "import": "./dist/components/StyledMarkdown/index.mjs",
       "types": "./dist/types/components/StyledMarkdown/index.d.ts"
     },
-    "./hocs/withRouter": {
-      "import": "./dist/hocs/withRouter.mjs",
-      "types": "./dist/types/hocs/withRouter.d.ts"
-    },
     "./layouts/Error": {
       "import": "./dist/layouts/Error/index.mjs",
       "types": "./dist/types/layouts/Error/index.d.ts"

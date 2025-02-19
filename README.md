@@ -36,7 +36,7 @@
 
 - **Rich UI Components** powered by [Chakra UI](https://chakra-ui.com) (buttons, alerts, accordions, dialogs, and more).  
 - **Providers** for theme (`Theme`) and authentication (`AuthProvider`) to simplify overall integration.  
-- **Layouts** (e.g., `Error`, `Loading`, `Transformer`) and **Higher-Order Components** (`withRouter`) for structured and maintainable code.  
+- **Layouts** (e.g., `Error`, `Loading`, `Transformer`) for structured and maintainable code.  
 - **Ready-made Auth Services** (`services/auth`) and **Redux Store** slices (`store/auth`, `store/shared`).  
 - **Preconfigured** with:
   - **Vite** (development server and library build).

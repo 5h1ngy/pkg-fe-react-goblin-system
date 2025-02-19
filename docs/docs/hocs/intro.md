@@ -4,7 +4,7 @@ Higher-Order Components (HOCs) are an advanced React pattern for reusing compone
 
 ## What are HOCs?
 
-HOCs are not part of the React API but a design pattern that emerges from React’s compositional nature. Essentially, an HOC wraps a base component and augments it by injecting additional data, state, or behavior. Common examples include `withRouter` from React Router or `connect` from React Redux.
+HOCs are not part of the React API but a design pattern that emerges from React’s compositional nature. Essentially, an HOC wraps a base component and augments it by injecting additional data, state, or behavior.
 
 ## Why Use HOCs?
 
