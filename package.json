@@ -340,7 +340,7 @@
     "start:docs": "yarn workspace react-goblin-system-docs docusaurus start",
     "test": "jest --passWithNoTests",
     "build:storybook": "storybook build --output-dir build-storybook",
-    "build:docs": "yarn workspace react-goblin-system-docs docusaurus build && rm -rfdv build-docusaurus && mkdir build-docusaurus && mv docs/build build-docusaurus && rm -rfdv docs/build",
+    "build:docs": "yarn workspace react-goblin-system-docs docusaurus build && rm -rf build-docusaurus && mv docs/build build-docusaurus && rm -rf docs/build",
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:types": "tsc --project tsconfig.types.json",
     "clean": "rm -rfdv node_modules dist"
