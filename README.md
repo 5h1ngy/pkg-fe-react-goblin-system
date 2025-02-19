@@ -23,6 +23,15 @@
 
 ---
 
+## URLs
+
+| Key       | Value                                                                           |
+|-----------|---------------------------------------------------------------------------------|
+| Website   | https://5h1ngy.github.io/pkg-fe-react-goblin-system/                            |
+| Storybook | https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook                   |
+
+---
+
 ## Overview
 
 **pkg-fe-react-goblin-system** (also referred to as **React Goblin System**) is a **TypeScript** and **React**-based front-end package that provides reusable UI components, context providers (e.g., Auth and Theme), layouts, services, and Redux store modules. It aims to streamline the development of modular, scalable applications by leveraging modern libraries and best practices, including **Chakra UI**, **React Router**, and **Redux Toolkit**.
@@ -217,4 +226,4 @@ function LogoExample() {
 export default LogoExample;
 ```
 
-Feel free to remove this snippet if it’s not needed in your docs, or adapt it if you prefer another approach. 
+Feel free to remove this snippet if it’s not needed in your docs, or adapt it if you prefer another approach.
