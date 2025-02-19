@@ -6,6 +6,7 @@ import DynamicForm from './DynamicForm';
 export default {
   title: 'Components/Factory/DynamicForm',
   component: DynamicForm,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
