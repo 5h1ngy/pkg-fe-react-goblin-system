@@ -2,15 +2,15 @@
 import type { Config } from '@docusaurus/types';
 
 const config: Config = {
-  title: 'My Project Documentation',
-  tagline: 'Documentation for an awesome project',
+  title: 'RG System Documentation',
+  tagline: 'Empowering Your Vision, One Module at a Time.',
   url: 'https://5h1ngy.github.io',
-  baseUrl: '/my-project/',
+  baseUrl: '/pkg-fe-react-goblin-system/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: '5h1ngy', // GitHub username
-  projectName: 'my-project',   // Repository name
+  projectName: 'pkg-fe-react-goblin-system',   // Repository name
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -30,11 +30,17 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: true,
+      // Optionally, you can disable respecting the user's OS color scheme:
+      // respectPrefersColorScheme: false,
+    },
     navbar: {
-      title: 'My Project',
+      title: 'RG System',
       logo: {
-        alt: 'My Project Logo',
-        src: 'img/logo.svg',
+        alt: 'logo',
+        src: 'img/logo.png',
       },
       items: [
         {
@@ -43,12 +49,12 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://5h1ngy.github.io/storybook',
-          label: 'Components',
+          href: 'https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook',
+          label: 'Storybook',
           position: 'left',
         },
         {
-          href: 'https://github.com/5h1ngy/my-project',
+          href: 'https://github.com/5h1ngy/pkg-fe-react-goblin-system',
           label: 'GitHub',
           position: 'right',
         },
@@ -56,21 +62,21 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            { label: 'Overview', to: '/docs/overview' },
-            { label: 'Get Started', to: '/docs/get-started' },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            { label: 'GitHub', href: 'https://github.com/5h1ngy/my-project' },
-          ],
-        },
-      ],
+      // links: [
+      //   {
+      //     title: 'Docs',
+      //     items: [
+      //       { label: 'Overview', to: '/docs/overview' },
+      //       { label: 'Get Started', to: '/docs/get-started' },
+      //     ],
+      //   },
+      //   {
+      //     title: 'Community',
+      //     items: [
+      //       { label: 'GitHub', href: 'https://github.com/5h1ngy/my-project' },
+      //     ],
+      //   },
+      // ],
       copyright: `Copyright © ${new Date().getFullYear()} 5h1ngy.`,
     },
   },

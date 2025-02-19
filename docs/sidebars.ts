@@ -1,23 +1,52 @@
-// sidebars.ts
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   docs: [
-    'overview',       // Reference to docs/overview.md
-    'get-started',    // Reference to docs/get-started.md
+    'overview',
+    'get-started',
+    'architecture',
     {
-      type: 'link',
-      label: 'Components',           // External link to Storybook
-      href: 'https://5h1ngy.github.io/storybook',
+      type: 'category',
+      label: 'Components 🧩',
+      items: [
+        {
+          type: 'link',
+          label: 'Storybook',
+          href: 'https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook',
+        },
+        'components/overview',
+        'components/atomic-design',
+        'components/examples',
+      ],
     },
     {
       type: 'category',
-      label: 'HOCs',                 // Category for HOCs documentation
+      label: 'HOCs 🎩',
       items: [
-        'hocs/intro',              // Placeholder for docs/hocs/intro.md
-        // Add additional HOCs docs here
+        'hocs/intro',
+        'hocs/advanced',
+        'hocs/examples',
       ],
     },
+    {
+      type: 'category',
+      label: 'Hooks 🪝',
+      items: [
+        'hooks/overview',
+        'hooks/usage',
+        'hooks/examples',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'State Management 📊',
+      items: [
+        'state-management/overview',
+        'state-management/redux',
+        'state-management/context',
+      ],
+    },
+    'contributing',
   ],
 };
 

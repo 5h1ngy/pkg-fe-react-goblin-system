@@ -5,7 +5,21 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.features {
+  padding: 4rem 0;
+}
+
+.featureImg {
+  max-width: 150px;   /* Constrains the image size */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;     /* Center the image */
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .featureImg {
+    max-width: 100px;
+  }
 }
