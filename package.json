@@ -339,11 +339,10 @@
     "start:storybook": "storybook dev -p 6006 --no-open",
     "start:docs": "yarn workspace react-goblin-system-docs docusaurus start",
     "test": "jest --passWithNoTests",
-    "build:storybook": "storybook build --output-dir build/storybook/",
-    "build:docs": "yarn workspace react-goblin-system-docs docusaurus build && rm -rfdv build/docusaurus && mkdir build/ && mv docs/build build/docusaurus && rm -rfdv docs/build",
+    "build:storybook": "storybook build --output-dir build-storybook",
+    "build:docs": "yarn workspace react-goblin-system-docs docusaurus build && rm -rfdv build-docusaurus && mkdir build-docusaurus && mv docs/build build-docusaurus && rm -rfdv docs/build",
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:types": "tsc --project tsconfig.types.json",
-    "deploy:storybook": "gh-pages -d build/storybook --branch gh-pages-storybook --message 'Deploy Storybook 🚀'  --dest storybook",
     "clean": "rm -rfdv node_modules dist"
   },
   "dependencies": {

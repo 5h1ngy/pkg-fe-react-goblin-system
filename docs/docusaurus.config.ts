@@ -1,4 +1,3 @@
-// docusaurus.config.ts
 import type { Config } from '@docusaurus/types';
 
 const config: Config = {
@@ -9,8 +8,8 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: '5h1ngy', // GitHub username
-  projectName: 'pkg-fe-react-goblin-system',   // Repository name
+  organizationName: '5h1ngy',
+  projectName: 'pkg-fe-react-goblin-system', 
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -19,10 +18,10 @@ const config: Config = {
     [
       '@docusaurus/preset-classic',
       {
+        blog: false,
         docs: {
           sidebarPath: require.resolve('./sidebars.ts'),
         },
-        blog: false, // Blog section is disabled
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -33,8 +32,6 @@ const config: Config = {
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: true,
-      // Optionally, you can disable respecting the user's OS color scheme:
-      // respectPrefersColorScheme: false,
     },
     navbar: {
       title: 'RG System',
@@ -62,21 +59,6 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      // links: [
-      //   {
-      //     title: 'Docs',
-      //     items: [
-      //       { label: 'Overview', to: '/docs/overview' },
-      //       { label: 'Get Started', to: '/docs/get-started' },
-      //     ],
-      //   },
-      //   {
-      //     title: 'Community',
-      //     items: [
-      //       { label: 'GitHub', href: 'https://github.com/5h1ngy/my-project' },
-      //     ],
-      //   },
-      // ],
       copyright: `Copyright © ${new Date().getFullYear()} 5h1ngy.`,
     },
   },
