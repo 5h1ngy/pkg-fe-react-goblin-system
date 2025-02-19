@@ -1,6 +1,6 @@
 export declare const authActions: import("@reduxjs/toolkit").CaseReducerActions<{
-    clearErrorsRegister: (state: import("@reduxjs/toolkit").Draft<import("./types").State>) => void;
-    clearErrorsLogin: (state: import("@reduxjs/toolkit").Draft<import("./types").State>) => void;
+    clearErrorsRegister: (state: import("immer").Draft<import("./types").State>) => void;
+    clearErrorsLogin: (state: import("immer").Draft<import("./types").State>) => void;
 }, "slice/auth">;
 export declare const authAsyncActions: {
     doRegister: import("@reduxjs/toolkit").AsyncThunk<import("../../services/auth/types").ResponseRegister, FormData, {

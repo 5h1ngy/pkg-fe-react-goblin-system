@@ -278,10 +278,6 @@
       "import": "./dist/components/StyledMarkdown/index.mjs",
       "types": "./dist/types/components/StyledMarkdown/index.d.ts"
     },
-    "./hocs/withDynamicImport": {
-      "import": "./dist/hocs/withDynamicImport.mjs",
-      "types": "./dist/types/hocs/withDynamicImport.d.ts"
-    },
     "./hocs/withRouter": {
       "import": "./dist/hocs/withRouter.mjs",
       "types": "./dist/types/hocs/withRouter.d.ts"
