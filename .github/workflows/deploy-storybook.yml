@@ -43,7 +43,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build-docusaurus
           publish_branch: gh-pages
-          destination_dir: /
+          destination_dir: ./
 
       - name: Build Storybook
         run: yarn build:storybook
