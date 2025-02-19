@@ -2,7 +2,7 @@
 
 <div align="center">
   <!-- Logo (from assets/logo.png) centered -->
-  <img src="assets/logo.png" alt="pkg-fe-react-goblin-system Logo" width="300">
+  <img src="assets/logo.png" alt="pkg-fe-react-goblin-system Logo" width="500">
 </div>
 
 <!-- Example badges from img.shields.io (customize as desired) -->
