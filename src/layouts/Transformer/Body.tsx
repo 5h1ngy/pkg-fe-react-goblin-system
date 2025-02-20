@@ -3,8 +3,9 @@ import { Flex } from "@chakra-ui/react";
 import gsap from "gsap";
 
 import { usePageContext } from "./shared/hooks";
+import { ComponentProps } from "./transformer.types";
 
-const Body: FC = () => {
+const Body: FC<ComponentProps> = () => {
     const { props } = usePageContext();
     const { children } = props;
 

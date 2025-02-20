@@ -4,8 +4,9 @@ import { Flex, chakra } from "@chakra-ui/react";
 import { usePageContext, useMouse } from "./shared/hooks";
 import Header from "./Header";
 import Body from "./Body";
+import { ComponentProps } from "./transformer.types";
 
-const Transformer: FC = () => {
+const Transformer: FC<ComponentProps> = () => {
     const { isMobileRef, circleRef } = useMouse()
     const { props, } = usePageContext()
     const { background } = props;

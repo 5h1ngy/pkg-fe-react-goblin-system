@@ -1,3 +1,4 @@
 import { FC } from "react";
-declare const Transformer: FC;
+import { ComponentProps } from "./transformer.types";
+declare const Transformer: FC<ComponentProps>;
 export default Transformer;

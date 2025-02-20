@@ -7,7 +7,7 @@ import { ComponentProps, ContextType } from "../transformer.types";
 export const Context = createContext<ContextType | undefined>(undefined);
 
 export default function withContext<T extends ComponentProps>(
-    WrappedComponent: React.ComponentType
+    WrappedComponent: React.ComponentType<T>
 ) {
     const HOC: FC<T> = (props) => {
         const location = useLocation();
@@ -19,7 +19,7 @@ export default function withContext<T extends ComponentProps>(
 
         return (
             <Context.Provider value={{ props: { ...props, background }, setBackground, }}>
-                <WrappedComponent />
+                <WrappedComponent {...props} />
                 <Toaster />
             </Context.Provider>
         );

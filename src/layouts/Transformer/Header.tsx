@@ -10,8 +10,9 @@ import { DrawerContent, DrawerRoot, DrawerTrigger } from "@/components/Factory/C
 
 import { usePageContext, useMouse } from "./shared/hooks";
 import { findMatchingNavbarValue } from "./shared/utils";
+import { ComponentProps } from "./transformer.types";
 
-const Component: FC = () => {
+const Component: FC<ComponentProps> = () => {
     const { isMobileRef, handleNavigationAndScroll, } = useMouse()
     const { props, } = usePageContext()
     const navigate = useNavigate();

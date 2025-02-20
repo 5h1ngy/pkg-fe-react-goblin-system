@@ -1,3 +1,4 @@
 import { FC } from "react";
-declare const Body: FC;
+import { ComponentProps } from "./transformer.types";
+declare const Body: FC<ComponentProps>;
 export default Body;

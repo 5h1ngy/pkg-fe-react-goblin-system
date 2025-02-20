@@ -15,7 +15,7 @@ function withContext(WrappedComponent) {
       setBackground(props.background);
     }, [location.pathname]);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(Context$1.Provider, { value: { props: { ...props, background }, setBackground }, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(WrappedComponent, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(WrappedComponent, { ...props }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
     ] });
   };
