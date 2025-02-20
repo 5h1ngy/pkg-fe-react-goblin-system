@@ -1,6 +1,6 @@
 {
   "name": "react-goblin-system",
-  "version": "0.1.0",
+  "version": "0.3.14",
   "license": "MIT",
   "description": "",
   "keywords": [],
@@ -328,14 +328,14 @@
     ]
   },
   "scripts": {
-    "start:storybook": "storybook dev -p 6006 --no-open",
+    "start:storybook": "storybook dev --no-open",
     "start:docs": "yarn workspace react-goblin-system-docs docusaurus start",
     "test": "jest --passWithNoTests",
     "build:storybook": "storybook build --output-dir build-storybook",
     "build:docs": "yarn workspace react-goblin-system-docs docusaurus build && rm -rf build-docusaurus && mv docs/build build-docusaurus && rm -rf docs/build",
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:types": "tsc --project tsconfig.types.json",
-    "clean": "rm -rfdv node_modules dist"
+    "clean": "rm -rfdv node_modules dist build-docusaurus build-storybook .yarn"
   },
   "dependencies": {
     "axios": "^1.7.9",
