@@ -1,24 +1,39 @@
 import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 import { createContext, useState, useEffect, useRef, useContext } from "react";
 import { Toaster } from "../../components/Factory/Chakra/toaster.mjs";
-import { u as useLocation, a as useNavigate, N as NavLink } from "../../.chunks/DW6FJsjl.js";
+import { u as useLocation, B as BrowserRouter, a as useNavigate, N as NavLink } from "../../.chunks/C0g_7Ooj.js";
 import { Flex, Text, Spacer, Tabs, IconButton, Image, chakra } from "@chakra-ui/react";
 import { a as CiGlobe } from "../../.chunks/CqM0Stt-.js";
 import { ColorModeButtonExtended } from "../../components/Factory/Chakra/color-mode.mjs";
 import { DrawerRoot, DrawerBackdrop, DrawerTrigger, DrawerContent, DrawerBody, DrawerCloseTrigger } from "../../components/Factory/Chakra/drawer.mjs";
 const Context$1 = createContext(void 0);
+function withMaybeRouter(Component2) {
+  try {
+    useLocation();
+    return Component2;
+  } catch {
+    return (props) => /* @__PURE__ */ jsxRuntimeExports.jsx(BrowserRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Component2, { ...props }) });
+  }
+}
 function withContext(WrappedComponent) {
-  const HOC = (props) => {
+  const InnerComponent = (props) => {
     const location = useLocation();
     const [background, setBackground] = useState(props.background);
     useEffect(() => {
       setBackground(props.background);
     }, [location.pathname]);
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Context$1.Provider, { value: { props: { ...props, background }, setBackground }, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(WrappedComponent, { ...props }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
-    ] });
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      Context$1.Provider,
+      {
+        value: { props: { ...props, background }, setBackground },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(WrappedComponent, { ...props }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
+        ]
+      }
+    );
   };
+  const HOC = withMaybeRouter(InnerComponent);
   HOC.displayName = `withTransformerLayout(${WrappedComponent.displayName || WrappedComponent.name || "Component"})`;
   return HOC;
 }

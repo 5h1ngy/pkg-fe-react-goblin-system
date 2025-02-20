@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 import * as React from "react";
 import React__default, { createContext, useContext } from "react";
-import { b as Navigate } from "../../.chunks/DW6FJsjl.js";
+import { b as Navigate } from "../../.chunks/C0g_7Ooj.js";
 var withSelector = { exports: {} };
 var useSyncExternalStoreWithSelector_production = {};
 /**
