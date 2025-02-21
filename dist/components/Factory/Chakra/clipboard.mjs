@@ -72,3 +72,4 @@ export {
   ClipboardLink,
   ClipboardRoot
 };
+//# sourceMappingURL=clipboard.mjs.map

@@ -26,3 +26,4 @@ export {
   SkeletonCircle,
   SkeletonText
 };
+//# sourceMappingURL=skeleton.mjs.map

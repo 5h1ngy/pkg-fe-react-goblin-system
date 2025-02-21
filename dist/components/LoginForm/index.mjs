@@ -53,3 +53,4 @@ const LoginForm = ({ header, submit, children, root }) => {
 export {
   LoginForm as default
 };
+//# sourceMappingURL=index.mjs.map

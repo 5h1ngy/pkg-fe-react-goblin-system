@@ -14,7 +14,7 @@ export default defineConfig({
         tsconfigPaths()
     ],
     build: {
-        sourcemap: false,
+        sourcemap: true,
         minify: 'terser',
         lib: {
             name: "react-goblin-system",
