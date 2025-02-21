@@ -1,5 +1,5 @@
 import React, { createContext, FC, useEffect, useState } from "react";
-import { NavigateFunction } from "react-router-dom";
+import { NavigateFunction, Location } from "react-router-dom";
 
 import { Toaster } from "@/components/Factory/Chakra/toaster";
 import { ComponentProps, ContextType } from "../transformer.types";
@@ -8,7 +8,7 @@ export const Context = createContext<ContextType | undefined>(undefined);
 
 export default function withContext<T extends ComponentProps>(
     WrappedComponent: React.ComponentType<T>,
-    location?: Location,
+    location?: Location<any>,
     navigate?: NavigateFunction,
 ) {
     const HOC: FC<T> = (props) => {
