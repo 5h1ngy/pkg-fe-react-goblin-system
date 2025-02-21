@@ -1,5 +1,5 @@
 import React, { createContext, FC, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useInRouterContext, useLocation } from "react-router-dom";
 
 import { Toaster } from "@/components/Factory/Chakra/toaster";
 import { ComponentProps, ContextType } from "../transformer.types";
@@ -10,7 +10,8 @@ export default function withContext<T extends ComponentProps>(
     WrappedComponent: React.ComponentType<T>
 ) {
     const HOC: FC<T> = (props) => {
-        const location = useLocation();
+        const isInRouterContext = useInRouterContext();
+        const location = isInRouterContext ? useLocation() : { pathname: "/" };
         const [background, setBackground] = useState(props.background);
 
         useEffect(() => {

@@ -1,6 +1,4 @@
-import withContext from "./shared/Provider";
-import Transformer from "./Transformer";
 import { ComponentProps } from "./transformer.types";
-export { withContext };
-export default Transformer;
+declare const _default: import("react").FC<ComponentProps>;
+export default _default;
 export type { ComponentProps };
