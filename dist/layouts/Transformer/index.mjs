@@ -1,39 +1,24 @@
 import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 import { createContext, useState, useEffect, useRef, useContext } from "react";
 import { Toaster } from "../../components/Factory/Chakra/toaster.mjs";
-import { u as useLocation, B as BrowserRouter, a as useNavigate, N as NavLink } from "../../.chunks/C0g_7Ooj.js";
+import { u as useLocation, a as useNavigate, N as NavLink } from "../../.chunks/DW6FJsjl.js";
 import { Flex, Text, Spacer, Tabs, IconButton, Image, chakra } from "@chakra-ui/react";
 import { a as CiGlobe } from "../../.chunks/CqM0Stt-.js";
 import { ColorModeButtonExtended } from "../../components/Factory/Chakra/color-mode.mjs";
 import { DrawerRoot, DrawerBackdrop, DrawerTrigger, DrawerContent, DrawerBody, DrawerCloseTrigger } from "../../components/Factory/Chakra/drawer.mjs";
 const Context$1 = createContext(void 0);
-function withMaybeRouter(Component2) {
-  try {
-    useLocation();
-    return Component2;
-  } catch {
-    return (props) => /* @__PURE__ */ jsxRuntimeExports.jsx(BrowserRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Component2, { ...props }) });
-  }
-}
 function withContext(WrappedComponent) {
-  const InnerComponent = (props) => {
+  const HOC = (props) => {
     const location = useLocation();
     const [background, setBackground] = useState(props.background);
     useEffect(() => {
       setBackground(props.background);
     }, [location.pathname]);
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      Context$1.Provider,
-      {
-        value: { props: { ...props, background }, setBackground },
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(WrappedComponent, { ...props }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
-        ]
-      }
-    );
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Context$1.Provider, { value: { props: { ...props, background }, setBackground }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(WrappedComponent, { ...props }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
+    ] });
   };
-  const HOC = withMaybeRouter(InnerComponent);
   HOC.displayName = `withTransformerLayout(${WrappedComponent.displayName || WrappedComponent.name || "Component"})`;
   return HOC;
 }
@@ -575,8 +560,8 @@ var _config$1 = {
 }, normalize = function normalize2(min, max, value) {
   return mapRange(min, max, 0, 1, value);
 }, _wrapArray = function _wrapArray2(a, wrapper, value) {
-  return _conditionalReturn(value, function(index2) {
-    return a[~~wrapper(index2)];
+  return _conditionalReturn(value, function(index) {
+    return a[~~wrapper(index)];
   });
 }, wrap = function wrap2(min, max, value) {
   var range = max - min;
@@ -930,13 +915,13 @@ var _config$1 = {
 }(), _wake = function _wake2() {
   return !_tickerActive && _ticker.wake();
 }, _easeMap = {}, _customEaseExp = /^[\d.\-M][\d.\-,\s]/, _quotesExp = /["']/g, _parseObjectInString = function _parseObjectInString2(value) {
-  var obj = {}, split = value.substr(1, value.length - 3).split(":"), key = split[0], i = 1, l = split.length, index2, val, parsedVal;
+  var obj = {}, split = value.substr(1, value.length - 3).split(":"), key = split[0], i = 1, l = split.length, index, val, parsedVal;
   for (; i < l; i++) {
     val = split[i];
-    index2 = i !== l - 1 ? val.lastIndexOf(",") : val.length;
-    parsedVal = val.substr(0, index2);
+    index = i !== l - 1 ? val.lastIndexOf(",") : val.length;
+    parsedVal = val.substr(0, index);
     obj[key] = isNaN(parsedVal) ? parsedVal.replace(_quotesExp, "").trim() : +parsedVal;
-    key = val.substr(index2 + 1).trim();
+    key = val.substr(index + 1).trim();
   }
   return obj;
 }, _valueInParentheses = function _valueInParentheses2(value) {
@@ -1824,7 +1809,7 @@ _setDefaults(Timeline.prototype, {
   _forcing: 0
 });
 var _addComplexStringPropTween = function _addComplexStringPropTween2(target, prop, start, end, setter, stringFilter, funcParam) {
-  var pt = new PropTween(this._pt, target, prop, 0, 1, _renderComplexString, null, setter), index2 = 0, matchIndex = 0, result, startNums, color, endNum, chunk, startNum, hasRandom, a;
+  var pt = new PropTween(this._pt, target, prop, 0, 1, _renderComplexString, null, setter), index = 0, matchIndex = 0, result, startNums, color, endNum, chunk, startNum, hasRandom, a;
   pt.b = start;
   pt.e = end;
   start += "";
@@ -1841,7 +1826,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
   startNums = start.match(_complexStringNumExp) || [];
   while (result = _complexStringNumExp.exec(end)) {
     endNum = result[0];
-    chunk = end.substring(index2, result.index);
+    chunk = end.substring(index, result.index);
     if (color) {
       color = (color + 1) % 5;
     } else if (chunk.substr(-5) === "rgba(") {
@@ -1857,18 +1842,18 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
         c: endNum.charAt(1) === "=" ? _parseRelative(startNum, endNum) - startNum : parseFloat(endNum) - startNum,
         m: color && color < 4 ? Math.round : 0
       };
-      index2 = _complexStringNumExp.lastIndex;
+      index = _complexStringNumExp.lastIndex;
     }
   }
-  pt.c = index2 < end.length ? end.substring(index2, end.length) : "";
+  pt.c = index < end.length ? end.substring(index, end.length) : "";
   pt.fp = funcParam;
   if (_relExp.test(end) || hasRandom) {
     pt.e = 0;
   }
   this._pt = pt;
   return pt;
-}, _addPropTween = function _addPropTween2(target, prop, start, end, index2, targets, modifier, stringFilter, funcParam, optional) {
-  _isFunction$1(end) && (end = end(index2 || 0, target, targets));
+}, _addPropTween = function _addPropTween2(target, prop, start, end, index, targets, modifier, stringFilter, funcParam, optional) {
+  _isFunction$1(end) && (end = end(index || 0, target, targets));
   var currentValue = target[prop], parsedStart = start !== "get" ? start : !_isFunction$1(currentValue) ? currentValue : funcParam ? target[prop.indexOf("set") || !_isFunction$1(target["get" + prop.substr(3)]) ? prop : "get" + prop.substr(3)](funcParam) : target[prop](), setter = !_isFunction$1(currentValue) ? _setterPlain : funcParam ? _setterFuncWithParam : _setterFunc, pt;
   if (_isString$1(end)) {
     if (~end.indexOf("random(")) {
@@ -1891,19 +1876,19 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
     !currentValue && !(prop in target) && _missingPlugin(prop, end);
     return _addComplexStringPropTween.call(this, target, prop, parsedStart, end, setter, stringFilter || _config$1.stringFilter, funcParam);
   }
-}, _processVars = function _processVars2(vars, index2, target, targets, tween) {
-  _isFunction$1(vars) && (vars = _parseFuncOrString(vars, tween, index2, target, targets));
+}, _processVars = function _processVars2(vars, index, target, targets, tween) {
+  _isFunction$1(vars) && (vars = _parseFuncOrString(vars, tween, index, target, targets));
   if (!_isObject(vars) || vars.style && vars.nodeType || _isArray(vars) || _isTypedArray(vars)) {
-    return _isString$1(vars) ? _parseFuncOrString(vars, tween, index2, target, targets) : vars;
+    return _isString$1(vars) ? _parseFuncOrString(vars, tween, index, target, targets) : vars;
   }
   var copy = {}, p;
   for (p in vars) {
-    copy[p] = _parseFuncOrString(vars[p], tween, index2, target, targets);
+    copy[p] = _parseFuncOrString(vars[p], tween, index, target, targets);
   }
   return copy;
-}, _checkPlugin = function _checkPlugin2(property, vars, tween, index2, target, targets) {
+}, _checkPlugin = function _checkPlugin2(property, vars, tween, index, target, targets) {
   var plugin, pt, ptLookup, i;
-  if (_plugins[property] && (plugin = new _plugins[property]()).init(target, plugin.rawVars ? vars[property] : _processVars(vars[property], index2, target, targets, tween), tween, index2, targets) !== false) {
+  if (_plugins[property] && (plugin = new _plugins[property]()).init(target, plugin.rawVars ? vars[property] : _processVars(vars[property], index, target, targets, tween), tween, index, targets) !== false) {
     tween._pt = pt = new PropTween(tween._pt, target, property, 0, 1, plugin.render, plugin, 0, plugin.priority);
     if (tween !== _quickTween) {
       ptLookup = tween._ptLookup[tween._targets.indexOf(target)];
@@ -1915,7 +1900,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
   }
   return plugin;
 }, _overwritingTween, _forceAllPropTweens, _initTween = function _initTween2(tween, time, tTime) {
-  var vars = tween.vars, ease = vars.ease, startAt = vars.startAt, immediateRender = vars.immediateRender, lazy = vars.lazy, onUpdate = vars.onUpdate, runBackwards = vars.runBackwards, yoyoEase = vars.yoyoEase, keyframes = vars.keyframes, autoRevert = vars.autoRevert, dur = tween._dur, prevStartAt = tween._startAt, targets = tween._targets, parent = tween.parent, fullTargets = parent && parent.data === "nested" ? parent.vars.targets : targets, autoOverwrite = tween._overwrite === "auto" && !_suppressOverwrites, tl = tween.timeline, cleanVars, i, p, pt, target, hasPriority, gsData, harness, plugin, ptLookup, index2, harnessVars, overwritten;
+  var vars = tween.vars, ease = vars.ease, startAt = vars.startAt, immediateRender = vars.immediateRender, lazy = vars.lazy, onUpdate = vars.onUpdate, runBackwards = vars.runBackwards, yoyoEase = vars.yoyoEase, keyframes = vars.keyframes, autoRevert = vars.autoRevert, dur = tween._dur, prevStartAt = tween._startAt, targets = tween._targets, parent = tween.parent, fullTargets = parent && parent.data === "nested" ? parent.vars.targets : targets, autoOverwrite = tween._overwrite === "auto" && !_suppressOverwrites, tl = tween.timeline, cleanVars, i, p, pt, target, hasPriority, gsData, harness, plugin, ptLookup, index, harnessVars, overwritten;
   tl && (!keyframes || !ease) && (ease = "none");
   tween._ease = _parseEase(ease, _defaults.ease);
   tween._yEase = yoyoEase ? _invertEase(_parseEase(yoyoEase === true ? ease : yoyoEase, _defaults.ease)) : 0;
@@ -1991,8 +1976,8 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
       gsData = target._gsap || _harness(targets)[i]._gsap;
       tween._ptLookup[i] = ptLookup = {};
       _lazyLookup[gsData.id] && _lazyTweens.length && _lazyRender();
-      index2 = fullTargets === targets ? i : fullTargets.indexOf(target);
-      if (harness && (plugin = new harness()).init(target, harnessVars || cleanVars, tween, index2, fullTargets) !== false) {
+      index = fullTargets === targets ? i : fullTargets.indexOf(target);
+      if (harness && (plugin = new harness()).init(target, harnessVars || cleanVars, tween, index, fullTargets) !== false) {
         tween._pt = pt = new PropTween(tween._pt, target, plugin.name, 0, 1, plugin.render, plugin, 0, plugin.priority);
         plugin._props.forEach(function(name) {
           ptLookup[name] = pt;
@@ -2001,10 +1986,10 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
       }
       if (!harness || harnessVars) {
         for (p in cleanVars) {
-          if (_plugins[p] && (plugin = _checkPlugin(p, cleanVars, tween, index2, target, fullTargets))) {
+          if (_plugins[p] && (plugin = _checkPlugin(p, cleanVars, tween, index, target, fullTargets))) {
             plugin.priority && (hasPriority = 1);
           } else {
-            ptLookup[p] = pt = _addPropTween.call(tween, target, p, "get", cleanVars[p], index2, fullTargets, 0, vars.stringFilter);
+            ptLookup[p] = pt = _addPropTween.call(tween, target, p, "get", cleanVars[p], index, fullTargets, 0, vars.stringFilter);
           }
         }
       }
@@ -2968,12 +2953,12 @@ var _getPluginPropTween = function _getPluginPropTween2(plugin, prop) {
 };
 var gsap$1 = _gsap.registerPlugin({
   name: "attr",
-  init: function init(target, vars, tween, index2, targets) {
+  init: function init(target, vars, tween, index, targets) {
     var p, pt, v;
     this.tween = tween;
     for (p in vars) {
       v = target.getAttribute(p) || "";
-      pt = this.add(target, "setAttribute", (v || 0) + "", vars[p], index2, targets, 0, 0, p);
+      pt = this.add(target, "setAttribute", (v || 0) + "", vars[p], index, targets, 0, 0, p);
       pt.op = p;
       pt.b = v;
       this._props.push(p);
@@ -3303,7 +3288,7 @@ var _win, _doc, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, _rev
       start = _getComputedProperty(target, "borderTopColor");
     }
   }
-  var pt = new PropTween(this._pt, target.style, prop, 0, 1, _renderComplexString), index2 = 0, matchIndex = 0, a, result, startValues, startNum, color, startValue, endValue, endNum, chunk, endUnit, startUnit, endValues;
+  var pt = new PropTween(this._pt, target.style, prop, 0, 1, _renderComplexString), index = 0, matchIndex = 0, a, result, startValues, startNum, color, startValue, endValue, endNum, chunk, endUnit, startUnit, endValues;
   pt.b = start;
   pt.e = end;
   start += "";
@@ -3323,7 +3308,7 @@ var _win, _doc, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, _rev
   if (endValues.length) {
     while (result = _numWithUnitExp.exec(end)) {
       endValue = result[0];
-      chunk = end.substring(index2, result.index);
+      chunk = end.substring(index, result.index);
       if (color) {
         color = (color + 1) % 5;
       } else if (chunk.substr(-5) === "rgba(" || chunk.substr(-5) === "hsla(") {
@@ -3335,10 +3320,10 @@ var _win, _doc, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, _rev
         endValue.charAt(1) === "=" && (endValue = _parseRelative(startNum, endValue) + startUnit);
         endNum = parseFloat(endValue);
         endUnit = endValue.substr((endNum + "").length);
-        index2 = _numWithUnitExp.lastIndex - endUnit.length;
+        index = _numWithUnitExp.lastIndex - endUnit.length;
         if (!endUnit) {
           endUnit = endUnit || _config$1.units[prop] || startUnit;
-          if (index2 === end.length) {
+          if (index === end.length) {
             end += endUnit;
             pt.e += endUnit;
           }
@@ -3356,7 +3341,7 @@ var _win, _doc, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, _rev
         };
       }
     }
-    pt.c = index2 < end.length ? end.substring(index2, end.length) : "";
+    pt.c = index < end.length ? end.substring(index, end.length) : "";
   } else {
     pt.r = prop === "display" && end === "none" ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue;
   }
@@ -3840,11 +3825,11 @@ var _win, _doc, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, _rev
   }
   _assign(endCache, startCache);
 };
-_forEachName("padding,margin,Width,Radius", function(name, index2) {
-  var t = "Top", r = "Right", b = "Bottom", l = "Left", props = (index2 < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]).map(function(side) {
-    return index2 < 2 ? name + side : "border" + side + name;
+_forEachName("padding,margin,Width,Radius", function(name, index) {
+  var t = "Top", r = "Right", b = "Bottom", l = "Left", props = (index < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]).map(function(side) {
+    return index < 2 ? name + side : "border" + side + name;
   });
-  _specialProps[index2 > 1 ? "border" + name : name] = function(plugin, target, property, endValue, tween) {
+  _specialProps[index > 1 ? "border" + name : name] = function(plugin, target, property, endValue, tween) {
     var a, vars;
     if (arguments.length < 4) {
       a = props.map(function(prop) {
@@ -3867,7 +3852,7 @@ var CSSPlugin = {
   targetTest: function targetTest(target) {
     return target.style && target.nodeType;
   },
-  init: function init3(target, vars, tween, index2, targets) {
+  init: function init3(target, vars, tween, index, targets) {
     var props = this._props, style = target.style, startAt = tween.vars.startAt, startValue, endValue, endNum, startNum, type, specialProp, p, startUnit, endUnit, relative, isTransformRelated, transformPropTween, cache, smooth, hasPriority, inlineProps;
     _pluginInitted || _initCore$1();
     this.styles = this.styles || _getStyleSaver(target);
@@ -3878,13 +3863,13 @@ var CSSPlugin = {
         continue;
       }
       endValue = vars[p];
-      if (_plugins[p] && _checkPlugin(p, vars, tween, index2, target, targets)) {
+      if (_plugins[p] && _checkPlugin(p, vars, tween, index, target, targets)) {
         continue;
       }
       type = typeof endValue;
       specialProp = _specialProps[p];
       if (type === "function") {
-        endValue = endValue.call(tween, index2, target, targets);
+        endValue = endValue.call(tween, index, target, targets);
         type = typeof endValue;
       }
       if (type === "string" && ~endValue.indexOf("random(")) {
@@ -3901,12 +3886,12 @@ var CSSPlugin = {
           endUnit = getUnit(endValue);
         }
         endUnit ? startUnit !== endUnit && (startValue = _convertToUnit(target, p, startValue, endUnit) + endUnit) : startUnit && (endValue += startUnit);
-        this.add(style, "setProperty", startValue, endValue, index2, targets, 0, 0, p);
+        this.add(style, "setProperty", startValue, endValue, index, targets, 0, 0, p);
         props.push(p);
         inlineProps.push(p, 0, style[p]);
       } else if (type !== "undefined") {
         if (startAt && p in startAt) {
-          startValue = typeof startAt[p] === "function" ? startAt[p].call(tween, index2, target, targets) : startAt[p];
+          startValue = typeof startAt[p] === "function" ? startAt[p].call(tween, index, target, targets) : startAt[p];
           _isString$1(startValue) && ~startValue.indexOf("random(") && (startValue = _replaceRandom(startValue));
           getUnit(startValue + "") || startValue === "auto" || (startValue += _config$1.units[p] || getUnit(_get(target, p)) || "");
           (startValue + "").charAt(1) === "=" && (startValue = _get(target, p));
@@ -3988,7 +3973,7 @@ var CSSPlugin = {
           }
         } else if (!(p in style)) {
           if (p in target) {
-            this.add(target, p, startValue || target[p], relative ? relative + endValue : endValue, index2, targets);
+            this.add(target, p, startValue || target[p], relative ? relative + endValue : endValue, index, targets);
           } else if (p !== "parseTransform") {
             _missingPlugin(p, endValue);
             continue;
@@ -4079,8 +4064,8 @@ var gsap, _coreInitted, _window, _docEl, _body, _toArray, _config, ScrollTrigger
   return function() {
     return e[p];
   };
-}, _clean = function _clean2(value, index2, target, targets) {
-  _isFunction2(value) && (value = value(index2, target, targets));
+}, _clean = function _clean2(value, index, target, targets) {
+  _isFunction2(value) && (value = value(index, target, targets));
   if (typeof value !== "object") {
     return _isString2(value) && value !== "max" && value.charAt(1) !== "=" ? {
       x: value,
@@ -4096,7 +4081,7 @@ var gsap, _coreInitted, _window, _docEl, _body, _toArray, _config, ScrollTrigger
   } else {
     var result = {}, p;
     for (p in value) {
-      result[p] = p !== "onAutoKill" && _isFunction2(value[p]) ? value[p](index2, target, targets) : value[p];
+      result[p] = p !== "onAutoKill" && _isFunction2(value[p]) ? value[p](index, target, targets) : value[p];
     }
     return result;
   }
@@ -4144,13 +4129,13 @@ var ScrollToPlugin = {
     gsap = core;
     _initCore2();
   },
-  init: function init4(target, value, tween, index2, targets) {
+  init: function init4(target, value, tween, index, targets) {
     _coreInitted || _initCore2();
     var data = this, snapType = gsap.getProperty(target, "scrollSnapType");
     data.isWin = target === _window;
     data.target = target;
     data.tween = tween;
-    value = _clean(value, index2, target, targets);
+    value = _clean(value, index, target, targets);
     data.vars = value;
     data.autoKill = !!("autoKill" in value ? value : _config).autoKill;
     data.getX = _buildGetter(target, "x");
@@ -4167,13 +4152,13 @@ var ScrollToPlugin = {
       target.style.scrollSnapType = "none";
     }
     if (value.x != null) {
-      data.add(data, "x", data.x, _parseVal(value.x, target, "x", data.x, value.offsetX || 0), index2, targets);
+      data.add(data, "x", data.x, _parseVal(value.x, target, "x", data.x, value.offsetX || 0), index, targets);
       data._props.push("scrollTo_x");
     } else {
       data.skipX = 1;
     }
     if (value.y != null) {
-      data.add(data, "y", data.y, _parseVal(value.y, target, "y", data.y, value.offsetY || 0), index2, targets);
+      data.add(data, "y", data.y, _parseVal(value.y, target, "y", data.y, value.offsetY || 0), index, targets);
       data._props.push("scrollTo_y");
     } else {
       data.skipY = 1;
@@ -4508,10 +4493,10 @@ const Transformer = () => {
             backgroundSize: "cover",
             filter: background.opacity ? `blur(${background.opacity}px)` : void 0,
             backgroundColor: "gray.100",
-            backgroundImage: background.image ? `url(${void 0}/assets/background_white.png)` : void 0,
+            backgroundImage: background.image ? `url(${background.image})` : void 0,
             _dark: {
               backgroundColor: "gray.950",
-              backgroundImage: background.imageDark ? `url(${void 0}/assets/background_dark.png)` : void 0
+              backgroundImage: background.imageDark ? `url(${background.imageDark})` : void 0
             }
           }
         ),
@@ -4551,7 +4536,7 @@ const Transformer = () => {
     }
   );
 };
-const index = withContext(Transformer);
 export {
-  index as default
+  Transformer as default,
+  withContext
 };

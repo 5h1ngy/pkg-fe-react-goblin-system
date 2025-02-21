@@ -23,10 +23,10 @@ const Transformer: FC<ComponentProps> = () => {
             backgroundSize="cover"
             filter={background.opacity ? `blur(${background.opacity}px)` : undefined}
             backgroundColor={"gray.100"}
-            backgroundImage={background.image ? `url(${import.meta.env.VITE_BASENAME}/assets/background_white.png)` : undefined}
+            backgroundImage={background.image ? `url(${background.image})` : undefined}
             _dark={{
                 backgroundColor: "gray.950",
-                backgroundImage: background.imageDark ? `url(${import.meta.env.VITE_BASENAME}/assets/background_dark.png)` : undefined
+                backgroundImage: background.imageDark ? `url(${background.imageDark})` : undefined
             }}
         />}
 

@@ -2,5 +2,6 @@ import withContext from "./shared/Provider";
 import Transformer from "./Transformer";
 import { ComponentProps } from "./transformer.types"
 
-export default withContext(Transformer)
+export { withContext }
+export default Transformer
 export type { ComponentProps }
