@@ -7,7 +7,7 @@ import { a as CiGlobe } from "../../.chunks/CqM0Stt-.js";
 import { ColorModeButtonExtended } from "../../components/Factory/Chakra/color-mode.mjs";
 import { DrawerRoot, DrawerBackdrop, DrawerTrigger, DrawerContent, DrawerBody, DrawerCloseTrigger } from "../../components/Factory/Chakra/drawer.mjs";
 const Context$1 = createContext(void 0);
-function withContext(WrappedComponent) {
+function withContext(WrappedComponent, location, navigate) {
   const HOC = (props) => {
     var _a;
     const [background, setBackground] = useState(props.background);
@@ -17,7 +17,7 @@ function withContext(WrappedComponent) {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(
       Context$1.Provider,
       {
-        value: { props: { ...props, background, location: props.location, navigate: props.navigate }, setBackground },
+        value: { props: { ...props, background, location, navigate }, setBackground },
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(WrappedComponent, { ...props }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})

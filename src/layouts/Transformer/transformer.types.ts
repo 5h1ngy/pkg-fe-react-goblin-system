@@ -42,11 +42,6 @@ export type ComponentProps = {
     navigate?: NavigateFunction;
 }
 
-export interface HocProps extends ComponentProps {
-    location?: Location;
-    navigate?: NavigateFunction;
-}
-
 export type ContextType = {
     setBackground: React.Dispatch<React.SetStateAction<Background | undefined>>;
     props: ComponentProps;
