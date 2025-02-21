@@ -26,4 +26,3 @@ const Error = () => /* @__PURE__ */ jsxRuntimeExports.jsx(
 export {
   Error as default
 };
-//# sourceMappingURL=index.mjs.map

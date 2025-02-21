@@ -22,4 +22,3 @@ export {
   NumberInputRoot,
   NumberInputScruber
 };
-//# sourceMappingURL=number-input.mjs.map

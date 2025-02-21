@@ -7,4 +7,3 @@ function Provider(props) {
 export {
   Provider
 };
-//# sourceMappingURL=provider.mjs.map

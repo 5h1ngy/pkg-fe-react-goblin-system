@@ -34,4 +34,3 @@ const Slider = forwardRef(
 export {
   Slider
 };
-//# sourceMappingURL=slider.mjs.map

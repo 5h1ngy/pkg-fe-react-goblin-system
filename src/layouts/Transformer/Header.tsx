@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Flex, Spacer, Image, Text } from "@chakra-ui/react";
 import { IconButton, Tabs } from "@chakra-ui/react";
 import { CiGlobe } from "react-icons/ci";
@@ -15,8 +15,6 @@ import { ComponentProps } from "./transformer.types";
 const Component: FC<ComponentProps> = () => {
     const { isMobileRef, handleNavigationAndScroll, } = useMouse()
     const { props, } = usePageContext()
-    const navigate = useNavigate();
-    const location = useLocation();
     const { navigationScroll, logo, navbarItems, navbarSubItems } = props;
 
     const Logo: FC = () =>
@@ -50,17 +48,21 @@ const Component: FC<ComponentProps> = () => {
                     paddingX={'10%'}
                 >
                     <Tabs.Root key={crypto.randomUUID()}
-                        defaultValue={findMatchingNavbarValue(location.pathname, navbarItems, navbarSubItems)}
+                        defaultValue={
+                            props.location
+                                ? findMatchingNavbarValue(props.location.pathname, navbarItems, navbarSubItems)
+                                : ""
+                        }
                         variant={"line"}
                         size={"sm"}
-                        onValueChange={(details: { value: string }) => navigate(details.value)}
+                        onValueChange={(details: { value: string }) => { if (props.navigate) props.navigate(details.value) }}
                     >
                         <Tabs.List>
                             {navbarSubItems
                                 .filter(subItem => subItem.group
                                     ? subItem.group?.includes(
                                         navbarItems?.find(item =>
-                                            location.pathname.search(new RegExp(item.value, 'g')) !== -1
+                                            props.location?.pathname.search(new RegExp(item.value, 'g')) !== -1
                                         )?.group || ""
                                     )
                                     : true

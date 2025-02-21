@@ -17,4 +17,3 @@ const Switch = forwardRef(
 export {
   Switch
 };
-//# sourceMappingURL=switch.mjs.map

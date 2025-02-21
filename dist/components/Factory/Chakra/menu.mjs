@@ -67,4 +67,3 @@ export {
   MenuTrigger,
   MenuTriggerItem
 };
-//# sourceMappingURL=menu.mjs.map

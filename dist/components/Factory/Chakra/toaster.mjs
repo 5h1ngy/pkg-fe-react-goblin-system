@@ -22,4 +22,3 @@ export {
   Toaster,
   toaster
 };
-//# sourceMappingURL=toaster.mjs.map

@@ -45,4 +45,3 @@ export {
   StatValueText,
   StatValueUnit
 };
-//# sourceMappingURL=stat.mjs.map

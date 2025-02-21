@@ -21,4 +21,3 @@ export {
   AccordionItemTrigger,
   AccordionRoot
 };
-//# sourceMappingURL=accordion.mjs.map

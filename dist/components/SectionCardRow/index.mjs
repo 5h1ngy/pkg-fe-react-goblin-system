@@ -31,4 +31,3 @@ const SectionCardRow = ({ field, value }) => {
 export {
   SectionCardRow as default
 };
-//# sourceMappingURL=index.mjs.map

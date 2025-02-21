@@ -1,4 +1,5 @@
 import { ReactElement } from "react"; // Importa il tipo ReactElement da React per la tipizzazione dei componenti.
+import { NavigateFunction } from "react-router-dom";
 
 /**
  * Interfaccia per un elemento della barra di navigazione principale.
@@ -36,6 +37,14 @@ export type ComponentProps = {
     navbarSubItems?: Array<NavbarSubItem>;
     logo?: string; // URL del logo o null se non è presente.
     background?: Background;
+
+    location?: Location;
+    navigate?: NavigateFunction;
+}
+
+export interface HocProps extends ComponentProps {
+    location?: Location;
+    navigate?: NavigateFunction;
 }
 
 export type ContextType = {

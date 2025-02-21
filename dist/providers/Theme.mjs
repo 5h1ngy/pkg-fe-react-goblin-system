@@ -11,4 +11,3 @@ function ThemeProvider(props) {
 export {
   ThemeProvider as default
 };
-//# sourceMappingURL=Theme.mjs.map

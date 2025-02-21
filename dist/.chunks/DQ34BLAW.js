@@ -25,4 +25,3 @@ export {
   HiChevronLeft as d,
   HiChevronRight as e
 };
-//# sourceMappingURL=DQ34BLAW.js.map

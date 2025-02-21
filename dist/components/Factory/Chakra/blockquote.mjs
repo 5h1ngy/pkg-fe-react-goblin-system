@@ -20,4 +20,3 @@ export {
   Blockquote,
   BlockquoteIcon
 };
-//# sourceMappingURL=blockquote.mjs.map

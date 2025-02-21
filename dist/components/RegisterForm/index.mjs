@@ -130,4 +130,3 @@ const RegisterForm = ({ rootStyle, children, submit }) => {
 export {
   RegisterForm as default
 };
-//# sourceMappingURL=index.mjs.map

@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { NavigateFunction } from "react-router-dom";
 /**
  * Interfaccia per un elemento della barra di navigazione principale.
  */
@@ -32,7 +33,13 @@ export type ComponentProps = {
     navbarSubItems?: Array<NavbarSubItem>;
     logo?: string;
     background?: Background;
+    location?: Location;
+    navigate?: NavigateFunction;
 };
+export interface HocProps extends ComponentProps {
+    location?: Location;
+    navigate?: NavigateFunction;
+}
 export type ContextType = {
     setBackground: React.Dispatch<React.SetStateAction<Background | undefined>>;
     props: ComponentProps;

@@ -23,4 +23,3 @@ export {
   BreadcrumbLink,
   BreadcrumbRoot
 };
-//# sourceMappingURL=breadcrumb.mjs.map

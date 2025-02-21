@@ -108,4 +108,3 @@ export {
   PaginationPrevTrigger,
   PaginationRoot
 };
-//# sourceMappingURL=pagination.mjs.map

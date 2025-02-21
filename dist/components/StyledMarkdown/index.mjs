@@ -27977,4 +27977,3 @@ const StyledMarkdown = ({ content: content2 }) => {
 export {
   StyledMarkdown as default
 };
-//# sourceMappingURL=index.mjs.map

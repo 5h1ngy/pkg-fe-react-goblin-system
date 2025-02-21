@@ -89,4 +89,3 @@ export {
   SelectTrigger,
   SelectValueText
 };
-//# sourceMappingURL=select.mjs.map

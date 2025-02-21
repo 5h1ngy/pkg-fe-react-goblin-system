@@ -28,4 +28,3 @@ function LiquidSearchForm({ schema }) {
 export {
   LiquidSearchForm as default
 };
-//# sourceMappingURL=index.mjs.map

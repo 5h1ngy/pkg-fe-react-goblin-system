@@ -37,4 +37,3 @@ export {
   Avatar,
   AvatarGroup
 };
-//# sourceMappingURL=avatar.mjs.map
