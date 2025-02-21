@@ -87,7 +87,6 @@ export default defineConfig({
 
                 "layouts/Error/index": path.resolve(__dirname, "src/layouts/Error/index.ts"),
                 "layouts/Loading/index": path.resolve(__dirname, "src/layouts/Loading/index.ts"),
-                "layouts/Transformer/index": path.resolve(__dirname, "src/layouts/Transformer/index.ts"),
 
                 "providers/Auth/index": path.resolve(__dirname, "src/providers/Auth/index.ts"),
                 "providers/Theme": path.resolve(__dirname, "src/providers/Theme.tsx"),
