@@ -1,8 +1,7 @@
-import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
-import * as React from "react";
-import React__default, { createContext, useContext } from "react";
-var withSelector = { exports: {} };
-var useSyncExternalStoreWithSelector_production = {};
+import { j as te } from "../../.chunks/CYK1ROHF.js";
+import * as u from "react";
+import we, { createContext as Fe, useContext as Ve } from "react";
+var W = { exports: {} }, G = {};
 /**
  * @license React
  * use-sync-external-store-with-selector.production.js
@@ -12,69 +11,58 @@ var useSyncExternalStoreWithSelector_production = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var hasRequiredUseSyncExternalStoreWithSelector_production;
-function requireUseSyncExternalStoreWithSelector_production() {
-  if (hasRequiredUseSyncExternalStoreWithSelector_production) return useSyncExternalStoreWithSelector_production;
-  hasRequiredUseSyncExternalStoreWithSelector_production = 1;
-  var React2 = React__default;
-  function is(x, y) {
-    return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+var de;
+function We() {
+  if (de) return G;
+  de = 1;
+  var e = we;
+  function t(l, i) {
+    return l === i && (l !== 0 || 1 / l === 1 / i) || l !== l && i !== i;
   }
-  var objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore = React2.useSyncExternalStore, useRef = React2.useRef, useEffect = React2.useEffect, useMemo = React2.useMemo, useDebugValue = React2.useDebugValue;
-  useSyncExternalStoreWithSelector_production.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
-    var instRef = useRef(null);
-    if (null === instRef.current) {
-      var inst = { hasValue: false, value: null };
-      instRef.current = inst;
-    } else inst = instRef.current;
-    instRef = useMemo(
+  var r = typeof Object.is == "function" ? Object.is : t, a = e.useSyncExternalStore, n = e.useRef, o = e.useEffect, c = e.useMemo, s = e.useDebugValue;
+  return G.useSyncExternalStoreWithSelector = function(l, i, m, p, d) {
+    var h = n(null);
+    if (h.current === null) {
+      var f = { hasValue: !1, value: null };
+      h.current = f;
+    } else f = h.current;
+    h = c(
       function() {
-        function memoizedSelector(nextSnapshot) {
-          if (!hasMemo) {
-            hasMemo = true;
-            memoizedSnapshot = nextSnapshot;
-            nextSnapshot = selector(nextSnapshot);
-            if (void 0 !== isEqual && inst.hasValue) {
-              var currentSelection = inst.value;
-              if (isEqual(currentSelection, nextSnapshot))
-                return memoizedSelection = currentSelection;
+        function g(E) {
+          if (!v) {
+            if (v = !0, y = E, E = p(E), d !== void 0 && f.hasValue) {
+              var R = f.value;
+              if (d(R, E))
+                return x = R;
             }
-            return memoizedSelection = nextSnapshot;
+            return x = E;
           }
-          currentSelection = memoizedSelection;
-          if (objectIs(memoizedSnapshot, nextSnapshot)) return currentSelection;
-          var nextSelection = selector(nextSnapshot);
-          if (void 0 !== isEqual && isEqual(currentSelection, nextSelection))
-            return memoizedSnapshot = nextSnapshot, currentSelection;
-          memoizedSnapshot = nextSnapshot;
-          return memoizedSelection = nextSelection;
+          if (R = x, r(y, E)) return R;
+          var b = p(E);
+          return d !== void 0 && d(R, b) ? (y = E, R) : (y = E, x = b);
         }
-        var hasMemo = false, memoizedSnapshot, memoizedSelection, maybeGetServerSnapshot = void 0 === getServerSnapshot ? null : getServerSnapshot;
+        var v = !1, y, x, C = m === void 0 ? null : m;
         return [
           function() {
-            return memoizedSelector(getSnapshot());
+            return g(i());
           },
-          null === maybeGetServerSnapshot ? void 0 : function() {
-            return memoizedSelector(maybeGetServerSnapshot());
+          C === null ? void 0 : function() {
+            return g(C());
           }
         ];
       },
-      [getSnapshot, getServerSnapshot, selector, isEqual]
+      [i, m, p, d]
     );
-    var value = useSyncExternalStore(subscribe, instRef[0], instRef[1]);
-    useEffect(
+    var w = a(l, h[0], h[1]);
+    return o(
       function() {
-        inst.hasValue = true;
-        inst.value = value;
+        f.hasValue = !0, f.value = w;
       },
-      [value]
-    );
-    useDebugValue(value);
-    return value;
-  };
-  return useSyncExternalStoreWithSelector_production;
+      [w]
+    ), s(w), w;
+  }, G;
 }
-var useSyncExternalStoreWithSelector_development = {};
+var J = {};
 /**
  * @license React
  * use-sync-external-store-with-selector.development.js
@@ -84,380 +72,301 @@ var useSyncExternalStoreWithSelector_development = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var hasRequiredUseSyncExternalStoreWithSelector_development;
-function requireUseSyncExternalStoreWithSelector_development() {
-  if (hasRequiredUseSyncExternalStoreWithSelector_development) return useSyncExternalStoreWithSelector_development;
-  hasRequiredUseSyncExternalStoreWithSelector_development = 1;
-  "production" !== process.env.NODE_ENV && function() {
-    function is(x, y) {
-      return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+var he;
+function Be() {
+  return he || (he = 1, process.env.NODE_ENV !== "production" && function() {
+    function e(l, i) {
+      return l === i && (l !== 0 || 1 / l === 1 / i) || l !== l && i !== i;
     }
-    "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-    var React2 = React__default, objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore = React2.useSyncExternalStore, useRef = React2.useRef, useEffect = React2.useEffect, useMemo = React2.useMemo, useDebugValue = React2.useDebugValue;
-    useSyncExternalStoreWithSelector_development.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
-      var instRef = useRef(null);
-      if (null === instRef.current) {
-        var inst = { hasValue: false, value: null };
-        instRef.current = inst;
-      } else inst = instRef.current;
-      instRef = useMemo(
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ < "u" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart == "function" && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
+    var t = we, r = typeof Object.is == "function" ? Object.is : e, a = t.useSyncExternalStore, n = t.useRef, o = t.useEffect, c = t.useMemo, s = t.useDebugValue;
+    J.useSyncExternalStoreWithSelector = function(l, i, m, p, d) {
+      var h = n(null);
+      if (h.current === null) {
+        var f = { hasValue: !1, value: null };
+        h.current = f;
+      } else f = h.current;
+      h = c(
         function() {
-          function memoizedSelector(nextSnapshot) {
-            if (!hasMemo) {
-              hasMemo = true;
-              memoizedSnapshot = nextSnapshot;
-              nextSnapshot = selector(nextSnapshot);
-              if (void 0 !== isEqual && inst.hasValue) {
-                var currentSelection = inst.value;
-                if (isEqual(currentSelection, nextSnapshot))
-                  return memoizedSelection = currentSelection;
+          function g(E) {
+            if (!v) {
+              if (v = !0, y = E, E = p(E), d !== void 0 && f.hasValue) {
+                var R = f.value;
+                if (d(R, E))
+                  return x = R;
               }
-              return memoizedSelection = nextSnapshot;
+              return x = E;
             }
-            currentSelection = memoizedSelection;
-            if (objectIs(memoizedSnapshot, nextSnapshot))
-              return currentSelection;
-            var nextSelection = selector(nextSnapshot);
-            if (void 0 !== isEqual && isEqual(currentSelection, nextSelection))
-              return memoizedSnapshot = nextSnapshot, currentSelection;
-            memoizedSnapshot = nextSnapshot;
-            return memoizedSelection = nextSelection;
+            if (R = x, r(y, E))
+              return R;
+            var b = p(E);
+            return d !== void 0 && d(R, b) ? (y = E, R) : (y = E, x = b);
           }
-          var hasMemo = false, memoizedSnapshot, memoizedSelection, maybeGetServerSnapshot = void 0 === getServerSnapshot ? null : getServerSnapshot;
+          var v = !1, y, x, C = m === void 0 ? null : m;
           return [
             function() {
-              return memoizedSelector(getSnapshot());
+              return g(i());
             },
-            null === maybeGetServerSnapshot ? void 0 : function() {
-              return memoizedSelector(maybeGetServerSnapshot());
+            C === null ? void 0 : function() {
+              return g(C());
             }
           ];
         },
-        [getSnapshot, getServerSnapshot, selector, isEqual]
+        [i, m, p, d]
       );
-      var value = useSyncExternalStore(subscribe, instRef[0], instRef[1]);
-      useEffect(
+      var w = a(l, h[0], h[1]);
+      return o(
         function() {
-          inst.hasValue = true;
-          inst.value = value;
+          f.hasValue = !0, f.value = w;
         },
-        [value]
-      );
-      useDebugValue(value);
-      return value;
-    };
-    "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
-  }();
-  return useSyncExternalStoreWithSelector_development;
+        [w]
+      ), s(w), w;
+    }, typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ < "u" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop == "function" && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
+  }()), J;
 }
-var hasRequiredWithSelector;
-function requireWithSelector() {
-  if (hasRequiredWithSelector) return withSelector.exports;
-  hasRequiredWithSelector = 1;
-  if (process.env.NODE_ENV === "production") {
-    withSelector.exports = requireUseSyncExternalStoreWithSelector_production();
-  } else {
-    withSelector.exports = requireUseSyncExternalStoreWithSelector_development();
-  }
-  return withSelector.exports;
+var me;
+function He() {
+  return me || (me = 1, process.env.NODE_ENV === "production" ? W.exports = We() : W.exports = Be()), W.exports;
 }
-var withSelectorExports = requireWithSelector();
-var ContextKey = /* @__PURE__ */ Symbol.for(`react-redux-context`);
-var gT = typeof globalThis !== "undefined" ? globalThis : (
+var Ue = He(), Y = /* @__PURE__ */ Symbol.for("react-redux-context"), q = typeof globalThis < "u" ? globalThis : (
   /* fall back to a per-module scope (pre-8.1 behaviour) if `globalThis` is not available */
   {}
 );
-function getContext() {
-  if (!React.createContext) return {};
-  const contextMap = gT[ContextKey] ?? (gT[ContextKey] = /* @__PURE__ */ new Map());
-  let realContext = contextMap.get(React.createContext);
-  if (!realContext) {
-    realContext = React.createContext(
-      null
-    );
-    if (process.env.NODE_ENV !== "production") {
-      realContext.displayName = "ReactRedux";
-    }
-    contextMap.set(React.createContext, realContext);
-  }
-  return realContext;
+function ze() {
+  if (!u.createContext) return {};
+  const e = q[Y] ?? (q[Y] = /* @__PURE__ */ new Map());
+  let t = e.get(u.createContext);
+  return t || (t = u.createContext(
+    null
+  ), process.env.NODE_ENV !== "production" && (t.displayName = "ReactRedux"), e.set(u.createContext, t)), t;
 }
-var ReactReduxContext = /* @__PURE__ */ getContext();
-function createReduxContextHook(context = ReactReduxContext) {
-  return function useReduxContext2() {
-    const contextValue = React.useContext(context);
-    if (process.env.NODE_ENV !== "production" && !contextValue) {
+var Z = /* @__PURE__ */ ze();
+function xe(e = Z) {
+  return function() {
+    const r = u.useContext(e);
+    if (process.env.NODE_ENV !== "production" && !r)
       throw new Error(
         "could not find react-redux context value; please ensure the component is wrapped in a <Provider>"
       );
-    }
-    return contextValue;
+    return r;
   };
 }
-var useReduxContext = /* @__PURE__ */ createReduxContextHook();
-var refEquality = (a, b) => a === b;
-function createSelectorHook(context = ReactReduxContext) {
-  const useReduxContext2 = context === ReactReduxContext ? useReduxContext : createReduxContextHook(context);
-  const useSelector2 = (selector, equalityFnOrOptions = {}) => {
-    const { equalityFn = refEquality } = typeof equalityFnOrOptions === "function" ? { equalityFn: equalityFnOrOptions } : equalityFnOrOptions;
+var je = /* @__PURE__ */ xe(), Ke = (e, t) => e === t;
+function Ge(e = Z) {
+  const t = e === Z ? je : xe(e), r = (a, n = {}) => {
+    const { equalityFn: o = Ke } = typeof n == "function" ? { equalityFn: n } : n;
     if (process.env.NODE_ENV !== "production") {
-      if (!selector) {
-        throw new Error(`You must pass a selector to useSelector`);
-      }
-      if (typeof selector !== "function") {
-        throw new Error(`You must pass a function as a selector to useSelector`);
-      }
-      if (typeof equalityFn !== "function") {
+      if (!a)
+        throw new Error("You must pass a selector to useSelector");
+      if (typeof a != "function")
+        throw new Error("You must pass a function as a selector to useSelector");
+      if (typeof o != "function")
         throw new Error(
-          `You must pass a function as an equality function to useSelector`
+          "You must pass a function as an equality function to useSelector"
         );
-      }
     }
-    const reduxContext = useReduxContext2();
-    const { store, subscription, getServerState } = reduxContext;
-    const firstRun = React.useRef(true);
-    const wrappedSelector = React.useCallback(
+    const c = t(), { store: s, subscription: l, getServerState: i } = c, m = u.useRef(!0), p = u.useCallback(
       {
-        [selector.name](state) {
-          const selected = selector(state);
+        [a.name](h) {
+          const f = a(h);
           if (process.env.NODE_ENV !== "production") {
-            const { devModeChecks = {} } = typeof equalityFnOrOptions === "function" ? {} : equalityFnOrOptions;
-            const { identityFunctionCheck, stabilityCheck } = reduxContext;
-            const {
-              identityFunctionCheck: finalIdentityFunctionCheck,
-              stabilityCheck: finalStabilityCheck
+            const { devModeChecks: w = {} } = typeof n == "function" ? {} : n, { identityFunctionCheck: g, stabilityCheck: v } = c, {
+              identityFunctionCheck: y,
+              stabilityCheck: x
             } = {
-              stabilityCheck,
-              identityFunctionCheck,
-              ...devModeChecks
+              stabilityCheck: v,
+              identityFunctionCheck: g,
+              ...w
             };
-            if (finalStabilityCheck === "always" || finalStabilityCheck === "once" && firstRun.current) {
-              const toCompare = selector(state);
-              if (!equalityFn(selected, toCompare)) {
-                let stack = void 0;
+            if (x === "always" || x === "once" && m.current) {
+              const C = a(h);
+              if (!o(f, C)) {
+                let E;
                 try {
                   throw new Error();
-                } catch (e) {
-                  ({ stack } = e);
+                } catch (R) {
+                  ({ stack: E } = R);
                 }
                 console.warn(
-                  "Selector " + (selector.name || "unknown") + " returned a different result when called with the same parameters. This can lead to unnecessary rerenders.\nSelectors that return a new reference (such as an object or an array) should be memoized: https://redux.js.org/usage/deriving-data-selectors#optimizing-selectors-with-memoization",
+                  "Selector " + (a.name || "unknown") + ` returned a different result when called with the same parameters. This can lead to unnecessary rerenders.
+Selectors that return a new reference (such as an object or an array) should be memoized: https://redux.js.org/usage/deriving-data-selectors#optimizing-selectors-with-memoization`,
                   {
-                    state,
-                    selected,
-                    selected2: toCompare,
-                    stack
+                    state: h,
+                    selected: f,
+                    selected2: C,
+                    stack: E
                   }
                 );
               }
             }
-            if (finalIdentityFunctionCheck === "always" || finalIdentityFunctionCheck === "once" && firstRun.current) {
-              if (selected === state) {
-                let stack = void 0;
-                try {
-                  throw new Error();
-                } catch (e) {
-                  ({ stack } = e);
-                }
-                console.warn(
-                  "Selector " + (selector.name || "unknown") + " returned the root state when called. This can lead to unnecessary rerenders.\nSelectors that return the entire state are almost certainly a mistake, as they will cause a rerender whenever *anything* in state changes.",
-                  { stack }
-                );
+            if ((y === "always" || y === "once" && m.current) && f === h) {
+              let C;
+              try {
+                throw new Error();
+              } catch (E) {
+                ({ stack: C } = E);
               }
+              console.warn(
+                "Selector " + (a.name || "unknown") + ` returned the root state when called. This can lead to unnecessary rerenders.
+Selectors that return the entire state are almost certainly a mistake, as they will cause a rerender whenever *anything* in state changes.`,
+                { stack: C }
+              );
             }
-            if (firstRun.current) firstRun.current = false;
+            m.current && (m.current = !1);
           }
-          return selected;
+          return f;
         }
-      }[selector.name],
-      [selector]
+      }[a.name],
+      [a]
+    ), d = Ue.useSyncExternalStoreWithSelector(
+      l.addNestedSub,
+      s.getState,
+      i || s.getState,
+      p,
+      o
     );
-    const selectedState = withSelectorExports.useSyncExternalStoreWithSelector(
-      subscription.addNestedSub,
-      store.getState,
-      getServerState || store.getState,
-      wrappedSelector,
-      equalityFn
-    );
-    React.useDebugValue(selectedState);
-    return selectedState;
+    return u.useDebugValue(d), d;
   };
-  Object.assign(useSelector2, {
-    withTypes: () => useSelector2
-  });
-  return useSelector2;
+  return Object.assign(r, {
+    withTypes: () => r
+  }), r;
 }
-var useSelector = /* @__PURE__ */ createSelectorHook();
-const AuthContext = createContext(void 0);
-const Auth = ({ children }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-  AuthContext.Provider,
+var Je = /* @__PURE__ */ Ge();
+const Ee = Fe(void 0), mr = ({ children: e }) => /* @__PURE__ */ te.jsx(
+  Ee.Provider,
   {
     value: {
-      accessToken: useSelector((state) => state.authSlice.accessToken)
+      accessToken: Je((t) => t.authSlice.accessToken)
     },
-    children
+    children: e
   }
 );
-var dist = {};
-var hasRequiredDist;
-function requireDist() {
-  if (hasRequiredDist) return dist;
-  hasRequiredDist = 1;
-  Object.defineProperty(dist, "__esModule", { value: true });
-  dist.parse = parse;
-  dist.serialize = serialize;
-  const cookieNameRegExp = /^[\u0021-\u003A\u003C\u003E-\u007E]+$/;
-  const cookieValueRegExp = /^[\u0021-\u003A\u003C-\u007E]*$/;
-  const domainValueRegExp = /^([.]?[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)([.][a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$/i;
-  const pathValueRegExp = /^[\u0020-\u003A\u003D-\u007E]*$/;
-  const __toString = Object.prototype.toString;
-  const NullObject = /* @__PURE__ */ (() => {
-    const C = function() {
+var A = {}, pe;
+function Ye() {
+  if (pe) return A;
+  pe = 1, Object.defineProperty(A, "__esModule", { value: !0 }), A.parse = c, A.serialize = i;
+  const e = /^[\u0021-\u003A\u003C\u003E-\u007E]+$/, t = /^[\u0021-\u003A\u003C-\u007E]*$/, r = /^([.]?[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)([.][a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$/i, a = /^[\u0020-\u003A\u003D-\u007E]*$/, n = Object.prototype.toString, o = /* @__PURE__ */ (() => {
+    const d = function() {
     };
-    C.prototype = /* @__PURE__ */ Object.create(null);
-    return C;
+    return d.prototype = /* @__PURE__ */ Object.create(null), d;
   })();
-  function parse(str, options) {
-    const obj = new NullObject();
-    const len = str.length;
-    if (len < 2)
-      return obj;
-    const dec = (options == null ? void 0 : options.decode) || decode;
-    let index = 0;
+  function c(d, h) {
+    const f = new o(), w = d.length;
+    if (w < 2)
+      return f;
+    const g = (h == null ? void 0 : h.decode) || m;
+    let v = 0;
     do {
-      const eqIdx = str.indexOf("=", index);
-      if (eqIdx === -1)
+      const y = d.indexOf("=", v);
+      if (y === -1)
         break;
-      const colonIdx = str.indexOf(";", index);
-      const endIdx = colonIdx === -1 ? len : colonIdx;
-      if (eqIdx > endIdx) {
-        index = str.lastIndexOf(";", eqIdx - 1) + 1;
+      const x = d.indexOf(";", v), C = x === -1 ? w : x;
+      if (y > C) {
+        v = d.lastIndexOf(";", y - 1) + 1;
         continue;
       }
-      const keyStartIdx = startIndex(str, index, eqIdx);
-      const keyEndIdx = endIndex(str, eqIdx, keyStartIdx);
-      const key = str.slice(keyStartIdx, keyEndIdx);
-      if (obj[key] === void 0) {
-        let valStartIdx = startIndex(str, eqIdx + 1, endIdx);
-        let valEndIdx = endIndex(str, endIdx, valStartIdx);
-        const value = dec(str.slice(valStartIdx, valEndIdx));
-        obj[key] = value;
+      const E = s(d, v, y), R = l(d, y, E), b = d.slice(E, R);
+      if (f[b] === void 0) {
+        let N = s(d, y + 1, C), k = l(d, C, N);
+        const T = g(d.slice(N, k));
+        f[b] = T;
       }
-      index = endIdx + 1;
-    } while (index < len);
-    return obj;
+      v = C + 1;
+    } while (v < w);
+    return f;
   }
-  function startIndex(str, index, max) {
+  function s(d, h, f) {
     do {
-      const code = str.charCodeAt(index);
-      if (code !== 32 && code !== 9)
-        return index;
-    } while (++index < max);
-    return max;
+      const w = d.charCodeAt(h);
+      if (w !== 32 && w !== 9)
+        return h;
+    } while (++h < f);
+    return f;
   }
-  function endIndex(str, index, min) {
-    while (index > min) {
-      const code = str.charCodeAt(--index);
-      if (code !== 32 && code !== 9)
-        return index + 1;
+  function l(d, h, f) {
+    for (; h > f; ) {
+      const w = d.charCodeAt(--h);
+      if (w !== 32 && w !== 9)
+        return h + 1;
     }
-    return min;
+    return f;
   }
-  function serialize(name, val, options) {
-    const enc = (options == null ? void 0 : options.encode) || encodeURIComponent;
-    if (!cookieNameRegExp.test(name)) {
-      throw new TypeError(`argument name is invalid: ${name}`);
+  function i(d, h, f) {
+    const w = (f == null ? void 0 : f.encode) || encodeURIComponent;
+    if (!e.test(d))
+      throw new TypeError(`argument name is invalid: ${d}`);
+    const g = w(h);
+    if (!t.test(g))
+      throw new TypeError(`argument val is invalid: ${h}`);
+    let v = d + "=" + g;
+    if (!f)
+      return v;
+    if (f.maxAge !== void 0) {
+      if (!Number.isInteger(f.maxAge))
+        throw new TypeError(`option maxAge is invalid: ${f.maxAge}`);
+      v += "; Max-Age=" + f.maxAge;
     }
-    const value = enc(val);
-    if (!cookieValueRegExp.test(value)) {
-      throw new TypeError(`argument val is invalid: ${val}`);
+    if (f.domain) {
+      if (!r.test(f.domain))
+        throw new TypeError(`option domain is invalid: ${f.domain}`);
+      v += "; Domain=" + f.domain;
     }
-    let str = name + "=" + value;
-    if (!options)
-      return str;
-    if (options.maxAge !== void 0) {
-      if (!Number.isInteger(options.maxAge)) {
-        throw new TypeError(`option maxAge is invalid: ${options.maxAge}`);
-      }
-      str += "; Max-Age=" + options.maxAge;
+    if (f.path) {
+      if (!a.test(f.path))
+        throw new TypeError(`option path is invalid: ${f.path}`);
+      v += "; Path=" + f.path;
     }
-    if (options.domain) {
-      if (!domainValueRegExp.test(options.domain)) {
-        throw new TypeError(`option domain is invalid: ${options.domain}`);
-      }
-      str += "; Domain=" + options.domain;
+    if (f.expires) {
+      if (!p(f.expires) || !Number.isFinite(f.expires.valueOf()))
+        throw new TypeError(`option expires is invalid: ${f.expires}`);
+      v += "; Expires=" + f.expires.toUTCString();
     }
-    if (options.path) {
-      if (!pathValueRegExp.test(options.path)) {
-        throw new TypeError(`option path is invalid: ${options.path}`);
-      }
-      str += "; Path=" + options.path;
-    }
-    if (options.expires) {
-      if (!isDate(options.expires) || !Number.isFinite(options.expires.valueOf())) {
-        throw new TypeError(`option expires is invalid: ${options.expires}`);
-      }
-      str += "; Expires=" + options.expires.toUTCString();
-    }
-    if (options.httpOnly) {
-      str += "; HttpOnly";
-    }
-    if (options.secure) {
-      str += "; Secure";
-    }
-    if (options.partitioned) {
-      str += "; Partitioned";
-    }
-    if (options.priority) {
-      const priority = typeof options.priority === "string" ? options.priority.toLowerCase() : void 0;
-      switch (priority) {
+    if (f.httpOnly && (v += "; HttpOnly"), f.secure && (v += "; Secure"), f.partitioned && (v += "; Partitioned"), f.priority)
+      switch (typeof f.priority == "string" ? f.priority.toLowerCase() : void 0) {
         case "low":
-          str += "; Priority=Low";
+          v += "; Priority=Low";
           break;
         case "medium":
-          str += "; Priority=Medium";
+          v += "; Priority=Medium";
           break;
         case "high":
-          str += "; Priority=High";
+          v += "; Priority=High";
           break;
         default:
-          throw new TypeError(`option priority is invalid: ${options.priority}`);
+          throw new TypeError(`option priority is invalid: ${f.priority}`);
       }
-    }
-    if (options.sameSite) {
-      const sameSite = typeof options.sameSite === "string" ? options.sameSite.toLowerCase() : options.sameSite;
-      switch (sameSite) {
-        case true:
+    if (f.sameSite)
+      switch (typeof f.sameSite == "string" ? f.sameSite.toLowerCase() : f.sameSite) {
+        case !0:
         case "strict":
-          str += "; SameSite=Strict";
+          v += "; SameSite=Strict";
           break;
         case "lax":
-          str += "; SameSite=Lax";
+          v += "; SameSite=Lax";
           break;
         case "none":
-          str += "; SameSite=None";
+          v += "; SameSite=None";
           break;
         default:
-          throw new TypeError(`option sameSite is invalid: ${options.sameSite}`);
+          throw new TypeError(`option sameSite is invalid: ${f.sameSite}`);
       }
-    }
-    return str;
+    return v;
   }
-  function decode(str) {
-    if (str.indexOf("%") === -1)
-      return str;
+  function m(d) {
+    if (d.indexOf("%") === -1)
+      return d;
     try {
-      return decodeURIComponent(str);
-    } catch (e) {
-      return str;
+      return decodeURIComponent(d);
+    } catch {
+      return d;
     }
   }
-  function isDate(val) {
-    return __toString.call(val) === "[object Date]";
+  function p(d) {
+    return n.call(d) === "[object Date]";
   }
-  return dist;
+  return A;
 }
-requireDist();
+Ye();
 /**
  * react-router v7.1.5
  *
@@ -468,673 +377,497 @@ requireDist();
  *
  * @license MIT
  */
-function invariant(value, message) {
-  if (value === false || value === null || typeof value === "undefined") {
-    throw new Error(message);
-  }
+function S(e, t) {
+  if (e === !1 || e === null || typeof e > "u")
+    throw new Error(t);
 }
-function warning(cond, message) {
-  if (!cond) {
-    if (typeof console !== "undefined") console.warn(message);
+function P(e, t) {
+  if (!e) {
+    typeof console < "u" && console.warn(t);
     try {
-      throw new Error(message);
-    } catch (e) {
+      throw new Error(t);
+    } catch {
     }
   }
 }
-function createPath({
-  pathname = "/",
-  search = "",
-  hash = ""
+function ee({
+  pathname: e = "/",
+  search: t = "",
+  hash: r = ""
 }) {
-  if (search && search !== "?")
-    pathname += search.charAt(0) === "?" ? search : "?" + search;
-  if (hash && hash !== "#")
-    pathname += hash.charAt(0) === "#" ? hash : "#" + hash;
-  return pathname;
+  return t && t !== "?" && (e += t.charAt(0) === "?" ? t : "?" + t), r && r !== "#" && (e += r.charAt(0) === "#" ? r : "#" + r), e;
 }
-function parsePath(path) {
-  let parsedPath = {};
-  if (path) {
-    let hashIndex = path.indexOf("#");
-    if (hashIndex >= 0) {
-      parsedPath.hash = path.substring(hashIndex);
-      path = path.substring(0, hashIndex);
-    }
-    let searchIndex = path.indexOf("?");
-    if (searchIndex >= 0) {
-      parsedPath.search = path.substring(searchIndex);
-      path = path.substring(0, searchIndex);
-    }
-    if (path) {
-      parsedPath.pathname = path;
-    }
+function re(e) {
+  let t = {};
+  if (e) {
+    let r = e.indexOf("#");
+    r >= 0 && (t.hash = e.substring(r), e = e.substring(0, r));
+    let a = e.indexOf("?");
+    a >= 0 && (t.search = e.substring(a), e = e.substring(0, a)), e && (t.pathname = e);
   }
-  return parsedPath;
+  return t;
 }
-function matchRoutes(routes, locationArg, basename = "/") {
-  return matchRoutesImpl(routes, locationArg, basename, false);
+function Ce(e, t, r = "/") {
+  return qe(e, t, r, !1);
 }
-function matchRoutesImpl(routes, locationArg, basename, allowPartial) {
-  let location = typeof locationArg === "string" ? parsePath(locationArg) : locationArg;
-  let pathname = stripBasename(location.pathname || "/", basename);
-  if (pathname == null) {
+function qe(e, t, r, a) {
+  let n = typeof t == "string" ? re(t) : t, o = D(n.pathname || "/", r);
+  if (o == null)
     return null;
-  }
-  let branches = flattenRoutes(routes);
-  rankRouteBranches(branches);
-  let matches = null;
-  for (let i = 0; matches == null && i < branches.length; ++i) {
-    let decoded = decodePath(pathname);
-    matches = matchRouteBranch(
-      branches[i],
-      decoded,
-      allowPartial
+  let c = Re(e);
+  Xe(c);
+  let s = null;
+  for (let l = 0; s == null && l < c.length; ++l) {
+    let i = ut(o);
+    s = it(
+      c[l],
+      i,
+      a
     );
   }
-  return matches;
+  return s;
 }
-function flattenRoutes(routes, branches = [], parentsMeta = [], parentPath = "") {
-  let flattenRoute = (route, index, relativePath) => {
-    let meta = {
-      relativePath: relativePath === void 0 ? route.path || "" : relativePath,
-      caseSensitive: route.caseSensitive === true,
-      childrenIndex: index,
-      route
+function Re(e, t = [], r = [], a = "") {
+  let n = (o, c, s) => {
+    let l = {
+      relativePath: s === void 0 ? o.path || "" : s,
+      caseSensitive: o.caseSensitive === !0,
+      childrenIndex: c,
+      route: o
     };
-    if (meta.relativePath.startsWith("/")) {
-      invariant(
-        meta.relativePath.startsWith(parentPath),
-        `Absolute route path "${meta.relativePath}" nested under path "${parentPath}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`
-      );
-      meta.relativePath = meta.relativePath.slice(parentPath.length);
-    }
-    let path = joinPaths([parentPath, meta.relativePath]);
-    let routesMeta = parentsMeta.concat(meta);
-    if (route.children && route.children.length > 0) {
-      invariant(
-        // Our types know better, but runtime JS may not!
-        // @ts-expect-error
-        route.index !== true,
-        `Index routes must not have child routes. Please remove all child routes from route path "${path}".`
-      );
-      flattenRoutes(route.children, branches, routesMeta, path);
-    }
-    if (route.path == null && !route.index) {
-      return;
-    }
-    branches.push({
-      path,
-      score: computeScore(path, route.index),
-      routesMeta
+    l.relativePath.startsWith("/") && (S(
+      l.relativePath.startsWith(a),
+      `Absolute route path "${l.relativePath}" nested under path "${a}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`
+    ), l.relativePath = l.relativePath.slice(a.length));
+    let i = O([a, l.relativePath]), m = r.concat(l);
+    o.children && o.children.length > 0 && (S(
+      // Our types know better, but runtime JS may not!
+      // @ts-expect-error
+      o.index !== !0,
+      `Index routes must not have child routes. Please remove all child routes from route path "${i}".`
+    ), Re(o.children, t, m, i)), !(o.path == null && !o.index) && t.push({
+      path: i,
+      score: at(i, o.index),
+      routesMeta: m
     });
   };
-  routes.forEach((route, index) => {
-    var _a;
-    if (route.path === "" || !((_a = route.path) == null ? void 0 : _a.includes("?"))) {
-      flattenRoute(route, index);
-    } else {
-      for (let exploded of explodeOptionalSegments(route.path)) {
-        flattenRoute(route, index, exploded);
-      }
-    }
-  });
-  return branches;
+  return e.forEach((o, c) => {
+    var s;
+    if (o.path === "" || !((s = o.path) != null && s.includes("?")))
+      n(o, c);
+    else
+      for (let l of Se(o.path))
+        n(o, c, l);
+  }), t;
 }
-function explodeOptionalSegments(path) {
-  let segments = path.split("/");
-  if (segments.length === 0) return [];
-  let [first, ...rest] = segments;
-  let isOptional = first.endsWith("?");
-  let required = first.replace(/\?$/, "");
-  if (rest.length === 0) {
-    return isOptional ? [required, ""] : [required];
-  }
-  let restExploded = explodeOptionalSegments(rest.join("/"));
-  let result = [];
-  result.push(
-    ...restExploded.map(
-      (subpath) => subpath === "" ? required : [required, subpath].join("/")
+function Se(e) {
+  let t = e.split("/");
+  if (t.length === 0) return [];
+  let [r, ...a] = t, n = r.endsWith("?"), o = r.replace(/\?$/, "");
+  if (a.length === 0)
+    return n ? [o, ""] : [o];
+  let c = Se(a.join("/")), s = [];
+  return s.push(
+    ...c.map(
+      (l) => l === "" ? o : [o, l].join("/")
     )
-  );
-  if (isOptional) {
-    result.push(...restExploded);
-  }
-  return result.map(
-    (exploded) => path.startsWith("/") && exploded === "" ? "/" : exploded
+  ), n && s.push(...c), s.map(
+    (l) => e.startsWith("/") && l === "" ? "/" : l
   );
 }
-function rankRouteBranches(branches) {
-  branches.sort(
-    (a, b) => a.score !== b.score ? b.score - a.score : compareIndexes(
-      a.routesMeta.map((meta) => meta.childrenIndex),
-      b.routesMeta.map((meta) => meta.childrenIndex)
+function Xe(e) {
+  e.sort(
+    (t, r) => t.score !== r.score ? r.score - t.score : ot(
+      t.routesMeta.map((a) => a.childrenIndex),
+      r.routesMeta.map((a) => a.childrenIndex)
     )
   );
 }
-var paramRe = /^:[\w-]+$/;
-var dynamicSegmentValue = 3;
-var indexRouteValue = 2;
-var emptySegmentValue = 1;
-var staticSegmentValue = 10;
-var splatPenalty = -2;
-var isSplat = (s) => s === "*";
-function computeScore(path, index) {
-  let segments = path.split("/");
-  let initialScore = segments.length;
-  if (segments.some(isSplat)) {
-    initialScore += splatPenalty;
-  }
-  if (index) {
-    initialScore += indexRouteValue;
-  }
-  return segments.filter((s) => !isSplat(s)).reduce(
-    (score, segment) => score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue),
-    initialScore
+var Qe = /^:[\w-]+$/, Ze = 3, et = 2, tt = 1, rt = 10, nt = -2, ve = (e) => e === "*";
+function at(e, t) {
+  let r = e.split("/"), a = r.length;
+  return r.some(ve) && (a += nt), t && (a += et), r.filter((n) => !ve(n)).reduce(
+    (n, o) => n + (Qe.test(o) ? Ze : o === "" ? tt : rt),
+    a
   );
 }
-function compareIndexes(a, b) {
-  let siblings = a.length === b.length && a.slice(0, -1).every((n, i) => n === b[i]);
-  return siblings ? (
+function ot(e, t) {
+  return e.length === t.length && e.slice(0, -1).every((a, n) => a === t[n]) ? (
     // If two routes are siblings, we should try to match the earlier sibling
     // first. This allows people to have fine-grained control over the matching
     // behavior by simply putting routes with identical paths in the order they
     // want them tried.
-    a[a.length - 1] - b[b.length - 1]
+    e[e.length - 1] - t[t.length - 1]
   ) : (
     // Otherwise, it doesn't really make sense to rank non-siblings by index,
     // so they sort equally.
     0
   );
 }
-function matchRouteBranch(branch, pathname, allowPartial = false) {
-  let { routesMeta } = branch;
-  let matchedParams = {};
-  let matchedPathname = "/";
-  let matches = [];
-  for (let i = 0; i < routesMeta.length; ++i) {
-    let meta = routesMeta[i];
-    let end = i === routesMeta.length - 1;
-    let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
-    let match = matchPath(
-      { path: meta.relativePath, caseSensitive: meta.caseSensitive, end },
-      remainingPathname
-    );
-    let route = meta.route;
-    if (!match && end && allowPartial && !routesMeta[routesMeta.length - 1].route.index) {
-      match = matchPath(
-        {
-          path: meta.relativePath,
-          caseSensitive: meta.caseSensitive,
-          end: false
-        },
-        remainingPathname
-      );
-    }
-    if (!match) {
+function it(e, t, r = !1) {
+  let { routesMeta: a } = e, n = {}, o = "/", c = [];
+  for (let s = 0; s < a.length; ++s) {
+    let l = a[s], i = s === a.length - 1, m = o === "/" ? t : t.slice(o.length) || "/", p = z(
+      { path: l.relativePath, caseSensitive: l.caseSensitive, end: i },
+      m
+    ), d = l.route;
+    if (!p && i && r && !a[a.length - 1].route.index && (p = z(
+      {
+        path: l.relativePath,
+        caseSensitive: l.caseSensitive,
+        end: !1
+      },
+      m
+    )), !p)
       return null;
-    }
-    Object.assign(matchedParams, match.params);
-    matches.push({
+    Object.assign(n, p.params), c.push({
       // TODO: Can this as be avoided?
-      params: matchedParams,
-      pathname: joinPaths([matchedPathname, match.pathname]),
-      pathnameBase: normalizePathname(
-        joinPaths([matchedPathname, match.pathnameBase])
+      params: n,
+      pathname: O([o, p.pathname]),
+      pathnameBase: dt(
+        O([o, p.pathnameBase])
       ),
-      route
-    });
-    if (match.pathnameBase !== "/") {
-      matchedPathname = joinPaths([matchedPathname, match.pathnameBase]);
-    }
+      route: d
+    }), p.pathnameBase !== "/" && (o = O([o, p.pathnameBase]));
   }
-  return matches;
+  return c;
 }
-function matchPath(pattern, pathname) {
-  if (typeof pattern === "string") {
-    pattern = { path: pattern, caseSensitive: false, end: true };
-  }
-  let [matcher, compiledParams] = compilePath(
-    pattern.path,
-    pattern.caseSensitive,
-    pattern.end
-  );
-  let match = pathname.match(matcher);
-  if (!match) return null;
-  let matchedPathname = match[0];
-  let pathnameBase = matchedPathname.replace(/(.)\/+$/, "$1");
-  let captureGroups = match.slice(1);
-  let params = compiledParams.reduce(
-    (memo2, { paramName, isOptional }, index) => {
-      if (paramName === "*") {
-        let splatValue = captureGroups[index] || "";
-        pathnameBase = matchedPathname.slice(0, matchedPathname.length - splatValue.length).replace(/(.)\/+$/, "$1");
-      }
-      const value = captureGroups[index];
-      if (isOptional && !value) {
-        memo2[paramName] = void 0;
-      } else {
-        memo2[paramName] = (value || "").replace(/%2F/g, "/");
-      }
-      return memo2;
-    },
-    {}
-  );
+function z(e, t) {
+  typeof e == "string" && (e = { path: e, caseSensitive: !1, end: !0 });
+  let [r, a] = lt(
+    e.path,
+    e.caseSensitive,
+    e.end
+  ), n = t.match(r);
+  if (!n) return null;
+  let o = n[0], c = o.replace(/(.)\/+$/, "$1"), s = n.slice(1);
   return {
-    params,
-    pathname: matchedPathname,
-    pathnameBase,
-    pattern
+    params: a.reduce(
+      (i, { paramName: m, isOptional: p }, d) => {
+        if (m === "*") {
+          let f = s[d] || "";
+          c = o.slice(0, o.length - f.length).replace(/(.)\/+$/, "$1");
+        }
+        const h = s[d];
+        return p && !h ? i[m] = void 0 : i[m] = (h || "").replace(/%2F/g, "/"), i;
+      },
+      {}
+    ),
+    pathname: o,
+    pathnameBase: c,
+    pattern: e
   };
 }
-function compilePath(path, caseSensitive = false, end = true) {
-  warning(
-    path === "*" || !path.endsWith("*") || path.endsWith("/*"),
-    `Route path "${path}" will be treated as if it were "${path.replace(/\*$/, "/*")}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${path.replace(/\*$/, "/*")}".`
+function lt(e, t = !1, r = !0) {
+  P(
+    e === "*" || !e.endsWith("*") || e.endsWith("/*"),
+    `Route path "${e}" will be treated as if it were "${e.replace(/\*$/, "/*")}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${e.replace(/\*$/, "/*")}".`
   );
-  let params = [];
-  let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(
+  let a = [], n = "^" + e.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(
     /\/:([\w-]+)(\?)?/g,
-    (_, paramName, isOptional) => {
-      params.push({ paramName, isOptional: isOptional != null });
-      return isOptional ? "/?([^\\/]+)?" : "/([^\\/]+)";
-    }
+    (c, s, l) => (a.push({ paramName: s, isOptional: l != null }), l ? "/?([^\\/]+)?" : "/([^\\/]+)")
   );
-  if (path.endsWith("*")) {
-    params.push({ paramName: "*" });
-    regexpSource += path === "*" || path === "/*" ? "(.*)$" : "(?:\\/(.+)|\\/*)$";
-  } else if (end) {
-    regexpSource += "\\/*$";
-  } else if (path !== "" && path !== "/") {
-    regexpSource += "(?:(?=\\/|$))";
-  } else ;
-  let matcher = new RegExp(regexpSource, caseSensitive ? void 0 : "i");
-  return [matcher, params];
+  return e.endsWith("*") ? (a.push({ paramName: "*" }), n += e === "*" || e === "/*" ? "(.*)$" : "(?:\\/(.+)|\\/*)$") : r ? n += "\\/*$" : e !== "" && e !== "/" && (n += "(?:(?=\\/|$))"), [new RegExp(n, t ? void 0 : "i"), a];
 }
-function decodePath(value) {
+function ut(e) {
   try {
-    return value.split("/").map((v) => decodeURIComponent(v).replace(/\//g, "%2F")).join("/");
-  } catch (error) {
-    warning(
-      false,
-      `The URL path "${value}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${error}).`
-    );
-    return value;
+    return e.split("/").map((t) => decodeURIComponent(t).replace(/\//g, "%2F")).join("/");
+  } catch (t) {
+    return P(
+      !1,
+      `The URL path "${e}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${t}).`
+    ), e;
   }
 }
-function stripBasename(pathname, basename) {
-  if (basename === "/") return pathname;
-  if (!pathname.toLowerCase().startsWith(basename.toLowerCase())) {
+function D(e, t) {
+  if (t === "/") return e;
+  if (!e.toLowerCase().startsWith(t.toLowerCase()))
     return null;
-  }
-  let startIndex = basename.endsWith("/") ? basename.length - 1 : basename.length;
-  let nextChar = pathname.charAt(startIndex);
-  if (nextChar && nextChar !== "/") {
-    return null;
-  }
-  return pathname.slice(startIndex) || "/";
+  let r = t.endsWith("/") ? t.length - 1 : t.length, a = e.charAt(r);
+  return a && a !== "/" ? null : e.slice(r) || "/";
 }
-function resolvePath(to, fromPathname = "/") {
+function st(e, t = "/") {
   let {
-    pathname: toPathname,
-    search = "",
-    hash = ""
-  } = typeof to === "string" ? parsePath(to) : to;
-  let pathname = toPathname ? toPathname.startsWith("/") ? toPathname : resolvePathname(toPathname, fromPathname) : fromPathname;
+    pathname: r,
+    search: a = "",
+    hash: n = ""
+  } = typeof e == "string" ? re(e) : e;
   return {
-    pathname,
-    search: normalizeSearch(search),
-    hash: normalizeHash(hash)
+    pathname: r ? r.startsWith("/") ? r : ct(r, t) : t,
+    search: ht(a),
+    hash: mt(n)
   };
 }
-function resolvePathname(relativePath, fromPathname) {
-  let segments = fromPathname.replace(/\/+$/, "").split("/");
-  let relativeSegments = relativePath.split("/");
-  relativeSegments.forEach((segment) => {
-    if (segment === "..") {
-      if (segments.length > 1) segments.pop();
-    } else if (segment !== ".") {
-      segments.push(segment);
-    }
-  });
-  return segments.length > 1 ? segments.join("/") : "/";
+function ct(e, t) {
+  let r = t.replace(/\/+$/, "").split("/");
+  return e.split("/").forEach((n) => {
+    n === ".." ? r.length > 1 && r.pop() : n !== "." && r.push(n);
+  }), r.length > 1 ? r.join("/") : "/";
 }
-function getInvalidPathError(char, field, dest, path) {
-  return `Cannot include a '${char}' character in a manually specified \`to.${field}\` field [${JSON.stringify(
-    path
-  )}].  Please separate it out to the \`to.${dest}\` field. Alternatively you may provide the full path as a string in <Link to="..."> and the router will parse it for you.`;
+function X(e, t, r, a) {
+  return `Cannot include a '${e}' character in a manually specified \`to.${t}\` field [${JSON.stringify(
+    a
+  )}].  Please separate it out to the \`to.${r}\` field. Alternatively you may provide the full path as a string in <Link to="..."> and the router will parse it for you.`;
 }
-function getPathContributingMatches(matches) {
-  return matches.filter(
-    (match, index) => index === 0 || match.route.path && match.route.path.length > 0
+function ft(e) {
+  return e.filter(
+    (t, r) => r === 0 || t.route.path && t.route.path.length > 0
   );
 }
-function getResolveToMatches(matches) {
-  let pathMatches = getPathContributingMatches(matches);
-  return pathMatches.map(
-    (match, idx) => idx === pathMatches.length - 1 ? match.pathname : match.pathnameBase
+function ne(e) {
+  let t = ft(e);
+  return t.map(
+    (r, a) => a === t.length - 1 ? r.pathname : r.pathnameBase
   );
 }
-function resolveTo(toArg, routePathnames, locationPathname, isPathRelative = false) {
-  let to;
-  if (typeof toArg === "string") {
-    to = parsePath(toArg);
-  } else {
-    to = { ...toArg };
-    invariant(
-      !to.pathname || !to.pathname.includes("?"),
-      getInvalidPathError("?", "pathname", "search", to)
-    );
-    invariant(
-      !to.pathname || !to.pathname.includes("#"),
-      getInvalidPathError("#", "pathname", "hash", to)
-    );
-    invariant(
-      !to.search || !to.search.includes("#"),
-      getInvalidPathError("#", "search", "hash", to)
-    );
-  }
-  let isEmptyPath = toArg === "" || to.pathname === "";
-  let toPathname = isEmptyPath ? "/" : to.pathname;
-  let from;
-  if (toPathname == null) {
-    from = locationPathname;
-  } else {
-    let routePathnameIndex = routePathnames.length - 1;
-    if (!isPathRelative && toPathname.startsWith("..")) {
-      let toSegments = toPathname.split("/");
-      while (toSegments[0] === "..") {
-        toSegments.shift();
-        routePathnameIndex -= 1;
-      }
-      to.pathname = toSegments.join("/");
+function ae(e, t, r, a = !1) {
+  let n;
+  typeof e == "string" ? n = re(e) : (n = { ...e }, S(
+    !n.pathname || !n.pathname.includes("?"),
+    X("?", "pathname", "search", n)
+  ), S(
+    !n.pathname || !n.pathname.includes("#"),
+    X("#", "pathname", "hash", n)
+  ), S(
+    !n.search || !n.search.includes("#"),
+    X("#", "search", "hash", n)
+  ));
+  let o = e === "" || n.pathname === "", c = o ? "/" : n.pathname, s;
+  if (c == null)
+    s = r;
+  else {
+    let p = t.length - 1;
+    if (!a && c.startsWith("..")) {
+      let d = c.split("/");
+      for (; d[0] === ".."; )
+        d.shift(), p -= 1;
+      n.pathname = d.join("/");
     }
-    from = routePathnameIndex >= 0 ? routePathnames[routePathnameIndex] : "/";
+    s = p >= 0 ? t[p] : "/";
   }
-  let path = resolvePath(to, from);
-  let hasExplicitTrailingSlash = toPathname && toPathname !== "/" && toPathname.endsWith("/");
-  let hasCurrentTrailingSlash = (isEmptyPath || toPathname === ".") && locationPathname.endsWith("/");
-  if (!path.pathname.endsWith("/") && (hasExplicitTrailingSlash || hasCurrentTrailingSlash)) {
-    path.pathname += "/";
-  }
-  return path;
+  let l = st(n, s), i = c && c !== "/" && c.endsWith("/"), m = (o || c === ".") && r.endsWith("/");
+  return !l.pathname.endsWith("/") && (i || m) && (l.pathname += "/"), l;
 }
-var joinPaths = (paths) => paths.join("/").replace(/\/\/+/g, "/");
-var normalizePathname = (pathname) => pathname.replace(/\/+$/, "").replace(/^\/*/, "/");
-var normalizeSearch = (search) => !search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search;
-var normalizeHash = (hash) => !hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash;
-function isRouteErrorResponse(error) {
-  return error != null && typeof error.status === "number" && typeof error.statusText === "string" && typeof error.internal === "boolean" && "data" in error;
+var O = (e) => e.join("/").replace(/\/\/+/g, "/"), dt = (e) => e.replace(/\/+$/, "").replace(/^\/*/, "/"), ht = (e) => !e || e === "?" ? "" : e.startsWith("?") ? e : "?" + e, mt = (e) => !e || e === "#" ? "" : e.startsWith("#") ? e : "#" + e;
+function pt(e) {
+  return e != null && typeof e.status == "number" && typeof e.statusText == "string" && typeof e.internal == "boolean" && "data" in e;
 }
-var validMutationMethodsArr = [
+var be = [
   "POST",
   "PUT",
   "PATCH",
   "DELETE"
 ];
 new Set(
-  validMutationMethodsArr
+  be
 );
-var validRequestMethodsArr = [
+var vt = [
   "GET",
-  ...validMutationMethodsArr
+  ...be
 ];
-new Set(validRequestMethodsArr);
-var DataRouterContext = React.createContext(null);
-DataRouterContext.displayName = "DataRouter";
-var DataRouterStateContext = React.createContext(null);
-DataRouterStateContext.displayName = "DataRouterState";
-var ViewTransitionContext = React.createContext({
-  isTransitioning: false
+new Set(vt);
+var I = u.createContext(null);
+I.displayName = "DataRouter";
+var j = u.createContext(null);
+j.displayName = "DataRouterState";
+var ke = u.createContext({
+  isTransitioning: !1
 });
-ViewTransitionContext.displayName = "ViewTransition";
-var FetchersContext = React.createContext(
+ke.displayName = "ViewTransition";
+var yt = u.createContext(
   /* @__PURE__ */ new Map()
 );
-FetchersContext.displayName = "Fetchers";
-var AwaitContext = React.createContext(null);
-AwaitContext.displayName = "Await";
-var NavigationContext = React.createContext(
+yt.displayName = "Fetchers";
+var gt = u.createContext(null);
+gt.displayName = "Await";
+var L = u.createContext(
   null
 );
-NavigationContext.displayName = "Navigation";
-var LocationContext = React.createContext(
+L.displayName = "Navigation";
+var oe = u.createContext(
   null
 );
-LocationContext.displayName = "Location";
-var RouteContext = React.createContext({
+oe.displayName = "Location";
+var _ = u.createContext({
   outlet: null,
   matches: [],
-  isDataRoute: false
+  isDataRoute: !1
 });
-RouteContext.displayName = "Route";
-var RouteErrorContext = React.createContext(null);
-RouteErrorContext.displayName = "RouteError";
-function useHref(to, { relative } = {}) {
-  invariant(
-    useInRouterContext(),
+_.displayName = "Route";
+var ie = u.createContext(null);
+ie.displayName = "RouteError";
+function wt(e, { relative: t } = {}) {
+  S(
+    F(),
     // TODO: This error is probably because they somehow have 2 versions of the
     // router loaded. We can help them understand how to avoid that.
-    `useHref() may be used only in the context of a <Router> component.`
+    "useHref() may be used only in the context of a <Router> component."
   );
-  let { basename, navigator: navigator2 } = React.useContext(NavigationContext);
-  let { hash, pathname, search } = useResolvedPath(to, { relative });
-  let joinedPathname = pathname;
-  if (basename !== "/") {
-    joinedPathname = pathname === "/" ? basename : joinPaths([basename, pathname]);
-  }
-  return navigator2.createHref({ pathname: joinedPathname, search, hash });
+  let { basename: r, navigator: a } = u.useContext(L), { hash: n, pathname: o, search: c } = V(e, { relative: t }), s = o;
+  return r !== "/" && (s = o === "/" ? r : O([r, o])), a.createHref({ pathname: s, search: c, hash: n });
 }
-function useInRouterContext() {
-  return React.useContext(LocationContext) != null;
+function F() {
+  return u.useContext(oe) != null;
 }
-function useLocation() {
-  invariant(
-    useInRouterContext(),
+function $() {
+  return S(
+    F(),
     // TODO: This error is probably because they somehow have 2 versions of the
     // router loaded. We can help them understand how to avoid that.
-    `useLocation() may be used only in the context of a <Router> component.`
-  );
-  return React.useContext(LocationContext).location;
+    "useLocation() may be used only in the context of a <Router> component."
+  ), u.useContext(oe).location;
 }
-var navigateEffectWarning = `You should call navigate() in a React.useEffect(), not when your component is first rendered.`;
-function useIsomorphicLayoutEffect(cb) {
-  let isStatic = React.useContext(NavigationContext).static;
-  if (!isStatic) {
-    React.useLayoutEffect(cb);
-  }
+var Pe = "You should call navigate() in a React.useEffect(), not when your component is first rendered.";
+function Le(e) {
+  u.useContext(L).static || u.useLayoutEffect(e);
 }
-function useNavigate() {
-  let { isDataRoute } = React.useContext(RouteContext);
-  return isDataRoute ? useNavigateStable() : useNavigateUnstable();
+function _e() {
+  let { isDataRoute: e } = u.useContext(_);
+  return e ? $t() : xt();
 }
-function useNavigateUnstable() {
-  invariant(
-    useInRouterContext(),
+function xt() {
+  S(
+    F(),
     // TODO: This error is probably because they somehow have 2 versions of the
     // router loaded. We can help them understand how to avoid that.
-    `useNavigate() may be used only in the context of a <Router> component.`
+    "useNavigate() may be used only in the context of a <Router> component."
   );
-  let dataRouterContext = React.useContext(DataRouterContext);
-  let { basename, navigator: navigator2 } = React.useContext(NavigationContext);
-  let { matches } = React.useContext(RouteContext);
-  let { pathname: locationPathname } = useLocation();
-  let routePathnamesJson = JSON.stringify(getResolveToMatches(matches));
-  let activeRef = React.useRef(false);
-  useIsomorphicLayoutEffect(() => {
-    activeRef.current = true;
-  });
-  let navigate = React.useCallback(
-    (to, options = {}) => {
-      warning(activeRef.current, navigateEffectWarning);
-      if (!activeRef.current) return;
-      if (typeof to === "number") {
-        navigator2.go(to);
+  let e = u.useContext(I), { basename: t, navigator: r } = u.useContext(L), { matches: a } = u.useContext(_), { pathname: n } = $(), o = JSON.stringify(ne(a)), c = u.useRef(!1);
+  return Le(() => {
+    c.current = !0;
+  }), u.useCallback(
+    (l, i = {}) => {
+      if (P(c.current, Pe), !c.current) return;
+      if (typeof l == "number") {
+        r.go(l);
         return;
       }
-      let path = resolveTo(
-        to,
-        JSON.parse(routePathnamesJson),
-        locationPathname,
-        options.relative === "path"
+      let m = ae(
+        l,
+        JSON.parse(o),
+        n,
+        i.relative === "path"
       );
-      if (dataRouterContext == null && basename !== "/") {
-        path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
-      }
-      (!!options.replace ? navigator2.replace : navigator2.push)(
-        path,
-        options.state,
-        options
+      e == null && t !== "/" && (m.pathname = m.pathname === "/" ? t : O([t, m.pathname])), (i.replace ? r.replace : r.push)(
+        m,
+        i.state,
+        i
       );
     },
     [
-      basename,
-      navigator2,
-      routePathnamesJson,
-      locationPathname,
-      dataRouterContext
+      t,
+      r,
+      o,
+      n,
+      e
     ]
   );
-  return navigate;
 }
-React.createContext(null);
-function useResolvedPath(to, { relative } = {}) {
-  let { matches } = React.useContext(RouteContext);
-  let { pathname: locationPathname } = useLocation();
-  let routePathnamesJson = JSON.stringify(getResolveToMatches(matches));
-  return React.useMemo(
-    () => resolveTo(
-      to,
-      JSON.parse(routePathnamesJson),
-      locationPathname,
-      relative === "path"
+u.createContext(null);
+function V(e, { relative: t } = {}) {
+  let { matches: r } = u.useContext(_), { pathname: a } = $(), n = JSON.stringify(ne(r));
+  return u.useMemo(
+    () => ae(
+      e,
+      JSON.parse(n),
+      a,
+      t === "path"
     ),
-    [to, routePathnamesJson, locationPathname, relative]
+    [e, n, a, t]
   );
 }
-function useRoutesImpl(routes, locationArg, dataRouterState, future) {
-  invariant(
-    useInRouterContext(),
+function Et(e, t, r, a) {
+  S(
+    F(),
     // TODO: This error is probably because they somehow have 2 versions of the
     // router loaded. We can help them understand how to avoid that.
-    `useRoutes() may be used only in the context of a <Router> component.`
+    "useRoutes() may be used only in the context of a <Router> component."
   );
-  let { navigator: navigator2, static: isStatic } = React.useContext(NavigationContext);
-  let { matches: parentMatches } = React.useContext(RouteContext);
-  let routeMatch = parentMatches[parentMatches.length - 1];
-  let parentParams = routeMatch ? routeMatch.params : {};
-  let parentPathname = routeMatch ? routeMatch.pathname : "/";
-  let parentPathnameBase = routeMatch ? routeMatch.pathnameBase : "/";
-  let parentRoute = routeMatch && routeMatch.route;
+  let { navigator: n, static: o } = u.useContext(L), { matches: c } = u.useContext(_), s = c[c.length - 1], l = s ? s.params : {}, i = s ? s.pathname : "/", m = s ? s.pathnameBase : "/", p = s && s.route;
   {
-    let parentPath = parentRoute && parentRoute.path || "";
-    warningOnce(
-      parentPathname,
-      !parentRoute || parentPath.endsWith("*") || parentPath.endsWith("*?"),
-      `You rendered descendant <Routes> (or called \`useRoutes()\`) at "${parentPathname}" (under <Route path="${parentPath}">) but the parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
+    let y = p && p.path || "";
+    Oe(
+      i,
+      !p || y.endsWith("*") || y.endsWith("*?"),
+      `You rendered descendant <Routes> (or called \`useRoutes()\`) at "${i}" (under <Route path="${y}">) but the parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
 
-Please change the parent <Route path="${parentPath}"> to <Route path="${parentPath === "/" ? "*" : `${parentPath}/*`}">.`
+Please change the parent <Route path="${y}"> to <Route path="${y === "/" ? "*" : `${y}/*`}">.`
     );
   }
-  let locationFromContext = useLocation();
-  let location;
-  {
-    location = locationFromContext;
+  let d = $(), h;
+  h = d;
+  let f = h.pathname || "/", w = f;
+  if (m !== "/") {
+    let y = m.replace(/^\//, "").split("/");
+    w = "/" + f.replace(/^\//, "").split("/").slice(y.length).join("/");
   }
-  let pathname = location.pathname || "/";
-  let remainingPathname = pathname;
-  if (parentPathnameBase !== "/") {
-    let parentSegments = parentPathnameBase.replace(/^\//, "").split("/");
-    let segments = pathname.replace(/^\//, "").split("/");
-    remainingPathname = "/" + segments.slice(parentSegments.length).join("/");
-  }
-  let matches = !isStatic && dataRouterState && dataRouterState.matches && dataRouterState.matches.length > 0 ? dataRouterState.matches : matchRoutes(routes, { pathname: remainingPathname });
-  {
-    warning(
-      parentRoute || matches != null,
-      `No routes matched location "${location.pathname}${location.search}${location.hash}" `
-    );
-    warning(
-      matches == null || matches[matches.length - 1].route.element !== void 0 || matches[matches.length - 1].route.Component !== void 0 || matches[matches.length - 1].route.lazy !== void 0,
-      `Matched leaf route at location "${location.pathname}${location.search}${location.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`
-    );
-  }
-  let renderedMatches = _renderMatches(
-    matches && matches.map(
-      (match) => Object.assign({}, match, {
-        params: Object.assign({}, parentParams, match.params),
-        pathname: joinPaths([
-          parentPathnameBase,
+  let g = !o && r && r.matches && r.matches.length > 0 ? r.matches : Ce(e, { pathname: w });
+  return P(
+    p || g != null,
+    `No routes matched location "${h.pathname}${h.search}${h.hash}" `
+  ), P(
+    g == null || g[g.length - 1].route.element !== void 0 || g[g.length - 1].route.Component !== void 0 || g[g.length - 1].route.lazy !== void 0,
+    `Matched leaf route at location "${h.pathname}${h.search}${h.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`
+  ), kt(
+    g && g.map(
+      (y) => Object.assign({}, y, {
+        params: Object.assign({}, l, y.params),
+        pathname: O([
+          m,
           // Re-encode pathnames that were decoded inside matchRoutes
-          navigator2.encodeLocation ? navigator2.encodeLocation(match.pathname).pathname : match.pathname
+          n.encodeLocation ? n.encodeLocation(y.pathname).pathname : y.pathname
         ]),
-        pathnameBase: match.pathnameBase === "/" ? parentPathnameBase : joinPaths([
-          parentPathnameBase,
+        pathnameBase: y.pathnameBase === "/" ? m : O([
+          m,
           // Re-encode pathnames that were decoded inside matchRoutes
-          navigator2.encodeLocation ? navigator2.encodeLocation(match.pathnameBase).pathname : match.pathnameBase
+          n.encodeLocation ? n.encodeLocation(y.pathnameBase).pathname : y.pathnameBase
         ])
       })
     ),
-    parentMatches,
-    dataRouterState,
-    future
+    c,
+    r,
+    a
   );
-  return renderedMatches;
 }
-function DefaultErrorComponent() {
-  let error = useRouteError();
-  let message = isRouteErrorResponse(error) ? `${error.status} ${error.statusText}` : error instanceof Error ? error.message : JSON.stringify(error);
-  let stack = error instanceof Error ? error.stack : null;
-  let lightgrey = "rgba(200,200,200, 0.5)";
-  let preStyles = { padding: "0.5rem", backgroundColor: lightgrey };
-  let codeStyles = { padding: "2px 4px", backgroundColor: lightgrey };
-  let devInfo = null;
-  {
-    console.error(
-      "Error handled by React Router default ErrorBoundary:",
-      error
-    );
-    devInfo = /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("p", null, "💿 Hey developer 👋"), /* @__PURE__ */ React.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own ", /* @__PURE__ */ React.createElement("code", { style: codeStyles }, "ErrorBoundary"), " or", " ", /* @__PURE__ */ React.createElement("code", { style: codeStyles }, "errorElement"), " prop on your route."));
-  }
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h2", null, "Unexpected Application Error!"), /* @__PURE__ */ React.createElement("h3", { style: { fontStyle: "italic" } }, message), stack ? /* @__PURE__ */ React.createElement("pre", { style: preStyles }, stack) : null, devInfo);
+function Ct() {
+  let e = Tt(), t = pt(e) ? `${e.status} ${e.statusText}` : e instanceof Error ? e.message : JSON.stringify(e), r = e instanceof Error ? e.stack : null, a = "rgba(200,200,200, 0.5)", n = { padding: "0.5rem", backgroundColor: a }, o = { padding: "2px 4px", backgroundColor: a }, c = null;
+  return console.error(
+    "Error handled by React Router default ErrorBoundary:",
+    e
+  ), c = /* @__PURE__ */ u.createElement(u.Fragment, null, /* @__PURE__ */ u.createElement("p", null, "💿 Hey developer 👋"), /* @__PURE__ */ u.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own ", /* @__PURE__ */ u.createElement("code", { style: o }, "ErrorBoundary"), " or", " ", /* @__PURE__ */ u.createElement("code", { style: o }, "errorElement"), " prop on your route.")), /* @__PURE__ */ u.createElement(u.Fragment, null, /* @__PURE__ */ u.createElement("h2", null, "Unexpected Application Error!"), /* @__PURE__ */ u.createElement("h3", { style: { fontStyle: "italic" } }, t), r ? /* @__PURE__ */ u.createElement("pre", { style: n }, r) : null, c);
 }
-var defaultErrorElement = /* @__PURE__ */ React.createElement(DefaultErrorComponent, null);
-var RenderErrorBoundary = class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      location: props.location,
-      revalidation: props.revalidation,
-      error: props.error
+var Rt = /* @__PURE__ */ u.createElement(Ct, null), St = class extends u.Component {
+  constructor(e) {
+    super(e), this.state = {
+      location: e.location,
+      revalidation: e.revalidation,
+      error: e.error
     };
   }
-  static getDerivedStateFromError(error) {
-    return { error };
+  static getDerivedStateFromError(e) {
+    return { error: e };
   }
-  static getDerivedStateFromProps(props, state) {
-    if (state.location !== props.location || state.revalidation !== "idle" && props.revalidation === "idle") {
-      return {
-        error: props.error,
-        location: props.location,
-        revalidation: props.revalidation
-      };
-    }
-    return {
-      error: props.error !== void 0 ? props.error : state.error,
-      location: state.location,
-      revalidation: props.revalidation || state.revalidation
+  static getDerivedStateFromProps(e, t) {
+    return t.location !== e.location || t.revalidation !== "idle" && e.revalidation === "idle" ? {
+      error: e.error,
+      location: e.location,
+      revalidation: e.revalidation
+    } : {
+      error: e.error !== void 0 ? e.error : t.error,
+      location: t.location,
+      revalidation: e.revalidation || t.revalidation
     };
   }
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(e, t) {
     console.error(
       "React Router caught the following error during render",
-      error,
-      errorInfo
+      e,
+      t
     );
   }
   render() {
-    return this.state.error !== void 0 ? /* @__PURE__ */ React.createElement(RouteContext.Provider, { value: this.props.routeContext }, /* @__PURE__ */ React.createElement(
-      RouteErrorContext.Provider,
+    return this.state.error !== void 0 ? /* @__PURE__ */ u.createElement(_.Provider, { value: this.props.routeContext }, /* @__PURE__ */ u.createElement(
+      ie.Provider,
       {
         value: this.state.error,
         children: this.props.component
@@ -1142,1087 +875,803 @@ var RenderErrorBoundary = class extends React.Component {
     )) : this.props.children;
   }
 };
-function RenderedRoute({ routeContext, match, children }) {
-  let dataRouterContext = React.useContext(DataRouterContext);
-  if (dataRouterContext && dataRouterContext.static && dataRouterContext.staticContext && (match.route.errorElement || match.route.ErrorBoundary)) {
-    dataRouterContext.staticContext._deepestRenderedBoundaryId = match.route.id;
-  }
-  return /* @__PURE__ */ React.createElement(RouteContext.Provider, { value: routeContext }, children);
+function bt({ routeContext: e, match: t, children: r }) {
+  let a = u.useContext(I);
+  return a && a.static && a.staticContext && (t.route.errorElement || t.route.ErrorBoundary) && (a.staticContext._deepestRenderedBoundaryId = t.route.id), /* @__PURE__ */ u.createElement(_.Provider, { value: e }, r);
 }
-function _renderMatches(matches, parentMatches = [], dataRouterState = null, future = null) {
-  if (matches == null) {
-    if (!dataRouterState) {
+function kt(e, t = [], r = null, a = null) {
+  if (e == null) {
+    if (!r)
       return null;
-    }
-    if (dataRouterState.errors) {
-      matches = dataRouterState.matches;
-    } else if (parentMatches.length === 0 && !dataRouterState.initialized && dataRouterState.matches.length > 0) {
-      matches = dataRouterState.matches;
-    } else {
+    if (r.errors)
+      e = r.matches;
+    else if (t.length === 0 && !r.initialized && r.matches.length > 0)
+      e = r.matches;
+    else
       return null;
-    }
   }
-  let renderedMatches = matches;
-  let errors = dataRouterState == null ? void 0 : dataRouterState.errors;
-  if (errors != null) {
-    let errorIndex = renderedMatches.findIndex(
-      (m) => m.route.id && (errors == null ? void 0 : errors[m.route.id]) !== void 0
+  let n = e, o = r == null ? void 0 : r.errors;
+  if (o != null) {
+    let l = n.findIndex(
+      (i) => i.route.id && (o == null ? void 0 : o[i.route.id]) !== void 0
     );
-    invariant(
-      errorIndex >= 0,
+    S(
+      l >= 0,
       `Could not find a matching route for errors on route IDs: ${Object.keys(
-        errors
+        o
       ).join(",")}`
-    );
-    renderedMatches = renderedMatches.slice(
+    ), n = n.slice(
       0,
-      Math.min(renderedMatches.length, errorIndex + 1)
+      Math.min(n.length, l + 1)
     );
   }
-  let renderFallback = false;
-  let fallbackIndex = -1;
-  if (dataRouterState) {
-    for (let i = 0; i < renderedMatches.length; i++) {
-      let match = renderedMatches[i];
-      if (match.route.HydrateFallback || match.route.hydrateFallbackElement) {
-        fallbackIndex = i;
-      }
-      if (match.route.id) {
-        let { loaderData, errors: errors2 } = dataRouterState;
-        let needsToRunLoader = match.route.loader && !loaderData.hasOwnProperty(match.route.id) && (!errors2 || errors2[match.route.id] === void 0);
-        if (match.route.lazy || needsToRunLoader) {
-          renderFallback = true;
-          if (fallbackIndex >= 0) {
-            renderedMatches = renderedMatches.slice(0, fallbackIndex + 1);
-          } else {
-            renderedMatches = [renderedMatches[0]];
-          }
+  let c = !1, s = -1;
+  if (r)
+    for (let l = 0; l < n.length; l++) {
+      let i = n[l];
+      if ((i.route.HydrateFallback || i.route.hydrateFallbackElement) && (s = l), i.route.id) {
+        let { loaderData: m, errors: p } = r, d = i.route.loader && !m.hasOwnProperty(i.route.id) && (!p || p[i.route.id] === void 0);
+        if (i.route.lazy || d) {
+          c = !0, s >= 0 ? n = n.slice(0, s + 1) : n = [n[0]];
           break;
         }
       }
     }
-  }
-  return renderedMatches.reduceRight((outlet, match, index) => {
-    let error;
-    let shouldRenderHydrateFallback = false;
-    let errorElement = null;
-    let hydrateFallbackElement = null;
-    if (dataRouterState) {
-      error = errors && match.route.id ? errors[match.route.id] : void 0;
-      errorElement = match.route.errorElement || defaultErrorElement;
-      if (renderFallback) {
-        if (fallbackIndex < 0 && index === 0) {
-          warningOnce(
-            "route-fallback",
-            false,
-            "No `HydrateFallback` element provided to render during initial hydration"
-          );
-          shouldRenderHydrateFallback = true;
-          hydrateFallbackElement = null;
-        } else if (fallbackIndex === index) {
-          shouldRenderHydrateFallback = true;
-          hydrateFallbackElement = match.route.hydrateFallbackElement || null;
-        }
-      }
-    }
-    let matches2 = parentMatches.concat(renderedMatches.slice(0, index + 1));
-    let getChildren = () => {
-      let children;
-      if (error) {
-        children = errorElement;
-      } else if (shouldRenderHydrateFallback) {
-        children = hydrateFallbackElement;
-      } else if (match.route.Component) {
-        children = /* @__PURE__ */ React.createElement(match.route.Component, null);
-      } else if (match.route.element) {
-        children = match.route.element;
-      } else {
-        children = outlet;
-      }
-      return /* @__PURE__ */ React.createElement(
-        RenderedRoute,
+  return n.reduceRight((l, i, m) => {
+    let p, d = !1, h = null, f = null;
+    r && (p = o && i.route.id ? o[i.route.id] : void 0, h = i.route.errorElement || Rt, c && (s < 0 && m === 0 ? (Oe(
+      "route-fallback",
+      !1,
+      "No `HydrateFallback` element provided to render during initial hydration"
+    ), d = !0, f = null) : s === m && (d = !0, f = i.route.hydrateFallbackElement || null)));
+    let w = t.concat(n.slice(0, m + 1)), g = () => {
+      let v;
+      return p ? v = h : d ? v = f : i.route.Component ? v = /* @__PURE__ */ u.createElement(i.route.Component, null) : i.route.element ? v = i.route.element : v = l, /* @__PURE__ */ u.createElement(
+        bt,
         {
-          match,
+          match: i,
           routeContext: {
-            outlet,
-            matches: matches2,
-            isDataRoute: dataRouterState != null
+            outlet: l,
+            matches: w,
+            isDataRoute: r != null
           },
-          children
+          children: v
         }
       );
     };
-    return dataRouterState && (match.route.ErrorBoundary || match.route.errorElement || index === 0) ? /* @__PURE__ */ React.createElement(
-      RenderErrorBoundary,
+    return r && (i.route.ErrorBoundary || i.route.errorElement || m === 0) ? /* @__PURE__ */ u.createElement(
+      St,
       {
-        location: dataRouterState.location,
-        revalidation: dataRouterState.revalidation,
-        component: errorElement,
-        error,
-        children: getChildren(),
-        routeContext: { outlet: null, matches: matches2, isDataRoute: true }
+        location: r.location,
+        revalidation: r.revalidation,
+        component: h,
+        error: p,
+        children: g(),
+        routeContext: { outlet: null, matches: w, isDataRoute: !0 }
       }
-    ) : getChildren();
+    ) : g();
   }, null);
 }
-function getDataRouterConsoleError(hookName) {
-  return `${hookName} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`;
+function le(e) {
+  return `${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`;
 }
-function useDataRouterContext(hookName) {
-  let ctx = React.useContext(DataRouterContext);
-  invariant(ctx, getDataRouterConsoleError(hookName));
-  return ctx;
+function Pt(e) {
+  let t = u.useContext(I);
+  return S(t, le(e)), t;
 }
-function useDataRouterState(hookName) {
-  let state = React.useContext(DataRouterStateContext);
-  invariant(state, getDataRouterConsoleError(hookName));
-  return state;
+function Lt(e) {
+  let t = u.useContext(j);
+  return S(t, le(e)), t;
 }
-function useRouteContext(hookName) {
-  let route = React.useContext(RouteContext);
-  invariant(route, getDataRouterConsoleError(hookName));
-  return route;
+function _t(e) {
+  let t = u.useContext(_);
+  return S(t, le(e)), t;
 }
-function useCurrentRouteId(hookName) {
-  let route = useRouteContext(hookName);
-  let thisRoute = route.matches[route.matches.length - 1];
-  invariant(
-    thisRoute.route.id,
-    `${hookName} can only be used on routes that contain a unique "id"`
-  );
-  return thisRoute.route.id;
+function ue(e) {
+  let t = _t(e), r = t.matches[t.matches.length - 1];
+  return S(
+    r.route.id,
+    `${e} can only be used on routes that contain a unique "id"`
+  ), r.route.id;
 }
-function useRouteId() {
-  return useCurrentRouteId(
+function Ot() {
+  return ue(
     "useRouteId"
     /* UseRouteId */
   );
 }
-function useRouteError() {
-  var _a;
-  let error = React.useContext(RouteErrorContext);
-  let state = useDataRouterState(
+function Tt() {
+  var a;
+  let e = u.useContext(ie), t = Lt(
+    "useRouteError"
+    /* UseRouteError */
+  ), r = ue(
     "useRouteError"
     /* UseRouteError */
   );
-  let routeId = useCurrentRouteId(
-    "useRouteError"
-    /* UseRouteError */
-  );
-  if (error !== void 0) {
-    return error;
-  }
-  return (_a = state.errors) == null ? void 0 : _a[routeId];
+  return e !== void 0 ? e : (a = t.errors) == null ? void 0 : a[r];
 }
-function useNavigateStable() {
-  let { router } = useDataRouterContext(
+function $t() {
+  let { router: e } = Pt(
     "useNavigate"
     /* UseNavigateStable */
-  );
-  let id = useCurrentRouteId(
+  ), t = ue(
     "useNavigate"
     /* UseNavigateStable */
-  );
-  let activeRef = React.useRef(false);
-  useIsomorphicLayoutEffect(() => {
-    activeRef.current = true;
-  });
-  let navigate = React.useCallback(
-    async (to, options = {}) => {
-      warning(activeRef.current, navigateEffectWarning);
-      if (!activeRef.current) return;
-      if (typeof to === "number") {
-        router.navigate(to);
-      } else {
-        await router.navigate(to, { fromRouteId: id, ...options });
-      }
+  ), r = u.useRef(!1);
+  return Le(() => {
+    r.current = !0;
+  }), u.useCallback(
+    async (n, o = {}) => {
+      P(r.current, Pe), r.current && (typeof n == "number" ? e.navigate(n) : await e.navigate(n, { fromRouteId: t, ...o }));
     },
-    [router, id]
+    [e, t]
   );
-  return navigate;
 }
-var alreadyWarned = {};
-function warningOnce(key, cond, message) {
-  if (!cond && !alreadyWarned[key]) {
-    alreadyWarned[key] = true;
-    warning(false, message);
-  }
+var ye = {};
+function Oe(e, t, r) {
+  !t && !ye[e] && (ye[e] = !0, P(!1, r));
 }
-React.memo(DataRoutes);
-function DataRoutes({
-  routes,
-  future,
-  state
+u.memo(Nt);
+function Nt({
+  routes: e,
+  future: t,
+  state: r
 }) {
-  return useRoutesImpl(routes, void 0, state, future);
+  return Et(e, void 0, r, t);
 }
-function Navigate({
-  to,
-  replace: replace2,
-  state,
-  relative
+function Te({
+  to: e,
+  replace: t,
+  state: r,
+  relative: a
 }) {
-  invariant(
-    useInRouterContext(),
+  S(
+    F(),
     // TODO: This error is probably because they somehow have 2 versions of
     // the router loaded. We can help them understand how to avoid that.
-    `<Navigate> may be used only in the context of a <Router> component.`
+    "<Navigate> may be used only in the context of a <Router> component."
   );
-  let { static: isStatic } = React.useContext(NavigationContext);
-  warning(
-    !isStatic,
-    `<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.`
+  let { static: n } = u.useContext(L);
+  P(
+    !n,
+    "<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change."
   );
-  let { matches } = React.useContext(RouteContext);
-  let { pathname: locationPathname } = useLocation();
-  let navigate = useNavigate();
-  let path = resolveTo(
-    to,
-    getResolveToMatches(matches),
-    locationPathname,
-    relative === "path"
-  );
-  let jsonPath = JSON.stringify(path);
-  React.useEffect(() => {
-    navigate(JSON.parse(jsonPath), { replace: replace2, state, relative });
-  }, [navigate, jsonPath, relative, replace2, state]);
-  return null;
+  let { matches: o } = u.useContext(_), { pathname: c } = $(), s = _e(), l = ae(
+    e,
+    ne(o),
+    c,
+    a === "path"
+  ), i = JSON.stringify(l);
+  return u.useEffect(() => {
+    s(JSON.parse(i), { replace: t, state: r, relative: a });
+  }, [s, i, a, t, r]), null;
 }
-var defaultMethod = "get";
-var defaultEncType = "application/x-www-form-urlencoded";
-function isHtmlElement(object) {
-  return object != null && typeof object.tagName === "string";
+var H = "get", U = "application/x-www-form-urlencoded";
+function K(e) {
+  return e != null && typeof e.tagName == "string";
 }
-function isButtonElement(object) {
-  return isHtmlElement(object) && object.tagName.toLowerCase() === "button";
+function Dt(e) {
+  return K(e) && e.tagName.toLowerCase() === "button";
 }
-function isFormElement(object) {
-  return isHtmlElement(object) && object.tagName.toLowerCase() === "form";
+function It(e) {
+  return K(e) && e.tagName.toLowerCase() === "form";
 }
-function isInputElement(object) {
-  return isHtmlElement(object) && object.tagName.toLowerCase() === "input";
+function At(e) {
+  return K(e) && e.tagName.toLowerCase() === "input";
 }
-function isModifiedEvent(event) {
-  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+function Mt(e) {
+  return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
 }
-function shouldProcessLinkClick(event, target) {
-  return event.button === 0 && // Ignore everything but left clicks
-  (!target || target === "_self") && // Let browser handle "target=_blank" etc.
-  !isModifiedEvent(event);
+function Ft(e, t) {
+  return e.button === 0 && // Ignore everything but left clicks
+  (!t || t === "_self") && // Let browser handle "target=_blank" etc.
+  !Mt(e);
 }
-var _formDataSupportsSubmitter = null;
-function isFormDataSubmitterSupported() {
-  if (_formDataSupportsSubmitter === null) {
+var B = null;
+function Vt() {
+  if (B === null)
     try {
       new FormData(
         document.createElement("form"),
         // @ts-expect-error if FormData supports the submitter parameter, this will throw
         0
-      );
-      _formDataSupportsSubmitter = false;
-    } catch (e) {
-      _formDataSupportsSubmitter = true;
+      ), B = !1;
+    } catch {
+      B = !0;
     }
-  }
-  return _formDataSupportsSubmitter;
+  return B;
 }
-var supportedFormEncTypes = /* @__PURE__ */ new Set([
+var Wt = /* @__PURE__ */ new Set([
   "application/x-www-form-urlencoded",
   "multipart/form-data",
   "text/plain"
 ]);
-function getFormEncType(encType) {
-  if (encType != null && !supportedFormEncTypes.has(encType)) {
-    warning(
-      false,
-      `"${encType}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${defaultEncType}"`
-    );
-    return null;
-  }
-  return encType;
+function Q(e) {
+  return e != null && !Wt.has(e) ? (P(
+    !1,
+    `"${e}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${U}"`
+  ), null) : e;
 }
-function getFormSubmissionInfo(target, basename) {
-  let method;
-  let action;
-  let encType;
-  let formData;
-  let body;
-  if (isFormElement(target)) {
-    let attr = target.getAttribute("action");
-    action = attr ? stripBasename(attr, basename) : null;
-    method = target.getAttribute("method") || defaultMethod;
-    encType = getFormEncType(target.getAttribute("enctype")) || defaultEncType;
-    formData = new FormData(target);
-  } else if (isButtonElement(target) || isInputElement(target) && (target.type === "submit" || target.type === "image")) {
-    let form = target.form;
-    if (form == null) {
+function Bt(e, t) {
+  let r, a, n, o, c;
+  if (It(e)) {
+    let s = e.getAttribute("action");
+    a = s ? D(s, t) : null, r = e.getAttribute("method") || H, n = Q(e.getAttribute("enctype")) || U, o = new FormData(e);
+  } else if (Dt(e) || At(e) && (e.type === "submit" || e.type === "image")) {
+    let s = e.form;
+    if (s == null)
       throw new Error(
-        `Cannot submit a <button> or <input type="submit"> without a <form>`
+        'Cannot submit a <button> or <input type="submit"> without a <form>'
       );
+    let l = e.getAttribute("formaction") || s.getAttribute("action");
+    if (a = l ? D(l, t) : null, r = e.getAttribute("formmethod") || s.getAttribute("method") || H, n = Q(e.getAttribute("formenctype")) || Q(s.getAttribute("enctype")) || U, o = new FormData(s, e), !Vt()) {
+      let { name: i, type: m, value: p } = e;
+      if (m === "image") {
+        let d = i ? `${i}.` : "";
+        o.append(`${d}x`, "0"), o.append(`${d}y`, "0");
+      } else i && o.append(i, p);
     }
-    let attr = target.getAttribute("formaction") || form.getAttribute("action");
-    action = attr ? stripBasename(attr, basename) : null;
-    method = target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod;
-    encType = getFormEncType(target.getAttribute("formenctype")) || getFormEncType(form.getAttribute("enctype")) || defaultEncType;
-    formData = new FormData(form, target);
-    if (!isFormDataSubmitterSupported()) {
-      let { name, type, value } = target;
-      if (type === "image") {
-        let prefix = name ? `${name}.` : "";
-        formData.append(`${prefix}x`, "0");
-        formData.append(`${prefix}y`, "0");
-      } else if (name) {
-        formData.append(name, value);
-      }
-    }
-  } else if (isHtmlElement(target)) {
-    throw new Error(
-      `Cannot submit element that is not <form>, <button>, or <input type="submit|image">`
-    );
   } else {
-    method = defaultMethod;
-    action = null;
-    encType = defaultEncType;
-    body = target;
+    if (K(e))
+      throw new Error(
+        'Cannot submit element that is not <form>, <button>, or <input type="submit|image">'
+      );
+    r = H, a = null, n = U, c = e;
   }
-  if (formData && encType === "text/plain") {
-    body = formData;
-    formData = void 0;
-  }
-  return { action, method: method.toLowerCase(), encType, formData, body };
+  return o && n === "text/plain" && (c = o, o = void 0), { action: a, method: r.toLowerCase(), encType: n, formData: o, body: c };
 }
-function invariant2(value, message) {
-  if (value === false || value === null || typeof value === "undefined") {
-    throw new Error(message);
-  }
+function se(e, t) {
+  if (e === !1 || e === null || typeof e > "u")
+    throw new Error(t);
 }
-async function loadRouteModule(route, routeModulesCache) {
-  if (route.id in routeModulesCache) {
-    return routeModulesCache[route.id];
-  }
+async function Ht(e, t) {
+  if (e.id in t)
+    return t[e.id];
   try {
-    let routeModule = await import(
+    let r = await import(
       /* @vite-ignore */
       /* webpackIgnore: true */
-      route.module
+      e.module
     );
-    routeModulesCache[route.id] = routeModule;
-    return routeModule;
-  } catch (error) {
-    console.error(
-      `Error loading route module \`${route.module}\`, reloading page...`
-    );
-    console.error(error);
-    if (window.__reactRouterContext && window.__reactRouterContext.isSpaMode && // @ts-expect-error
-    void 0) ;
-    window.location.reload();
-    return new Promise(() => {
+    return t[e.id] = r, r;
+  } catch (r) {
+    return console.error(
+      `Error loading route module \`${e.module}\`, reloading page...`
+    ), console.error(r), window.__reactRouterContext && window.__reactRouterContext.isSpaMode, window.location.reload(), new Promise(() => {
     });
   }
 }
-function isHtmlLinkDescriptor(object) {
-  if (object == null) {
-    return false;
-  }
-  if (object.href == null) {
-    return object.rel === "preload" && typeof object.imageSrcSet === "string" && typeof object.imageSizes === "string";
-  }
-  return typeof object.rel === "string" && typeof object.href === "string";
+function Ut(e) {
+  return e == null ? !1 : e.href == null ? e.rel === "preload" && typeof e.imageSrcSet == "string" && typeof e.imageSizes == "string" : typeof e.rel == "string" && typeof e.href == "string";
 }
-async function getKeyedPrefetchLinks(matches, manifest, routeModules) {
-  let links = await Promise.all(
-    matches.map(async (match) => {
-      let route = manifest.routes[match.route.id];
-      if (route) {
-        let mod = await loadRouteModule(route, routeModules);
-        return mod.links ? mod.links() : [];
+async function zt(e, t, r) {
+  let a = await Promise.all(
+    e.map(async (n) => {
+      let o = t.routes[n.route.id];
+      if (o) {
+        let c = await Ht(o, r);
+        return c.links ? c.links() : [];
       }
       return [];
     })
   );
-  return dedupeLinkDescriptors(
-    links.flat(1).filter(isHtmlLinkDescriptor).filter((link) => link.rel === "stylesheet" || link.rel === "preload").map(
-      (link) => link.rel === "stylesheet" ? { ...link, rel: "prefetch", as: "style" } : { ...link, rel: "prefetch" }
+  return Jt(
+    a.flat(1).filter(Ut).filter((n) => n.rel === "stylesheet" || n.rel === "preload").map(
+      (n) => n.rel === "stylesheet" ? { ...n, rel: "prefetch", as: "style" } : { ...n, rel: "prefetch" }
     )
   );
 }
-function getNewMatchesForLinks(page, nextMatches, currentMatches, manifest, location, mode) {
-  let isNew = (match, index) => {
-    if (!currentMatches[index]) return true;
-    return match.route.id !== currentMatches[index].route.id;
-  };
-  let matchPathChanged = (match, index) => {
-    var _a;
+function ge(e, t, r, a, n, o) {
+  let c = (l, i) => r[i] ? l.route.id !== r[i].route.id : !0, s = (l, i) => {
+    var m;
     return (
       // param change, /users/123 -> /users/456
-      currentMatches[index].pathname !== match.pathname || // splat param changed, which is not present in match.path
+      r[i].pathname !== l.pathname || // splat param changed, which is not present in match.path
       // e.g. /files/images/avatar.jpg -> files/finances.xls
-      ((_a = currentMatches[index].route.path) == null ? void 0 : _a.endsWith("*")) && currentMatches[index].params["*"] !== match.params["*"]
+      ((m = r[i].route.path) == null ? void 0 : m.endsWith("*")) && r[i].params["*"] !== l.params["*"]
     );
   };
-  if (mode === "assets") {
-    return nextMatches.filter(
-      (match, index) => isNew(match, index) || matchPathChanged(match, index)
-    );
-  }
-  if (mode === "data") {
-    return nextMatches.filter((match, index) => {
-      var _a;
-      let manifestRoute = manifest.routes[match.route.id];
-      if (!manifestRoute || !manifestRoute.hasLoader) {
-        return false;
-      }
-      if (isNew(match, index) || matchPathChanged(match, index)) {
-        return true;
-      }
-      if (match.route.shouldRevalidate) {
-        let routeChoice = match.route.shouldRevalidate({
-          currentUrl: new URL(
-            location.pathname + location.search + location.hash,
-            window.origin
-          ),
-          currentParams: ((_a = currentMatches[0]) == null ? void 0 : _a.params) || {},
-          nextUrl: new URL(page, window.origin),
-          nextParams: match.params,
-          defaultShouldRevalidate: true
-        });
-        if (typeof routeChoice === "boolean") {
-          return routeChoice;
-        }
-      }
-      return true;
-    });
-  }
-  return [];
+  return o === "assets" ? t.filter(
+    (l, i) => c(l, i) || s(l, i)
+  ) : o === "data" ? t.filter((l, i) => {
+    var p;
+    let m = a.routes[l.route.id];
+    if (!m || !m.hasLoader)
+      return !1;
+    if (c(l, i) || s(l, i))
+      return !0;
+    if (l.route.shouldRevalidate) {
+      let d = l.route.shouldRevalidate({
+        currentUrl: new URL(
+          n.pathname + n.search + n.hash,
+          window.origin
+        ),
+        currentParams: ((p = r[0]) == null ? void 0 : p.params) || {},
+        nextUrl: new URL(e, window.origin),
+        nextParams: l.params,
+        defaultShouldRevalidate: !0
+      });
+      if (typeof d == "boolean")
+        return d;
+    }
+    return !0;
+  }) : [];
 }
-function getModuleLinkHrefs(matches, manifestPatch) {
-  return dedupeHrefs(
-    matches.map((match) => {
-      let route = manifestPatch.routes[match.route.id];
-      if (!route) return [];
-      let hrefs = [route.module];
-      if (route.imports) {
-        hrefs = hrefs.concat(route.imports);
-      }
-      return hrefs;
+function jt(e, t) {
+  return Kt(
+    e.map((r) => {
+      let a = t.routes[r.route.id];
+      if (!a) return [];
+      let n = [a.module];
+      return a.imports && (n = n.concat(a.imports)), n;
     }).flat(1)
   );
 }
-function dedupeHrefs(hrefs) {
-  return [...new Set(hrefs)];
+function Kt(e) {
+  return [...new Set(e)];
 }
-function sortKeys(obj) {
-  let sorted = {};
-  let keys = Object.keys(obj).sort();
-  for (let key of keys) {
-    sorted[key] = obj[key];
-  }
-  return sorted;
+function Gt(e) {
+  let t = {}, r = Object.keys(e).sort();
+  for (let a of r)
+    t[a] = e[a];
+  return t;
 }
-function dedupeLinkDescriptors(descriptors, preloads) {
-  let set = /* @__PURE__ */ new Set();
-  new Set(preloads);
-  return descriptors.reduce((deduped, descriptor) => {
-    let key = JSON.stringify(sortKeys(descriptor));
-    if (!set.has(key)) {
-      set.add(key);
-      deduped.push({ key, link: descriptor });
-    }
-    return deduped;
+function Jt(e, t) {
+  let r = /* @__PURE__ */ new Set();
+  return new Set(t), e.reduce((a, n) => {
+    let o = JSON.stringify(Gt(n));
+    return r.has(o) || (r.add(o), a.push({ key: o, link: n })), a;
   }, []);
 }
-function singleFetchUrl(reqUrl) {
-  let url = typeof reqUrl === "string" ? new URL(
-    reqUrl,
+function Yt(e) {
+  let t = typeof e == "string" ? new URL(
+    e,
     // This can be called during the SSR flow via PrefetchPageLinksImpl so
     // don't assume window is available
-    typeof window === "undefined" ? "server://singlefetch/" : window.location.origin
-  ) : reqUrl;
-  if (url.pathname === "/") {
-    url.pathname = "_root.data";
-  } else {
-    url.pathname = `${url.pathname.replace(/\/$/, "")}.data`;
-  }
-  return url;
+    typeof window > "u" ? "server://singlefetch/" : window.location.origin
+  ) : e;
+  return t.pathname === "/" ? t.pathname = "_root.data" : t.pathname = `${t.pathname.replace(/\/$/, "")}.data`, t;
 }
-function useDataRouterContext2() {
-  let context = React.useContext(DataRouterContext);
-  invariant2(
-    context,
+function qt() {
+  let e = u.useContext(I);
+  return se(
+    e,
     "You must render this element inside a <DataRouterContext.Provider> element"
-  );
-  return context;
+  ), e;
 }
-function useDataRouterStateContext() {
-  let context = React.useContext(DataRouterStateContext);
-  invariant2(
-    context,
+function Xt() {
+  let e = u.useContext(j);
+  return se(
+    e,
     "You must render this element inside a <DataRouterStateContext.Provider> element"
-  );
-  return context;
+  ), e;
 }
-var FrameworkContext = React.createContext(void 0);
-FrameworkContext.displayName = "FrameworkContext";
-function useFrameworkContext() {
-  let context = React.useContext(FrameworkContext);
-  invariant2(
-    context,
+var ce = u.createContext(void 0);
+ce.displayName = "FrameworkContext";
+function $e() {
+  let e = u.useContext(ce);
+  return se(
+    e,
     "You must render this element inside a <HydratedRouter> element"
-  );
-  return context;
+  ), e;
 }
-function usePrefetchBehavior(prefetch, theirElementProps) {
-  let frameworkContext = React.useContext(FrameworkContext);
-  let [maybePrefetch, setMaybePrefetch] = React.useState(false);
-  let [shouldPrefetch, setShouldPrefetch] = React.useState(false);
-  let { onFocus, onBlur, onMouseEnter, onMouseLeave, onTouchStart } = theirElementProps;
-  let ref = React.useRef(null);
-  React.useEffect(() => {
-    if (prefetch === "render") {
-      setShouldPrefetch(true);
-    }
-    if (prefetch === "viewport") {
-      let callback = (entries) => {
-        entries.forEach((entry) => {
-          setShouldPrefetch(entry.isIntersecting);
+function Qt(e, t) {
+  let r = u.useContext(ce), [a, n] = u.useState(!1), [o, c] = u.useState(!1), { onFocus: s, onBlur: l, onMouseEnter: i, onMouseLeave: m, onTouchStart: p } = t, d = u.useRef(null);
+  u.useEffect(() => {
+    if (e === "render" && c(!0), e === "viewport") {
+      let w = (v) => {
+        v.forEach((y) => {
+          c(y.isIntersecting);
         });
-      };
-      let observer = new IntersectionObserver(callback, { threshold: 0.5 });
-      if (ref.current) observer.observe(ref.current);
-      return () => {
-        observer.disconnect();
+      }, g = new IntersectionObserver(w, { threshold: 0.5 });
+      return d.current && g.observe(d.current), () => {
+        g.disconnect();
       };
     }
-  }, [prefetch]);
-  React.useEffect(() => {
-    if (maybePrefetch) {
-      let id = setTimeout(() => {
-        setShouldPrefetch(true);
+  }, [e]), u.useEffect(() => {
+    if (a) {
+      let w = setTimeout(() => {
+        c(!0);
       }, 100);
       return () => {
-        clearTimeout(id);
+        clearTimeout(w);
       };
     }
-  }, [maybePrefetch]);
-  let setIntent = () => {
-    setMaybePrefetch(true);
+  }, [a]);
+  let h = () => {
+    n(!0);
+  }, f = () => {
+    n(!1), c(!1);
   };
-  let cancelIntent = () => {
-    setMaybePrefetch(false);
-    setShouldPrefetch(false);
-  };
-  if (!frameworkContext) {
-    return [false, ref, {}];
-  }
-  if (prefetch !== "intent") {
-    return [shouldPrefetch, ref, {}];
-  }
-  return [
-    shouldPrefetch,
-    ref,
+  return r ? e !== "intent" ? [o, d, {}] : [
+    o,
+    d,
     {
-      onFocus: composeEventHandlers(onFocus, setIntent),
-      onBlur: composeEventHandlers(onBlur, cancelIntent),
-      onMouseEnter: composeEventHandlers(onMouseEnter, setIntent),
-      onMouseLeave: composeEventHandlers(onMouseLeave, cancelIntent),
-      onTouchStart: composeEventHandlers(onTouchStart, setIntent)
+      onFocus: M(s, h),
+      onBlur: M(l, f),
+      onMouseEnter: M(i, h),
+      onMouseLeave: M(m, f),
+      onTouchStart: M(p, h)
     }
-  ];
+  ] : [!1, d, {}];
 }
-function composeEventHandlers(theirHandler, ourHandler) {
-  return (event) => {
-    theirHandler && theirHandler(event);
-    if (!event.defaultPrevented) {
-      ourHandler(event);
-    }
+function M(e, t) {
+  return (r) => {
+    e && e(r), r.defaultPrevented || t(r);
   };
 }
-function PrefetchPageLinks({
-  page,
-  ...dataLinkProps
+function Zt({
+  page: e,
+  ...t
 }) {
-  let { router } = useDataRouterContext2();
-  let matches = React.useMemo(
-    () => matchRoutes(router.routes, page, router.basename),
-    [router.routes, page, router.basename]
+  let { router: r } = qt(), a = u.useMemo(
+    () => Ce(r.routes, e, r.basename),
+    [r.routes, e, r.basename]
   );
-  if (!matches) {
-    return null;
-  }
-  return /* @__PURE__ */ React.createElement(PrefetchPageLinksImpl, { page, matches, ...dataLinkProps });
+  return a ? /* @__PURE__ */ u.createElement(tr, { page: e, matches: a, ...t }) : null;
 }
-function useKeyedPrefetchLinks(matches) {
-  let { manifest, routeModules } = useFrameworkContext();
-  let [keyedPrefetchLinks, setKeyedPrefetchLinks] = React.useState([]);
-  React.useEffect(() => {
-    let interrupted = false;
-    void getKeyedPrefetchLinks(matches, manifest, routeModules).then(
-      (links) => {
-        if (!interrupted) {
-          setKeyedPrefetchLinks(links);
-        }
+function er(e) {
+  let { manifest: t, routeModules: r } = $e(), [a, n] = u.useState([]);
+  return u.useEffect(() => {
+    let o = !1;
+    return zt(e, t, r).then(
+      (c) => {
+        o || n(c);
       }
-    );
-    return () => {
-      interrupted = true;
+    ), () => {
+      o = !0;
     };
-  }, [matches, manifest, routeModules]);
-  return keyedPrefetchLinks;
+  }, [e, t, r]), a;
 }
-function PrefetchPageLinksImpl({
-  page,
-  matches: nextMatches,
-  ...linkProps
+function tr({
+  page: e,
+  matches: t,
+  ...r
 }) {
-  let location = useLocation();
-  let { manifest, routeModules } = useFrameworkContext();
-  let { loaderData, matches } = useDataRouterStateContext();
-  let newMatchesForData = React.useMemo(
-    () => getNewMatchesForLinks(
-      page,
-      nextMatches,
-      matches,
-      manifest,
-      location,
+  let a = $(), { manifest: n, routeModules: o } = $e(), { loaderData: c, matches: s } = Xt(), l = u.useMemo(
+    () => ge(
+      e,
+      t,
+      s,
+      n,
+      a,
       "data"
     ),
-    [page, nextMatches, matches, manifest, location]
-  );
-  let newMatchesForAssets = React.useMemo(
-    () => getNewMatchesForLinks(
-      page,
-      nextMatches,
-      matches,
-      manifest,
-      location,
+    [e, t, s, n, a]
+  ), i = u.useMemo(
+    () => ge(
+      e,
+      t,
+      s,
+      n,
+      a,
       "assets"
     ),
-    [page, nextMatches, matches, manifest, location]
-  );
-  let dataHrefs = React.useMemo(() => {
-    if (page === location.pathname + location.search + location.hash) {
+    [e, t, s, n, a]
+  ), m = u.useMemo(() => {
+    if (e === a.pathname + a.search + a.hash)
       return [];
-    }
-    let routesParams = /* @__PURE__ */ new Set();
-    let foundOptOutRoute = false;
-    nextMatches.forEach((m) => {
-      var _a;
-      let manifestRoute = manifest.routes[m.route.id];
-      if (!manifestRoute || !manifestRoute.hasLoader) {
-        return;
-      }
-      if (!newMatchesForData.some((m2) => m2.route.id === m.route.id) && m.route.id in loaderData && ((_a = routeModules[m.route.id]) == null ? void 0 : _a.shouldRevalidate)) {
-        foundOptOutRoute = true;
-      } else if (manifestRoute.hasClientLoader) {
-        foundOptOutRoute = true;
-      } else {
-        routesParams.add(m.route.id);
-      }
-    });
-    if (routesParams.size === 0) {
+    let h = /* @__PURE__ */ new Set(), f = !1;
+    if (t.forEach((g) => {
+      var y;
+      let v = n.routes[g.route.id];
+      !v || !v.hasLoader || (!l.some((x) => x.route.id === g.route.id) && g.route.id in c && ((y = o[g.route.id]) != null && y.shouldRevalidate) || v.hasClientLoader ? f = !0 : h.add(g.route.id));
+    }), h.size === 0)
       return [];
-    }
-    let url = singleFetchUrl(page);
-    if (foundOptOutRoute && routesParams.size > 0) {
-      url.searchParams.set(
-        "_routes",
-        nextMatches.filter((m) => routesParams.has(m.route.id)).map((m) => m.route.id).join(",")
-      );
-    }
-    return [url.pathname + url.search];
+    let w = Yt(e);
+    return f && h.size > 0 && w.searchParams.set(
+      "_routes",
+      t.filter((g) => h.has(g.route.id)).map((g) => g.route.id).join(",")
+    ), [w.pathname + w.search];
   }, [
-    loaderData,
-    location,
-    manifest,
-    newMatchesForData,
-    nextMatches,
-    page,
-    routeModules
-  ]);
-  let moduleHrefs = React.useMemo(
-    () => getModuleLinkHrefs(newMatchesForAssets, manifest),
-    [newMatchesForAssets, manifest]
-  );
-  let keyedPrefetchLinks = useKeyedPrefetchLinks(newMatchesForAssets);
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, dataHrefs.map((href) => /* @__PURE__ */ React.createElement("link", { key: href, rel: "prefetch", as: "fetch", href, ...linkProps })), moduleHrefs.map((href) => /* @__PURE__ */ React.createElement("link", { key: href, rel: "modulepreload", href, ...linkProps })), keyedPrefetchLinks.map(({ key, link }) => (
+    c,
+    a,
+    n,
+    l,
+    t,
+    e,
+    o
+  ]), p = u.useMemo(
+    () => jt(i, n),
+    [i, n]
+  ), d = er(i);
+  return /* @__PURE__ */ u.createElement(u.Fragment, null, m.map((h) => /* @__PURE__ */ u.createElement("link", { key: h, rel: "prefetch", as: "fetch", href: h, ...r })), p.map((h) => /* @__PURE__ */ u.createElement("link", { key: h, rel: "modulepreload", href: h, ...r })), d.map(({ key: h, link: f }) => (
     // these don't spread `linkProps` because they are full link descriptors
     // already with their own props
-    /* @__PURE__ */ React.createElement("link", { key, ...link })
+    /* @__PURE__ */ u.createElement("link", { key: h, ...f })
   )));
 }
-function mergeRefs(...refs) {
-  return (value) => {
-    refs.forEach((ref) => {
-      if (typeof ref === "function") {
-        ref(value);
-      } else if (ref != null) {
-        ref.current = value;
-      }
+function rr(...e) {
+  return (t) => {
+    e.forEach((r) => {
+      typeof r == "function" ? r(t) : r != null && (r.current = t);
     });
   };
 }
-var isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
+var Ne = typeof window < "u" && typeof window.document < "u" && typeof window.document.createElement < "u";
 try {
-  if (isBrowser) {
-    window.__reactRouterVersion = "7.1.5";
-  }
-} catch (e) {
+  Ne && (window.__reactRouterVersion = "7.1.5");
+} catch {
 }
-var ABSOLUTE_URL_REGEX2 = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
-var Link = React.forwardRef(
-  function LinkWithRef({
-    onClick,
-    discover = "render",
-    prefetch = "none",
-    relative,
-    reloadDocument,
-    replace: replace2,
-    state,
-    target,
-    to,
-    preventScrollReset,
-    viewTransition,
-    ...rest
-  }, forwardedRef) {
-    let { basename } = React.useContext(NavigationContext);
-    let isAbsolute = typeof to === "string" && ABSOLUTE_URL_REGEX2.test(to);
-    let absoluteHref;
-    let isExternal = false;
-    if (typeof to === "string" && isAbsolute) {
-      absoluteHref = to;
-      if (isBrowser) {
-        try {
-          let currentUrl = new URL(window.location.href);
-          let targetUrl = to.startsWith("//") ? new URL(currentUrl.protocol + to) : new URL(to);
-          let path = stripBasename(targetUrl.pathname, basename);
-          if (targetUrl.origin === currentUrl.origin && path != null) {
-            to = path + targetUrl.search + targetUrl.hash;
-          } else {
-            isExternal = true;
-          }
-        } catch (e) {
-          warning(
-            false,
-            `<Link to="${to}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`
-          );
-        }
+var De = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i, Ie = u.forwardRef(
+  function({
+    onClick: t,
+    discover: r = "render",
+    prefetch: a = "none",
+    relative: n,
+    reloadDocument: o,
+    replace: c,
+    state: s,
+    target: l,
+    to: i,
+    preventScrollReset: m,
+    viewTransition: p,
+    ...d
+  }, h) {
+    let { basename: f } = u.useContext(L), w = typeof i == "string" && De.test(i), g, v = !1;
+    if (typeof i == "string" && w && (g = i, Ne))
+      try {
+        let k = new URL(window.location.href), T = i.startsWith("//") ? new URL(k.protocol + i) : new URL(i), fe = D(T.pathname, f);
+        T.origin === k.origin && fe != null ? i = fe + T.search + T.hash : v = !0;
+      } catch {
+        P(
+          !1,
+          `<Link to="${i}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`
+        );
       }
-    }
-    let href = useHref(to, { relative });
-    let [shouldPrefetch, prefetchRef, prefetchHandlers] = usePrefetchBehavior(
-      prefetch,
-      rest
-    );
-    let internalOnClick = useLinkClickHandler(to, {
-      replace: replace2,
-      state,
-      target,
-      preventScrollReset,
-      relative,
-      viewTransition
+    let y = wt(i, { relative: n }), [x, C, E] = Qt(
+      a,
+      d
+    ), R = ir(i, {
+      replace: c,
+      state: s,
+      target: l,
+      preventScrollReset: m,
+      relative: n,
+      viewTransition: p
     });
-    function handleClick(event) {
-      if (onClick) onClick(event);
-      if (!event.defaultPrevented) {
-        internalOnClick(event);
-      }
+    function b(k) {
+      t && t(k), k.defaultPrevented || R(k);
     }
-    let link = (
+    let N = (
       // eslint-disable-next-line jsx-a11y/anchor-has-content
-      /* @__PURE__ */ React.createElement(
+      /* @__PURE__ */ u.createElement(
         "a",
         {
-          ...rest,
-          ...prefetchHandlers,
-          href: absoluteHref || href,
-          onClick: isExternal || reloadDocument ? onClick : handleClick,
-          ref: mergeRefs(forwardedRef, prefetchRef),
-          target,
-          "data-discover": !isAbsolute && discover === "render" ? "true" : void 0
+          ...d,
+          ...E,
+          href: g || y,
+          onClick: v || o ? t : b,
+          ref: rr(h, C),
+          target: l,
+          "data-discover": !w && r === "render" ? "true" : void 0
         }
       )
     );
-    return shouldPrefetch && !isAbsolute ? /* @__PURE__ */ React.createElement(React.Fragment, null, link, /* @__PURE__ */ React.createElement(PrefetchPageLinks, { page: href })) : link;
+    return x && !w ? /* @__PURE__ */ u.createElement(u.Fragment, null, N, /* @__PURE__ */ u.createElement(Zt, { page: y })) : N;
   }
 );
-Link.displayName = "Link";
-var NavLink = React.forwardRef(
-  function NavLinkWithRef({
-    "aria-current": ariaCurrentProp = "page",
-    caseSensitive = false,
-    className: classNameProp = "",
-    end = false,
-    style: styleProp,
-    to,
-    viewTransition,
-    children,
-    ...rest
-  }, ref) {
-    let path = useResolvedPath(to, { relative: rest.relative });
-    let location = useLocation();
-    let routerState = React.useContext(DataRouterStateContext);
-    let { navigator: navigator2, basename } = React.useContext(NavigationContext);
-    let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
+Ie.displayName = "Link";
+var nr = u.forwardRef(
+  function({
+    "aria-current": t = "page",
+    caseSensitive: r = !1,
+    className: a = "",
+    end: n = !1,
+    style: o,
+    to: c,
+    viewTransition: s,
+    children: l,
+    ...i
+  }, m) {
+    let p = V(c, { relative: i.relative }), d = $(), h = u.useContext(j), { navigator: f, basename: w } = u.useContext(L), g = h != null && // Conditional usage is OK here because the usage of a data router is static
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    useViewTransitionState(path) && viewTransition === true;
-    let toPathname = navigator2.encodeLocation ? navigator2.encodeLocation(path).pathname : path.pathname;
-    let locationPathname = location.pathname;
-    let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
-    if (!caseSensitive) {
-      locationPathname = locationPathname.toLowerCase();
-      nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
-      toPathname = toPathname.toLowerCase();
-    }
-    if (nextLocationPathname && basename) {
-      nextLocationPathname = stripBasename(nextLocationPathname, basename) || nextLocationPathname;
-    }
-    const endSlashPosition = toPathname !== "/" && toPathname.endsWith("/") ? toPathname.length - 1 : toPathname.length;
-    let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(endSlashPosition) === "/";
-    let isPending = nextLocationPathname != null && (nextLocationPathname === toPathname || !end && nextLocationPathname.startsWith(toPathname) && nextLocationPathname.charAt(toPathname.length) === "/");
-    let renderProps = {
-      isActive,
-      isPending,
-      isTransitioning
-    };
-    let ariaCurrent = isActive ? ariaCurrentProp : void 0;
-    let className;
-    if (typeof classNameProp === "function") {
-      className = classNameProp(renderProps);
-    } else {
-      className = [
-        classNameProp,
-        isActive ? "active" : null,
-        isPending ? "pending" : null,
-        isTransitioning ? "transitioning" : null
-      ].filter(Boolean).join(" ");
-    }
-    let style = typeof styleProp === "function" ? styleProp(renderProps) : styleProp;
-    return /* @__PURE__ */ React.createElement(
-      Link,
+    fr(p) && s === !0, v = f.encodeLocation ? f.encodeLocation(p).pathname : p.pathname, y = d.pathname, x = h && h.navigation && h.navigation.location ? h.navigation.location.pathname : null;
+    r || (y = y.toLowerCase(), x = x ? x.toLowerCase() : null, v = v.toLowerCase()), x && w && (x = D(x, w) || x);
+    const C = v !== "/" && v.endsWith("/") ? v.length - 1 : v.length;
+    let E = y === v || !n && y.startsWith(v) && y.charAt(C) === "/", R = x != null && (x === v || !n && x.startsWith(v) && x.charAt(v.length) === "/"), b = {
+      isActive: E,
+      isPending: R,
+      isTransitioning: g
+    }, N = E ? t : void 0, k;
+    typeof a == "function" ? k = a(b) : k = [
+      a,
+      E ? "active" : null,
+      R ? "pending" : null,
+      g ? "transitioning" : null
+    ].filter(Boolean).join(" ");
+    let T = typeof o == "function" ? o(b) : o;
+    return /* @__PURE__ */ u.createElement(
+      Ie,
       {
-        ...rest,
-        "aria-current": ariaCurrent,
-        className,
-        ref,
-        style,
-        to,
-        viewTransition
+        ...i,
+        "aria-current": N,
+        className: k,
+        ref: m,
+        style: T,
+        to: c,
+        viewTransition: s
       },
-      typeof children === "function" ? children(renderProps) : children
+      typeof l == "function" ? l(b) : l
     );
   }
 );
-NavLink.displayName = "NavLink";
-var Form = React.forwardRef(
+nr.displayName = "NavLink";
+var ar = u.forwardRef(
   ({
-    discover = "render",
-    fetcherKey,
-    navigate,
-    reloadDocument,
-    replace: replace2,
-    state,
-    method = defaultMethod,
-    action,
-    onSubmit,
-    relative,
-    preventScrollReset,
-    viewTransition,
-    ...props
-  }, forwardedRef) => {
-    let submit = useSubmit();
-    let formAction = useFormAction(action, { relative });
-    let formMethod = method.toLowerCase() === "get" ? "get" : "post";
-    let isAbsolute = typeof action === "string" && ABSOLUTE_URL_REGEX2.test(action);
-    let submitHandler = (event) => {
-      onSubmit && onSubmit(event);
-      if (event.defaultPrevented) return;
-      event.preventDefault();
-      let submitter = event.nativeEvent.submitter;
-      let submitMethod = (submitter == null ? void 0 : submitter.getAttribute("formmethod")) || method;
-      submit(submitter || event.currentTarget, {
-        fetcherKey,
-        method: submitMethod,
-        navigate,
-        replace: replace2,
-        state,
-        relative,
-        preventScrollReset,
-        viewTransition
+    discover: e = "render",
+    fetcherKey: t,
+    navigate: r,
+    reloadDocument: a,
+    replace: n,
+    state: o,
+    method: c = H,
+    action: s,
+    onSubmit: l,
+    relative: i,
+    preventScrollReset: m,
+    viewTransition: p,
+    ...d
+  }, h) => {
+    let f = sr(), w = cr(s, { relative: i }), g = c.toLowerCase() === "get" ? "get" : "post", v = typeof s == "string" && De.test(s), y = (x) => {
+      if (l && l(x), x.defaultPrevented) return;
+      x.preventDefault();
+      let C = x.nativeEvent.submitter, E = (C == null ? void 0 : C.getAttribute("formmethod")) || c;
+      f(C || x.currentTarget, {
+        fetcherKey: t,
+        method: E,
+        navigate: r,
+        replace: n,
+        state: o,
+        relative: i,
+        preventScrollReset: m,
+        viewTransition: p
       });
     };
-    return /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ u.createElement(
       "form",
       {
-        ref: forwardedRef,
-        method: formMethod,
-        action: formAction,
-        onSubmit: reloadDocument ? onSubmit : submitHandler,
-        ...props,
-        "data-discover": !isAbsolute && discover === "render" ? "true" : void 0
+        ref: h,
+        method: g,
+        action: w,
+        onSubmit: a ? l : y,
+        ...d,
+        "data-discover": !v && e === "render" ? "true" : void 0
       }
     );
   }
 );
-Form.displayName = "Form";
-function getDataRouterConsoleError2(hookName) {
-  return `${hookName} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`;
+ar.displayName = "Form";
+function or(e) {
+  return `${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`;
 }
-function useDataRouterContext3(hookName) {
-  let ctx = React.useContext(DataRouterContext);
-  invariant(ctx, getDataRouterConsoleError2(hookName));
-  return ctx;
+function Ae(e) {
+  let t = u.useContext(I);
+  return S(t, or(e)), t;
 }
-function useLinkClickHandler(to, {
-  target,
-  replace: replaceProp,
-  state,
-  preventScrollReset,
-  relative,
-  viewTransition
+function ir(e, {
+  target: t,
+  replace: r,
+  state: a,
+  preventScrollReset: n,
+  relative: o,
+  viewTransition: c
 } = {}) {
-  let navigate = useNavigate();
-  let location = useLocation();
-  let path = useResolvedPath(to, { relative });
-  return React.useCallback(
-    (event) => {
-      if (shouldProcessLinkClick(event, target)) {
-        event.preventDefault();
-        let replace2 = replaceProp !== void 0 ? replaceProp : createPath(location) === createPath(path);
-        navigate(to, {
-          replace: replace2,
-          state,
-          preventScrollReset,
-          relative,
-          viewTransition
+  let s = _e(), l = $(), i = V(e, { relative: o });
+  return u.useCallback(
+    (m) => {
+      if (Ft(m, t)) {
+        m.preventDefault();
+        let p = r !== void 0 ? r : ee(l) === ee(i);
+        s(e, {
+          replace: p,
+          state: a,
+          preventScrollReset: n,
+          relative: o,
+          viewTransition: c
         });
       }
     },
     [
-      location,
-      navigate,
-      path,
-      replaceProp,
-      state,
-      target,
-      to,
-      preventScrollReset,
-      relative,
-      viewTransition
+      l,
+      s,
+      i,
+      r,
+      a,
+      t,
+      e,
+      n,
+      o,
+      c
     ]
   );
 }
-var fetcherId = 0;
-var getUniqueFetcherId = () => `__${String(++fetcherId)}__`;
-function useSubmit() {
-  let { router } = useDataRouterContext3(
+var lr = 0, ur = () => `__${String(++lr)}__`;
+function sr() {
+  let { router: e } = Ae(
     "useSubmit"
     /* UseSubmit */
-  );
-  let { basename } = React.useContext(NavigationContext);
-  let currentRouteId = useRouteId();
-  return React.useCallback(
-    async (target, options = {}) => {
-      let { action, method, encType, formData, body } = getFormSubmissionInfo(
-        target,
-        basename
+  ), { basename: t } = u.useContext(L), r = Ot();
+  return u.useCallback(
+    async (a, n = {}) => {
+      let { action: o, method: c, encType: s, formData: l, body: i } = Bt(
+        a,
+        t
       );
-      if (options.navigate === false) {
-        let key = options.fetcherKey || getUniqueFetcherId();
-        await router.fetch(key, currentRouteId, options.action || action, {
-          preventScrollReset: options.preventScrollReset,
-          formData,
-          body,
-          formMethod: options.method || method,
-          formEncType: options.encType || encType,
-          flushSync: options.flushSync
+      if (n.navigate === !1) {
+        let m = n.fetcherKey || ur();
+        await e.fetch(m, r, n.action || o, {
+          preventScrollReset: n.preventScrollReset,
+          formData: l,
+          body: i,
+          formMethod: n.method || c,
+          formEncType: n.encType || s,
+          flushSync: n.flushSync
         });
-      } else {
-        await router.navigate(options.action || action, {
-          preventScrollReset: options.preventScrollReset,
-          formData,
-          body,
-          formMethod: options.method || method,
-          formEncType: options.encType || encType,
-          replace: options.replace,
-          state: options.state,
-          fromRouteId: currentRouteId,
-          flushSync: options.flushSync,
-          viewTransition: options.viewTransition
+      } else
+        await e.navigate(n.action || o, {
+          preventScrollReset: n.preventScrollReset,
+          formData: l,
+          body: i,
+          formMethod: n.method || c,
+          formEncType: n.encType || s,
+          replace: n.replace,
+          state: n.state,
+          fromRouteId: r,
+          flushSync: n.flushSync,
+          viewTransition: n.viewTransition
         });
-      }
     },
-    [router, basename, currentRouteId]
+    [e, t, r]
   );
 }
-function useFormAction(action, { relative } = {}) {
-  let { basename } = React.useContext(NavigationContext);
-  let routeContext = React.useContext(RouteContext);
-  invariant(routeContext, "useFormAction must be used inside a RouteContext");
-  let [match] = routeContext.matches.slice(-1);
-  let path = { ...useResolvedPath(action ? action : ".", { relative }) };
-  let location = useLocation();
-  if (action == null) {
-    path.search = location.search;
-    let params = new URLSearchParams(path.search);
-    let indexValues = params.getAll("index");
-    let hasNakedIndexParam = indexValues.some((v) => v === "");
-    if (hasNakedIndexParam) {
-      params.delete("index");
-      indexValues.filter((v) => v).forEach((v) => params.append("index", v));
-      let qs = params.toString();
-      path.search = qs ? `?${qs}` : "";
+function cr(e, { relative: t } = {}) {
+  let { basename: r } = u.useContext(L), a = u.useContext(_);
+  S(a, "useFormAction must be used inside a RouteContext");
+  let [n] = a.matches.slice(-1), o = { ...V(e || ".", { relative: t }) }, c = $();
+  if (e == null) {
+    o.search = c.search;
+    let s = new URLSearchParams(o.search), l = s.getAll("index");
+    if (l.some((m) => m === "")) {
+      s.delete("index"), l.filter((p) => p).forEach((p) => s.append("index", p));
+      let m = s.toString();
+      o.search = m ? `?${m}` : "";
     }
   }
-  if ((!action || action === ".") && match.route.index) {
-    path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
-  }
-  if (basename !== "/") {
-    path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
-  }
-  return createPath(path);
+  return (!e || e === ".") && n.route.index && (o.search = o.search ? o.search.replace(/^\?/, "?index&") : "?index"), r !== "/" && (o.pathname = o.pathname === "/" ? r : O([r, o.pathname])), ee(o);
 }
-function useViewTransitionState(to, opts = {}) {
-  let vtContext = React.useContext(ViewTransitionContext);
-  invariant(
-    vtContext != null,
+function fr(e, t = {}) {
+  let r = u.useContext(ke);
+  S(
+    r != null,
     "`useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?"
   );
-  let { basename } = useDataRouterContext3(
+  let { basename: a } = Ae(
     "useViewTransitionState"
     /* useViewTransitionState */
-  );
-  let path = useResolvedPath(to, { relative: opts.relative });
-  if (!vtContext.isTransitioning) {
-    return false;
-  }
-  let currentPath = stripBasename(vtContext.currentLocation.pathname, basename) || vtContext.currentLocation.pathname;
-  let nextPath = stripBasename(vtContext.nextLocation.pathname, basename) || vtContext.nextLocation.pathname;
-  return matchPath(path.pathname, nextPath) != null || matchPath(path.pathname, currentPath) != null;
+  ), n = V(e, { relative: t.relative });
+  if (!r.isTransitioning)
+    return !1;
+  let o = D(r.currentLocation.pathname, a) || r.currentLocation.pathname, c = D(r.nextLocation.pathname, a) || r.nextLocation.pathname;
+  return z(n.pathname, c) != null || z(n.pathname, o) != null;
 }
 new TextEncoder();
-const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
+const Me = () => {
+  const e = Ve(Ee);
+  if (!e)
     throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
-};
-const PrivateRoute = ({ render }) => {
-  const { accessToken } = useAuth();
-  if (!accessToken) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Navigate, { to: "/auth/login" });
-  }
-  return render;
-};
-const RedirectPublicRoute = ({ render }) => {
-  const { accessToken } = useAuth();
-  if (accessToken) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Navigate, { to: "/dashboard/profile/overview" });
-  }
-  return render;
+  return e;
+}, pr = ({ render: e }) => {
+  const { accessToken: t } = Me();
+  return t ? e : /* @__PURE__ */ te.jsx(Te, { to: "/auth/login" });
+}, vr = ({ render: e }) => {
+  const { accessToken: t } = Me();
+  return t ? /* @__PURE__ */ te.jsx(Te, { to: "/dashboard/profile/overview" }) : e;
 };
 export {
-  PrivateRoute,
-  RedirectPublicRoute,
-  Auth as default
+  pr as PrivateRoute,
+  vr as RedirectPublicRoute,
+  mr as default
 };
+//# sourceMappingURL=index.mjs.map

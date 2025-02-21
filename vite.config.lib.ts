@@ -14,8 +14,8 @@ export default defineConfig({
         tsconfigPaths()
     ],
     build: {
-        sourcemap: false,
-        minify: 'terser',
+        sourcemap: true,
+        // minify: 'terser',
         lib: {
             name: "react-goblin-system",
             formats: [
@@ -99,15 +99,15 @@ export default defineConfig({
                 "store/shared": path.resolve(__dirname, "src/store/shared.ts"),
             },
         },
-        terserOptions: {
-            compress: {
-                drop_console: true,
-                drop_debugger: true,
-            },
-            format: {
-                comments: false,
-            },
-        },
+        // terserOptions: {
+        //     compress: {
+        //         drop_console: true,
+        //         drop_debugger: true,
+        //     },
+        //     format: {
+        //         comments: false,
+        //     },
+        // },
         rollupOptions: {
             external: [
                 "react",

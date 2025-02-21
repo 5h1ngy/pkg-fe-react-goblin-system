@@ -1,16 +1,17 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { Checkbox as Checkbox$1 } from "@chakra-ui/react";
-import { forwardRef } from "react";
-const Checkbox = forwardRef(
-  function Checkbox2(props, ref) {
-    const { icon, children, inputProps, rootRef, ...rest } = props;
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Checkbox$1.Root, { ref: rootRef, ...rest, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Checkbox$1.HiddenInput, { ref, ...inputProps }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Checkbox$1.Control, { children: icon || /* @__PURE__ */ jsxRuntimeExports.jsx(Checkbox$1.Indicator, {}) }),
-      children != null && /* @__PURE__ */ jsxRuntimeExports.jsx(Checkbox$1.Label, { children })
+import { j as o } from "../../../.chunks/CYK1ROHF.js";
+import { Checkbox as r } from "@chakra-ui/react";
+import { forwardRef as f } from "react";
+const l = f(
+  function(e, n) {
+    const { icon: s, children: t, inputProps: c, rootRef: i, ...x } = e;
+    return /* @__PURE__ */ o.jsxs(r.Root, { ref: i, ...x, children: [
+      /* @__PURE__ */ o.jsx(r.HiddenInput, { ref: n, ...c }),
+      /* @__PURE__ */ o.jsx(r.Control, { children: s || /* @__PURE__ */ o.jsx(r.Indicator, {}) }),
+      t != null && /* @__PURE__ */ o.jsx(r.Label, { children: t })
     ] });
   }
 );
 export {
-  Checkbox
+  l as Checkbox
 };
+//# sourceMappingURL=checkbox.mjs.map

@@ -1,19 +1,20 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { Switch as Switch$1 } from "@chakra-ui/react";
-import { forwardRef } from "react";
-const Switch = forwardRef(
-  function Switch2(props, ref) {
-    const { inputProps, children, rootRef, trackLabel, thumbLabel, ...rest } = props;
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Switch$1.Root, { ref: rootRef, ...rest, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Switch$1.HiddenInput, { ref, ...inputProps }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Switch$1.Control, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Switch$1.Thumb, { children: thumbLabel && /* @__PURE__ */ jsxRuntimeExports.jsx(Switch$1.ThumbIndicator, { fallback: thumbLabel == null ? void 0 : thumbLabel.off, children: thumbLabel == null ? void 0 : thumbLabel.on }) }),
-        trackLabel && /* @__PURE__ */ jsxRuntimeExports.jsx(Switch$1.Indicator, { fallback: trackLabel.off, children: trackLabel.on })
+import { j as o } from "../../../.chunks/CYK1ROHF.js";
+import { Switch as n } from "@chakra-ui/react";
+import { forwardRef as d } from "react";
+const p = d(
+  function(c, s) {
+    const { inputProps: f, children: i, rootRef: e, trackLabel: t, thumbLabel: r, ...l } = c;
+    return /* @__PURE__ */ o.jsxs(n.Root, { ref: e, ...l, children: [
+      /* @__PURE__ */ o.jsx(n.HiddenInput, { ref: s, ...f }),
+      /* @__PURE__ */ o.jsxs(n.Control, { children: [
+        /* @__PURE__ */ o.jsx(n.Thumb, { children: r && /* @__PURE__ */ o.jsx(n.ThumbIndicator, { fallback: r == null ? void 0 : r.off, children: r == null ? void 0 : r.on }) }),
+        t && /* @__PURE__ */ o.jsx(n.Indicator, { fallback: t.off, children: t.on })
       ] }),
-      children != null && /* @__PURE__ */ jsxRuntimeExports.jsx(Switch$1.Label, { children })
+      i != null && /* @__PURE__ */ o.jsx(n.Label, { children: i })
     ] });
   }
 );
 export {
-  Switch
+  p as Switch
 };
+//# sourceMappingURL=switch.mjs.map

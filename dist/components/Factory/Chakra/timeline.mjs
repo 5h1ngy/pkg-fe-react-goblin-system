@@ -1,23 +1,16 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { Timeline } from "@chakra-ui/react";
-const TimelineRoot = Timeline.Root;
-const TimelineContent = Timeline.Content;
-const TimelineItem = Timeline.Item;
-const TimelineIndicator = Timeline.Indicator;
-const TimelineTitle = Timeline.Title;
-const TimelineDescription = Timeline.Description;
-const TimelineConnector = (props) => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Timeline.Connector, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Timeline.Separator, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Timeline.Indicator, { ...props })
-  ] });
-};
+import { j as n } from "../../../.chunks/CYK1ROHF.js";
+import { Timeline as e } from "@chakra-ui/react";
+const r = e.Root, s = e.Content, c = e.Item, m = e.Indicator, l = e.Title, T = e.Description, p = (t) => /* @__PURE__ */ n.jsxs(e.Connector, { children: [
+  /* @__PURE__ */ n.jsx(e.Separator, {}),
+  /* @__PURE__ */ n.jsx(e.Indicator, { ...t })
+] });
 export {
-  TimelineConnector,
-  TimelineContent,
-  TimelineDescription,
-  TimelineIndicator,
-  TimelineItem,
-  TimelineRoot,
-  TimelineTitle
+  p as TimelineConnector,
+  s as TimelineContent,
+  T as TimelineDescription,
+  m as TimelineIndicator,
+  c as TimelineItem,
+  r as TimelineRoot,
+  l as TimelineTitle
 };
+//# sourceMappingURL=timeline.mjs.map

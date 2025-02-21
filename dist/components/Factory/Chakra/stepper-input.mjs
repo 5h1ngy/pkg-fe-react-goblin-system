@@ -1,26 +1,25 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { NumberInput, HStack, IconButton } from "@chakra-ui/react";
-import { forwardRef } from "react";
-import { l as LuMinus, m as LuPlus } from "../../../.chunks/Bol7GxK0.js";
-const StepperInput = forwardRef(
-  function StepperInput2(props, ref) {
-    const { label, ...rest } = props;
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(NumberInput.Root, { ...rest, unstyled: true, ref, children: [
-      label && /* @__PURE__ */ jsxRuntimeExports.jsx(NumberInput.Label, { children: label }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(HStack, { gap: "2", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(DecrementTrigger, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(NumberInput.ValueText, { textAlign: "center", fontSize: "lg", minW: "3ch" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(IncrementTrigger, {})
+import { j as e } from "../../../.chunks/CYK1ROHF.js";
+import { NumberInput as n, HStack as l, IconButton as c } from "@chakra-ui/react";
+import { forwardRef as i } from "react";
+import { l as m, m as x } from "../../../.chunks/CF0BrBy-.js";
+const h = i(
+  function(r, t) {
+    const { label: o, ...u } = r;
+    return /* @__PURE__ */ e.jsxs(n.Root, { ...u, unstyled: !0, ref: t, children: [
+      o && /* @__PURE__ */ e.jsx(n.Label, { children: o }),
+      /* @__PURE__ */ e.jsxs(l, { gap: "2", children: [
+        /* @__PURE__ */ e.jsx(a, {}),
+        /* @__PURE__ */ e.jsx(n.ValueText, { textAlign: "center", fontSize: "lg", minW: "3ch" }),
+        /* @__PURE__ */ e.jsx(g, {})
       ] })
     ] });
   }
-);
-const DecrementTrigger = forwardRef(function DecrementTrigger2(props, ref) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(NumberInput.DecrementTrigger, { ...props, asChild: true, ref, children: /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { variant: "outline", size: "sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LuMinus, {}) }) });
-});
-const IncrementTrigger = forwardRef(function IncrementTrigger2(props, ref) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(NumberInput.IncrementTrigger, { ...props, asChild: true, ref, children: /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { variant: "outline", size: "sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LuPlus, {}) }) });
+), a = i(function(r, t) {
+  return /* @__PURE__ */ e.jsx(n.DecrementTrigger, { ...r, asChild: !0, ref: t, children: /* @__PURE__ */ e.jsx(c, { variant: "outline", size: "sm", children: /* @__PURE__ */ e.jsx(m, {}) }) });
+}), g = i(function(r, t) {
+  return /* @__PURE__ */ e.jsx(n.IncrementTrigger, { ...r, asChild: !0, ref: t, children: /* @__PURE__ */ e.jsx(c, { variant: "outline", size: "sm", children: /* @__PURE__ */ e.jsx(x, {}) }) });
 });
 export {
-  StepperInput
+  h as StepperInput
 };
+//# sourceMappingURL=stepper-input.mjs.map

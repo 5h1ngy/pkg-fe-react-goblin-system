@@ -1,55 +1,54 @@
-import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
-import { Card, HStack, Image, VStack, Heading, Stack } from "@chakra-ui/react";
-import { z, w as withMeta, D as DynamicForm } from "../../.chunks/COlaR-yO.js";
-import { Button } from "../Factory/Chakra/button.mjs";
-const schema = z.object({
-  "id": withMeta(
-    z.string().trim(),
+import { j as e } from "../../.chunks/CYK1ROHF.js";
+import { Card as r, HStack as g, Image as p, VStack as o, Heading as x, Stack as j } from "@chakra-ui/react";
+import { z as t, w as a, D as h } from "../../.chunks/DzTRbplN.js";
+import { Button as u } from "../Factory/Chakra/button.mjs";
+const i = t.object({
+  id: a(
+    t.string().trim(),
     { label: "Email/Username", autocomplete: "username" }
   ),
-  "password": withMeta(
-    z.string().min(6, { message: "La password deve contenere almeno 6 caratteri" }),
+  password: a(
+    t.string().min(6, { message: "La password deve contenere almeno 6 caratteri" }),
     { label: "Password", autocomplete: "password" }
   ),
-  "stay_logged": withMeta(
-    z.boolean().default(false),
+  stay_logged: a(
+    t.boolean().default(!1),
     { label: "Stay logged" }
   )
-}).superRefine((_data, _ctx) => {
+}).superRefine((s, n) => {
 });
-schema.innerType();
-const LoginForm = ({ header, submit, children, root }) => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Card.Root, { borderRadius: "10px", ...root, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(HStack, { gap: "1rem", padding: "2rem", justifyContent: "center", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Image,
+i.innerType();
+const k = ({ header: s, submit: n, children: d, root: c }) => /* @__PURE__ */ e.jsx(r.Root, { borderRadius: "10px", ...c, children: /* @__PURE__ */ e.jsxs(g, { gap: "1rem", padding: "2rem", justifyContent: "center", children: [
+  /* @__PURE__ */ e.jsx(
+    p,
+    {
+      borderRadius: "10px",
+      display: { base: "none", lg: "block" },
+      objectFit: "cover",
+      height: "15rem",
+      src: "undefined/assets/background_card_login.png",
+      alt: ""
+    }
+  ),
+  /* @__PURE__ */ e.jsxs(o, { children: [
+    /* @__PURE__ */ e.jsxs(o, { children: [
+      /* @__PURE__ */ e.jsx(x, { textStyle: "4xl", children: "Login" }),
+      s
+    ] }),
+    /* @__PURE__ */ e.jsx(
+      h,
       {
-        borderRadius: "10px",
-        display: { base: "none", lg: "block" },
-        objectFit: "cover",
-        height: "15rem",
-        src: `${void 0}/assets/background_card_login.png`,
-        alt: ""
+        schema: i,
+        render: (l, m) => /* @__PURE__ */ e.jsxs(e.Fragment, { children: [
+          /* @__PURE__ */ e.jsx(r.Body, { children: /* @__PURE__ */ e.jsx(j, { gap: "4", width: { md: "fit-content" }, children: l }) }),
+          /* @__PURE__ */ e.jsx(r.Footer, { justifyContent: "center", paddingY: "1rem", children: /* @__PURE__ */ e.jsx(u, { onClick: m(n), variant: "solid", width: "100%", children: "Accedi" }) }),
+          d
+        ] })
       }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(VStack, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(VStack, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Heading, { textStyle: "4xl", children: "Login" }),
-        header
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        DynamicForm,
-        {
-          schema,
-          render: (rows, onSubmit) => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Card.Body, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Stack, { gap: "4", width: { md: "fit-content" }, children: rows }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Card.Footer, { justifyContent: "center", paddingY: "1rem", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { onClick: onSubmit(submit), variant: "solid", width: "100%", children: "Accedi" }) }),
-            children
-          ] })
-        }
-      )
-    ] })
-  ] }) });
-};
+    )
+  ] })
+] }) });
 export {
-  LoginForm as default
+  k as default
 };
+//# sourceMappingURL=index.mjs.map

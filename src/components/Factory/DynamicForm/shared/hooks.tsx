@@ -10,6 +10,7 @@ export function useNormalizeFields<T extends z.ZodEffects<ZodObject<any>>>(
     defaultValues?: DefaultValues<TypeOf<T>> | undefined
 ) {
 
+    debugger;
     const methods = useForm<z.infer<T>>({
         resolver: zodResolver(schema),
         defaultValues,

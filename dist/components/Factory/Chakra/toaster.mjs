@@ -1,24 +1,22 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { createToaster, Portal, Toaster as Toaster$1, Toast, Spinner, Stack } from "@chakra-ui/react";
-const toaster = createToaster({
+import { j as e } from "../../../.chunks/CYK1ROHF.js";
+import { createToaster as s, Portal as o, Toaster as t, Toast as r, Spinner as l, Stack as c } from "@chakra-ui/react";
+const d = s({
   placement: "bottom-end",
-  pauseOnPageIdle: true
-});
-const Toaster = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Portal, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster$1, { toaster, insetInline: { mdDown: "4" }, children: (toast) => {
-    var _a;
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Toast.Root, { width: { md: "sm" }, children: [
-      toast.type === "loading" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Spinner, { size: "sm", color: "blue.solid" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Toast.Indicator, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Stack, { gap: "1", flex: "1", maxWidth: "100%", children: [
-        toast.title && /* @__PURE__ */ jsxRuntimeExports.jsx(Toast.Title, { children: toast.title }),
-        toast.description && /* @__PURE__ */ jsxRuntimeExports.jsx(Toast.Description, { children: toast.description })
-      ] }),
-      toast.action && /* @__PURE__ */ jsxRuntimeExports.jsx(Toast.ActionTrigger, { children: toast.action.label }),
-      ((_a = toast.meta) == null ? void 0 : _a.closable) && /* @__PURE__ */ jsxRuntimeExports.jsx(Toast.CloseTrigger, {})
-    ] });
-  } }) });
-};
+  pauseOnPageIdle: !0
+}), m = () => /* @__PURE__ */ e.jsx(o, { children: /* @__PURE__ */ e.jsx(t, { toaster: d, insetInline: { mdDown: "4" }, children: (i) => {
+  var n;
+  return /* @__PURE__ */ e.jsxs(r.Root, { width: { md: "sm" }, children: [
+    i.type === "loading" ? /* @__PURE__ */ e.jsx(l, { size: "sm", color: "blue.solid" }) : /* @__PURE__ */ e.jsx(r.Indicator, {}),
+    /* @__PURE__ */ e.jsxs(c, { gap: "1", flex: "1", maxWidth: "100%", children: [
+      i.title && /* @__PURE__ */ e.jsx(r.Title, { children: i.title }),
+      i.description && /* @__PURE__ */ e.jsx(r.Description, { children: i.description })
+    ] }),
+    i.action && /* @__PURE__ */ e.jsx(r.ActionTrigger, { children: i.action.label }),
+    ((n = i.meta) == null ? void 0 : n.closable) && /* @__PURE__ */ e.jsx(r.CloseTrigger, {})
+  ] });
+} }) });
 export {
-  Toaster,
-  toaster
+  m as Toaster,
+  d as toaster
 };
+//# sourceMappingURL=toaster.mjs.map

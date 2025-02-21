@@ -1,51 +1,49 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { ClientOnly, IconButton, Skeleton, Tabs } from "@chakra-ui/react";
-import { z, J } from "../../../.chunks/CHz_-0gi.js";
-import { forwardRef } from "react";
-import { a as HiSun, b as HiMoon } from "../../../.chunks/DQ34BLAW.js";
-import { j as LuSun, k as LuMoon } from "../../../.chunks/Bol7GxK0.js";
-function ColorModeProvider(props) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(J, { attribute: "class", disableTransitionOnChange: true, ...props });
+import { j as o } from "../../../.chunks/CYK1ROHF.js";
+import { ClientOnly as i, IconButton as u, Skeleton as d, Tabs as n } from "@chakra-ui/react";
+import { z as g, J as x } from "../../../.chunks/DwT-v3zK.js";
+import { forwardRef as h } from "react";
+import { a as C, b as M } from "../../../.chunks/zuxVbpQO.js";
+import { j, k as m } from "../../../.chunks/CF0BrBy-.js";
+function B(r) {
+  return /* @__PURE__ */ o.jsx(x, { attribute: "class", disableTransitionOnChange: !0, ...r });
 }
-function useColorMode() {
-  const { resolvedTheme, setTheme } = z();
-  const toggleColorMode = () => {
-    setTheme(resolvedTheme === "light" ? "dark" : "light");
-  };
+function l() {
+  const { resolvedTheme: r, setTheme: e } = g();
   return {
-    colorMode: resolvedTheme,
-    setColorMode: setTheme,
-    toggleColorMode
+    colorMode: r,
+    setColorMode: e,
+    toggleColorMode: () => {
+      e(r === "light" ? "dark" : "light");
+    }
   };
 }
-function useColorModeValue(light, dark) {
-  const { colorMode } = useColorMode();
-  return colorMode === "light" ? light : dark;
+function S(r, e) {
+  const { colorMode: t } = l();
+  return t === "light" ? r : e;
 }
-function ColorModeIcon() {
-  const { colorMode } = useColorMode();
-  return colorMode === "light" ? /* @__PURE__ */ jsxRuntimeExports.jsx(LuSun, {}) : /* @__PURE__ */ jsxRuntimeExports.jsx(LuMoon, {});
+function f() {
+  const { colorMode: r } = l();
+  return r === "light" ? /* @__PURE__ */ o.jsx(j, {}) : /* @__PURE__ */ o.jsx(m, {});
 }
-const ColorModeButtonExtended = function ColorModeButtonExtended2(props) {
-  const { toggleColorMode, colorMode } = useColorMode();
-  const { variant, size } = props;
+const y = function(e) {
+  const { toggleColorMode: t, colorMode: s } = l(), { variant: a, size: c } = e;
   return (
     // Usa ClientOnly per assicurarsi che il componente venga renderizzato solo sul client
-    /* @__PURE__ */ jsxRuntimeExports.jsx(ClientOnly, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { boxSize: "8" }), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Tabs.Root,
+    /* @__PURE__ */ o.jsx(i, { fallback: /* @__PURE__ */ o.jsx(d, { boxSize: "8" }), children: /* @__PURE__ */ o.jsx(
+      n.Root,
       {
-        defaultValue: colorMode,
-        variant,
-        size,
-        onValueChange: toggleColorMode,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          Tabs.List,
+        defaultValue: s,
+        variant: a,
+        size: c,
+        onValueChange: t,
+        children: /* @__PURE__ */ o.jsxs(
+          n.List,
           {
             backgroundColor: "gray.100",
             _dark: { backgroundColor: "gray.950" },
             children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Tabs.Trigger, { value: "light", children: /* @__PURE__ */ jsxRuntimeExports.jsx(HiSun, {}) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Tabs.Trigger, { value: "dark", children: /* @__PURE__ */ jsxRuntimeExports.jsx(HiMoon, {}) })
+              /* @__PURE__ */ o.jsx(n.Trigger, { value: "light", children: /* @__PURE__ */ o.jsx(C, {}) }),
+              /* @__PURE__ */ o.jsx(n.Trigger, { value: "dark", children: /* @__PURE__ */ o.jsx(M, {}) })
             ]
           }
         )
@@ -53,31 +51,31 @@ const ColorModeButtonExtended = function ColorModeButtonExtended2(props) {
       crypto.randomUUID()
     ) })
   );
-};
-const ColorModeButton = forwardRef(function ColorModeButton2(props, ref) {
-  const { toggleColorMode } = useColorMode();
+}, E = h(function(e, t) {
+  const { toggleColorMode: s } = l();
   return (
     // Usa ClientOnly per garantire che il bottone venga renderizzato solo sul client
-    /* @__PURE__ */ jsxRuntimeExports.jsx(ClientOnly, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { boxSize: "8" }), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      IconButton,
+    /* @__PURE__ */ o.jsx(i, { fallback: /* @__PURE__ */ o.jsx(d, { boxSize: "8" }), children: /* @__PURE__ */ o.jsx(
+      u,
       {
-        onClick: toggleColorMode,
+        onClick: s,
         variant: "ghost",
         "aria-label": "Toggle color mode",
         size: "sm",
-        ref,
-        ...props,
+        ref: t,
+        ...e,
         css: { _icon: { width: "5", height: "5" } },
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(ColorModeIcon, {})
+        children: /* @__PURE__ */ o.jsx(f, {})
       }
     ) })
   );
 });
 export {
-  ColorModeButton,
-  ColorModeButtonExtended,
-  ColorModeIcon,
-  ColorModeProvider,
-  useColorMode,
-  useColorModeValue
+  E as ColorModeButton,
+  y as ColorModeButtonExtended,
+  f as ColorModeIcon,
+  B as ColorModeProvider,
+  l as useColorMode,
+  S as useColorModeValue
 };
+//# sourceMappingURL=color-mode.mjs.map

@@ -1,28 +1,27 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { Stack, Skeleton as Skeleton$1, Circle } from "@chakra-ui/react";
-import { forwardRef } from "react";
-const SkeletonCircle = (props) => {
-  const { size, ...rest } = props;
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Circle, { size, asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton$1, { ...rest }) });
-};
-const SkeletonText = forwardRef(
-  function SkeletonText2(props, ref) {
-    const { noOfLines = 3, gap, ...rest } = props;
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Stack, { gap, width: "full", ref, children: Array.from({ length: noOfLines }).map((_, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Skeleton$1,
+import { j as t } from "../../../.chunks/CYK1ROHF.js";
+import { Stack as a, Skeleton as o, Circle as m } from "@chakra-ui/react";
+import { forwardRef as x } from "react";
+const j = (n) => {
+  const { size: e, ...r } = n;
+  return /* @__PURE__ */ t.jsx(m, { size: e, asChild: !0, children: /* @__PURE__ */ t.jsx(o, { ...r }) });
+}, u = x(
+  function(e, r) {
+    const { noOfLines: s = 3, gap: l, ...i } = e;
+    return /* @__PURE__ */ t.jsx(a, { gap: l, width: "full", ref: r, children: Array.from({ length: s }).map((f, c) => /* @__PURE__ */ t.jsx(
+      o,
       {
         height: "4",
-        ...props,
+        ...e,
         _last: { maxW: "80%" },
-        ...rest
+        ...i
       },
-      index
+      c
     )) });
   }
-);
-const Skeleton = Skeleton$1;
+), d = o;
 export {
-  Skeleton,
-  SkeletonCircle,
-  SkeletonText
+  d as Skeleton,
+  j as SkeletonCircle,
+  u as SkeletonText
 };
+//# sourceMappingURL=skeleton.mjs.map

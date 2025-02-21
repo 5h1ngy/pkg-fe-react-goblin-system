@@ -1,12 +1,13 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { IconButton } from "@chakra-ui/react";
-import { forwardRef } from "react";
-import { f as LuX } from "../../../.chunks/Bol7GxK0.js";
-const CloseButton = forwardRef(
-  function CloseButton2(props, ref) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { variant: "ghost", "aria-label": "Close", ref, ...props, children: props.children ?? /* @__PURE__ */ jsxRuntimeExports.jsx(LuX, {}) });
+import { j as t } from "../../../.chunks/CYK1ROHF.js";
+import { IconButton as n } from "@chakra-ui/react";
+import { forwardRef as e } from "react";
+import { f as i } from "../../../.chunks/CF0BrBy-.js";
+const u = e(
+  function(o, r) {
+    return /* @__PURE__ */ t.jsx(n, { variant: "ghost", "aria-label": "Close", ref: r, ...o, children: o.children ?? /* @__PURE__ */ t.jsx(i, {}) });
   }
 );
 export {
-  CloseButton
+  u as CloseButton
 };
+//# sourceMappingURL=close-button.mjs.map

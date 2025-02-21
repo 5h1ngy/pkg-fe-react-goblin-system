@@ -1,42 +1,38 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { RadioCard } from "@chakra-ui/react";
-import { forwardRef, Fragment } from "react";
-const RadioCardItem = forwardRef(
-  function RadioCardItem2(props, ref) {
+import { j as o } from "../../../.chunks/CYK1ROHF.js";
+import { RadioCard as t } from "@chakra-ui/react";
+import { forwardRef as x, Fragment as j } from "react";
+const u = x(
+  function(s, c) {
     const {
-      inputProps,
-      label,
-      description,
-      addon,
-      icon,
-      indicator = /* @__PURE__ */ jsxRuntimeExports.jsx(RadioCard.ItemIndicator, {}),
-      indicatorPlacement = "end",
-      ...rest
-    } = props;
-    const hasContent = label || description || icon;
-    const ContentWrapper = indicator ? RadioCard.ItemContent : Fragment;
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(RadioCard.Item, { ...rest, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(RadioCard.ItemHiddenInput, { ref, ...inputProps }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(RadioCard.ItemControl, { children: [
-        indicatorPlacement === "start" && indicator,
-        hasContent && /* @__PURE__ */ jsxRuntimeExports.jsxs(ContentWrapper, { children: [
-          icon,
-          label && /* @__PURE__ */ jsxRuntimeExports.jsx(RadioCard.ItemText, { children: label }),
-          description && /* @__PURE__ */ jsxRuntimeExports.jsx(RadioCard.ItemDescription, { children: description }),
-          indicatorPlacement === "inside" && indicator
+      inputProps: m,
+      label: e,
+      description: r,
+      addon: i,
+      icon: a,
+      indicator: n = /* @__PURE__ */ o.jsx(t.ItemIndicator, {}),
+      indicatorPlacement: d = "end",
+      ...I
+    } = s, l = e || r || a, p = n ? t.ItemContent : j;
+    return /* @__PURE__ */ o.jsxs(t.Item, { ...I, children: [
+      /* @__PURE__ */ o.jsx(t.ItemHiddenInput, { ref: c, ...m }),
+      /* @__PURE__ */ o.jsxs(t.ItemControl, { children: [
+        d === "start" && n,
+        l && /* @__PURE__ */ o.jsxs(p, { children: [
+          a,
+          e && /* @__PURE__ */ o.jsx(t.ItemText, { children: e }),
+          r && /* @__PURE__ */ o.jsx(t.ItemDescription, { children: r }),
+          d === "inside" && n
         ] }),
-        indicatorPlacement === "end" && indicator
+        d === "end" && n
       ] }),
-      addon && /* @__PURE__ */ jsxRuntimeExports.jsx(RadioCard.ItemAddon, { children: addon })
+      i && /* @__PURE__ */ o.jsx(t.ItemAddon, { children: i })
     ] });
   }
-);
-const RadioCardRoot = RadioCard.Root;
-const RadioCardLabel = RadioCard.Label;
-const RadioCardItemIndicator = RadioCard.ItemIndicator;
+), b = t.Root, L = t.Label, P = t.ItemIndicator;
 export {
-  RadioCardItem,
-  RadioCardItemIndicator,
-  RadioCardLabel,
-  RadioCardRoot
+  u as RadioCardItem,
+  P as RadioCardItemIndicator,
+  L as RadioCardLabel,
+  b as RadioCardRoot
 };
+//# sourceMappingURL=radio-card.mjs.map

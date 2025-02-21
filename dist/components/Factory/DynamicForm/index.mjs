@@ -1,5 +1,6 @@
-import { D, w } from "../../../.chunks/COlaR-yO.js";
+import { D as e, w as f } from "../../../.chunks/DzTRbplN.js";
 export {
-  D as default,
-  w as withMeta
+  e as default,
+  f as withMeta
 };
+//# sourceMappingURL=index.mjs.map

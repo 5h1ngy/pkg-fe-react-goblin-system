@@ -1,24 +1,25 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { Tag as Tag$1 } from "@chakra-ui/react";
-import { forwardRef } from "react";
-const Tag = forwardRef(
-  function Tag2(props, ref) {
+import { j as e } from "../../../.chunks/CYK1ROHF.js";
+import { Tag as r } from "@chakra-ui/react";
+import { forwardRef as c } from "react";
+const f = c(
+  function(s, l) {
     const {
-      startElement,
-      endElement,
-      onClose,
-      closable = !!onClose,
-      children,
-      ...rest
-    } = props;
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Tag$1.Root, { ref, ...rest, children: [
-      startElement && /* @__PURE__ */ jsxRuntimeExports.jsx(Tag$1.StartElement, { children: startElement }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Tag$1.Label, { children }),
-      endElement && /* @__PURE__ */ jsxRuntimeExports.jsx(Tag$1.EndElement, { children: endElement }),
-      closable && /* @__PURE__ */ jsxRuntimeExports.jsx(Tag$1.EndElement, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Tag$1.CloseTrigger, { onClick: onClose }) })
+      startElement: n,
+      endElement: t,
+      onClose: o,
+      closable: i = !!o,
+      children: m,
+      ...a
+    } = s;
+    return /* @__PURE__ */ e.jsxs(r.Root, { ref: l, ...a, children: [
+      n && /* @__PURE__ */ e.jsx(r.StartElement, { children: n }),
+      /* @__PURE__ */ e.jsx(r.Label, { children: m }),
+      t && /* @__PURE__ */ e.jsx(r.EndElement, { children: t }),
+      i && /* @__PURE__ */ e.jsx(r.EndElement, { children: /* @__PURE__ */ e.jsx(r.CloseTrigger, { onClick: o }) })
     ] });
   }
 );
 export {
-  Tag
+  f as Tag
 };
+//# sourceMappingURL=tag.mjs.map

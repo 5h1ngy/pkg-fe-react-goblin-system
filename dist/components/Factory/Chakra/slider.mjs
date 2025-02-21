@@ -1,36 +1,30 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { Slider as Slider$1, HStack } from "@chakra-ui/react";
-import { forwardRef } from "react";
-const Slider = forwardRef(
-  function Slider2(props, ref) {
-    const { marks: marksProp, label, showValue, ...rest } = props;
-    const value = props.defaultValue ?? props.value;
-    const marks = marksProp == null ? void 0 : marksProp.map((mark) => {
-      if (typeof mark === "number") return { value: mark, label: void 0 };
-      return mark;
-    });
-    const hasMarkLabel = !!(marks == null ? void 0 : marks.some((mark) => mark.label));
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Slider$1.Root, { ref, thumbAlignment: "center", ...rest, children: [
-      label && !showValue && /* @__PURE__ */ jsxRuntimeExports.jsx(Slider$1.Label, { fontWeight: "medium", children: label }),
-      label && showValue && /* @__PURE__ */ jsxRuntimeExports.jsxs(HStack, { justify: "space-between", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Slider$1.Label, { fontWeight: "medium", children: label }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Slider$1.ValueText, {})
+import { j as e } from "../../../.chunks/CYK1ROHF.js";
+import { Slider as l, HStack as b } from "@chakra-ui/react";
+import { forwardRef as f } from "react";
+const S = f(
+  function(i, c) {
+    const { marks: s, label: r, showValue: a, ...d } = i, u = i.defaultValue ?? i.value, n = s == null ? void 0 : s.map((t) => typeof t == "number" ? { value: t, label: void 0 } : t), h = !!(n != null && n.some((t) => t.label));
+    return /* @__PURE__ */ e.jsxs(l.Root, { ref: c, thumbAlignment: "center", ...d, children: [
+      r && !a && /* @__PURE__ */ e.jsx(l.Label, { fontWeight: "medium", children: r }),
+      r && a && /* @__PURE__ */ e.jsxs(b, { justify: "space-between", children: [
+        /* @__PURE__ */ e.jsx(l.Label, { fontWeight: "medium", children: r }),
+        /* @__PURE__ */ e.jsx(l.ValueText, {})
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Slider$1.Control, { mb: hasMarkLabel ? "4" : void 0, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Slider$1.Track, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Slider$1.Range, {}) }),
-        value == null ? void 0 : value.map((_, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(Slider$1.Thumb, { index, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Slider$1.HiddenInput, {}) }, index))
+      /* @__PURE__ */ e.jsxs(l.Control, { mb: h ? "4" : void 0, children: [
+        /* @__PURE__ */ e.jsx(l.Track, { children: /* @__PURE__ */ e.jsx(l.Range, {}) }),
+        u == null ? void 0 : u.map((t, o) => /* @__PURE__ */ e.jsx(l.Thumb, { index: o, children: /* @__PURE__ */ e.jsx(l.HiddenInput, {}) }, o))
       ] }),
-      (marks == null ? void 0 : marks.length) && /* @__PURE__ */ jsxRuntimeExports.jsx(Slider$1.MarkerGroup, { children: marks.map((mark, index) => {
-        const value2 = typeof mark === "number" ? mark : mark.value;
-        const label2 = typeof mark === "number" ? void 0 : mark.label;
-        return /* @__PURE__ */ jsxRuntimeExports.jsxs(Slider$1.Marker, { value: value2, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Slider$1.MarkerIndicator, {}),
-          label2
-        ] }, index);
+      (n == null ? void 0 : n.length) && /* @__PURE__ */ e.jsx(l.MarkerGroup, { children: n.map((t, o) => {
+        const j = typeof t == "number" ? t : t.value, x = typeof t == "number" ? void 0 : t.label;
+        return /* @__PURE__ */ e.jsxs(l.Marker, { value: j, children: [
+          /* @__PURE__ */ e.jsx(l.MarkerIndicator, {}),
+          x
+        ] }, o);
       }) })
     ] });
   }
 );
 export {
-  Slider
+  S as Slider
 };
+//# sourceMappingURL=slider.mjs.map

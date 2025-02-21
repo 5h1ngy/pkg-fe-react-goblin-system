@@ -1,110 +1,79 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { createContext, Pagination, Button, usePaginationContext, IconButton, Text } from "@chakra-ui/react";
-import { forwardRef, useMemo } from "react";
-import { c as HiMiniEllipsisHorizontal, d as HiChevronLeft, e as HiChevronRight } from "../../../.chunks/DQ34BLAW.js";
-import { LinkButton } from "./link-button.mjs";
-const [RootPropsProvider, useRootProps] = createContext({
+import { j as t } from "../../../.chunks/CYK1ROHF.js";
+import { createContext as m, Pagination as l, Button as h, usePaginationContext as f, IconButton as P, Text as M } from "@chakra-ui/react";
+import { forwardRef as u, useMemo as R } from "react";
+import { c as C, d as p, e as x } from "../../../.chunks/zuxVbpQO.js";
+import { LinkButton as v } from "./link-button.mjs";
+const [T, d] = m({
   name: "RootPropsProvider"
-});
-const variantMap = {
+}), H = {
   outline: { default: "ghost", ellipsis: "plain", current: "outline" },
   solid: { default: "outline", ellipsis: "outline", current: "solid" },
   subtle: { default: "ghost", ellipsis: "plain", current: "subtle" }
-};
-const PaginationRoot = forwardRef(
-  function PaginationRoot2(props, ref) {
-    const { size = "sm", variant = "outline", getHref, ...rest } = props;
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      RootPropsProvider,
+}, N = u(
+  function(e, r) {
+    const { size: n = "sm", variant: a = "outline", getHref: i, ...o } = e;
+    return /* @__PURE__ */ t.jsx(
+      T,
       {
-        value: { size, variantMap: variantMap[variant], getHref },
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Pagination.Root,
+        value: { size: n, variantMap: H[a], getHref: i },
+        children: /* @__PURE__ */ t.jsx(
+          l.Root,
           {
-            ref,
-            type: getHref ? "link" : "button",
-            ...rest
+            ref: r,
+            type: i ? "link" : "button",
+            ...o
           }
         )
       }
     );
   }
-);
-const PaginationEllipsis = forwardRef(function PaginationEllipsis2(props, ref) {
-  const { size, variantMap: variantMap2 } = useRootProps();
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Pagination.Ellipsis, { ref, ...props, asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { as: "span", variant: variantMap2.ellipsis, size, children: /* @__PURE__ */ jsxRuntimeExports.jsx(HiMiniEllipsisHorizontal, {}) }) });
-});
-const PaginationItem = forwardRef(function PaginationItem2(props, ref) {
-  const { page } = usePaginationContext();
-  const { size, variantMap: variantMap2, getHref } = useRootProps();
-  const current = page === props.value;
-  const variant = current ? variantMap2.current : variantMap2.default;
-  if (getHref) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(LinkButton, { href: getHref(props.value), variant, size, children: props.value });
-  }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Pagination.Item, { ref, ...props, asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant, size, children: props.value }) });
-});
-const PaginationPrevTrigger = forwardRef(function PaginationPrevTrigger2(props, ref) {
-  const { size, variantMap: variantMap2, getHref } = useRootProps();
-  const { previousPage } = usePaginationContext();
-  if (getHref) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      LinkButton,
-      {
-        href: previousPage != null ? getHref(previousPage) : void 0,
-        variant: variantMap2.default,
-        size,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(HiChevronLeft, {})
-      }
-    );
-  }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Pagination.PrevTrigger, { ref, asChild: true, ...props, children: /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { variant: variantMap2.default, size, children: /* @__PURE__ */ jsxRuntimeExports.jsx(HiChevronLeft, {}) }) });
-});
-const PaginationNextTrigger = forwardRef(function PaginationNextTrigger2(props, ref) {
-  const { size, variantMap: variantMap2, getHref } = useRootProps();
-  const { nextPage } = usePaginationContext();
-  if (getHref) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      LinkButton,
-      {
-        href: nextPage != null ? getHref(nextPage) : void 0,
-        variant: variantMap2.default,
-        size,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(HiChevronRight, {})
-      }
-    );
-  }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Pagination.NextTrigger, { ref, asChild: true, ...props, children: /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { variant: variantMap2.default, size, children: /* @__PURE__ */ jsxRuntimeExports.jsx(HiChevronRight, {}) }) });
-});
-const PaginationItems = (props) => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Pagination.Context, { children: ({ pages }) => pages.map((page, index) => {
-    return page.type === "ellipsis" ? /* @__PURE__ */ jsxRuntimeExports.jsx(PaginationEllipsis, { index, ...props }, index) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-      PaginationItem,
-      {
-        type: "page",
-        value: page.value,
-        ...props
-      },
-      index
-    );
-  }) });
-};
-const PaginationPageText = forwardRef(function PaginationPageText2(props, ref) {
-  const { format = "compact", ...rest } = props;
-  const { page, pages, pageRange, count } = usePaginationContext();
-  const content = useMemo(() => {
-    if (format === "short") return `${page} / ${pages.length}`;
-    if (format === "compact") return `${page} of ${pages.length}`;
-    return `${pageRange.start + 1} - ${pageRange.end} of ${count}`;
-  }, [format, page, pages.length, pageRange, count]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { fontWeight: "medium", ref, ...rest, children: content });
+), $ = u(function(e, r) {
+  const { size: n, variantMap: a } = d();
+  return /* @__PURE__ */ t.jsx(l.Ellipsis, { ref: r, ...e, asChild: !0, children: /* @__PURE__ */ t.jsx(h, { as: "span", variant: a.ellipsis, size: n, children: /* @__PURE__ */ t.jsx(C, {}) }) });
+}), z = u(function(e, r) {
+  const { page: n } = f(), { size: a, variantMap: i, getHref: o } = d(), c = n === e.value ? i.current : i.default;
+  return o ? /* @__PURE__ */ t.jsx(v, { href: o(e.value), variant: c, size: a, children: e.value }) : /* @__PURE__ */ t.jsx(l.Item, { ref: r, ...e, asChild: !0, children: /* @__PURE__ */ t.jsx(h, { variant: c, size: a, children: e.value }) });
+}), k = u(function(e, r) {
+  const { size: n, variantMap: a, getHref: i } = d(), { previousPage: o } = f();
+  return i ? /* @__PURE__ */ t.jsx(
+    v,
+    {
+      href: o != null ? i(o) : void 0,
+      variant: a.default,
+      size: n,
+      children: /* @__PURE__ */ t.jsx(p, {})
+    }
+  ) : /* @__PURE__ */ t.jsx(l.PrevTrigger, { ref: r, asChild: !0, ...e, children: /* @__PURE__ */ t.jsx(P, { variant: a.default, size: n, children: /* @__PURE__ */ t.jsx(p, {}) }) });
+}), L = u(function(e, r) {
+  const { size: n, variantMap: a, getHref: i } = d(), { nextPage: o } = f();
+  return i ? /* @__PURE__ */ t.jsx(
+    v,
+    {
+      href: o != null ? i(o) : void 0,
+      variant: a.default,
+      size: n,
+      children: /* @__PURE__ */ t.jsx(x, {})
+    }
+  ) : /* @__PURE__ */ t.jsx(l.NextTrigger, { ref: r, asChild: !0, ...e, children: /* @__PURE__ */ t.jsx(P, { variant: a.default, size: n, children: /* @__PURE__ */ t.jsx(x, {}) }) });
+}), w = (s) => /* @__PURE__ */ t.jsx(l.Context, { children: ({ pages: e }) => e.map((r, n) => r.type === "ellipsis" ? /* @__PURE__ */ t.jsx($, { index: n, ...s }, n) : /* @__PURE__ */ t.jsx(
+  z,
+  {
+    type: "page",
+    value: r.value,
+    ...s
+  },
+  n
+)) }), W = u(function(e, r) {
+  const { format: n = "compact", ...a } = e, { page: i, pages: o, pageRange: g, count: c } = f(), j = R(() => n === "short" ? `${i} / ${o.length}` : n === "compact" ? `${i} of ${o.length}` : `${g.start + 1} - ${g.end} of ${c}`, [n, i, o.length, g, c]);
+  return /* @__PURE__ */ t.jsx(M, { fontWeight: "medium", ref: r, ...a, children: j });
 });
 export {
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationItems,
-  PaginationNextTrigger,
-  PaginationPageText,
-  PaginationPrevTrigger,
-  PaginationRoot
+  $ as PaginationEllipsis,
+  z as PaginationItem,
+  w as PaginationItems,
+  L as PaginationNextTrigger,
+  W as PaginationPageText,
+  k as PaginationPrevTrigger,
+  N as PaginationRoot
 };
+//# sourceMappingURL=pagination.mjs.map

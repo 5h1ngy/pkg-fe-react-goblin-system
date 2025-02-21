@@ -1,107 +1,99 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { useControllableState, Input, mergeRefs, IconButton, Stack, HStack, Box } from "@chakra-ui/react";
-import { forwardRef, useRef } from "react";
-import { h as LuEyeOff, i as LuEye } from "../../../.chunks/Bol7GxK0.js";
-import { InputGroup } from "./input-group.mjs";
-const PasswordInput = forwardRef(
-  function PasswordInput2(props, ref) {
+import { j as e } from "../../../.chunks/CYK1ROHF.js";
+import { useControllableState as h, Input as m, mergeRefs as x, IconButton as y, Stack as P, HStack as p, Box as j } from "@chakra-ui/react";
+import { forwardRef as f, useRef as w } from "react";
+import { h as v, i as S } from "../../../.chunks/CF0BrBy-.js";
+import { InputGroup as I } from "./input-group.mjs";
+const k = f(
+  function(l, t) {
     const {
-      rootProps,
-      defaultVisible,
-      visible: visibleProp,
-      onVisibleChange,
-      visibilityIcon = { on: /* @__PURE__ */ jsxRuntimeExports.jsx(LuEye, {}), off: /* @__PURE__ */ jsxRuntimeExports.jsx(LuEyeOff, {}) },
-      ...rest
-    } = props;
-    const [visible, setVisible] = useControllableState({
-      value: visibleProp,
-      defaultValue: defaultVisible || false,
-      onChange: onVisibleChange
-    });
-    const inputRef = useRef(null);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      InputGroup,
+      rootProps: i,
+      defaultVisible: n,
+      visible: a,
+      onVisibleChange: d,
+      visibilityIcon: o = { on: /* @__PURE__ */ e.jsx(S, {}), off: /* @__PURE__ */ e.jsx(v, {}) },
+      ...s
+    } = l, [u, c] = h({
+      value: a,
+      defaultValue: n || !1,
+      onChange: d
+    }), b = w(null);
+    return /* @__PURE__ */ e.jsx(
+      I,
       {
         width: "full",
-        endElement: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          VisibilityTrigger,
+        endElement: /* @__PURE__ */ e.jsx(
+          R,
           {
-            disabled: rest.disabled,
-            onPointerDown: (e) => {
-              if (rest.disabled) return;
-              if (e.button !== 0) return;
-              e.preventDefault();
-              setVisible(!visible);
+            disabled: s.disabled,
+            onPointerDown: (g) => {
+              s.disabled || g.button === 0 && (g.preventDefault(), c(!u));
             },
-            children: visible ? visibilityIcon.off : visibilityIcon.on
+            children: u ? o.off : o.on
           }
         ),
-        ...rootProps,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Input,
+        ...i,
+        children: /* @__PURE__ */ e.jsx(
+          m,
           {
-            ...rest,
-            ref: mergeRefs(ref, inputRef),
-            type: visible ? "text" : "password"
+            ...s,
+            ref: x(t, b),
+            type: u ? "text" : "password"
           }
         )
       }
     );
   }
-);
-const VisibilityTrigger = forwardRef(
-  function VisibilityTrigger2(props, ref) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      IconButton,
+), R = f(
+  function(l, t) {
+    return /* @__PURE__ */ e.jsx(
+      y,
       {
         tabIndex: -1,
-        ref,
+        ref: t,
         me: "-2",
         aspectRatio: "square",
         size: "sm",
         variant: "ghost",
         height: "calc(100% - {spacing.2})",
         "aria-label": "Toggle password visibility",
-        ...props
+        ...l
       }
     );
   }
-);
-const PasswordStrengthMeter = forwardRef(function PasswordStrengthMeter2(props, ref) {
-  const { max = 4, value, ...rest } = props;
-  const percent = value / max * 100;
-  const { label, colorPalette } = getColorPalette(percent);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Stack, { align: "flex-end", gap: "1", ref, ...rest, children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(HStack, { width: "full", ref, ...rest, children: Array.from({ length: max }).map((_, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Box,
+), B = f(function(l, t) {
+  const { max: i = 4, value: n, ...a } = l, d = n / i * 100, { label: o, colorPalette: s } = V(d);
+  return /* @__PURE__ */ e.jsxs(P, { align: "flex-end", gap: "1", ref: t, ...a, children: [
+    /* @__PURE__ */ e.jsx(p, { width: "full", ref: t, ...a, children: Array.from({ length: i }).map((u, c) => /* @__PURE__ */ e.jsx(
+      j,
       {
         height: "1",
         flex: "1",
         rounded: "sm",
-        "data-selected": index < value ? "" : void 0,
+        "data-selected": c < n ? "" : void 0,
         layerStyle: "fill.subtle",
         colorPalette: "gray",
         _selected: {
-          colorPalette,
+          colorPalette: s,
           layerStyle: "fill.solid"
         }
       },
-      index
+      c
     )) }),
-    label && /* @__PURE__ */ jsxRuntimeExports.jsx(HStack, { textStyle: "xs", children: label })
+    o && /* @__PURE__ */ e.jsx(p, { textStyle: "xs", children: o })
   ] });
 });
-function getColorPalette(percent) {
-  switch (true) {
-    case percent < 33:
+function V(r) {
+  switch (!0) {
+    case r < 33:
       return { label: "Low", colorPalette: "red" };
-    case percent < 66:
+    case r < 66:
       return { label: "Medium", colorPalette: "orange" };
     default:
       return { label: "High", colorPalette: "green" };
   }
 }
 export {
-  PasswordInput,
-  PasswordStrengthMeter
+  k as PasswordInput,
+  B as PasswordStrengthMeter
 };
+//# sourceMappingURL=password-input.mjs.map

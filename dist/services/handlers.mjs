@@ -1,34 +1,25 @@
-async function errorHandler(cb) {
-  var _a, _b;
+async function o(t) {
+  var e, r;
   try {
-    return await cb();
-  } catch (error) {
-    const exeception = error;
-    if ((_a = exeception.response) == null ? void 0 : _a.data) {
-      throw {
-        status: exeception.response.data.status,
-        message: exeception.response.data.message
-      };
-    } else if (exeception.status === 500 && !((_b = exeception.response) == null ? void 0 : _b.data)) {
-      if (exeception.name === "AxiosError") {
-        throw {
-          status: "Errore",
-          message: "Servizi non raggiungibili"
-        };
-      } else {
-        throw {
-          status: "Errore",
-          message: "Errore sconosciuto"
-        };
-      }
-    } else {
-      throw {
-        status: exeception.status,
-        message: exeception.message
-      };
-    }
+    return await t();
+  } catch (a) {
+    const s = a;
+    throw (e = s.response) != null && e.data ? {
+      status: s.response.data.status,
+      message: s.response.data.message
+    } : s.status === 500 && !((r = s.response) != null && r.data) ? s.name === "AxiosError" ? {
+      status: "Errore",
+      message: "Servizi non raggiungibili"
+    } : {
+      status: "Errore",
+      message: "Errore sconosciuto"
+    } : {
+      status: s.status,
+      message: s.message
+    };
   }
 }
 export {
-  errorHandler
+  o as errorHandler
 };
+//# sourceMappingURL=handlers.mjs.map

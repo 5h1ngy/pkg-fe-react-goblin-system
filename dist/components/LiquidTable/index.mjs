@@ -1,168 +1,146 @@
-import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
-import { createContext, useState, useContext, useEffect } from "react";
-import { Table, HStack, Kbd, Stack } from "@chakra-ui/react";
-import { Checkbox } from "../Factory/Chakra/checkbox.mjs";
-import { PaginationRoot, PaginationPrevTrigger, PaginationItems, PaginationNextTrigger } from "../Factory/Chakra/pagination.mjs";
-import { Button } from "../Factory/Chakra/button.mjs";
-import { ActionBarRoot, ActionBarContent, ActionBarSelectionTrigger, ActionBarSeparator } from "../Factory/Chakra/action-bar.mjs";
-function prettifyFieldName(fieldName) {
-  if (!fieldName) return "";
-  let spaced = fieldName.replace(/([A-Z])/g, " $1");
-  spaced = spaced.trim();
-  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+import { j as e } from "../../.chunks/CYK1ROHF.js";
+import { createContext as m, useState as g, useContext as j, useEffect as p } from "react";
+import { Table as l, HStack as f, Kbd as d, Stack as b } from "@chakra-ui/react";
+import { Checkbox as u } from "../Factory/Chakra/checkbox.mjs";
+import { PaginationRoot as C, PaginationPrevTrigger as S, PaginationItems as w, PaginationNextTrigger as k } from "../Factory/Chakra/pagination.mjs";
+import { Button as h } from "../Factory/Chakra/button.mjs";
+import { ActionBarRoot as y, ActionBarContent as T, ActionBarSelectionTrigger as v, ActionBarSeparator as A } from "../Factory/Chakra/action-bar.mjs";
+function P(t) {
+  if (!t) return "";
+  let r = t.replace(/([A-Z])/g, " $1");
+  return r = r.trim(), r.charAt(0).toUpperCase() + r.slice(1);
 }
-function parseItems(items, hiddenFields = []) {
-  if (!items || items.length === 0) {
+function B(t, r = []) {
+  if (!t || t.length === 0)
     return { columns: [], rows: [] };
-  }
-  const allFields = /* @__PURE__ */ new Set();
-  items.forEach((obj) => {
-    Object.keys(obj).forEach((key) => allFields.add(key));
+  const i = /* @__PURE__ */ new Set();
+  t.forEach((n) => {
+    Object.keys(n).forEach((c) => i.add(c));
   });
-  const columns = Array.from(allFields).map((fieldKey) => {
-    const shouldHide = hiddenFields.includes(fieldKey);
-    return { field: fieldKey, label: prettifyFieldName(fieldKey), visible: !shouldHide, isNumeric: false };
-  });
-  const rows = items.map((item, index2) => ({
-    id: item.id ?? String(index2),
-    data: item
+  const s = Array.from(i).map((n) => {
+    const c = r.includes(n);
+    return { field: n, label: P(n), visible: !c, isNumeric: !1 };
+  }), o = t.map((n, c) => ({
+    id: n.id ?? String(c),
+    data: n
   }));
-  return { columns, rows };
+  return { columns: s, rows: o };
 }
-const Context = createContext(void 0);
-const withContext = (WrappedComponent) => {
-  const Provider = (props) => {
-    const { columns, rows } = parseItems(props.items, props.hiddenFields);
-    const [selection, setSelection] = useState([]);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Context.Provider,
-      {
-        value: {
-          columns,
-          rows,
-          pagination: props.pagination,
-          select: { selection, setSelection }
-        },
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(WrappedComponent, { ...props })
-      }
-    );
-  };
-  return Provider;
-};
-const useTableContext = () => {
-  const context = useContext(Context);
-  if (!context) {
+const x = m(void 0), D = (t) => (i) => {
+  const { columns: s, rows: o } = B(i.items, i.hiddenFields), [n, c] = g([]);
+  return /* @__PURE__ */ e.jsx(
+    x.Provider,
+    {
+      value: {
+        columns: s,
+        rows: o,
+        pagination: i.pagination,
+        select: { selection: n, setSelection: c }
+      },
+      children: /* @__PURE__ */ e.jsx(t, { ...i })
+    }
+  );
+}, a = () => {
+  const t = j(x);
+  if (!t)
     throw new Error("useTableContext must be used within LiquidTable");
-  }
-  return context;
-};
-const DynamicTable$2 = () => {
-  const { columns, rows, select } = useTableContext();
-  const hasSelection = select.selection.length > 0;
-  const indeterminate = hasSelection && select.selection.length < rows.length;
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Table.Header, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Table.Row, { bg: "bg.subtle", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Table.ColumnHeader, { w: "6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Checkbox,
+  return t;
+}, I = () => {
+  const { columns: t, rows: r, select: i } = a(), o = i.selection.length > 0 && i.selection.length < r.length;
+  return /* @__PURE__ */ e.jsx(l.Header, { children: /* @__PURE__ */ e.jsxs(l.Row, { bg: "bg.subtle", children: [
+    /* @__PURE__ */ e.jsx(l.ColumnHeader, { w: "6", children: /* @__PURE__ */ e.jsx(
+      u,
       {
         top: "1",
         "aria-label": "Select all rows",
-        checked: indeterminate ? "indeterminate" : select.selection.length > 0,
-        onCheckedChange: (changes) => changes.checked ? select.setSelection(rows.map((row) => row.id)) : select.setSelection([])
+        checked: o ? "indeterminate" : i.selection.length > 0,
+        onCheckedChange: (n) => n.checked ? i.setSelection(r.map((c) => c.id)) : i.setSelection([])
       }
     ) }),
-    columns.filter((col) => col.visible).map(
-      (col) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-        Table.ColumnHeader,
+    t.filter((n) => n.visible).map(
+      (n) => /* @__PURE__ */ e.jsx(
+        l.ColumnHeader,
         {
-          textAlign: col.isNumeric ? "end" : "start",
-          children: col.label
+          textAlign: n.isNumeric ? "end" : "start",
+          children: n.label
         },
         crypto.randomUUID()
       )
     )
   ] }) });
-};
-const DynamicTable$1 = () => {
-  const { columns, rows, select } = useTableContext();
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Table.Body, { children: rows.map((row) => /* @__PURE__ */ jsxRuntimeExports.jsxs(Table.Row, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Table.Cell, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Checkbox,
+}, R = () => {
+  const { columns: t, rows: r, select: i } = a();
+  return /* @__PURE__ */ e.jsx(l.Body, { children: r.map((s) => /* @__PURE__ */ e.jsxs(l.Row, { children: [
+    /* @__PURE__ */ e.jsx(l.Cell, { children: /* @__PURE__ */ e.jsx(
+      u,
       {
         top: "1",
         "aria-label": "Select row",
-        checked: select.selection.includes(row.id),
-        onCheckedChange: (changes) => select.setSelection((prev) => changes.checked ? [...prev, row.id] : prev.filter((id) => id !== row.id))
+        checked: i.selection.includes(s.id),
+        onCheckedChange: (o) => i.setSelection((n) => o.checked ? [...n, s.id] : n.filter((c) => c !== s.id))
       }
     ) }),
-    columns.filter((col) => col.visible).map(
-      (col) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-        Table.Cell,
+    t.filter((o) => o.visible).map(
+      (o) => /* @__PURE__ */ e.jsx(
+        l.Cell,
         {
-          textAlign: col.isNumeric ? "end" : "start",
-          children: row.data[col.field] == null ? "/" : row.data[col.field]
+          textAlign: o.isNumeric ? "end" : "start",
+          children: s.data[o.field] == null ? "/" : s.data[o.field]
         },
         crypto.randomUUID()
       )
     )
   ] }, crypto.randomUUID())) });
-};
-const Pagination = () => {
-  const { pagination } = useTableContext();
-  return pagination && /* @__PURE__ */ jsxRuntimeExports.jsx(
-    PaginationRoot,
+}, U = () => {
+  const { pagination: t } = a();
+  return t && /* @__PURE__ */ e.jsx(
+    C,
     {
       padding: "0.3rem",
-      count: pagination.totalPages,
+      count: t.totalPages,
       width: "fit-content",
-      pageSize: pagination.size,
-      page: pagination.offset,
+      pageSize: t.size,
+      page: t.offset,
       borderRadius: "10px",
       backgroundColor: "gray.100",
       _dark: { backgroundColor: "gray.950" },
-      children: /* @__PURE__ */ jsxRuntimeExports.jsxs(HStack, { wrap: "wrap", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(PaginationPrevTrigger, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(PaginationItems, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(PaginationNextTrigger, {})
+      children: /* @__PURE__ */ e.jsxs(f, { wrap: "wrap", children: [
+        /* @__PURE__ */ e.jsx(S, {}),
+        /* @__PURE__ */ e.jsx(w, {}),
+        /* @__PURE__ */ e.jsx(k, {})
       ] })
     }
   );
-};
-const DynamicTable = () => {
-  const { select } = useTableContext();
-  const hasSelection = select.selection.length > 0;
-  useEffect(() => {
-    const elements = document.getElementsByClassName("chakra-action-bar__positioner");
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].style.zIndex = "9999";
-    }
-  }, []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(ActionBarRoot, { open: hasSelection, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActionBarContent, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(ActionBarSelectionTrigger, { children: [
-      select.selection.length,
+}, z = () => {
+  const { select: t } = a(), r = t.selection.length > 0;
+  return p(() => {
+    const i = document.getElementsByClassName("chakra-action-bar__positioner");
+    for (let s = 0; s < i.length; s++)
+      i[s].style.zIndex = "9999";
+  }, []), /* @__PURE__ */ e.jsx(y, { open: r, children: /* @__PURE__ */ e.jsxs(T, { children: [
+    /* @__PURE__ */ e.jsxs(v, { children: [
+      t.selection.length,
       " selected"
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(ActionBarSeparator, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { variant: "outline", size: "sm", children: [
+    /* @__PURE__ */ e.jsx(A, {}),
+    /* @__PURE__ */ e.jsxs(h, { variant: "outline", size: "sm", children: [
       "Delete ",
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Kbd, { children: "⌫" })
+      /* @__PURE__ */ e.jsx(d, { children: "⌫" })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { variant: "outline", size: "sm", children: [
+    /* @__PURE__ */ e.jsxs(h, { variant: "outline", size: "sm", children: [
       "Share ",
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Kbd, { children: "T" })
+      /* @__PURE__ */ e.jsx(d, { children: "T" })
     ] })
   ] }) });
-};
-const LiquidTable = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Stack, { width: "full", gap: "3", alignItems: "flex-end", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Pagination, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Table.ScrollArea, { borderWidth: "1px", rounded: "md", width: "100%", height: "100%", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Table.Root, { size: "lg", stickyHeader: true, interactive: true, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(DynamicTable$2, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(DynamicTable$1, {})
-    ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(DynamicTable, {})
-  ] });
-};
-const index = withContext(LiquidTable);
+}, E = () => /* @__PURE__ */ e.jsxs(b, { width: "full", gap: "3", alignItems: "flex-end", children: [
+  /* @__PURE__ */ e.jsx(U, {}),
+  /* @__PURE__ */ e.jsx(l.ScrollArea, { borderWidth: "1px", rounded: "md", width: "100%", height: "100%", children: /* @__PURE__ */ e.jsxs(l.Root, { size: "lg", stickyHeader: !0, interactive: !0, children: [
+    /* @__PURE__ */ e.jsx(I, {}),
+    /* @__PURE__ */ e.jsx(R, {})
+  ] }) }),
+  /* @__PURE__ */ e.jsx(z, {})
+] }), O = D(E);
 export {
-  index as default
+  O as default
 };
+//# sourceMappingURL=index.mjs.map

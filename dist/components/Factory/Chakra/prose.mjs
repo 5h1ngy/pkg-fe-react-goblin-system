@@ -1,5 +1,5 @@
-import { chakra } from "@chakra-ui/react";
-const Prose = chakra("div", {
+import { chakra as e } from "@chakra-ui/react";
+const o = e("div", {
   base: {
     color: "fg.muted",
     maxWidth: "65ch",
@@ -260,5 +260,6 @@ const Prose = chakra("div", {
   }
 });
 export {
-  Prose
+  o as Prose
 };
+//# sourceMappingURL=prose.mjs.map

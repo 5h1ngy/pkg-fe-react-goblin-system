@@ -1,20 +1,18 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
-import { Portal, HoverCard } from "@chakra-ui/react";
-import { forwardRef } from "react";
-const HoverCardContent = forwardRef(function HoverCardContent2(props, ref) {
-  const { portalled = true, portalRef, ...rest } = props;
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Portal, { disabled: !portalled, container: portalRef, children: /* @__PURE__ */ jsxRuntimeExports.jsx(HoverCard.Positioner, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(HoverCard.Content, { ref, ...rest }) }) });
-});
-const HoverCardArrow = forwardRef(
-  function HoverCardArrow2(props, ref) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(HoverCard.Arrow, { ref, ...props, children: /* @__PURE__ */ jsxRuntimeExports.jsx(HoverCard.ArrowTip, {}) });
+import { j as o } from "../../../.chunks/CYK1ROHF.js";
+import { Portal as c, HoverCard as r } from "@chakra-ui/react";
+import { forwardRef as n } from "react";
+const p = n(function(t, e) {
+  const { portalled: s = !0, portalRef: a, ...d } = t;
+  return /* @__PURE__ */ o.jsx(c, { disabled: !s, container: a, children: /* @__PURE__ */ o.jsx(r.Positioner, { children: /* @__PURE__ */ o.jsx(r.Content, { ref: e, ...d }) }) });
+}), x = n(
+  function(t, e) {
+    return /* @__PURE__ */ o.jsx(r.Arrow, { ref: e, ...t, children: /* @__PURE__ */ o.jsx(r.ArrowTip, {}) });
   }
-);
-const HoverCardRoot = HoverCard.Root;
-const HoverCardTrigger = HoverCard.Trigger;
+), j = r.Root, m = r.Trigger;
 export {
-  HoverCardArrow,
-  HoverCardContent,
-  HoverCardRoot,
-  HoverCardTrigger
+  x as HoverCardArrow,
+  p as HoverCardContent,
+  j as HoverCardRoot,
+  m as HoverCardTrigger
 };
+//# sourceMappingURL=hover-card.mjs.map
