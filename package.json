@@ -1,6 +1,6 @@
 {
   "name": "react-goblin-system",
-  "version": "0.3.23",
+  "version": "0.3.24",
   "license": "MIT",
   "description": "",
   "keywords": [],
@@ -285,10 +285,6 @@
     "./layouts/Loading": {
       "import": "./dist/layouts/Loading/index.mjs",
       "types": "./dist/types/layouts/Loading/index.d.ts"
-    },
-    "./layouts/Transformer": {
-      "import": "./dist/layouts/Transformer/index.mjs",
-      "types": "./dist/types/layouts/Transformer/index.d.ts"
     },
     "./providers/Auth": {
       "import": "./dist/providers/Auth/index.mjs",
