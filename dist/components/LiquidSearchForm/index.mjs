@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "../../jsx-runtime-CSg68eI9.js";
 import { VStack, HStack } from "@chakra-ui/react";
-import { D as DynamicForm } from "../../DynamicForm-DyO3-DZJ.js";
+import { D as DynamicForm } from "../../DynamicForm-CpUBWm97.js";
 import { Button } from "../Factory/Chakra/button.mjs";
 function LiquidSearchForm({ schema }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(

@@ -12612,7 +12612,9 @@ function Field({ methods, name, meta, fieldSchema }) {
   }
   function checkRenderType(field) {
     var _a, _b;
-    console.log(field);
+    console.log(field, "baseSchema instanceof z.ZodString || baseSchema instanceof z.ZodDate", baseSchema instanceof z.ZodString || baseSchema instanceof z.ZodDate);
+    console.log(field, "baseSchema instanceof ZodEnum", baseSchema instanceof ZodEnum);
+    console.log(field, "baseSchema instanceof z.ZodBoolean", baseSchema instanceof z.ZodBoolean);
     debugger;
     if (baseSchema instanceof z.ZodString || baseSchema instanceof z.ZodDate) {
       return /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { ...!(meta == null ? void 0 : meta.style) ? { width: "100%" } : { ...meta == null ? void 0 : meta.style }, alignItems: "left", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -12774,4 +12776,4 @@ export {
   withMeta as w,
   z
 };
-//# sourceMappingURL=DynamicForm-DyO3-DZJ.js.map
+//# sourceMappingURL=DynamicForm-CpUBWm97.js.map
