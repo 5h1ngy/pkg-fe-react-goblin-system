@@ -1,4 +1,4 @@
-import { G as GenIcon } from "./DHmg6m28.js";
+import { G as GenIcon } from "./iconBase-DHmg6m28.js";
 function LuCheck(props) {
   return GenIcon({ "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M20 6 9 17l-5-5" }, "child": [] }] })(props);
 }
@@ -57,4 +57,4 @@ export {
   LuMinus as l,
   LuPlus as m
 };
-//# sourceMappingURL=Bol7GxK0.js.map
+//# sourceMappingURL=index-B99rpP98.js.map

@@ -1,11 +1,11 @@
-import { j as jsxRuntimeExports } from "./CSg68eI9.js";
+import { j as jsxRuntimeExports } from "./jsx-runtime-CSg68eI9.js";
 import * as React from "react";
 import React__default, { useState, useCallback, forwardRef, useContext, useLayoutEffect, useRef, useMemo, createContext, Component, Fragment, useEffect } from "react";
 import { chakra, useFieldContext, Box, useSlotRecipe, Span, useChakraContext, Spinner, Separator, useRecipe, IconButton, useBreakpointValue, VStack, Input as Input$2, Flex } from "@chakra-ui/react";
 import { createPortal } from "react-dom";
-import { z as z$1 } from "./CHz_-0gi.js";
-import { Field as Field$1 } from "../components/Factory/Chakra/field.mjs";
-import { Checkbox } from "../components/Factory/Chakra/checkbox.mjs";
+import { z as z$1 } from "./index-CHz_-0gi.js";
+import { Field as Field$1 } from "./components/Factory/Chakra/field.mjs";
+import { Checkbox } from "./components/Factory/Chakra/checkbox.mjs";
 var isCheckBoxInput = (element) => element.type === "checkbox";
 var isDateObject = (value) => value instanceof Date;
 var isNullOrUndefined = (value) => value == null;
@@ -1719,8 +1719,6 @@ var n = function(r2, e) {
   };
 };
 function useNormalizeFields(schema, defaultValues) {
-  console.log(schema);
-  debugger;
   const methods = useForm({
     resolver: s(schema),
     defaultValues
@@ -1742,8 +1740,6 @@ function useNormalizeFields(schema, defaultValues) {
     }
     return fields2;
   }, []) : [];
-  console.log(fields);
-  debugger;
   return { fields, methods };
 }
 var util;
@@ -12616,6 +12612,8 @@ function Field({ methods, name, meta, fieldSchema }) {
   }
   function checkRenderType(field) {
     var _a, _b;
+    console.log(field);
+    debugger;
     if (baseSchema instanceof z.ZodString || baseSchema instanceof z.ZodDate) {
       return /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { ...!(meta == null ? void 0 : meta.style) ? { width: "100%" } : { ...meta == null ? void 0 : meta.style }, alignItems: "left", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         Field$1,
@@ -12776,4 +12774,4 @@ export {
   withMeta as w,
   z
 };
-//# sourceMappingURL=Dy9B8Y0I.js.map
+//# sourceMappingURL=DynamicForm-DyO3-DZJ.js.map

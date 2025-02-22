@@ -1,7 +1,7 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
 import { FileUpload, Icon, Text, useFileUploadContext, useRecipe, Button, Span, IconButton } from "@chakra-ui/react";
 import { forwardRef } from "react";
-import { d as LuUpload, e as LuFile, f as LuX } from "../../../.chunks/Bol7GxK0.js";
+import { d as LuUpload, e as LuFile, f as LuX } from "../../../index-B99rpP98.js";
 const FileUploadRoot = forwardRef(
   function FileUploadRoot2(props, ref) {
     const { children, inputProps, ...rest } = props;

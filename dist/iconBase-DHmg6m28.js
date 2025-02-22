@@ -132,4 +132,4 @@ function IconBase(props) {
 export {
   GenIcon as G
 };
-//# sourceMappingURL=DHmg6m28.js.map
+//# sourceMappingURL=iconBase-DHmg6m28.js.map

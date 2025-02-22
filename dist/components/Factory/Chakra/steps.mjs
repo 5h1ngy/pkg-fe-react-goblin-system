@@ -1,6 +1,6 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
 import { Steps, Box } from "@chakra-ui/react";
-import { b as LuCheck } from "../../../.chunks/Bol7GxK0.js";
+import { b as LuCheck } from "../../../index-B99rpP98.js";
 const StepsItem = (props) => {
   const { title, description, completedIcon, icon, ...rest } = props;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Steps.Item, { ...rest, children: [

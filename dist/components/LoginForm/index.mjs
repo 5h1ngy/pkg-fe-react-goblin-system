@@ -1,6 +1,6 @@
-import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../jsx-runtime-CSg68eI9.js";
 import { Card, HStack, Image, VStack, Heading, Stack } from "@chakra-ui/react";
-import { z, w as withMeta, D as DynamicForm } from "../../.chunks/Dy9B8Y0I.js";
+import { z, w as withMeta, D as DynamicForm } from "../../DynamicForm-DyO3-DZJ.js";
 import { Button } from "../Factory/Chakra/button.mjs";
 const schema = z.object({
   "id": withMeta(

@@ -37,6 +37,9 @@ function Field<T extends ZodObject<any>>({ methods, name, meta, fieldSchema, }: 
 
   function checkRenderType<T extends ZodType<any, any, any>>(field: ControllerRenderProps<z.TypeOf<T>, Path<z.TypeOf<T>>>) {
 
+    console.log(field)
+    debugger;
+
     if (
       baseSchema instanceof z.ZodString ||
       baseSchema instanceof z.ZodDate

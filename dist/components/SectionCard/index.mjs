@@ -1,6 +1,6 @@
-import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../jsx-runtime-CSg68eI9.js";
 import { VStack, HStack, Heading, Flex, Icon } from "@chakra-ui/react";
-import { G as GenIcon } from "../../.chunks/DHmg6m28.js";
+import { G as GenIcon } from "../../iconBase-DHmg6m28.js";
 import { EmptyState } from "../Factory/Chakra/empty-state.mjs";
 import { SkeletonCircle, SkeletonText, Skeleton } from "../Factory/Chakra/skeleton.mjs";
 import { Avatar } from "../Factory/Chakra/avatar.mjs";

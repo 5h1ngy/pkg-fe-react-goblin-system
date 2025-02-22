@@ -1,7 +1,7 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
 import { Clipboard, Button, IconButton, Input } from "@chakra-ui/react";
 import { forwardRef } from "react";
-import { a as LuClipboard, b as LuCheck, c as LuLink } from "../../../.chunks/Bol7GxK0.js";
+import { a as LuClipboard, b as LuCheck, c as LuLink } from "../../../index-B99rpP98.js";
 const ClipboardIcon = forwardRef(function ClipboardIcon2(props, ref) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Clipboard.Indicator, { copied: /* @__PURE__ */ jsxRuntimeExports.jsx(LuCheck, {}), ...props, ref, children: /* @__PURE__ */ jsxRuntimeExports.jsx(LuClipboard, {}) });
 });

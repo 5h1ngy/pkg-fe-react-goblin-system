@@ -124,15 +124,12 @@ export default defineConfig({
                     "react-dom": "ReactDOM",
                 },
 
-                // entryFileNames: (chunk) =>
-                // `${path.relative(path.resolve(__dirname, 'src'), chunk.facadeModuleId!).replace(/\.[^/.]+$/, '')}.js`,
+                // chunkFileNames: () =>
+                    // `.chunks/[hash].js`,
 
-                chunkFileNames: () =>
-                    `.chunks/[hash].js`,
-
-                assetFileNames: (asset) => asset.name && asset.name.endsWith('.css')
-                    ? 'styles/[name][extname]'
-                    : '[name][extname]',
+                // assetFileNames: (asset) => asset.name && asset.name.endsWith('.css')
+                    // ? 'styles/[name][extname]'
+                    // : '[name][extname]',
             }
         }
     }

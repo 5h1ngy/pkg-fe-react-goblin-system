@@ -1,4 +1,4 @@
-import { D, w } from "../../../.chunks/Dy9B8Y0I.js";
+import { D, w } from "../../../DynamicForm-DyO3-DZJ.js";
 export {
   D as default,
   w as withMeta

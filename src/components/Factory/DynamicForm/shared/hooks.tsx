@@ -10,9 +10,6 @@ export function useNormalizeFields<T extends z.ZodEffects<ZodObject<any>>>(
     defaultValues?: DefaultValues<TypeOf<T>> | undefined
 ) {
 
-    console.log(schema)
-    debugger;
-
     const methods = useForm<z.infer<T>>({
         resolver: zodResolver(schema),
         defaultValues,
@@ -47,10 +44,6 @@ export function useNormalizeFields<T extends z.ZodEffects<ZodObject<any>>>(
                 return fields;
             }, [])
         : [];
-
-
-    console.log(fields)
-    debugger;
 
     return { fields, methods };
 }

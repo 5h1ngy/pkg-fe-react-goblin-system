@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
 import { EmptyState as EmptyState$1, VStack } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const EmptyState = forwardRef(
