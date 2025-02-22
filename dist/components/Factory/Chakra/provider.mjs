@@ -1,10 +1,10 @@
-import { j as r } from "../../../.chunks/CYK1ROHF.js";
-import { ChakraProvider as e, defaultSystem as t } from "@chakra-ui/react";
-import { ColorModeProvider as i } from "./color-mode.mjs";
-function a(o) {
-  return /* @__PURE__ */ r.jsx(e, { value: t, children: /* @__PURE__ */ r.jsx(i, { ...o }) });
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
+import { ColorModeProvider } from "./color-mode.mjs";
+function Provider(props) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ChakraProvider, { value: defaultSystem, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ColorModeProvider, { ...props }) });
 }
 export {
-  a as Provider
+  Provider
 };
 //# sourceMappingURL=provider.mjs.map

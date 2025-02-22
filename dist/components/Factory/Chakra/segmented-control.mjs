@@ -1,28 +1,32 @@
-import { j as r } from "../../../.chunks/CYK1ROHF.js";
-import { SegmentGroup as n, For as u } from "@chakra-ui/react";
-import { forwardRef as i, useMemo as c } from "react";
-function m(t) {
-  return t.map((e) => typeof e == "string" ? { value: e, label: e } : e);
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { SegmentGroup, For } from "@chakra-ui/react";
+import { forwardRef, useMemo } from "react";
+function normalize(items) {
+  return items.map((item) => {
+    if (typeof item === "string") return { value: item, label: item };
+    return item;
+  });
 }
-const j = i(function(e, l) {
-  const { items: s, ...a } = e, d = c(() => m(s), [s]);
-  return /* @__PURE__ */ r.jsxs(n.Root, { ref: l, ...a, children: [
-    /* @__PURE__ */ r.jsx(n.Indicator, {}),
-    /* @__PURE__ */ r.jsx(u, { each: d, children: (o) => /* @__PURE__ */ r.jsxs(
-      n.Item,
+const SegmentedControl = forwardRef(function SegmentedControl2(props, ref) {
+  const { items, ...rest } = props;
+  const data = useMemo(() => normalize(items), [items]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(SegmentGroup.Root, { ref, ...rest, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SegmentGroup.Indicator, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(For, { each: data, children: (item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      SegmentGroup.Item,
       {
-        value: o.value,
-        disabled: o.disabled,
+        value: item.value,
+        disabled: item.disabled,
         children: [
-          /* @__PURE__ */ r.jsx(n.ItemText, { children: o.label }),
-          /* @__PURE__ */ r.jsx(n.ItemHiddenInput, {})
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SegmentGroup.ItemText, { children: item.label }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SegmentGroup.ItemHiddenInput, {})
         ]
       },
-      o.value
+      item.value
     ) })
   ] });
 });
 export {
-  j as SegmentedControl
+  SegmentedControl
 };
 //# sourceMappingURL=segmented-control.mjs.map

@@ -1,31 +1,36 @@
-import { j as r } from "../../../.chunks/CYK1ROHF.js";
-import { Toggle as a, useToggleContext as u, Button as c } from "@chakra-ui/react";
-import { forwardRef as i } from "react";
-const d = {
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Toggle as Toggle$1, useToggleContext, Button } from "@chakra-ui/react";
+import { forwardRef } from "react";
+const variantMap = {
   solid: { on: "solid", off: "outline" },
   surface: { on: "surface", off: "outline" },
   subtle: { on: "subtle", off: "ghost" },
   ghost: { on: "subtle", off: "ghost" }
-}, h = i(
-  function(t, n) {
-    const { variant: s = "subtle", size: o, children: e, ...f } = t, l = d[s];
-    return /* @__PURE__ */ r.jsx(a.Root, { asChild: !0, ...f, children: /* @__PURE__ */ r.jsx(T, { size: o, variant: l, ref: n, children: e }) });
+};
+const Toggle = forwardRef(
+  function Toggle2(props, ref) {
+    const { variant = "subtle", size, children, ...rest } = props;
+    const variantConfig = variantMap[variant];
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle$1.Root, { asChild: true, ...rest, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ToggleBaseButton, { size, variant: variantConfig, ref, children }) });
   }
-), T = i(
-  function(t, n) {
-    const s = u(), { variant: o, ...e } = t;
-    return /* @__PURE__ */ r.jsx(
-      c,
+);
+const ToggleBaseButton = forwardRef(
+  function ToggleBaseButton2(props, ref) {
+    const toggle = useToggleContext();
+    const { variant, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Button,
       {
-        variant: s.pressed ? o.on : o.off,
-        ref: n,
-        ...e
+        variant: toggle.pressed ? variant.on : variant.off,
+        ref,
+        ...rest
       }
     );
   }
-), v = a.Indicator;
+);
+const ToggleIndicator = Toggle$1.Indicator;
 export {
-  h as Toggle,
-  v as ToggleIndicator
+  Toggle,
+  ToggleIndicator
 };
 //# sourceMappingURL=toggle.mjs.map

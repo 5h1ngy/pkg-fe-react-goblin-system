@@ -1,6 +1,7 @@
-import { createRecipeContext as t } from "@chakra-ui/react";
-const { withContext: o } = t({ key: "button" }), n = o("a");
+import { createRecipeContext } from "@chakra-ui/react";
+const { withContext } = createRecipeContext({ key: "button" });
+const LinkButton = withContext("a");
 export {
-  n as LinkButton
+  LinkButton
 };
 //# sourceMappingURL=link-button.mjs.map

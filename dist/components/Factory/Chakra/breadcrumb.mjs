@@ -1,22 +1,26 @@
-import { j as t } from "../../../.chunks/CYK1ROHF.js";
-import { Breadcrumb as r } from "@chakra-ui/react";
-import { forwardRef as p, Children as u, isValidElement as h, Fragment as f } from "react";
-const L = p(
-  function(o, s) {
-    const { separator: i, separatorGap: a, children: c, ...l } = o, e = u.toArray(c).filter(h);
-    return /* @__PURE__ */ t.jsx(r.Root, { ref: s, ...l, children: /* @__PURE__ */ t.jsx(r.List, { gap: a, children: e.map((m, n) => {
-      const d = n === e.length - 1;
-      return /* @__PURE__ */ t.jsxs(f, { children: [
-        /* @__PURE__ */ t.jsx(r.Item, { children: m }),
-        !d && /* @__PURE__ */ t.jsx(r.Separator, { children: i })
-      ] }, n);
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Breadcrumb } from "@chakra-ui/react";
+import { forwardRef, Children, isValidElement, Fragment } from "react";
+const BreadcrumbRoot = forwardRef(
+  function BreadcrumbRoot2(props, ref) {
+    const { separator, separatorGap, children, ...rest } = props;
+    const validChildren = Children.toArray(children).filter(isValidElement);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Breadcrumb.Root, { ref, ...rest, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Breadcrumb.List, { gap: separatorGap, children: validChildren.map((child, index) => {
+      const last = index === validChildren.length - 1;
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs(Fragment, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Breadcrumb.Item, { children: child }),
+        !last && /* @__PURE__ */ jsxRuntimeExports.jsx(Breadcrumb.Separator, { children: separator })
+      ] }, index);
     }) }) });
   }
-), R = r.Link, k = r.CurrentLink, C = r.Ellipsis;
+);
+const BreadcrumbLink = Breadcrumb.Link;
+const BreadcrumbCurrentLink = Breadcrumb.CurrentLink;
+const BreadcrumbEllipsis = Breadcrumb.Ellipsis;
 export {
-  k as BreadcrumbCurrentLink,
-  C as BreadcrumbEllipsis,
-  R as BreadcrumbLink,
-  L as BreadcrumbRoot
+  BreadcrumbCurrentLink,
+  BreadcrumbEllipsis,
+  BreadcrumbLink,
+  BreadcrumbRoot
 };
 //# sourceMappingURL=breadcrumb.mjs.map

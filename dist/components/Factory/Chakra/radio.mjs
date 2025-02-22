@@ -1,18 +1,19 @@
-import { j as r } from "../../../.chunks/CYK1ROHF.js";
-import { RadioGroup as o } from "@chakra-ui/react";
-import { forwardRef as m } from "react";
-const u = m(
-  function(e, i) {
-    const { children: t, inputProps: s, rootRef: n, ...d } = e;
-    return /* @__PURE__ */ r.jsxs(o.Item, { ref: n, ...d, children: [
-      /* @__PURE__ */ r.jsx(o.ItemHiddenInput, { ref: i, ...s }),
-      /* @__PURE__ */ r.jsx(o.ItemIndicator, {}),
-      t && /* @__PURE__ */ r.jsx(o.ItemText, { children: t })
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { RadioGroup as RadioGroup$1 } from "@chakra-ui/react";
+import { forwardRef } from "react";
+const Radio = forwardRef(
+  function Radio2(props, ref) {
+    const { children, inputProps, rootRef, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(RadioGroup$1.Item, { ref: rootRef, ...rest, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(RadioGroup$1.ItemHiddenInput, { ref, ...inputProps }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(RadioGroup$1.ItemIndicator, {}),
+      children && /* @__PURE__ */ jsxRuntimeExports.jsx(RadioGroup$1.ItemText, { children })
     ] });
   }
-), x = o.Root;
+);
+const RadioGroup = RadioGroup$1.Root;
 export {
-  u as Radio,
-  x as RadioGroup
+  Radio,
+  RadioGroup
 };
 //# sourceMappingURL=radio.mjs.map

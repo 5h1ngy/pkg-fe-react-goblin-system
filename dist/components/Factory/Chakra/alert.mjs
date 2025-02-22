@@ -1,41 +1,41 @@
-import { j as t } from "../../../.chunks/CYK1ROHF.js";
-import { Alert as e } from "@chakra-ui/react";
-import { CloseButton as f } from "./close-button.mjs";
-import { forwardRef as a } from "react";
-const C = a(
-  function(n, s) {
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Alert as Alert$1 } from "@chakra-ui/react";
+import { CloseButton } from "./close-button.mjs";
+import { forwardRef } from "react";
+const Alert = forwardRef(
+  function Alert2(props, ref) {
     const {
-      title: r,
-      children: o,
-      icon: l,
-      closable: i,
-      onClose: c,
-      startElement: m,
-      endElement: x,
-      ...d
-    } = n;
-    return /* @__PURE__ */ t.jsxs(e.Root, { ref: s, ...d, children: [
-      m || /* @__PURE__ */ t.jsx(e.Indicator, { children: l }),
-      o ? /* @__PURE__ */ t.jsxs(e.Content, { children: [
-        /* @__PURE__ */ t.jsx(e.Title, { children: r }),
-        /* @__PURE__ */ t.jsx(e.Description, { children: o })
-      ] }) : /* @__PURE__ */ t.jsx(e.Title, { flex: "1", children: r }),
-      x,
-      i && /* @__PURE__ */ t.jsx(
-        f,
+      title,
+      children,
+      icon,
+      closable,
+      onClose,
+      startElement,
+      endElement,
+      ...rest
+    } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Alert$1.Root, { ref, ...rest, children: [
+      startElement || /* @__PURE__ */ jsxRuntimeExports.jsx(Alert$1.Indicator, { children: icon }),
+      children ? /* @__PURE__ */ jsxRuntimeExports.jsxs(Alert$1.Content, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Alert$1.Title, { children: title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Alert$1.Description, { children })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Alert$1.Title, { flex: "1", children: title }),
+      endElement,
+      closable && /* @__PURE__ */ jsxRuntimeExports.jsx(
+        CloseButton,
         {
           size: "sm",
           pos: "relative",
           top: "-2",
           insetEnd: "-2",
           alignSelf: "flex-start",
-          onClick: c
+          onClick: onClose
         }
       )
     ] });
   }
 );
 export {
-  C as Alert
+  Alert
 };
 //# sourceMappingURL=alert.mjs.map

@@ -1,22 +1,23 @@
-import { j as o } from "../../../.chunks/CYK1ROHF.js";
-import { Blockquote as t } from "@chakra-ui/react";
-import { forwardRef as m } from "react";
-const d = m(
-  function(e, n) {
-    const { children: r, cite: c, citeUrl: s, showDash: i, icon: l, ...u } = e;
-    return /* @__PURE__ */ o.jsxs(t.Root, { ref: n, ...u, children: [
-      l,
-      /* @__PURE__ */ o.jsx(t.Content, { cite: s, children: r }),
-      c && /* @__PURE__ */ o.jsxs(t.Caption, { children: [
-        i ? /* @__PURE__ */ o.jsx(o.Fragment, { children: "—" }) : null,
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Blockquote as Blockquote$1 } from "@chakra-ui/react";
+import { forwardRef } from "react";
+const Blockquote = forwardRef(
+  function Blockquote2(props, ref) {
+    const { children, cite, citeUrl, showDash, icon, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Blockquote$1.Root, { ref, ...rest, children: [
+      icon,
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Blockquote$1.Content, { cite: citeUrl, children }),
+      cite && /* @__PURE__ */ jsxRuntimeExports.jsxs(Blockquote$1.Caption, { children: [
+        showDash ? /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: "—" }) : null,
         " ",
-        /* @__PURE__ */ o.jsx("cite", { children: c })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("cite", { children: cite })
       ] })
     ] });
   }
-), f = t.Icon;
+);
+const BlockquoteIcon = Blockquote$1.Icon;
 export {
-  d as Blockquote,
-  f as BlockquoteIcon
+  Blockquote,
+  BlockquoteIcon
 };
 //# sourceMappingURL=blockquote.mjs.map

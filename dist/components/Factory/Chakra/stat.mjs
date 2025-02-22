@@ -1,42 +1,48 @@
-import { j as t } from "../../../.chunks/CYK1ROHF.js";
-import { Stat as o, IconButton as u, FormatNumber as x, Badge as c } from "@chakra-ui/react";
-import { T as f, H as m } from "../../../.chunks/DGNRXwko.js";
-import { forwardRef as a } from "react";
-const p = a(
-  function(n, e) {
-    const { info: r, children: l, ...s } = n;
-    return /* @__PURE__ */ t.jsxs(o.Label, { ...s, ref: e, children: [
-      l,
-      r && /* @__PURE__ */ t.jsx(f, { content: r, children: /* @__PURE__ */ t.jsx(u, { variant: "ghost", "aria-label": "info", size: "2xs", children: /* @__PURE__ */ t.jsx(m, {}) }) })
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Stat, IconButton, FormatNumber, Badge } from "@chakra-ui/react";
+import { T as ToggleTip, H as HiOutlineInformationCircle } from "../../../.chunks/4Il6cKWL.js";
+import { forwardRef } from "react";
+const StatLabel = forwardRef(
+  function StatLabel2(props, ref) {
+    const { info, children, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Stat.Label, { ...rest, ref, children: [
+      children,
+      info && /* @__PURE__ */ jsxRuntimeExports.jsx(ToggleTip, { content: info, children: /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { variant: "ghost", "aria-label": "info", size: "2xs", children: /* @__PURE__ */ jsxRuntimeExports.jsx(HiOutlineInformationCircle, {}) }) })
     ] });
   }
-), g = a(
-  function(n, e) {
-    const { value: r, formatOptions: l, children: s, ...d } = n;
-    return /* @__PURE__ */ t.jsx(o.ValueText, { ...d, ref: e, children: s || r != null && /* @__PURE__ */ t.jsx(x, { value: r, ...l }) });
+);
+const StatValueText = forwardRef(
+  function StatValueText2(props, ref) {
+    const { value, formatOptions, children, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Stat.ValueText, { ...rest, ref, children: children || value != null && /* @__PURE__ */ jsxRuntimeExports.jsx(FormatNumber, { value, ...formatOptions }) });
   }
-), b = a(
-  function(n, e) {
-    return /* @__PURE__ */ t.jsxs(c, { colorPalette: "green", gap: "0", ...n, ref: e, children: [
-      /* @__PURE__ */ t.jsx(o.UpIndicator, {}),
-      n.children
+);
+const StatUpTrend = forwardRef(
+  function StatUpTrend2(props, ref) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { colorPalette: "green", gap: "0", ...props, ref, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Stat.UpIndicator, {}),
+      props.children
     ] });
   }
-), U = a(
-  function(n, e) {
-    return /* @__PURE__ */ t.jsxs(c, { colorPalette: "red", gap: "0", ...n, ref: e, children: [
-      /* @__PURE__ */ t.jsx(o.DownIndicator, {}),
-      n.children
+);
+const StatDownTrend = forwardRef(
+  function StatDownTrend2(props, ref) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { colorPalette: "red", gap: "0", ...props, ref, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Stat.DownIndicator, {}),
+      props.children
     ] });
   }
-), V = o.Root, w = o.HelpText, H = o.ValueUnit;
+);
+const StatRoot = Stat.Root;
+const StatHelpText = Stat.HelpText;
+const StatValueUnit = Stat.ValueUnit;
 export {
-  U as StatDownTrend,
-  w as StatHelpText,
-  p as StatLabel,
-  V as StatRoot,
-  b as StatUpTrend,
-  g as StatValueText,
-  H as StatValueUnit
+  StatDownTrend,
+  StatHelpText,
+  StatLabel,
+  StatRoot,
+  StatUpTrend,
+  StatValueText,
+  StatValueUnit
 };
 //# sourceMappingURL=stat.mjs.map

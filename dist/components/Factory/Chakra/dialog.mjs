@@ -1,45 +1,55 @@
-import { j as r } from "../../../.chunks/CYK1ROHF.js";
-import { Portal as d, Dialog as o } from "@chakra-ui/react";
-import { CloseButton as D } from "./close-button.mjs";
-import { forwardRef as e } from "react";
-const x = e(
-  function(t, i) {
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Portal, Dialog } from "@chakra-ui/react";
+import { CloseButton } from "./close-button.mjs";
+import { forwardRef } from "react";
+const DialogContent = forwardRef(
+  function DialogContent2(props, ref) {
     const {
-      children: s,
-      portalled: l = !0,
-      portalRef: a,
-      backdrop: c = !0,
-      ...g
-    } = t;
-    return /* @__PURE__ */ r.jsxs(d, { disabled: !l, container: a, children: [
-      c && /* @__PURE__ */ r.jsx(o.Backdrop, {}),
-      /* @__PURE__ */ r.jsx(o.Positioner, { children: /* @__PURE__ */ r.jsx(o.Content, { ref: i, ...g, asChild: !1, children: s }) })
+      children,
+      portalled = true,
+      portalRef,
+      backdrop = true,
+      ...rest
+    } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Portal, { disabled: !portalled, container: portalRef, children: [
+      backdrop && /* @__PURE__ */ jsxRuntimeExports.jsx(Dialog.Backdrop, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Dialog.Positioner, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Dialog.Content, { ref, ...rest, asChild: false, children }) })
     ] });
   }
-), C = e(function(t, i) {
-  return /* @__PURE__ */ r.jsx(
-    o.CloseTrigger,
+);
+const DialogCloseTrigger = forwardRef(function DialogCloseTrigger2(props, ref) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Dialog.CloseTrigger,
     {
       position: "absolute",
       top: "2",
       insetEnd: "2",
-      ...t,
-      asChild: !0,
-      children: /* @__PURE__ */ r.jsx(D, { size: "sm", ref: i, children: t.children })
+      ...props,
+      asChild: true,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(CloseButton, { size: "sm", ref, children: props.children })
     }
   );
-}), T = o.Root, h = o.Footer, j = o.Header, B = o.Body, R = o.Backdrop, k = o.Title, b = o.Description, y = o.Trigger, A = o.ActionTrigger;
+});
+const DialogRoot = Dialog.Root;
+const DialogFooter = Dialog.Footer;
+const DialogHeader = Dialog.Header;
+const DialogBody = Dialog.Body;
+const DialogBackdrop = Dialog.Backdrop;
+const DialogTitle = Dialog.Title;
+const DialogDescription = Dialog.Description;
+const DialogTrigger = Dialog.Trigger;
+const DialogActionTrigger = Dialog.ActionTrigger;
 export {
-  A as DialogActionTrigger,
-  R as DialogBackdrop,
-  B as DialogBody,
-  C as DialogCloseTrigger,
-  x as DialogContent,
-  b as DialogDescription,
-  h as DialogFooter,
-  j as DialogHeader,
-  T as DialogRoot,
-  k as DialogTitle,
-  y as DialogTrigger
+  DialogActionTrigger,
+  DialogBackdrop,
+  DialogBody,
+  DialogCloseTrigger,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger
 };
 //# sourceMappingURL=dialog.mjs.map

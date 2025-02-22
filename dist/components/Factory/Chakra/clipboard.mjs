@@ -1,68 +1,75 @@
-import { j as n } from "../../../.chunks/CYK1ROHF.js";
-import { Clipboard as i, Button as l, IconButton as d, Input as c } from "@chakra-ui/react";
-import { forwardRef as o } from "react";
-import { a as u, b as p, c as x } from "../../../.chunks/CF0BrBy-.js";
-const a = o(function(r, t) {
-  return /* @__PURE__ */ n.jsx(i.Indicator, { copied: /* @__PURE__ */ n.jsx(p, {}), ...r, ref: t, children: /* @__PURE__ */ n.jsx(u, {}) });
-}), s = o(function(r, t) {
-  return /* @__PURE__ */ n.jsx(i.Indicator, { copied: "Copied", ...r, ref: t, children: "Copy" });
-}), m = o(function(r, t) {
-  return /* @__PURE__ */ n.jsx(
-    i.Label,
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Clipboard, Button, IconButton, Input } from "@chakra-ui/react";
+import { forwardRef } from "react";
+import { a as LuClipboard, b as LuCheck, c as LuLink } from "../../../.chunks/Bol7GxK0.js";
+const ClipboardIcon = forwardRef(function ClipboardIcon2(props, ref) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Clipboard.Indicator, { copied: /* @__PURE__ */ jsxRuntimeExports.jsx(LuCheck, {}), ...props, ref, children: /* @__PURE__ */ jsxRuntimeExports.jsx(LuClipboard, {}) });
+});
+const ClipboardCopyText = forwardRef(function ClipboardCopyText2(props, ref) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Clipboard.Indicator, { copied: "Copied", ...props, ref, children: "Copy" });
+});
+const ClipboardLabel = forwardRef(function ClipboardLabel2(props, ref) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Clipboard.Label,
     {
       textStyle: "sm",
       fontWeight: "medium",
       display: "inline-block",
       mb: "1",
-      ...r,
-      ref: t
+      ...props,
+      ref
     }
   );
-}), h = o(
-  function(r, t) {
-    return /* @__PURE__ */ n.jsx(i.Trigger, { asChild: !0, children: /* @__PURE__ */ n.jsxs(l, { ref: t, size: "sm", variant: "surface", ...r, children: [
-      /* @__PURE__ */ n.jsx(a, {}),
-      /* @__PURE__ */ n.jsx(s, {})
+});
+const ClipboardButton = forwardRef(
+  function ClipboardButton2(props, ref) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Clipboard.Trigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { ref, size: "sm", variant: "surface", ...props, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ClipboardIcon, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ClipboardCopyText, {})
     ] }) });
   }
-), I = o(
-  function(r, t) {
-    return /* @__PURE__ */ n.jsx(i.Trigger, { asChild: !0, children: /* @__PURE__ */ n.jsxs(
-      l,
+);
+const ClipboardLink = forwardRef(
+  function ClipboardLink2(props, ref) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Clipboard.Trigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      Button,
       {
-        unstyled: !0,
+        unstyled: true,
         variant: "plain",
         size: "xs",
         display: "inline-flex",
         alignItems: "center",
         gap: "2",
-        ref: t,
-        ...r,
+        ref,
+        ...props,
         children: [
-          /* @__PURE__ */ n.jsx(x, {}),
-          /* @__PURE__ */ n.jsx(s, {})
+          /* @__PURE__ */ jsxRuntimeExports.jsx(LuLink, {}),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ClipboardCopyText, {})
         ]
       }
     ) });
   }
-), g = o(
-  function(r, t) {
-    return /* @__PURE__ */ n.jsx(i.Trigger, { asChild: !0, children: /* @__PURE__ */ n.jsxs(d, { ref: t, size: "xs", variant: "subtle", ...r, children: [
-      /* @__PURE__ */ n.jsx(a, {}),
-      /* @__PURE__ */ n.jsx(s, { srOnly: !0 })
+);
+const ClipboardIconButton = forwardRef(
+  function ClipboardIconButton2(props, ref) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Clipboard.Trigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(IconButton, { ref, size: "xs", variant: "subtle", ...props, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ClipboardIcon, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ClipboardCopyText, { srOnly: true })
     ] }) });
   }
-), L = o(
-  function(r, t) {
-    return /* @__PURE__ */ n.jsx(i.Input, { asChild: !0, children: /* @__PURE__ */ n.jsx(c, { ref: t, ...r }) });
+);
+const ClipboardInput = forwardRef(
+  function ClipboardInputElement(props, ref) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Clipboard.Input, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Input, { ref, ...props }) });
   }
-), y = i.Root;
+);
+const ClipboardRoot = Clipboard.Root;
 export {
-  h as ClipboardButton,
-  g as ClipboardIconButton,
-  L as ClipboardInput,
-  m as ClipboardLabel,
-  I as ClipboardLink,
-  y as ClipboardRoot
+  ClipboardButton,
+  ClipboardIconButton,
+  ClipboardInput,
+  ClipboardLabel,
+  ClipboardLink,
+  ClipboardRoot
 };
 //# sourceMappingURL=clipboard.mjs.map

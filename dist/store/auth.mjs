@@ -1,30 +1,34 @@
-var Te = Object.defineProperty;
-var Pe = (e, r, t) => r in e ? Te(e, r, { enumerable: !0, configurable: !0, writable: !0, value: t }) : e[r] = t;
-var X = (e, r, t) => Pe(e, typeof r != "symbol" ? r + "" : r, t);
-import { register as ke, login as Re, refresh as Ae } from "../services/auth.mjs";
-import { STATUS as b } from "./shared.mjs";
-function je(e) {
-  if (typeof e != "object" || e === null)
-    return !1;
-  let r = e;
-  for (; Object.getPrototypeOf(r) !== null; )
-    r = Object.getPrototypeOf(r);
-  return Object.getPrototypeOf(e) === r || Object.getPrototypeOf(e) === null;
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+import { register, login, refresh } from "../services/auth.mjs";
+import { STATUS } from "./shared.mjs";
+function isPlainObject$1(obj) {
+  if (typeof obj !== "object" || obj === null)
+    return false;
+  let proto = obj;
+  while (Object.getPrototypeOf(proto) !== null) {
+    proto = Object.getPrototypeOf(proto);
+  }
+  return Object.getPrototypeOf(obj) === proto || Object.getPrototypeOf(obj) === null;
 }
-function Ie(e) {
-  return je(e) && "type" in e && typeof e.type == "string";
+function isAction(action) {
+  return isPlainObject$1(action) && "type" in action && typeof action.type === "string";
 }
-var me = Symbol.for("immer-nothing"), ue = Symbol.for("immer-draftable"), w = Symbol.for("immer-state"), ze = process.env.NODE_ENV !== "production" ? [
+var NOTHING = Symbol.for("immer-nothing");
+var DRAFTABLE = Symbol.for("immer-draftable");
+var DRAFT_STATE = Symbol.for("immer-state");
+var errors = process.env.NODE_ENV !== "production" ? [
   // All error codes, starting by 0:
-  function(e) {
-    return `The plugin for '${e}' has not been loaded into Immer. To enable the plugin, import and call \`enable${e}()\` when initializing your application.`;
+  function(plugin) {
+    return `The plugin for '${plugin}' has not been loaded into Immer. To enable the plugin, import and call \`enable${plugin}()\` when initializing your application.`;
   },
-  function(e) {
-    return `produce can only be called on things that are draftable: plain objects, arrays, Map, Set or classes that are marked with '[immerable]: true'. Got '${e}'`;
+  function(thing) {
+    return `produce can only be called on things that are draftable: plain objects, arrays, Map, Set or classes that are marked with '[immerable]: true'. Got '${thing}'`;
   },
   "This object has been frozen and should not be mutated",
-  function(e) {
-    return "Cannot use a proxy that has been revoked. Did you pass an object from inside an immer function to an async process? " + e;
+  function(data) {
+    return "Cannot use a proxy that has been revoked. Did you pass an object from inside an immer function to an async process? " + data;
   },
   "An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.",
   "Immer forbids circular references",
@@ -32,222 +36,321 @@ var me = Symbol.for("immer-nothing"), ue = Symbol.for("immer-draftable"), w = Sy
   "The third argument to `produce` must be a function or undefined",
   "First argument to `createDraft` must be a plain object, an array, or an immerable object",
   "First argument to `finishDraft` must be a draft returned by `createDraft`",
-  function(e) {
-    return `'current' expects a draft, got: ${e}`;
+  function(thing) {
+    return `'current' expects a draft, got: ${thing}`;
   },
   "Object.defineProperty() cannot be used on an Immer draft",
   "Object.setPrototypeOf() cannot be used on an Immer draft",
   "Immer only supports deleting array indices",
   "Immer only supports setting array indices and the 'length' property",
-  function(e) {
-    return `'original' expects a draft, got: ${e}`;
+  function(thing) {
+    return `'original' expects a draft, got: ${thing}`;
   }
   // Note: if more errors are added, the errorOffset in Patches.ts should be increased
   // See Patches.ts for additional errors
 ] : [];
-function E(e, ...r) {
+function die(error, ...args) {
   if (process.env.NODE_ENV !== "production") {
-    const t = ze[e], n = typeof t == "function" ? t.apply(null, r) : t;
-    throw new Error(`[Immer] ${n}`);
+    const e = errors[error];
+    const msg = typeof e === "function" ? e.apply(null, args) : e;
+    throw new Error(`[Immer] ${msg}`);
   }
   throw new Error(
-    `[Immer] minified error nr: ${e}. Full error at: https://bit.ly/3cXEKWf`
+    `[Immer] minified error nr: ${error}. Full error at: https://bit.ly/3cXEKWf`
   );
 }
-var j = Object.getPrototypeOf;
-function k(e) {
-  return !!e && !!e[w];
+var getPrototypeOf = Object.getPrototypeOf;
+function isDraft(value) {
+  return !!value && !!value[DRAFT_STATE];
 }
-function v(e) {
-  var r;
-  return e ? ge(e) || Array.isArray(e) || !!e[ue] || !!((r = e.constructor) != null && r[ue]) || K(e) || H(e) : !1;
+function isDraftable(value) {
+  var _a;
+  if (!value)
+    return false;
+  return isPlainObject(value) || Array.isArray(value) || !!value[DRAFTABLE] || !!((_a = value.constructor) == null ? void 0 : _a[DRAFTABLE]) || isMap(value) || isSet(value);
 }
-var Me = Object.prototype.constructor.toString();
-function ge(e) {
-  if (!e || typeof e != "object")
-    return !1;
-  const r = j(e);
-  if (r === null)
-    return !0;
-  const t = Object.hasOwnProperty.call(r, "constructor") && r.constructor;
-  return t === Object ? !0 : typeof t == "function" && Function.toString.call(t) === Me;
+var objectCtorString = Object.prototype.constructor.toString();
+function isPlainObject(value) {
+  if (!value || typeof value !== "object")
+    return false;
+  const proto = getPrototypeOf(value);
+  if (proto === null) {
+    return true;
+  }
+  const Ctor = Object.hasOwnProperty.call(proto, "constructor") && proto.constructor;
+  if (Ctor === Object)
+    return true;
+  return typeof Ctor == "function" && Function.toString.call(Ctor) === objectCtorString;
 }
-function B(e, r) {
-  q(e) === 0 ? Reflect.ownKeys(e).forEach((t) => {
-    r(t, e[t], e);
-  }) : e.forEach((t, n) => r(n, t, e));
-}
-function q(e) {
-  const r = e[w];
-  return r ? r.type_ : Array.isArray(e) ? 1 : K(e) ? 2 : H(e) ? 3 : 0;
-}
-function ee(e, r) {
-  return q(e) === 2 ? e.has(r) : Object.prototype.hasOwnProperty.call(e, r);
-}
-function Ee(e, r, t) {
-  const n = q(e);
-  n === 2 ? e.set(r, t) : n === 3 ? e.add(t) : e[r] = t;
-}
-function Fe(e, r) {
-  return e === r ? e !== 0 || 1 / e === 1 / r : e !== e && r !== r;
-}
-function K(e) {
-  return e instanceof Map;
-}
-function H(e) {
-  return e instanceof Set;
-}
-function P(e) {
-  return e.copy_ || e.base_;
-}
-function re(e, r) {
-  if (K(e))
-    return new Map(e);
-  if (H(e))
-    return new Set(e);
-  if (Array.isArray(e))
-    return Array.prototype.slice.call(e);
-  const t = ge(e);
-  if (r === !0 || r === "class_only" && !t) {
-    const n = Object.getOwnPropertyDescriptors(e);
-    delete n[w];
-    let o = Reflect.ownKeys(n);
-    for (let i = 0; i < o.length; i++) {
-      const c = o[i], s = n[c];
-      s.writable === !1 && (s.writable = !0, s.configurable = !0), (s.get || s.set) && (n[c] = {
-        configurable: !0,
-        writable: !0,
-        // could live with !!desc.set as well here...
-        enumerable: s.enumerable,
-        value: e[c]
-      });
-    }
-    return Object.create(j(e), n);
+function each(obj, iter) {
+  if (getArchtype(obj) === 0) {
+    Reflect.ownKeys(obj).forEach((key) => {
+      iter(key, obj[key], obj);
+    });
   } else {
-    const n = j(e);
-    if (n !== null && t)
-      return { ...e };
-    const o = Object.create(n);
-    return Object.assign(o, e);
+    obj.forEach((entry, index) => iter(index, entry, obj));
   }
 }
-function ce(e, r = !1) {
-  return Y(e) || k(e) || !v(e) || (q(e) > 1 && (e.set = e.add = e.clear = e.delete = Ve), Object.freeze(e), r && Object.entries(e).forEach(([t, n]) => ce(n, !0))), e;
+function getArchtype(thing) {
+  const state = thing[DRAFT_STATE];
+  return state ? state.type_ : Array.isArray(thing) ? 1 : isMap(thing) ? 2 : isSet(thing) ? 3 : 0;
 }
-function Ve() {
-  E(2);
+function has(thing, prop) {
+  return getArchtype(thing) === 2 ? thing.has(prop) : Object.prototype.hasOwnProperty.call(thing, prop);
 }
-function Y(e) {
-  return Object.isFrozen(e);
+function set(thing, propOrOldValue, value) {
+  const t = getArchtype(thing);
+  if (t === 2)
+    thing.set(propOrOldValue, value);
+  else if (t === 3) {
+    thing.add(value);
+  } else
+    thing[propOrOldValue] = value;
 }
-var xe = {};
-function R(e) {
-  const r = xe[e];
-  return r || E(0, e), r;
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
 }
-var F;
-function be() {
-  return F;
+function isMap(target) {
+  return target instanceof Map;
 }
-function Le(e, r) {
+function isSet(target) {
+  return target instanceof Set;
+}
+function latest(state) {
+  return state.copy_ || state.base_;
+}
+function shallowCopy(base, strict) {
+  if (isMap(base)) {
+    return new Map(base);
+  }
+  if (isSet(base)) {
+    return new Set(base);
+  }
+  if (Array.isArray(base))
+    return Array.prototype.slice.call(base);
+  const isPlain = isPlainObject(base);
+  if (strict === true || strict === "class_only" && !isPlain) {
+    const descriptors = Object.getOwnPropertyDescriptors(base);
+    delete descriptors[DRAFT_STATE];
+    let keys = Reflect.ownKeys(descriptors);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      const desc = descriptors[key];
+      if (desc.writable === false) {
+        desc.writable = true;
+        desc.configurable = true;
+      }
+      if (desc.get || desc.set)
+        descriptors[key] = {
+          configurable: true,
+          writable: true,
+          // could live with !!desc.set as well here...
+          enumerable: desc.enumerable,
+          value: base[key]
+        };
+    }
+    return Object.create(getPrototypeOf(base), descriptors);
+  } else {
+    const proto = getPrototypeOf(base);
+    if (proto !== null && isPlain) {
+      return { ...base };
+    }
+    const obj = Object.create(proto);
+    return Object.assign(obj, base);
+  }
+}
+function freeze(obj, deep = false) {
+  if (isFrozen(obj) || isDraft(obj) || !isDraftable(obj))
+    return obj;
+  if (getArchtype(obj) > 1) {
+    obj.set = obj.add = obj.clear = obj.delete = dontMutateFrozenCollections;
+  }
+  Object.freeze(obj);
+  if (deep)
+    Object.entries(obj).forEach(([key, value]) => freeze(value, true));
+  return obj;
+}
+function dontMutateFrozenCollections() {
+  die(2);
+}
+function isFrozen(obj) {
+  return Object.isFrozen(obj);
+}
+var plugins = {};
+function getPlugin(pluginKey) {
+  const plugin = plugins[pluginKey];
+  if (!plugin) {
+    die(0, pluginKey);
+  }
+  return plugin;
+}
+var currentScope;
+function getCurrentScope() {
+  return currentScope;
+}
+function createScope(parent_, immer_) {
   return {
     drafts_: [],
-    parent_: e,
-    immer_: r,
+    parent_,
+    immer_,
     // Whenever the modified draft contains a draft from another scope, we
     // need to prevent auto-freezing so the unowned draft can be finalized.
-    canAutoFreeze_: !0,
+    canAutoFreeze_: true,
     unfinalizedDrafts_: 0
   };
 }
-function fe(e, r) {
-  r && (R("Patches"), e.patches_ = [], e.inversePatches_ = [], e.patchListener_ = r);
+function usePatchesInScope(scope, patchListener) {
+  if (patchListener) {
+    getPlugin("Patches");
+    scope.patches_ = [];
+    scope.inversePatches_ = [];
+    scope.patchListener_ = patchListener;
+  }
 }
-function te(e) {
-  ne(e), e.drafts_.forEach($e), e.drafts_ = null;
+function revokeScope(scope) {
+  leaveScope(scope);
+  scope.drafts_.forEach(revokeDraft);
+  scope.drafts_ = null;
 }
-function ne(e) {
-  e === F && (F = e.parent_);
+function leaveScope(scope) {
+  if (scope === currentScope) {
+    currentScope = scope.parent_;
+  }
 }
-function de(e) {
-  return F = Le(F, e);
+function enterScope(immer2) {
+  return currentScope = createScope(currentScope, immer2);
 }
-function $e(e) {
-  const r = e[w];
-  r.type_ === 0 || r.type_ === 1 ? r.revoke_() : r.revoked_ = !0;
+function revokeDraft(draft) {
+  const state = draft[DRAFT_STATE];
+  if (state.type_ === 0 || state.type_ === 1)
+    state.revoke_();
+  else
+    state.revoked_ = true;
 }
-function le(e, r) {
-  r.unfinalizedDrafts_ = r.drafts_.length;
-  const t = r.drafts_[0];
-  return e !== void 0 && e !== t ? (t[w].modified_ && (te(r), E(4)), v(e) && (e = U(r, e), r.parent_ || G(r, e)), r.patches_ && R("Patches").generateReplacementPatches_(
-    t[w].base_,
-    e,
-    r.patches_,
-    r.inversePatches_
-  )) : e = U(r, t, []), te(r), r.patches_ && r.patchListener_(r.patches_, r.inversePatches_), e !== me ? e : void 0;
+function processResult(result, scope) {
+  scope.unfinalizedDrafts_ = scope.drafts_.length;
+  const baseDraft = scope.drafts_[0];
+  const isReplaced = result !== void 0 && result !== baseDraft;
+  if (isReplaced) {
+    if (baseDraft[DRAFT_STATE].modified_) {
+      revokeScope(scope);
+      die(4);
+    }
+    if (isDraftable(result)) {
+      result = finalize(scope, result);
+      if (!scope.parent_)
+        maybeFreeze(scope, result);
+    }
+    if (scope.patches_) {
+      getPlugin("Patches").generateReplacementPatches_(
+        baseDraft[DRAFT_STATE].base_,
+        result,
+        scope.patches_,
+        scope.inversePatches_
+      );
+    }
+  } else {
+    result = finalize(scope, baseDraft, []);
+  }
+  revokeScope(scope);
+  if (scope.patches_) {
+    scope.patchListener_(scope.patches_, scope.inversePatches_);
+  }
+  return result !== NOTHING ? result : void 0;
 }
-function U(e, r, t) {
-  if (Y(r))
-    return r;
-  const n = r[w];
-  if (!n)
-    return B(
-      r,
-      (o, i) => he(e, n, r, o, i, t)
-    ), r;
-  if (n.scope_ !== e)
-    return r;
-  if (!n.modified_)
-    return G(e, n.base_, !0), n.base_;
-  if (!n.finalized_) {
-    n.finalized_ = !0, n.scope_.unfinalizedDrafts_--;
-    const o = n.copy_;
-    let i = o, c = !1;
-    n.type_ === 3 && (i = new Set(o), o.clear(), c = !0), B(
-      i,
-      (s, a) => he(e, n, o, s, a, t, c)
-    ), G(e, o, !1), t && e.patches_ && R("Patches").generatePatches_(
-      n,
-      t,
-      e.patches_,
-      e.inversePatches_
+function finalize(rootScope, value, path) {
+  if (isFrozen(value))
+    return value;
+  const state = value[DRAFT_STATE];
+  if (!state) {
+    each(
+      value,
+      (key, childValue) => finalizeProperty(rootScope, state, value, key, childValue, path)
     );
+    return value;
   }
-  return n.copy_;
+  if (state.scope_ !== rootScope)
+    return value;
+  if (!state.modified_) {
+    maybeFreeze(rootScope, state.base_, true);
+    return state.base_;
+  }
+  if (!state.finalized_) {
+    state.finalized_ = true;
+    state.scope_.unfinalizedDrafts_--;
+    const result = state.copy_;
+    let resultEach = result;
+    let isSet2 = false;
+    if (state.type_ === 3) {
+      resultEach = new Set(result);
+      result.clear();
+      isSet2 = true;
+    }
+    each(
+      resultEach,
+      (key, childValue) => finalizeProperty(rootScope, state, result, key, childValue, path, isSet2)
+    );
+    maybeFreeze(rootScope, result, false);
+    if (path && rootScope.patches_) {
+      getPlugin("Patches").generatePatches_(
+        state,
+        path,
+        rootScope.patches_,
+        rootScope.inversePatches_
+      );
+    }
+  }
+  return state.copy_;
 }
-function he(e, r, t, n, o, i, c) {
-  if (process.env.NODE_ENV !== "production" && o === t && E(5), k(o)) {
-    const s = i && r && r.type_ !== 3 && // Set objects are atomic since they have no keys.
-    !ee(r.assigned_, n) ? i.concat(n) : void 0, a = U(e, o, s);
-    if (Ee(t, n, a), k(a))
-      e.canAutoFreeze_ = !1;
-    else
+function finalizeProperty(rootScope, parentState, targetObject, prop, childValue, rootPath, targetIsSet) {
+  if (process.env.NODE_ENV !== "production" && childValue === targetObject)
+    die(5);
+  if (isDraft(childValue)) {
+    const path = rootPath && parentState && parentState.type_ !== 3 && // Set objects are atomic since they have no keys.
+    !has(parentState.assigned_, prop) ? rootPath.concat(prop) : void 0;
+    const res = finalize(rootScope, childValue, path);
+    set(targetObject, prop, res);
+    if (isDraft(res)) {
+      rootScope.canAutoFreeze_ = false;
+    } else
       return;
-  } else c && t.add(o);
-  if (v(o) && !Y(o)) {
-    if (!e.immer_.autoFreeze_ && e.unfinalizedDrafts_ < 1)
+  } else if (targetIsSet) {
+    targetObject.add(childValue);
+  }
+  if (isDraftable(childValue) && !isFrozen(childValue)) {
+    if (!rootScope.immer_.autoFreeze_ && rootScope.unfinalizedDrafts_ < 1) {
       return;
-    U(e, o), (!r || !r.scope_.parent_) && typeof n != "symbol" && Object.prototype.propertyIsEnumerable.call(t, n) && G(e, o);
+    }
+    finalize(rootScope, childValue);
+    if ((!parentState || !parentState.scope_.parent_) && typeof prop !== "symbol" && Object.prototype.propertyIsEnumerable.call(targetObject, prop))
+      maybeFreeze(rootScope, childValue);
   }
 }
-function G(e, r, t = !1) {
-  !e.parent_ && e.immer_.autoFreeze_ && e.canAutoFreeze_ && ce(r, t);
+function maybeFreeze(scope, value, deep = false) {
+  if (!scope.parent_ && scope.immer_.autoFreeze_ && scope.canAutoFreeze_) {
+    freeze(value, deep);
+  }
 }
-function We(e, r) {
-  const t = Array.isArray(e), n = {
-    type_: t ? 1 : 0,
+function createProxyProxy(base, parent) {
+  const isArray = Array.isArray(base);
+  const state = {
+    type_: isArray ? 1 : 0,
     // Track which produce call this is associated with.
-    scope_: r ? r.scope_ : be(),
+    scope_: parent ? parent.scope_ : getCurrentScope(),
     // True for both shallow and deep changes.
-    modified_: !1,
+    modified_: false,
     // Used during finalization.
-    finalized_: !1,
+    finalized_: false,
     // Track which properties have been assigned (true) or deleted (false).
     assigned_: {},
     // The parent draft state.
-    parent_: r,
+    parent_: parent,
     // The base state.
-    base_: e,
+    base_: base,
     // The base proxy.
     draft_: null,
     // set below
@@ -255,773 +358,1042 @@ function We(e, r) {
     copy_: null,
     // Called by the `produce` function.
     revoke_: null,
-    isManual_: !1
+    isManual_: false
   };
-  let o = n, i = se;
-  t && (o = [n], i = V);
-  const { revoke: c, proxy: s } = Proxy.revocable(o, i);
-  return n.draft_ = s, n.revoke_ = c, s;
+  let target = state;
+  let traps = objectTraps;
+  if (isArray) {
+    target = [state];
+    traps = arrayTraps;
+  }
+  const { revoke, proxy } = Proxy.revocable(target, traps);
+  state.draft_ = proxy;
+  state.revoke_ = revoke;
+  return proxy;
 }
-var se = {
-  get(e, r) {
-    if (r === w)
-      return e;
-    const t = P(e);
-    if (!ee(t, r))
-      return Be(e, t, r);
-    const n = t[r];
-    return e.finalized_ || !v(n) ? n : n === J(e.base_, r) ? (Q(e), e.copy_[r] = ie(n, e)) : n;
-  },
-  has(e, r) {
-    return r in P(e);
-  },
-  ownKeys(e) {
-    return Reflect.ownKeys(P(e));
-  },
-  set(e, r, t) {
-    const n = we(P(e), r);
-    if (n != null && n.set)
-      return n.set.call(e.draft_, t), !0;
-    if (!e.modified_) {
-      const o = J(P(e), r), i = o == null ? void 0 : o[w];
-      if (i && i.base_ === t)
-        return e.copy_[r] = t, e.assigned_[r] = !1, !0;
-      if (Fe(t, o) && (t !== void 0 || ee(e.base_, r)))
-        return !0;
-      Q(e), oe(e);
+var objectTraps = {
+  get(state, prop) {
+    if (prop === DRAFT_STATE)
+      return state;
+    const source = latest(state);
+    if (!has(source, prop)) {
+      return readPropFromProto(state, source, prop);
     }
-    return e.copy_[r] === t && // special case: handle new props with value 'undefined'
-    (t !== void 0 || r in e.copy_) || // special case: NaN
-    Number.isNaN(t) && Number.isNaN(e.copy_[r]) || (e.copy_[r] = t, e.assigned_[r] = !0), !0;
+    const value = source[prop];
+    if (state.finalized_ || !isDraftable(value)) {
+      return value;
+    }
+    if (value === peek(state.base_, prop)) {
+      prepareCopy(state);
+      return state.copy_[prop] = createProxy(value, state);
+    }
+    return value;
   },
-  deleteProperty(e, r) {
-    return J(e.base_, r) !== void 0 || r in e.base_ ? (e.assigned_[r] = !1, Q(e), oe(e)) : delete e.assigned_[r], e.copy_ && delete e.copy_[r], !0;
+  has(state, prop) {
+    return prop in latest(state);
+  },
+  ownKeys(state) {
+    return Reflect.ownKeys(latest(state));
+  },
+  set(state, prop, value) {
+    const desc = getDescriptorFromProto(latest(state), prop);
+    if (desc == null ? void 0 : desc.set) {
+      desc.set.call(state.draft_, value);
+      return true;
+    }
+    if (!state.modified_) {
+      const current2 = peek(latest(state), prop);
+      const currentState = current2 == null ? void 0 : current2[DRAFT_STATE];
+      if (currentState && currentState.base_ === value) {
+        state.copy_[prop] = value;
+        state.assigned_[prop] = false;
+        return true;
+      }
+      if (is(value, current2) && (value !== void 0 || has(state.base_, prop)))
+        return true;
+      prepareCopy(state);
+      markChanged(state);
+    }
+    if (state.copy_[prop] === value && // special case: handle new props with value 'undefined'
+    (value !== void 0 || prop in state.copy_) || // special case: NaN
+    Number.isNaN(value) && Number.isNaN(state.copy_[prop]))
+      return true;
+    state.copy_[prop] = value;
+    state.assigned_[prop] = true;
+    return true;
+  },
+  deleteProperty(state, prop) {
+    if (peek(state.base_, prop) !== void 0 || prop in state.base_) {
+      state.assigned_[prop] = false;
+      prepareCopy(state);
+      markChanged(state);
+    } else {
+      delete state.assigned_[prop];
+    }
+    if (state.copy_) {
+      delete state.copy_[prop];
+    }
+    return true;
   },
   // Note: We never coerce `desc.value` into an Immer draft, because we can't make
   // the same guarantee in ES5 mode.
-  getOwnPropertyDescriptor(e, r) {
-    const t = P(e), n = Reflect.getOwnPropertyDescriptor(t, r);
-    return n && {
-      writable: !0,
-      configurable: e.type_ !== 1 || r !== "length",
-      enumerable: n.enumerable,
-      value: t[r]
+  getOwnPropertyDescriptor(state, prop) {
+    const owner = latest(state);
+    const desc = Reflect.getOwnPropertyDescriptor(owner, prop);
+    if (!desc)
+      return desc;
+    return {
+      writable: true,
+      configurable: state.type_ !== 1 || prop !== "length",
+      enumerable: desc.enumerable,
+      value: owner[prop]
     };
   },
   defineProperty() {
-    E(11);
+    die(11);
   },
-  getPrototypeOf(e) {
-    return j(e.base_);
+  getPrototypeOf(state) {
+    return getPrototypeOf(state.base_);
   },
   setPrototypeOf() {
-    E(12);
+    die(12);
   }
-}, V = {};
-B(se, (e, r) => {
-  V[e] = function() {
-    return arguments[0] = arguments[0][0], r.apply(this, arguments);
+};
+var arrayTraps = {};
+each(objectTraps, (key, fn) => {
+  arrayTraps[key] = function() {
+    arguments[0] = arguments[0][0];
+    return fn.apply(this, arguments);
   };
 });
-V.deleteProperty = function(e, r) {
-  return process.env.NODE_ENV !== "production" && isNaN(parseInt(r)) && E(13), V.set.call(this, e, r, void 0);
+arrayTraps.deleteProperty = function(state, prop) {
+  if (process.env.NODE_ENV !== "production" && isNaN(parseInt(prop)))
+    die(13);
+  return arrayTraps.set.call(this, state, prop, void 0);
 };
-V.set = function(e, r, t) {
-  return process.env.NODE_ENV !== "production" && r !== "length" && isNaN(parseInt(r)) && E(14), se.set.call(this, e[0], r, t, e[0]);
+arrayTraps.set = function(state, prop, value) {
+  if (process.env.NODE_ENV !== "production" && prop !== "length" && isNaN(parseInt(prop)))
+    die(14);
+  return objectTraps.set.call(this, state[0], prop, value, state[0]);
 };
-function J(e, r) {
-  const t = e[w];
-  return (t ? P(t) : e)[r];
+function peek(draft, prop) {
+  const state = draft[DRAFT_STATE];
+  const source = state ? latest(state) : draft;
+  return source[prop];
 }
-function Be(e, r, t) {
-  var o;
-  const n = we(r, t);
-  return n ? "value" in n ? n.value : (
+function readPropFromProto(state, source, prop) {
+  var _a;
+  const desc = getDescriptorFromProto(source, prop);
+  return desc ? `value` in desc ? desc.value : (
     // This is a very special case, if the prop is a getter defined by the
     // prototype, we should invoke it with the draft as context!
-    (o = n.get) == null ? void 0 : o.call(e.draft_)
+    (_a = desc.get) == null ? void 0 : _a.call(state.draft_)
   ) : void 0;
 }
-function we(e, r) {
-  if (!(r in e))
-    return;
-  let t = j(e);
-  for (; t; ) {
-    const n = Object.getOwnPropertyDescriptor(t, r);
-    if (n)
-      return n;
-    t = j(t);
+function getDescriptorFromProto(source, prop) {
+  if (!(prop in source))
+    return void 0;
+  let proto = getPrototypeOf(source);
+  while (proto) {
+    const desc = Object.getOwnPropertyDescriptor(proto, prop);
+    if (desc)
+      return desc;
+    proto = getPrototypeOf(proto);
+  }
+  return void 0;
+}
+function markChanged(state) {
+  if (!state.modified_) {
+    state.modified_ = true;
+    if (state.parent_) {
+      markChanged(state.parent_);
+    }
   }
 }
-function oe(e) {
-  e.modified_ || (e.modified_ = !0, e.parent_ && oe(e.parent_));
+function prepareCopy(state) {
+  if (!state.copy_) {
+    state.copy_ = shallowCopy(
+      state.base_,
+      state.scope_.immer_.useStrictShallowCopy_
+    );
+  }
 }
-function Q(e) {
-  e.copy_ || (e.copy_ = re(
-    e.base_,
-    e.scope_.immer_.useStrictShallowCopy_
-  ));
-}
-var Ue = class {
-  constructor(e) {
-    this.autoFreeze_ = !0, this.useStrictShallowCopy_ = !1, this.produce = (r, t, n) => {
-      if (typeof r == "function" && typeof t != "function") {
-        const i = t;
-        t = r;
-        const c = this;
-        return function(a = i, ...f) {
-          return c.produce(a, (u) => t.call(this, u, ...f));
+var Immer2 = class {
+  constructor(config) {
+    this.autoFreeze_ = true;
+    this.useStrictShallowCopy_ = false;
+    this.produce = (base, recipe, patchListener) => {
+      if (typeof base === "function" && typeof recipe !== "function") {
+        const defaultBase = recipe;
+        recipe = base;
+        const self = this;
+        return function curriedProduce(base2 = defaultBase, ...args) {
+          return self.produce(base2, (draft) => recipe.call(this, draft, ...args));
         };
       }
-      typeof t != "function" && E(6), n !== void 0 && typeof n != "function" && E(7);
-      let o;
-      if (v(r)) {
-        const i = de(this), c = ie(r, void 0);
-        let s = !0;
+      if (typeof recipe !== "function")
+        die(6);
+      if (patchListener !== void 0 && typeof patchListener !== "function")
+        die(7);
+      let result;
+      if (isDraftable(base)) {
+        const scope = enterScope(this);
+        const proxy = createProxy(base, void 0);
+        let hasError = true;
         try {
-          o = t(c), s = !1;
+          result = recipe(proxy);
+          hasError = false;
         } finally {
-          s ? te(i) : ne(i);
+          if (hasError)
+            revokeScope(scope);
+          else
+            leaveScope(scope);
         }
-        return fe(i, n), le(o, i);
-      } else if (!r || typeof r != "object") {
-        if (o = t(r), o === void 0 && (o = r), o === me && (o = void 0), this.autoFreeze_ && ce(o, !0), n) {
-          const i = [], c = [];
-          R("Patches").generateReplacementPatches_(r, o, i, c), n(i, c);
+        usePatchesInScope(scope, patchListener);
+        return processResult(result, scope);
+      } else if (!base || typeof base !== "object") {
+        result = recipe(base);
+        if (result === void 0)
+          result = base;
+        if (result === NOTHING)
+          result = void 0;
+        if (this.autoFreeze_)
+          freeze(result, true);
+        if (patchListener) {
+          const p = [];
+          const ip = [];
+          getPlugin("Patches").generateReplacementPatches_(base, result, p, ip);
+          patchListener(p, ip);
         }
-        return o;
+        return result;
       } else
-        E(1, r);
-    }, this.produceWithPatches = (r, t) => {
-      if (typeof r == "function")
-        return (c, ...s) => this.produceWithPatches(c, (a) => r(a, ...s));
-      let n, o;
-      return [this.produce(r, t, (c, s) => {
-        n = c, o = s;
-      }), n, o];
-    }, typeof (e == null ? void 0 : e.autoFreeze) == "boolean" && this.setAutoFreeze(e.autoFreeze), typeof (e == null ? void 0 : e.useStrictShallowCopy) == "boolean" && this.setUseStrictShallowCopy(e.useStrictShallowCopy);
+        die(1, base);
+    };
+    this.produceWithPatches = (base, recipe) => {
+      if (typeof base === "function") {
+        return (state, ...args) => this.produceWithPatches(state, (draft) => base(draft, ...args));
+      }
+      let patches, inversePatches;
+      const result = this.produce(base, recipe, (p, ip) => {
+        patches = p;
+        inversePatches = ip;
+      });
+      return [result, patches, inversePatches];
+    };
+    if (typeof (config == null ? void 0 : config.autoFreeze) === "boolean")
+      this.setAutoFreeze(config.autoFreeze);
+    if (typeof (config == null ? void 0 : config.useStrictShallowCopy) === "boolean")
+      this.setUseStrictShallowCopy(config.useStrictShallowCopy);
   }
-  createDraft(e) {
-    v(e) || E(8), k(e) && (e = Ge(e));
-    const r = de(this), t = ie(e, void 0);
-    return t[w].isManual_ = !0, ne(r), t;
+  createDraft(base) {
+    if (!isDraftable(base))
+      die(8);
+    if (isDraft(base))
+      base = current(base);
+    const scope = enterScope(this);
+    const proxy = createProxy(base, void 0);
+    proxy[DRAFT_STATE].isManual_ = true;
+    leaveScope(scope);
+    return proxy;
   }
-  finishDraft(e, r) {
-    const t = e && e[w];
-    (!t || !t.isManual_) && E(9);
-    const { scope_: n } = t;
-    return fe(n, r), le(void 0, n);
+  finishDraft(draft, patchListener) {
+    const state = draft && draft[DRAFT_STATE];
+    if (!state || !state.isManual_)
+      die(9);
+    const { scope_: scope } = state;
+    usePatchesInScope(scope, patchListener);
+    return processResult(void 0, scope);
   }
   /**
    * Pass true to automatically freeze all copies created by Immer.
    *
    * By default, auto-freezing is enabled.
    */
-  setAutoFreeze(e) {
-    this.autoFreeze_ = e;
+  setAutoFreeze(value) {
+    this.autoFreeze_ = value;
   }
   /**
    * Pass true to enable strict shallow copy.
    *
    * By default, immer does not copy the object descriptors such as getter, setter and non-enumrable properties.
    */
-  setUseStrictShallowCopy(e) {
-    this.useStrictShallowCopy_ = e;
+  setUseStrictShallowCopy(value) {
+    this.useStrictShallowCopy_ = value;
   }
-  applyPatches(e, r) {
-    let t;
-    for (t = r.length - 1; t >= 0; t--) {
-      const o = r[t];
-      if (o.path.length === 0 && o.op === "replace") {
-        e = o.value;
+  applyPatches(base, patches) {
+    let i;
+    for (i = patches.length - 1; i >= 0; i--) {
+      const patch = patches[i];
+      if (patch.path.length === 0 && patch.op === "replace") {
+        base = patch.value;
         break;
       }
     }
-    t > -1 && (r = r.slice(t + 1));
-    const n = R("Patches").applyPatches_;
-    return k(e) ? n(e, r) : this.produce(
-      e,
-      (o) => n(o, r)
+    if (i > -1) {
+      patches = patches.slice(i + 1);
+    }
+    const applyPatchesImpl = getPlugin("Patches").applyPatches_;
+    if (isDraft(base)) {
+      return applyPatchesImpl(base, patches);
+    }
+    return this.produce(
+      base,
+      (draft) => applyPatchesImpl(draft, patches)
     );
   }
 };
-function ie(e, r) {
-  const t = K(e) ? R("MapSet").proxyMap_(e, r) : H(e) ? R("MapSet").proxySet_(e, r) : We(e, r);
-  return (r ? r.scope_ : be()).drafts_.push(t), t;
+function createProxy(value, parent) {
+  const draft = isMap(value) ? getPlugin("MapSet").proxyMap_(value, parent) : isSet(value) ? getPlugin("MapSet").proxySet_(value, parent) : createProxyProxy(value, parent);
+  const scope = parent ? parent.scope_ : getCurrentScope();
+  scope.drafts_.push(draft);
+  return draft;
 }
-function Ge(e) {
-  return k(e) || E(10, e), Ce(e);
+function current(value) {
+  if (!isDraft(value))
+    die(10, value);
+  return currentImpl(value);
 }
-function Ce(e) {
-  if (!v(e) || Y(e))
-    return e;
-  const r = e[w];
-  let t;
-  if (r) {
-    if (!r.modified_)
-      return r.base_;
-    r.finalized_ = !0, t = re(e, r.scope_.immer_.useStrictShallowCopy_);
-  } else
-    t = re(e, !0);
-  return B(t, (n, o) => {
-    Ee(t, n, Ce(o));
-  }), r && (r.finalized_ = !1), t;
+function currentImpl(value) {
+  if (!isDraftable(value) || isFrozen(value))
+    return value;
+  const state = value[DRAFT_STATE];
+  let copy;
+  if (state) {
+    if (!state.modified_)
+      return state.base_;
+    state.finalized_ = true;
+    copy = shallowCopy(value, state.scope_.immer_.useStrictShallowCopy_);
+  } else {
+    copy = shallowCopy(value, true);
+  }
+  each(copy, (key, childValue) => {
+    set(copy, key, currentImpl(childValue));
+  });
+  if (state) {
+    state.finalized_ = false;
+  }
+  return copy;
 }
-var C = new Ue(), De = C.produce;
-C.produceWithPatches.bind(
-  C
+var immer = new Immer2();
+var produce = immer.produce;
+immer.produceWithPatches.bind(
+  immer
 );
-C.setAutoFreeze.bind(C);
-C.setUseStrictShallowCopy.bind(C);
-C.applyPatches.bind(C);
-C.createDraft.bind(C);
-C.finishDraft.bind(C);
-var qe = (e) => e && typeof e.match == "function";
-function M(e, r) {
-  function t(...n) {
-    if (r) {
-      let o = r(...n);
-      if (!o)
-        throw new Error(process.env.NODE_ENV === "production" ? g(0) : "prepareAction did not return an object");
+immer.setAutoFreeze.bind(immer);
+immer.setUseStrictShallowCopy.bind(immer);
+immer.applyPatches.bind(immer);
+immer.createDraft.bind(immer);
+immer.finishDraft.bind(immer);
+var hasMatchFunction = (v) => {
+  return v && typeof v.match === "function";
+};
+function createAction(type, prepareAction) {
+  function actionCreator(...args) {
+    if (prepareAction) {
+      let prepared = prepareAction(...args);
+      if (!prepared) {
+        throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(0) : "prepareAction did not return an object");
+      }
       return {
-        type: e,
-        payload: o.payload,
-        ..."meta" in o && {
-          meta: o.meta
+        type,
+        payload: prepared.payload,
+        ..."meta" in prepared && {
+          meta: prepared.meta
         },
-        ..."error" in o && {
-          error: o.error
+        ..."error" in prepared && {
+          error: prepared.error
         }
       };
     }
     return {
-      type: e,
-      payload: n[0]
+      type,
+      payload: args[0]
     };
   }
-  return t.toString = () => `${e}`, t.type = e, t.match = (n) => Ie(n) && n.type === e, t;
+  actionCreator.toString = () => `${type}`;
+  actionCreator.type = type;
+  actionCreator.match = (action) => isAction(action) && action.type === type;
+  return actionCreator;
 }
-function pe(e) {
-  return v(e) ? De(e, () => {
-  }) : e;
+function freezeDraftable(val) {
+  return isDraftable(val) ? produce(val, () => {
+  }) : val;
 }
-function ye(e, r, t) {
-  return e.has(r) ? e.get(r) : e.set(r, t(r)).get(r);
+function getOrInsertComputed(map, key, compute) {
+  if (map.has(key)) return map.get(key);
+  return map.set(key, compute(key)).get(key);
 }
-function Ne(e) {
-  const r = {}, t = [];
-  let n;
-  const o = {
-    addCase(i, c) {
+function executeReducerBuilderCallback(builderCallback) {
+  const actionsMap = {};
+  const actionMatchers = [];
+  let defaultCaseReducer;
+  const builder = {
+    addCase(typeOrActionCreator, reducer) {
       if (process.env.NODE_ENV !== "production") {
-        if (t.length > 0)
-          throw new Error(process.env.NODE_ENV === "production" ? g(26) : "`builder.addCase` should only be called before calling `builder.addMatcher`");
-        if (n)
-          throw new Error(process.env.NODE_ENV === "production" ? g(27) : "`builder.addCase` should only be called before calling `builder.addDefaultCase`");
+        if (actionMatchers.length > 0) {
+          throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(26) : "`builder.addCase` should only be called before calling `builder.addMatcher`");
+        }
+        if (defaultCaseReducer) {
+          throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(27) : "`builder.addCase` should only be called before calling `builder.addDefaultCase`");
+        }
       }
-      const s = typeof i == "string" ? i : i.type;
-      if (!s)
-        throw new Error(process.env.NODE_ENV === "production" ? g(28) : "`builder.addCase` cannot be called with an empty action type");
-      if (s in r)
-        throw new Error(process.env.NODE_ENV === "production" ? g(29) : `\`builder.addCase\` cannot be called with two reducers for the same action type '${s}'`);
-      return r[s] = c, o;
+      const type = typeof typeOrActionCreator === "string" ? typeOrActionCreator : typeOrActionCreator.type;
+      if (!type) {
+        throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(28) : "`builder.addCase` cannot be called with an empty action type");
+      }
+      if (type in actionsMap) {
+        throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(29) : `\`builder.addCase\` cannot be called with two reducers for the same action type '${type}'`);
+      }
+      actionsMap[type] = reducer;
+      return builder;
     },
-    addMatcher(i, c) {
-      if (process.env.NODE_ENV !== "production" && n)
-        throw new Error(process.env.NODE_ENV === "production" ? g(30) : "`builder.addMatcher` should only be called before calling `builder.addDefaultCase`");
-      return t.push({
-        matcher: i,
-        reducer: c
-      }), o;
+    addMatcher(matcher, reducer) {
+      if (process.env.NODE_ENV !== "production") {
+        if (defaultCaseReducer) {
+          throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(30) : "`builder.addMatcher` should only be called before calling `builder.addDefaultCase`");
+        }
+      }
+      actionMatchers.push({
+        matcher,
+        reducer
+      });
+      return builder;
     },
-    addDefaultCase(i) {
-      if (process.env.NODE_ENV !== "production" && n)
-        throw new Error(process.env.NODE_ENV === "production" ? g(31) : "`builder.addDefaultCase` can only be called once");
-      return n = i, o;
+    addDefaultCase(reducer) {
+      if (process.env.NODE_ENV !== "production") {
+        if (defaultCaseReducer) {
+          throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(31) : "`builder.addDefaultCase` can only be called once");
+        }
+      }
+      defaultCaseReducer = reducer;
+      return builder;
     }
   };
-  return e(o), [r, t, n];
+  builderCallback(builder);
+  return [actionsMap, actionMatchers, defaultCaseReducer];
 }
-function Ke(e) {
-  return typeof e == "function";
+function isStateFunction(x) {
+  return typeof x === "function";
 }
-function He(e, r) {
-  if (process.env.NODE_ENV !== "production" && typeof r == "object")
-    throw new Error(process.env.NODE_ENV === "production" ? g(8) : "The object notation for `createReducer` has been removed. Please use the 'builder callback' notation instead: https://redux-toolkit.js.org/api/createReducer");
-  let [t, n, o] = Ne(r), i;
-  if (Ke(e))
-    i = () => pe(e());
-  else {
-    const s = pe(e);
-    i = () => s;
+function createReducer(initialState2, mapOrBuilderCallback) {
+  if (process.env.NODE_ENV !== "production") {
+    if (typeof mapOrBuilderCallback === "object") {
+      throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(8) : "The object notation for `createReducer` has been removed. Please use the 'builder callback' notation instead: https://redux-toolkit.js.org/api/createReducer");
+    }
   }
-  function c(s = i(), a) {
-    let f = [t[a.type], ...n.filter(({
-      matcher: u
-    }) => u(a)).map(({
-      reducer: u
-    }) => u)];
-    return f.filter((u) => !!u).length === 0 && (f = [o]), f.reduce((u, p) => {
-      if (p)
-        if (k(u)) {
-          const O = p(u, a);
-          return O === void 0 ? u : O;
-        } else {
-          if (v(u))
-            return De(u, (y) => p(y, a));
-          {
-            const y = p(u, a);
-            if (y === void 0) {
-              if (u === null)
-                return u;
-              throw Error("A case reducer on a non-draftable value must not return undefined");
-            }
-            return y;
+  let [actionsMap, finalActionMatchers, finalDefaultCaseReducer] = executeReducerBuilderCallback(mapOrBuilderCallback);
+  let getInitialState;
+  if (isStateFunction(initialState2)) {
+    getInitialState = () => freezeDraftable(initialState2());
+  } else {
+    const frozenInitialState = freezeDraftable(initialState2);
+    getInitialState = () => frozenInitialState;
+  }
+  function reducer(state = getInitialState(), action) {
+    let caseReducers = [actionsMap[action.type], ...finalActionMatchers.filter(({
+      matcher
+    }) => matcher(action)).map(({
+      reducer: reducer2
+    }) => reducer2)];
+    if (caseReducers.filter((cr) => !!cr).length === 0) {
+      caseReducers = [finalDefaultCaseReducer];
+    }
+    return caseReducers.reduce((previousState, caseReducer) => {
+      if (caseReducer) {
+        if (isDraft(previousState)) {
+          const draft = previousState;
+          const result = caseReducer(draft, action);
+          if (result === void 0) {
+            return previousState;
           }
+          return result;
+        } else if (!isDraftable(previousState)) {
+          const result = caseReducer(previousState, action);
+          if (result === void 0) {
+            if (previousState === null) {
+              return previousState;
+            }
+            throw Error("A case reducer on a non-draftable value must not return undefined");
+          }
+          return result;
+        } else {
+          return produce(previousState, (draft) => {
+            return caseReducer(draft, action);
+          });
         }
-      return u;
-    }, s);
+      }
+      return previousState;
+    }, state);
   }
-  return c.getInitialState = i, c;
+  reducer.getInitialState = getInitialState;
+  return reducer;
 }
-var Ye = (e, r) => qe(e) ? e.match(r) : e(r);
-function Xe(...e) {
-  return (r) => e.some((t) => Ye(t, r));
+var matches = (matcher, action) => {
+  if (hasMatchFunction(matcher)) {
+    return matcher.match(action);
+  } else {
+    return matcher(action);
+  }
+};
+function isAnyOf(...matchers) {
+  return (action) => {
+    return matchers.some((matcher) => matches(matcher, action));
+  };
 }
-var Je = "ModuleSymbhasOwnPr-0123456789ABCDEFGHNRVfgctiUvz_KqYTJkLxpZXIjQW", Qe = (e = 21) => {
-  let r = "", t = e;
-  for (; t--; )
-    r += Je[Math.random() * 64 | 0];
-  return r;
-}, Ze = ["name", "message", "stack", "code"], Z = class {
-  constructor(e, r) {
+var urlAlphabet = "ModuleSymbhasOwnPr-0123456789ABCDEFGHNRVfgctiUvz_KqYTJkLxpZXIjQW";
+var nanoid = (size = 21) => {
+  let id = "";
+  let i = size;
+  while (i--) {
+    id += urlAlphabet[Math.random() * 64 | 0];
+  }
+  return id;
+};
+var commonProperties = ["name", "message", "stack", "code"];
+var RejectWithValue = class {
+  constructor(payload, meta) {
     /*
     type-only property to distinguish between RejectWithValue and FulfillWithMeta
     does not exist at runtime
     */
-    X(this, "_type");
-    this.payload = e, this.meta = r;
+    __publicField(this, "_type");
+    this.payload = payload;
+    this.meta = meta;
   }
-}, _e = class {
-  constructor(e, r) {
+};
+var FulfillWithMeta = class {
+  constructor(payload, meta) {
     /*
     type-only property to distinguish between RejectWithValue and FulfillWithMeta
     does not exist at runtime
     */
-    X(this, "_type");
-    this.payload = e, this.meta = r;
+    __publicField(this, "_type");
+    this.payload = payload;
+    this.meta = meta;
   }
-}, er = (e) => {
-  if (typeof e == "object" && e !== null) {
-    const r = {};
-    for (const t of Ze)
-      typeof e[t] == "string" && (r[t] = e[t]);
-    return r;
+};
+var miniSerializeError = (value) => {
+  if (typeof value === "object" && value !== null) {
+    const simpleError = {};
+    for (const property of commonProperties) {
+      if (typeof value[property] === "string") {
+        simpleError[property] = value[property];
+      }
+    }
+    return simpleError;
   }
   return {
-    message: String(e)
+    message: String(value)
   };
-}, ae = /* @__PURE__ */ (() => {
-  function e(r, t, n) {
-    const o = M(r + "/fulfilled", (a, f, u, p) => ({
-      payload: a,
+};
+var createAsyncThunk = /* @__PURE__ */ (() => {
+  function createAsyncThunk2(typePrefix, payloadCreator, options) {
+    const fulfilled = createAction(typePrefix + "/fulfilled", (payload, requestId, arg, meta) => ({
+      payload,
       meta: {
-        ...p || {},
-        arg: u,
-        requestId: f,
+        ...meta || {},
+        arg,
+        requestId,
         requestStatus: "fulfilled"
       }
-    })), i = M(r + "/pending", (a, f, u) => ({
+    }));
+    const pending = createAction(typePrefix + "/pending", (requestId, arg, meta) => ({
       payload: void 0,
       meta: {
-        ...u || {},
-        arg: f,
-        requestId: a,
+        ...meta || {},
+        arg,
+        requestId,
         requestStatus: "pending"
       }
-    })), c = M(r + "/rejected", (a, f, u, p, y) => ({
-      payload: p,
-      error: (n && n.serializeError || er)(a || "Rejected"),
+    }));
+    const rejected = createAction(typePrefix + "/rejected", (error, requestId, arg, payload, meta) => ({
+      payload,
+      error: (options && options.serializeError || miniSerializeError)(error || "Rejected"),
       meta: {
-        ...y || {},
-        arg: u,
-        requestId: f,
-        rejectedWithValue: !!p,
+        ...meta || {},
+        arg,
+        requestId,
+        rejectedWithValue: !!payload,
         requestStatus: "rejected",
-        aborted: (a == null ? void 0 : a.name) === "AbortError",
-        condition: (a == null ? void 0 : a.name) === "ConditionError"
+        aborted: (error == null ? void 0 : error.name) === "AbortError",
+        condition: (error == null ? void 0 : error.name) === "ConditionError"
       }
     }));
-    function s(a) {
-      return (f, u, p) => {
-        const y = n != null && n.idGenerator ? n.idGenerator(a) : Qe(), O = new AbortController();
-        let D, I;
-        function A(N) {
-          I = N, O.abort();
+    function actionCreator(arg) {
+      return (dispatch, getState, extra) => {
+        const requestId = (options == null ? void 0 : options.idGenerator) ? options.idGenerator(arg) : nanoid();
+        const abortController = new AbortController();
+        let abortHandler;
+        let abortReason;
+        function abort(reason) {
+          abortReason = reason;
+          abortController.abort();
         }
-        const z = async function() {
-          var h, _;
-          let N;
+        const promise = async function() {
+          var _a, _b;
+          let finalAction;
           try {
-            let m = (h = n == null ? void 0 : n.condition) == null ? void 0 : h.call(n, a, {
-              getState: u,
-              extra: p
+            let conditionResult = (_a = options == null ? void 0 : options.condition) == null ? void 0 : _a.call(options, arg, {
+              getState,
+              extra
             });
-            if (tr(m) && (m = await m), m === !1 || O.signal.aborted)
+            if (isThenable(conditionResult)) {
+              conditionResult = await conditionResult;
+            }
+            if (conditionResult === false || abortController.signal.aborted) {
               throw {
                 name: "ConditionError",
                 message: "Aborted due to condition callback returning false."
               };
-            const S = new Promise((d, T) => {
-              D = () => {
-                T({
+            }
+            const abortedPromise = new Promise((_, reject) => {
+              abortHandler = () => {
+                reject({
                   name: "AbortError",
-                  message: I || "Aborted"
+                  message: abortReason || "Aborted"
                 });
-              }, O.signal.addEventListener("abort", D);
+              };
+              abortController.signal.addEventListener("abort", abortHandler);
             });
-            f(i(y, a, (_ = n == null ? void 0 : n.getPendingMeta) == null ? void 0 : _.call(n, {
-              requestId: y,
-              arg: a
+            dispatch(pending(requestId, arg, (_b = options == null ? void 0 : options.getPendingMeta) == null ? void 0 : _b.call(options, {
+              requestId,
+              arg
             }, {
-              getState: u,
-              extra: p
-            }))), N = await Promise.race([S, Promise.resolve(t(a, {
-              dispatch: f,
-              getState: u,
-              extra: p,
-              requestId: y,
-              signal: O.signal,
-              abort: A,
-              rejectWithValue: (d, T) => new Z(d, T),
-              fulfillWithValue: (d, T) => new _e(d, T)
-            })).then((d) => {
-              if (d instanceof Z)
-                throw d;
-              return d instanceof _e ? o(d.payload, y, a, d.meta) : o(d, y, a);
+              getState,
+              extra
+            })));
+            finalAction = await Promise.race([abortedPromise, Promise.resolve(payloadCreator(arg, {
+              dispatch,
+              getState,
+              extra,
+              requestId,
+              signal: abortController.signal,
+              abort,
+              rejectWithValue: (value, meta) => {
+                return new RejectWithValue(value, meta);
+              },
+              fulfillWithValue: (value, meta) => {
+                return new FulfillWithMeta(value, meta);
+              }
+            })).then((result) => {
+              if (result instanceof RejectWithValue) {
+                throw result;
+              }
+              if (result instanceof FulfillWithMeta) {
+                return fulfilled(result.payload, requestId, arg, result.meta);
+              }
+              return fulfilled(result, requestId, arg);
             })]);
-          } catch (m) {
-            N = m instanceof Z ? c(null, y, a, m.payload, m.meta) : c(m, y, a);
+          } catch (err) {
+            finalAction = err instanceof RejectWithValue ? rejected(null, requestId, arg, err.payload, err.meta) : rejected(err, requestId, arg);
           } finally {
-            D && O.signal.removeEventListener("abort", D);
+            if (abortHandler) {
+              abortController.signal.removeEventListener("abort", abortHandler);
+            }
           }
-          return n && !n.dispatchConditionRejection && c.match(N) && N.meta.condition || f(N), N;
+          const skipDispatch = options && !options.dispatchConditionRejection && rejected.match(finalAction) && finalAction.meta.condition;
+          if (!skipDispatch) {
+            dispatch(finalAction);
+          }
+          return finalAction;
         }();
-        return Object.assign(z, {
-          abort: A,
-          requestId: y,
-          arg: a,
+        return Object.assign(promise, {
+          abort,
+          requestId,
+          arg,
           unwrap() {
-            return z.then(rr);
+            return promise.then(unwrapResult);
           }
         });
       };
     }
-    return Object.assign(s, {
-      pending: i,
-      rejected: c,
-      fulfilled: o,
-      settled: Xe(c, o),
-      typePrefix: r
+    return Object.assign(actionCreator, {
+      pending,
+      rejected,
+      fulfilled,
+      settled: isAnyOf(rejected, fulfilled),
+      typePrefix
     });
   }
-  return e.withTypes = () => e, e;
+  createAsyncThunk2.withTypes = () => createAsyncThunk2;
+  return createAsyncThunk2;
 })();
-function rr(e) {
-  if (e.meta && e.meta.rejectedWithValue)
-    throw e.payload;
-  if (e.error)
-    throw e.error;
-  return e.payload;
+function unwrapResult(action) {
+  if (action.meta && action.meta.rejectedWithValue) {
+    throw action.payload;
+  }
+  if (action.error) {
+    throw action.error;
+  }
+  return action.payload;
 }
-function tr(e) {
-  return e !== null && typeof e == "object" && typeof e.then == "function";
+function isThenable(value) {
+  return value !== null && typeof value === "object" && typeof value.then === "function";
 }
-var nr = /* @__PURE__ */ Symbol.for("rtk-slice-createasyncthunk");
-function or(e, r) {
-  return `${e}/${r}`;
+var asyncThunkSymbol = /* @__PURE__ */ Symbol.for("rtk-slice-createasyncthunk");
+function getType(slice2, actionKey) {
+  return `${slice2}/${actionKey}`;
 }
-function ir({
-  creators: e
+function buildCreateSlice({
+  creators
 } = {}) {
-  var t;
-  const r = (t = e == null ? void 0 : e.asyncThunk) == null ? void 0 : t[nr];
-  return function(o) {
+  var _a;
+  const cAT = (_a = creators == null ? void 0 : creators.asyncThunk) == null ? void 0 : _a[asyncThunkSymbol];
+  return function createSlice2(options) {
     const {
-      name: i,
-      reducerPath: c = i
-    } = o;
-    if (!i)
-      throw new Error(process.env.NODE_ENV === "production" ? g(11) : "`name` is a required option for createSlice");
-    typeof process < "u" && process.env.NODE_ENV === "development" && o.initialState === void 0 && console.error("You must provide an `initialState` value that is not `undefined`. You may have misspelled `initialState`");
-    const s = (typeof o.reducers == "function" ? o.reducers(ar()) : o.reducers) || {}, a = Object.keys(s), f = {
+      name,
+      reducerPath = name
+    } = options;
+    if (!name) {
+      throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(11) : "`name` is a required option for createSlice");
+    }
+    if (typeof process !== "undefined" && process.env.NODE_ENV === "development") {
+      if (options.initialState === void 0) {
+        console.error("You must provide an `initialState` value that is not `undefined`. You may have misspelled `initialState`");
+      }
+    }
+    const reducers2 = (typeof options.reducers === "function" ? options.reducers(buildReducerCreators()) : options.reducers) || {};
+    const reducerNames = Object.keys(reducers2);
+    const context = {
       sliceCaseReducersByName: {},
       sliceCaseReducersByType: {},
       actionCreators: {},
       sliceMatchers: []
-    }, u = {
-      addCase(l, h) {
-        const _ = typeof l == "string" ? l : l.type;
-        if (!_)
-          throw new Error(process.env.NODE_ENV === "production" ? g(12) : "`context.addCase` cannot be called with an empty action type");
-        if (_ in f.sliceCaseReducersByType)
-          throw new Error(process.env.NODE_ENV === "production" ? g(13) : "`context.addCase` cannot be called with two reducers for the same action type: " + _);
-        return f.sliceCaseReducersByType[_] = h, u;
+    };
+    const contextMethods = {
+      addCase(typeOrActionCreator, reducer2) {
+        const type = typeof typeOrActionCreator === "string" ? typeOrActionCreator : typeOrActionCreator.type;
+        if (!type) {
+          throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(12) : "`context.addCase` cannot be called with an empty action type");
+        }
+        if (type in context.sliceCaseReducersByType) {
+          throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(13) : "`context.addCase` cannot be called with two reducers for the same action type: " + type);
+        }
+        context.sliceCaseReducersByType[type] = reducer2;
+        return contextMethods;
       },
-      addMatcher(l, h) {
-        return f.sliceMatchers.push({
-          matcher: l,
-          reducer: h
-        }), u;
+      addMatcher(matcher, reducer2) {
+        context.sliceMatchers.push({
+          matcher,
+          reducer: reducer2
+        });
+        return contextMethods;
       },
-      exposeAction(l, h) {
-        return f.actionCreators[l] = h, u;
+      exposeAction(name2, actionCreator) {
+        context.actionCreators[name2] = actionCreator;
+        return contextMethods;
       },
-      exposeCaseReducer(l, h) {
-        return f.sliceCaseReducersByName[l] = h, u;
+      exposeCaseReducer(name2, reducer2) {
+        context.sliceCaseReducersByName[name2] = reducer2;
+        return contextMethods;
       }
     };
-    a.forEach((l) => {
-      const h = s[l], _ = {
-        reducerName: l,
-        type: or(i, l),
-        createNotation: typeof o.reducers == "function"
+    reducerNames.forEach((reducerName) => {
+      const reducerDefinition = reducers2[reducerName];
+      const reducerDetails = {
+        reducerName,
+        type: getType(name, reducerName),
+        createNotation: typeof options.reducers === "function"
       };
-      fr(h) ? lr(_, h, u, r) : ur(_, h, u);
+      if (isAsyncThunkSliceReducerDefinition(reducerDefinition)) {
+        handleThunkCaseReducerDefinition(reducerDetails, reducerDefinition, contextMethods, cAT);
+      } else {
+        handleNormalReducerDefinition(reducerDetails, reducerDefinition, contextMethods);
+      }
     });
-    function p() {
-      if (process.env.NODE_ENV !== "production" && typeof o.extraReducers == "object")
-        throw new Error(process.env.NODE_ENV === "production" ? g(14) : "The object notation for `createSlice.extraReducers` has been removed. Please use the 'builder callback' notation instead: https://redux-toolkit.js.org/api/createSlice");
-      const [l = {}, h = [], _ = void 0] = typeof o.extraReducers == "function" ? Ne(o.extraReducers) : [o.extraReducers], m = {
-        ...l,
-        ...f.sliceCaseReducersByType
+    function buildReducer() {
+      if (process.env.NODE_ENV !== "production") {
+        if (typeof options.extraReducers === "object") {
+          throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(14) : "The object notation for `createSlice.extraReducers` has been removed. Please use the 'builder callback' notation instead: https://redux-toolkit.js.org/api/createSlice");
+        }
+      }
+      const [extraReducers2 = {}, actionMatchers = [], defaultCaseReducer = void 0] = typeof options.extraReducers === "function" ? executeReducerBuilderCallback(options.extraReducers) : [options.extraReducers];
+      const finalCaseReducers = {
+        ...extraReducers2,
+        ...context.sliceCaseReducersByType
       };
-      return He(o.initialState, (S) => {
-        for (let d in m)
-          S.addCase(d, m[d]);
-        for (let d of f.sliceMatchers)
-          S.addMatcher(d.matcher, d.reducer);
-        for (let d of h)
-          S.addMatcher(d.matcher, d.reducer);
-        _ && S.addDefaultCase(_);
+      return createReducer(options.initialState, (builder) => {
+        for (let key in finalCaseReducers) {
+          builder.addCase(key, finalCaseReducers[key]);
+        }
+        for (let sM of context.sliceMatchers) {
+          builder.addMatcher(sM.matcher, sM.reducer);
+        }
+        for (let m of actionMatchers) {
+          builder.addMatcher(m.matcher, m.reducer);
+        }
+        if (defaultCaseReducer) {
+          builder.addDefaultCase(defaultCaseReducer);
+        }
       });
     }
-    const y = (l) => l, O = /* @__PURE__ */ new Map();
-    let D;
-    function I(l, h) {
-      return D || (D = p()), D(l, h);
+    const selectSelf = (state) => state;
+    const injectedSelectorCache = /* @__PURE__ */ new Map();
+    let _reducer;
+    function reducer(state, action) {
+      if (!_reducer) _reducer = buildReducer();
+      return _reducer(state, action);
     }
-    function A() {
-      return D || (D = p()), D.getInitialState();
+    function getInitialState() {
+      if (!_reducer) _reducer = buildReducer();
+      return _reducer.getInitialState();
     }
-    function z(l, h = !1) {
-      function _(S) {
-        let d = S[l];
-        if (typeof d > "u") {
-          if (h)
-            d = A();
-          else if (process.env.NODE_ENV !== "production")
-            throw new Error(process.env.NODE_ENV === "production" ? g(15) : "selectSlice returned undefined for an uninjected slice reducer");
+    function makeSelectorProps(reducerPath2, injected = false) {
+      function selectSlice(state) {
+        let sliceState = state[reducerPath2];
+        if (typeof sliceState === "undefined") {
+          if (injected) {
+            sliceState = getInitialState();
+          } else if (process.env.NODE_ENV !== "production") {
+            throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(15) : "selectSlice returned undefined for an uninjected slice reducer");
+          }
         }
-        return d;
+        return sliceState;
       }
-      function m(S = y) {
-        const d = ye(O, h, () => /* @__PURE__ */ new WeakMap());
-        return ye(d, S, () => {
-          const T = {};
-          for (const [Oe, ve] of Object.entries(o.selectors ?? {}))
-            T[Oe] = cr(ve, S, A, h);
-          return T;
+      function getSelectors(selectState = selectSelf) {
+        const selectorCache = getOrInsertComputed(injectedSelectorCache, injected, () => /* @__PURE__ */ new WeakMap());
+        return getOrInsertComputed(selectorCache, selectState, () => {
+          const map = {};
+          for (const [name2, selector] of Object.entries(options.selectors ?? {})) {
+            map[name2] = wrapSelector(selector, selectState, getInitialState, injected);
+          }
+          return map;
         });
       }
       return {
-        reducerPath: l,
-        getSelectors: m,
+        reducerPath: reducerPath2,
+        getSelectors,
         get selectors() {
-          return m(_);
+          return getSelectors(selectSlice);
         },
-        selectSlice: _
+        selectSlice
       };
     }
-    const N = {
-      name: i,
-      reducer: I,
-      actions: f.actionCreators,
-      caseReducers: f.sliceCaseReducersByName,
-      getInitialState: A,
-      ...z(c),
-      injectInto(l, {
-        reducerPath: h,
-        ..._
+    const slice2 = {
+      name,
+      reducer,
+      actions: context.actionCreators,
+      caseReducers: context.sliceCaseReducersByName,
+      getInitialState,
+      ...makeSelectorProps(reducerPath),
+      injectInto(injectable, {
+        reducerPath: pathOpt,
+        ...config
       } = {}) {
-        const m = h ?? c;
-        return l.inject({
-          reducerPath: m,
-          reducer: I
-        }, _), {
-          ...N,
-          ...z(m, !0)
+        const newReducerPath = pathOpt ?? reducerPath;
+        injectable.inject({
+          reducerPath: newReducerPath,
+          reducer
+        }, config);
+        return {
+          ...slice2,
+          ...makeSelectorProps(newReducerPath, true)
         };
       }
     };
-    return N;
+    return slice2;
   };
 }
-function cr(e, r, t, n) {
-  function o(i, ...c) {
-    let s = r(i);
-    if (typeof s > "u") {
-      if (n)
-        s = t();
-      else if (process.env.NODE_ENV !== "production")
-        throw new Error(process.env.NODE_ENV === "production" ? g(16) : "selectState returned undefined for an uninjected slice reducer");
+function wrapSelector(selector, selectState, getInitialState, injected) {
+  function wrapper(rootState, ...args) {
+    let sliceState = selectState(rootState);
+    if (typeof sliceState === "undefined") {
+      if (injected) {
+        sliceState = getInitialState();
+      } else if (process.env.NODE_ENV !== "production") {
+        throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(16) : "selectState returned undefined for an uninjected slice reducer");
+      }
     }
-    return e(s, ...c);
+    return selector(sliceState, ...args);
   }
-  return o.unwrapped = e, o;
+  wrapper.unwrapped = selector;
+  return wrapper;
 }
-var sr = /* @__PURE__ */ ir();
-function ar() {
-  function e(r, t) {
+var createSlice = /* @__PURE__ */ buildCreateSlice();
+function buildReducerCreators() {
+  function asyncThunk(payloadCreator, config) {
     return {
       _reducerDefinitionType: "asyncThunk",
-      payloadCreator: r,
-      ...t
+      payloadCreator,
+      ...config
     };
   }
-  return e.withTypes = () => e, {
-    reducer(r) {
+  asyncThunk.withTypes = () => asyncThunk;
+  return {
+    reducer(caseReducer) {
       return Object.assign({
         // hack so the wrapping function has the same name as the original
         // we need to create a wrapper so the `reducerDefinitionType` is not assigned to the original
-        [r.name](...t) {
-          return r(...t);
+        [caseReducer.name](...args) {
+          return caseReducer(...args);
         }
-      }[r.name], {
+      }[caseReducer.name], {
         _reducerDefinitionType: "reducer"
         /* reducer */
       });
     },
-    preparedReducer(r, t) {
+    preparedReducer(prepare, reducer) {
       return {
         _reducerDefinitionType: "reducerWithPrepare",
-        prepare: r,
-        reducer: t
+        prepare,
+        reducer
       };
     },
-    asyncThunk: e
+    asyncThunk
   };
 }
-function ur({
-  type: e,
-  reducerName: r,
-  createNotation: t
-}, n, o) {
-  let i, c;
-  if ("reducer" in n) {
-    if (t && !dr(n))
-      throw new Error(process.env.NODE_ENV === "production" ? g(17) : "Please use the `create.preparedReducer` notation for prepared action creators with the `create` notation.");
-    i = n.reducer, c = n.prepare;
-  } else
-    i = n;
-  o.addCase(e, i).exposeCaseReducer(r, i).exposeAction(r, c ? M(e, c) : M(e));
+function handleNormalReducerDefinition({
+  type,
+  reducerName,
+  createNotation
+}, maybeReducerWithPrepare, context) {
+  let caseReducer;
+  let prepareCallback;
+  if ("reducer" in maybeReducerWithPrepare) {
+    if (createNotation && !isCaseReducerWithPrepareDefinition(maybeReducerWithPrepare)) {
+      throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(17) : "Please use the `create.preparedReducer` notation for prepared action creators with the `create` notation.");
+    }
+    caseReducer = maybeReducerWithPrepare.reducer;
+    prepareCallback = maybeReducerWithPrepare.prepare;
+  } else {
+    caseReducer = maybeReducerWithPrepare;
+  }
+  context.addCase(type, caseReducer).exposeCaseReducer(reducerName, caseReducer).exposeAction(reducerName, prepareCallback ? createAction(type, prepareCallback) : createAction(type));
 }
-function fr(e) {
-  return e._reducerDefinitionType === "asyncThunk";
+function isAsyncThunkSliceReducerDefinition(reducerDefinition) {
+  return reducerDefinition._reducerDefinitionType === "asyncThunk";
 }
-function dr(e) {
-  return e._reducerDefinitionType === "reducerWithPrepare";
+function isCaseReducerWithPrepareDefinition(reducerDefinition) {
+  return reducerDefinition._reducerDefinitionType === "reducerWithPrepare";
 }
-function lr({
-  type: e,
-  reducerName: r
-}, t, n, o) {
-  if (!o)
-    throw new Error(process.env.NODE_ENV === "production" ? g(18) : "Cannot use `create.asyncThunk` in the built-in `createSlice`. Use `buildCreateSlice({ creators: { asyncThunk: asyncThunkCreator } })` to create a customised version of `createSlice`.");
+function handleThunkCaseReducerDefinition({
+  type,
+  reducerName
+}, reducerDefinition, context, cAT) {
+  if (!cAT) {
+    throw new Error(process.env.NODE_ENV === "production" ? formatProdErrorMessage(18) : "Cannot use `create.asyncThunk` in the built-in `createSlice`. Use `buildCreateSlice({ creators: { asyncThunk: asyncThunkCreator } })` to create a customised version of `createSlice`.");
+  }
   const {
-    payloadCreator: i,
-    fulfilled: c,
-    pending: s,
-    rejected: a,
-    settled: f,
-    options: u
-  } = t, p = o(e, i, u);
-  n.exposeAction(r, p), c && n.addCase(p.fulfilled, c), s && n.addCase(p.pending, s), a && n.addCase(p.rejected, a), f && n.addMatcher(p.settled, f), n.exposeCaseReducer(r, {
-    fulfilled: c || x,
-    pending: s || x,
-    rejected: a || x,
-    settled: f || x
+    payloadCreator,
+    fulfilled,
+    pending,
+    rejected,
+    settled,
+    options
+  } = reducerDefinition;
+  const thunk = cAT(type, payloadCreator, options);
+  context.exposeAction(reducerName, thunk);
+  if (fulfilled) {
+    context.addCase(thunk.fulfilled, fulfilled);
+  }
+  if (pending) {
+    context.addCase(thunk.pending, pending);
+  }
+  if (rejected) {
+    context.addCase(thunk.rejected, rejected);
+  }
+  if (settled) {
+    context.addMatcher(thunk.settled, settled);
+  }
+  context.exposeCaseReducer(reducerName, {
+    fulfilled: fulfilled || noop,
+    pending: pending || noop,
+    rejected: rejected || noop,
+    settled: settled || noop
   });
 }
-function x() {
+function noop() {
 }
-function g(e) {
-  return `Minified Redux Toolkit error #${e}; visit https://redux-toolkit.js.org/Errors?code=${e} for the full message or use the non-minified dev environment for full errors. `;
+function formatProdErrorMessage(code) {
+  return `Minified Redux Toolkit error #${code}; visit https://redux-toolkit.js.org/Errors?code=${code} for the full message or use the non-minified dev environment for full errors. `;
 }
-const L = ae(
+const doRegister = createAsyncThunk(
   "slice/auth/doRegister",
-  async (e, { rejectWithValue: r }) => ke(e).then((t) => t).catch((t) => r(t))
-), $ = ae(
+  async (payload, { rejectWithValue }) => register(payload).then((response) => response).catch((error) => rejectWithValue(error))
+);
+const doLogin = createAsyncThunk(
   "slice/auth/doLogin",
-  async (e, { rejectWithValue: r }) => Re(e).then((t) => t).catch((t) => r(t))
-), W = ae(
+  async (payload, { rejectWithValue }) => login(payload).then((response) => response).catch((error) => rejectWithValue(error))
+);
+const doRefresh = createAsyncThunk(
   "slice/auth/doRefresh",
-  async (e, { rejectWithValue: r }) => Ae(e).then((t) => t).catch((t) => r(t))
-), hr = {
+  async (payload, { rejectWithValue }) => refresh(payload).then((response) => response).catch((error) => rejectWithValue(error))
+);
+const initialState = {
   accessToken: localStorage.getItem("accessToken") || void 0,
   refreshToken: localStorage.getItem("refreshToken") || void 0,
   login: {
-    status: b.IDLE,
+    status: STATUS.IDLE,
     error: void 0
   },
   register: {
-    status: b.IDLE,
+    status: STATUS.IDLE,
     error: void 0
   }
-}, pr = {
-  clearErrorsRegister: (e) => {
-    e.register.status = b.IDLE, e.register.error = void 0;
+};
+const reducers = {
+  clearErrorsRegister: (state) => {
+    state.register.status = STATUS.IDLE;
+    state.register.error = void 0;
   },
-  clearErrorsLogin: (e) => {
-    e.login.status = b.IDLE, e.login.error = void 0;
+  clearErrorsLogin: (state) => {
+    state.login.status = STATUS.IDLE;
+    state.login.error = void 0;
   }
-}, yr = (e) => e.addCase($.pending, (r) => {
-  r.login.status = b.LOADING;
-}).addCase($.fulfilled, (r, t) => {
-  r.login.status = b.SUCCESS;
-  const { accessToken: n, refreshToken: o } = t.payload;
-  r.accessToken = n, r.refreshToken = o, localStorage.setItem("accessToken", n), localStorage.setItem("refreshToken", o);
-}).addCase($.rejected, (r, t) => {
-  r.login.status = b.FAILED, r.login.error = t.payload;
-}).addCase(L.pending, (r) => {
-  r.register.status = b.LOADING;
-}).addCase(L.fulfilled, (r, t) => {
-  r.register.status = b.SUCCESS;
-  const { accessToken: n, refreshToken: o } = t.payload;
-  r.accessToken = n, r.refreshToken = o, localStorage.setItem("accessToken", n), localStorage.setItem("refreshToken", o);
-}).addCase(L.rejected, (r, t) => {
-  r.register.status = b.FAILED, r.register.error = t.payload;
-}).addCase(W.pending, (r) => {
-  r.register.status = b.LOADING;
-}).addCase(W.fulfilled, (r, t) => {
-  r.register.status = b.SUCCESS;
-  const { accessToken: n, refreshToken: o } = t.payload;
-  r.accessToken = n, r.refreshToken = o, localStorage.setItem("accessToken", n), localStorage.setItem("refreshToken", o);
-}).addCase(W.rejected, (r, t) => {
-  r.register.status = b.FAILED, r.register.error = t.payload;
-}), Se = sr({
+};
+const extraReducers = (builder) => builder.addCase(doLogin.pending, (state) => {
+  state.login.status = STATUS.LOADING;
+}).addCase(doLogin.fulfilled, (state, action) => {
+  state.login.status = STATUS.SUCCESS;
+  const { accessToken, refreshToken } = action.payload;
+  state.accessToken = accessToken;
+  state.refreshToken = refreshToken;
+  localStorage.setItem("accessToken", accessToken);
+  localStorage.setItem("refreshToken", refreshToken);
+}).addCase(doLogin.rejected, (state, action) => {
+  state.login.status = STATUS.FAILED;
+  state.login.error = action.payload;
+}).addCase(doRegister.pending, (state) => {
+  state.register.status = STATUS.LOADING;
+}).addCase(doRegister.fulfilled, (state, action) => {
+  state.register.status = STATUS.SUCCESS;
+  const { accessToken, refreshToken } = action.payload;
+  state.accessToken = accessToken;
+  state.refreshToken = refreshToken;
+  localStorage.setItem("accessToken", accessToken);
+  localStorage.setItem("refreshToken", refreshToken);
+}).addCase(doRegister.rejected, (state, action) => {
+  state.register.status = STATUS.FAILED;
+  state.register.error = action.payload;
+}).addCase(doRefresh.pending, (state) => {
+  state.register.status = STATUS.LOADING;
+}).addCase(doRefresh.fulfilled, (state, action) => {
+  state.register.status = STATUS.SUCCESS;
+  const { accessToken, refreshToken } = action.payload;
+  state.accessToken = accessToken;
+  state.refreshToken = refreshToken;
+  localStorage.setItem("accessToken", accessToken);
+  localStorage.setItem("refreshToken", refreshToken);
+}).addCase(doRefresh.rejected, (state, action) => {
+  state.register.status = STATUS.FAILED;
+  state.register.error = action.payload;
+});
+const slice = createSlice({
   name: "slice/auth",
-  initialState: hr,
-  reducers: pr,
-  extraReducers: yr
-}), Er = Se.actions, br = {
-  doRegister: L,
-  doLogin: $,
-  doRefresh: W
-}, wr = Se.reducer;
+  initialState,
+  reducers,
+  extraReducers
+});
+const authActions = slice.actions;
+const authAsyncActions = {
+  doRegister,
+  doLogin,
+  doRefresh
+};
+const authSlice = slice.reducer;
 export {
-  Er as authActions,
-  br as authAsyncActions,
-  wr as authSlice
+  authActions,
+  authAsyncActions,
+  authSlice
 };
 //# sourceMappingURL=auth.mjs.map

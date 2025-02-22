@@ -1,28 +1,28 @@
-import { j as n } from "../../../.chunks/CYK1ROHF.js";
-import { Group as c, InputElement as p } from "@chakra-ui/react";
-import { forwardRef as u, cloneElement as a } from "react";
-const f = u(
-  function(o, s) {
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Group, InputElement } from "@chakra-ui/react";
+import { forwardRef, cloneElement } from "react";
+const InputGroup = forwardRef(
+  function InputGroup2(props, ref) {
     const {
-      startElement: e,
-      startElementProps: i,
-      endElement: t,
-      endElementProps: l,
-      children: r,
-      ...m
-    } = o;
-    return /* @__PURE__ */ n.jsxs(c, { ref: s, ...m, children: [
-      e && /* @__PURE__ */ n.jsx(p, { pointerEvents: "none", ...i, children: e }),
-      a(r, {
-        ...e && { ps: "calc(var(--input-height) - 6px)" },
-        ...t && { pe: "calc(var(--input-height) - 6px)" },
-        ...r.props
+      startElement,
+      startElementProps,
+      endElement,
+      endElementProps,
+      children,
+      ...rest
+    } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Group, { ref, ...rest, children: [
+      startElement && /* @__PURE__ */ jsxRuntimeExports.jsx(InputElement, { pointerEvents: "none", ...startElementProps, children: startElement }),
+      cloneElement(children, {
+        ...startElement && { ps: "calc(var(--input-height) - 6px)" },
+        ...endElement && { pe: "calc(var(--input-height) - 6px)" },
+        ...children.props
       }),
-      t && /* @__PURE__ */ n.jsx(p, { placement: "end", ...l, children: t })
+      endElement && /* @__PURE__ */ jsxRuntimeExports.jsx(InputElement, { placement: "end", ...endElementProps, children: endElement })
     ] });
   }
 );
 export {
-  f as InputGroup
+  InputGroup
 };
 //# sourceMappingURL=input-group.mjs.map

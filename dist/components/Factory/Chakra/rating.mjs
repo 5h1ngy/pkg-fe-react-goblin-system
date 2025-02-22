@@ -1,17 +1,17 @@
-import { j as r } from "../../../.chunks/CYK1ROHF.js";
-import { RatingGroup as t } from "@chakra-ui/react";
-import { forwardRef as c } from "react";
-const f = c(
-  function(i, s) {
-    const { icon: m, count: o = 5, label: n, ...a } = i;
-    return /* @__PURE__ */ r.jsxs(t.Root, { ref: s, count: o, ...a, children: [
-      n && /* @__PURE__ */ r.jsx(t.Label, { children: n }),
-      /* @__PURE__ */ r.jsx(t.HiddenInput, {}),
-      /* @__PURE__ */ r.jsx(t.Control, { children: Array.from({ length: o }).map((x, e) => /* @__PURE__ */ r.jsx(t.Item, { index: e + 1, children: /* @__PURE__ */ r.jsx(t.ItemIndicator, { icon: m }) }, e)) })
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { RatingGroup } from "@chakra-ui/react";
+import { forwardRef } from "react";
+const Rating = forwardRef(
+  function Rating2(props, ref) {
+    const { icon, count = 5, label, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(RatingGroup.Root, { ref, count, ...rest, children: [
+      label && /* @__PURE__ */ jsxRuntimeExports.jsx(RatingGroup.Label, { children: label }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(RatingGroup.HiddenInput, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(RatingGroup.Control, { children: Array.from({ length: count }).map((_, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(RatingGroup.Item, { index: index + 1, children: /* @__PURE__ */ jsxRuntimeExports.jsx(RatingGroup.ItemIndicator, { icon }) }, index)) })
     ] });
   }
 );
 export {
-  f as Rating
+  Rating
 };
 //# sourceMappingURL=rating.mjs.map

@@ -1,28 +1,29 @@
-import { j as o } from "../../../.chunks/CYK1ROHF.js";
-import { Tooltip as r, Portal as x } from "@chakra-ui/react";
-import { forwardRef as j } from "react";
-const u = j(
-  function(i, e) {
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Tooltip as Tooltip$1, Portal } from "@chakra-ui/react";
+import { forwardRef } from "react";
+const Tooltip = forwardRef(
+  function Tooltip2(props, ref) {
     const {
-      showArrow: n,
-      children: t,
-      disabled: s,
-      portalled: l,
-      content: d,
-      contentProps: p,
-      portalRef: c,
-      ...a
-    } = i;
-    return s ? t : /* @__PURE__ */ o.jsxs(r.Root, { ...a, children: [
-      /* @__PURE__ */ o.jsx(r.Trigger, { asChild: !0, children: t }),
-      /* @__PURE__ */ o.jsx(x, { disabled: !l, container: c, children: /* @__PURE__ */ o.jsx(r.Positioner, { children: /* @__PURE__ */ o.jsxs(r.Content, { ref: e, ...p, children: [
-        n && /* @__PURE__ */ o.jsx(r.Arrow, { children: /* @__PURE__ */ o.jsx(r.ArrowTip, {}) }),
-        d
+      showArrow,
+      children,
+      disabled,
+      portalled,
+      content,
+      contentProps,
+      portalRef,
+      ...rest
+    } = props;
+    if (disabled) return children;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Tooltip$1.Root, { ...rest, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip$1.Trigger, { asChild: true, children }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Portal, { disabled: !portalled, container: portalRef, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip$1.Positioner, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Tooltip$1.Content, { ref, ...contentProps, children: [
+        showArrow && /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip$1.Arrow, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip$1.ArrowTip, {}) }),
+        content
       ] }) }) })
     ] });
   }
 );
 export {
-  u as Tooltip
+  Tooltip
 };
 //# sourceMappingURL=tooltip.mjs.map

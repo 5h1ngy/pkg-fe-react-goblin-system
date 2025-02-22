@@ -1,21 +1,22 @@
-import { j as e } from "../../../.chunks/CYK1ROHF.js";
-import { Select as n, Portal as u } from "@chakra-ui/react";
-import { CloseButton as a } from "./close-button.mjs";
-import { forwardRef as o } from "react";
-const f = o(
-  function(t, r) {
-    const { children: i, clearable: l, ...c } = t;
-    return /* @__PURE__ */ e.jsxs(n.Control, { ...c, children: [
-      /* @__PURE__ */ e.jsx(n.Trigger, { ref: r, children: i }),
-      /* @__PURE__ */ e.jsxs(n.IndicatorGroup, { children: [
-        l && /* @__PURE__ */ e.jsx(x, {}),
-        /* @__PURE__ */ e.jsx(n.Indicator, {})
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Select, Portal } from "@chakra-ui/react";
+import { CloseButton } from "./close-button.mjs";
+import { forwardRef } from "react";
+const SelectTrigger = forwardRef(
+  function SelectTrigger2(props, ref) {
+    const { children, clearable, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Select.Control, { ...rest, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Select.Trigger, { ref, children }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Select.IndicatorGroup, { children: [
+        clearable && /* @__PURE__ */ jsxRuntimeExports.jsx(SelectClearTrigger, {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Select.Indicator, {})
       ] })
     ] });
   }
-), x = o(function(t, r) {
-  return /* @__PURE__ */ e.jsx(n.ClearTrigger, { asChild: !0, ...t, ref: r, children: /* @__PURE__ */ e.jsx(
-    a,
+);
+const SelectClearTrigger = forwardRef(function SelectClearTrigger2(props, ref) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Select.ClearTrigger, { asChild: true, ...props, ref, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    CloseButton,
     {
       size: "xs",
       variant: "plain",
@@ -24,57 +25,68 @@ const f = o(
       pointerEvents: "auto"
     }
   ) });
-}), S = o(
-  function(t, r) {
-    const { portalled: i = !0, portalRef: l, ...c } = t;
-    return /* @__PURE__ */ e.jsx(u, { disabled: !i, container: l, children: /* @__PURE__ */ e.jsx(n.Positioner, { children: /* @__PURE__ */ e.jsx(n.Content, { ...c, ref: r }) }) });
+});
+const SelectContent = forwardRef(
+  function SelectContent2(props, ref) {
+    const { portalled = true, portalRef, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Portal, { disabled: !portalled, container: portalRef, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Select.Positioner, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Select.Content, { ...rest, ref }) }) });
   }
-), I = o(
-  function(t, r) {
-    const { item: i, children: l, ...c } = t;
-    return /* @__PURE__ */ e.jsxs(n.Item, { item: i, ...c, ref: r, children: [
-      l,
-      /* @__PURE__ */ e.jsx(n.ItemIndicator, {})
-    ] }, i.value);
+);
+const SelectItem = forwardRef(
+  function SelectItem2(props, ref) {
+    const { item, children, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Select.Item, { item, ...rest, ref, children: [
+      children,
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Select.ItemIndicator, {})
+    ] }, item.value);
   }
-), C = o(function(t, r) {
-  const { children: i, ...l } = t;
-  return /* @__PURE__ */ e.jsx(n.ValueText, { ...l, ref: r, children: /* @__PURE__ */ e.jsx(n.Context, { children: (c) => {
-    const d = c.selectedItems;
-    return d.length === 0 ? t.placeholder : i ? i(d) : d.length === 1 ? c.collection.stringifyItem(d[0]) : `${d.length} selected`;
+);
+const SelectValueText = forwardRef(function SelectValueText2(props, ref) {
+  const { children, ...rest } = props;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Select.ValueText, { ...rest, ref, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Select.Context, { children: (select) => {
+    const items = select.selectedItems;
+    if (items.length === 0) return props.placeholder;
+    if (children) return children(items);
+    if (items.length === 1)
+      return select.collection.stringifyItem(items[0]);
+    return `${items.length} selected`;
   } }) });
-}), T = o(
-  function(t, r) {
-    return /* @__PURE__ */ e.jsx(
-      n.Root,
+});
+const SelectRoot = forwardRef(
+  function SelectRoot2(props, ref) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Select.Root,
       {
-        ...t,
-        ref: r,
-        positioning: { sameWidth: !0, ...t.positioning },
-        children: t.asChild ? t.children : /* @__PURE__ */ e.jsxs(e.Fragment, { children: [
-          /* @__PURE__ */ e.jsx(n.HiddenSelect, {}),
-          t.children
+        ...props,
+        ref,
+        positioning: { sameWidth: true, ...props.positioning },
+        children: props.asChild ? props.children : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Select.HiddenSelect, {}),
+          props.children
         ] })
       }
     );
   }
-), p = o(
-  function(t, r) {
-    const { children: i, label: l, ...c } = t;
-    return /* @__PURE__ */ e.jsxs(n.ItemGroup, { ...c, ref: r, children: [
-      /* @__PURE__ */ e.jsx(n.ItemGroupLabel, { children: l }),
-      i
+);
+const SelectItemGroup = forwardRef(
+  function SelectItemGroup2(props, ref) {
+    const { children, label, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Select.ItemGroup, { ...rest, ref, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Select.ItemGroupLabel, { children: label }),
+      children
     ] });
   }
-), R = n.Label, b = n.ItemText;
+);
+const SelectLabel = Select.Label;
+const SelectItemText = Select.ItemText;
 export {
-  S as SelectContent,
-  I as SelectItem,
-  p as SelectItemGroup,
-  b as SelectItemText,
-  R as SelectLabel,
-  T as SelectRoot,
-  f as SelectTrigger,
-  C as SelectValueText
+  SelectContent,
+  SelectItem,
+  SelectItemGroup,
+  SelectItemText,
+  SelectLabel,
+  SelectRoot,
+  SelectTrigger,
+  SelectValueText
 };
 //# sourceMappingURL=select.mjs.map

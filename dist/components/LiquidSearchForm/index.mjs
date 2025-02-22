@@ -1,15 +1,15 @@
-import { j as r } from "../../.chunks/CYK1ROHF.js";
-import { VStack as t, HStack as e } from "@chakra-ui/react";
-import { D as i } from "../../.chunks/DzTRbplN.js";
-import { Button as n } from "../Factory/Chakra/button.mjs";
-function l({ schema: o }) {
-  return /* @__PURE__ */ r.jsx(
-    i,
+import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
+import { VStack, HStack } from "@chakra-ui/react";
+import { D as DynamicForm } from "../../.chunks/Dy9B8Y0I.js";
+import { Button } from "../Factory/Chakra/button.mjs";
+function LiquidSearchForm({ schema }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    DynamicForm,
     {
-      schema: o,
+      schema,
       width: "100%",
-      render: (a) => /* @__PURE__ */ r.jsxs(
-        t,
+      render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        VStack,
         {
           gap: "1rem",
           padding: "1.5rem",
@@ -17,8 +17,8 @@ function l({ schema: o }) {
           backgroundColor: "gray.100",
           _dark: { backgroundColor: "gray.950" },
           children: [
-            /* @__PURE__ */ r.jsx(e, { gap: "4", width: "100%", children: a }),
-            /* @__PURE__ */ r.jsx(t, { gap: "4", width: "100%", alignItems: "flex-end", children: /* @__PURE__ */ r.jsx(n, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(HStack, { gap: "4", width: "100%", children: fields }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { gap: "4", width: "100%", alignItems: "flex-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" }) })
           ]
         }
       )
@@ -26,6 +26,6 @@ function l({ schema: o }) {
   );
 }
 export {
-  l as default
+  LiquidSearchForm as default
 };
 //# sourceMappingURL=index.mjs.map

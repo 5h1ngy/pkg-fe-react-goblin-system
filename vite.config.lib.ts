@@ -15,7 +15,7 @@ export default defineConfig({
     ],
     build: {
         sourcemap: true,
-        // minify: 'terser',
+        minify: 'terser',
         lib: {
             name: "react-goblin-system",
             formats: [
@@ -99,15 +99,15 @@ export default defineConfig({
                 "store/shared": path.resolve(__dirname, "src/store/shared.ts"),
             },
         },
-        // terserOptions: {
-        //     compress: {
-        //         drop_console: true,
-        //         drop_debugger: true,
-        //     },
-        //     format: {
-        //         comments: false,
-        //     },
-        // },
+        terserOptions: {
+            compress: {
+                drop_console: false,
+                drop_debugger: false,
+            },
+            format: {
+                comments: false,
+            },
+        },
         rollupOptions: {
             external: [
                 "react",
@@ -125,7 +125,7 @@ export default defineConfig({
                 },
 
                 // entryFileNames: (chunk) =>
-                    // `${path.relative(path.resolve(__dirname, 'src'), chunk.facadeModuleId!).replace(/\.[^/.]+$/, '')}.js`,
+                // `${path.relative(path.resolve(__dirname, 'src'), chunk.facadeModuleId!).replace(/\.[^/.]+$/, '')}.js`,
 
                 chunkFileNames: () =>
                     `.chunks/[hash].js`,

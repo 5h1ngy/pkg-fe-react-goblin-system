@@ -1,11 +1,14 @@
-import { j as e } from "../.chunks/CYK1ROHF.js";
-import { defineConfig as t, ChakraProvider as i, createSystem as a, defaultConfig as m } from "@chakra-ui/react";
-import { ColorModeProvider as f } from "../components/Factory/Chakra/color-mode.mjs";
-function s(o) {
-  const r = t({});
-  return localStorage.getItem("theme") === null && localStorage.setItem("theme", "dark"), /* @__PURE__ */ e.jsx(i, { value: a(m, r), children: /* @__PURE__ */ e.jsx(f, { ...o }) });
+import { j as jsxRuntimeExports } from "../.chunks/CSg68eI9.js";
+import { defineConfig, ChakraProvider, createSystem, defaultConfig } from "@chakra-ui/react";
+import { ColorModeProvider } from "../components/Factory/Chakra/color-mode.mjs";
+function ThemeProvider(props) {
+  const _config = defineConfig({});
+  if (localStorage.getItem("theme") === null) {
+    localStorage.setItem("theme", "dark");
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ChakraProvider, { value: createSystem(defaultConfig, _config), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ColorModeProvider, { ...props }) });
 }
 export {
-  s as default
+  ThemeProvider as default
 };
 //# sourceMappingURL=Theme.mjs.map

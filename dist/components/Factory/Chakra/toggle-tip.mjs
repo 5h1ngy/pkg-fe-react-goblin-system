@@ -1,9 +1,9 @@
-import "../../../.chunks/CYK1ROHF.js";
+import "../../../.chunks/CSg68eI9.js";
 import "@chakra-ui/react";
 import "react";
-import { I as t, T } from "../../../.chunks/DGNRXwko.js";
+import { I, T } from "../../../.chunks/4Il6cKWL.js";
 export {
-  t as InfoTip,
+  I as InfoTip,
   T as ToggleTip
 };
 //# sourceMappingURL=toggle-tip.mjs.map

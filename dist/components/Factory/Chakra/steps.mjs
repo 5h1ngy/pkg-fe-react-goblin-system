@@ -1,42 +1,57 @@
-import { j as t } from "../../../.chunks/CYK1ROHF.js";
-import { Steps as e, Box as p } from "@chakra-ui/react";
-import { b as x } from "../../../.chunks/CF0BrBy-.js";
-const S = (s) => {
-  const { title: r, description: n, completedIcon: o, icon: i, ...c } = s;
-  return /* @__PURE__ */ t.jsxs(e.Item, { ...c, children: [
-    /* @__PURE__ */ t.jsxs(e.Trigger, { children: [
-      /* @__PURE__ */ t.jsx(e.Indicator, { children: /* @__PURE__ */ t.jsx(
-        e.Status,
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Steps, Box } from "@chakra-ui/react";
+import { b as LuCheck } from "../../../.chunks/Bol7GxK0.js";
+const StepsItem = (props) => {
+  const { title, description, completedIcon, icon, ...rest } = props;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Steps.Item, { ...rest, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Steps.Trigger, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Indicator, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Steps.Status,
         {
-          complete: o || /* @__PURE__ */ t.jsx(x, {}),
-          incomplete: i || /* @__PURE__ */ t.jsx(e.Number, {})
+          complete: completedIcon || /* @__PURE__ */ jsxRuntimeExports.jsx(LuCheck, {}),
+          incomplete: icon || /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Number, {})
         }
       ) }),
-      /* @__PURE__ */ t.jsx(l, { title: r, description: n })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(StepInfo, { title, description })
     ] }),
-    /* @__PURE__ */ t.jsx(e.Separator, {})
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Separator, {})
   ] });
-}, l = (s) => {
-  const { title: r, description: n } = s;
-  return r && n ? /* @__PURE__ */ t.jsxs(p, { children: [
-    /* @__PURE__ */ t.jsx(e.Title, { children: r }),
-    /* @__PURE__ */ t.jsx(e.Description, { children: n })
-  ] }) : /* @__PURE__ */ t.jsxs(t.Fragment, { children: [
-    r && /* @__PURE__ */ t.jsx(e.Title, { children: r }),
-    n && /* @__PURE__ */ t.jsx(e.Description, { children: n })
+};
+const StepInfo = (props) => {
+  const { title, description } = props;
+  if (title && description) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Box, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Title, { children: title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Description, { children: description })
+    ] });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    title && /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Title, { children: title }),
+    description && /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Description, { children: description })
   ] });
-}, u = (s) => {
-  const { icon: r = /* @__PURE__ */ t.jsx(e.Number, {}), completedIcon: n } = s;
-  return /* @__PURE__ */ t.jsx(e.Indicator, { children: /* @__PURE__ */ t.jsx(e.Status, { complete: n, incomplete: r }) });
-}, g = e.List, h = e.Root, a = e.Content, I = e.CompletedContent, C = (s) => /* @__PURE__ */ t.jsx(e.NextTrigger, { ...s }), T = (s) => /* @__PURE__ */ t.jsx(e.PrevTrigger, { ...s });
+};
+const StepsIndicator = (props) => {
+  const { icon = /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Number, {}), completedIcon } = props;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Indicator, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.Status, { complete: completedIcon, incomplete: icon }) });
+};
+const StepsList = Steps.List;
+const StepsRoot = Steps.Root;
+const StepsContent = Steps.Content;
+const StepsCompletedContent = Steps.CompletedContent;
+const StepsNextTrigger = (props) => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.NextTrigger, { ...props });
+};
+const StepsPrevTrigger = (props) => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Steps.PrevTrigger, { ...props });
+};
 export {
-  I as StepsCompletedContent,
-  a as StepsContent,
-  u as StepsIndicator,
-  S as StepsItem,
-  g as StepsList,
-  C as StepsNextTrigger,
-  T as StepsPrevTrigger,
-  h as StepsRoot
+  StepsCompletedContent,
+  StepsContent,
+  StepsIndicator,
+  StepsItem,
+  StepsList,
+  StepsNextTrigger,
+  StepsPrevTrigger,
+  StepsRoot
 };
 //# sourceMappingURL=steps.mjs.map

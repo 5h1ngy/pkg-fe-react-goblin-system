@@ -1,74 +1,94 @@
-import { j as e } from "../../../.chunks/CYK1ROHF.js";
-import { FileUpload as t, Icon as x, Text as h, useFileUploadContext as j, useRecipe as m, Button as f, Span as g, IconButton as F } from "@chakra-ui/react";
-import { forwardRef as a } from "react";
-import { d as I, e as U, f as z } from "../../../.chunks/CF0BrBy-.js";
-const b = a(
-  function(r, o) {
-    const { children: n, inputProps: l, ...s } = r;
-    return /* @__PURE__ */ e.jsxs(t.Root, { ...s, children: [
-      /* @__PURE__ */ e.jsx(t.HiddenInput, { ref: o, ...l }),
-      n
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { FileUpload, Icon, Text, useFileUploadContext, useRecipe, Button, Span, IconButton } from "@chakra-ui/react";
+import { forwardRef } from "react";
+import { d as LuUpload, e as LuFile, f as LuX } from "../../../.chunks/Bol7GxK0.js";
+const FileUploadRoot = forwardRef(
+  function FileUploadRoot2(props, ref) {
+    const { children, inputProps, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(FileUpload.Root, { ...rest, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(FileUpload.HiddenInput, { ref, ...inputProps }),
+      children
     ] });
   }
-), D = a(function(r, o) {
-  const { children: n, label: l, description: s, ...d } = r;
-  return /* @__PURE__ */ e.jsxs(t.Dropzone, { ref: o, ...d, children: [
-    /* @__PURE__ */ e.jsx(x, { fontSize: "xl", color: "fg.muted", children: /* @__PURE__ */ e.jsx(I, {}) }),
-    /* @__PURE__ */ e.jsxs(t.DropzoneContent, { children: [
-      /* @__PURE__ */ e.jsx("div", { children: l }),
-      s && /* @__PURE__ */ e.jsx(h, { color: "fg.muted", children: s })
+);
+const FileUploadDropzone = forwardRef(function FileUploadDropzone2(props, ref) {
+  const { children, label, description, ...rest } = props;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(FileUpload.Dropzone, { ref, ...rest, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { fontSize: "xl", color: "fg.muted", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LuUpload, {}) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(FileUpload.DropzoneContent, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: label }),
+      description && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { color: "fg.muted", children: description })
     ] }),
-    n
+    children
   ] });
-}), C = (c) => {
-  const { file: r, showSize: o, clearable: n } = c;
-  return /* @__PURE__ */ e.jsxs(t.Item, { file: r, children: [
-    /* @__PURE__ */ e.jsx(t.ItemPreview, { asChild: !0, children: /* @__PURE__ */ e.jsx(x, { fontSize: "lg", color: "fg.muted", children: /* @__PURE__ */ e.jsx(U, {}) }) }),
-    o ? /* @__PURE__ */ e.jsxs(t.ItemContent, { children: [
-      /* @__PURE__ */ e.jsx(t.ItemName, {}),
-      /* @__PURE__ */ e.jsx(t.ItemSizeText, {})
-    ] }) : /* @__PURE__ */ e.jsx(t.ItemName, { flex: "1" }),
-    n && /* @__PURE__ */ e.jsx(t.ItemDeleteTrigger, { asChild: !0, children: /* @__PURE__ */ e.jsx(F, { variant: "ghost", color: "fg.muted", size: "xs", children: /* @__PURE__ */ e.jsx(z, {}) }) })
+});
+const FileUploadItem = (props) => {
+  const { file, showSize, clearable } = props;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(FileUpload.Item, { file, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(FileUpload.ItemPreview, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { fontSize: "lg", color: "fg.muted", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LuFile, {}) }) }),
+    showSize ? /* @__PURE__ */ jsxRuntimeExports.jsxs(FileUpload.ItemContent, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(FileUpload.ItemName, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(FileUpload.ItemSizeText, {})
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(FileUpload.ItemName, { flex: "1" }),
+    clearable && /* @__PURE__ */ jsxRuntimeExports.jsx(FileUpload.ItemDeleteTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { variant: "ghost", color: "fg.muted", size: "xs", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LuX, {}) }) })
   ] });
-}, P = a(
-  function(r, o) {
-    const { showSize: n, clearable: l, files: s, ...d } = r, p = j(), i = s ?? p.acceptedFiles;
-    return i.length === 0 ? null : /* @__PURE__ */ e.jsx(t.ItemGroup, { ref: o, ...d, children: i.map((u) => /* @__PURE__ */ e.jsx(
-      C,
+};
+const FileUploadList = forwardRef(
+  function FileUploadList2(props, ref) {
+    const { showSize, clearable, files, ...rest } = props;
+    const fileUpload = useFileUploadContext();
+    const acceptedFiles = files ?? fileUpload.acceptedFiles;
+    if (acceptedFiles.length === 0) return null;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(FileUpload.ItemGroup, { ref, ...rest, children: acceptedFiles.map((file) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      FileUploadItem,
       {
-        file: u,
-        showSize: n,
-        clearable: l
+        file,
+        showSize,
+        clearable
       },
-      u.name
+      file.name
     )) });
   }
-), w = a(
-  function(r, o) {
-    const n = m({ key: "input" }), [l, s] = n.splitVariantProps(r), { placeholder: d = "Select file(s)", ...p } = s;
-    return /* @__PURE__ */ e.jsx(t.Trigger, { asChild: !0, children: /* @__PURE__ */ e.jsx(
-      f,
+);
+const FileInput = forwardRef(
+  function FileInput2(props, ref) {
+    const inputRecipe = useRecipe({ key: "input" });
+    const [recipeProps, restProps] = inputRecipe.splitVariantProps(props);
+    const { placeholder = "Select file(s)", ...rest } = restProps;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(FileUpload.Trigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Button,
       {
-        unstyled: !0,
+        unstyled: true,
         py: "0",
-        ref: o,
-        ...p,
-        css: [n(l), r.css],
-        children: /* @__PURE__ */ e.jsx(t.Context, { children: ({ acceptedFiles: i }) => i.length === 1 ? /* @__PURE__ */ e.jsx("span", { children: i[0].name }) : i.length > 1 ? /* @__PURE__ */ e.jsxs("span", { children: [
-          i.length,
-          " files"
-        ] }) : /* @__PURE__ */ e.jsx(g, { color: "fg.subtle", children: d }) })
+        ref,
+        ...rest,
+        css: [inputRecipe(recipeProps), props.css],
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(FileUpload.Context, { children: ({ acceptedFiles }) => {
+          if (acceptedFiles.length === 1) {
+            return /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: acceptedFiles[0].name });
+          }
+          if (acceptedFiles.length > 1) {
+            return /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+              acceptedFiles.length,
+              " files"
+            ] });
+          }
+          return /* @__PURE__ */ jsxRuntimeExports.jsx(Span, { color: "fg.subtle", children: placeholder });
+        } })
       }
     ) });
   }
-), v = t.Label, y = t.ClearTrigger, B = t.Trigger;
+);
+const FileUploadLabel = FileUpload.Label;
+const FileUploadClearTrigger = FileUpload.ClearTrigger;
+const FileUploadTrigger = FileUpload.Trigger;
 export {
-  w as FileInput,
-  y as FileUploadClearTrigger,
-  D as FileUploadDropzone,
-  v as FileUploadLabel,
-  P as FileUploadList,
-  b as FileUploadRoot,
-  B as FileUploadTrigger
+  FileInput,
+  FileUploadClearTrigger,
+  FileUploadDropzone,
+  FileUploadLabel,
+  FileUploadList,
+  FileUploadRoot,
+  FileUploadTrigger
 };
 //# sourceMappingURL=file-button.mjs.map

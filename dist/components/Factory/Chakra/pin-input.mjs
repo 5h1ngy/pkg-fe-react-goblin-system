@@ -1,16 +1,16 @@
-import { j as t } from "../../../.chunks/CYK1ROHF.js";
-import { PinInput as r, Group as m } from "@chakra-ui/react";
-import { forwardRef as c } from "react";
-const h = c(
-  function(o, p) {
-    const { count: s = 4, inputProps: i, rootRef: e, attached: u, ...f } = o;
-    return /* @__PURE__ */ t.jsxs(r.Root, { ref: e, ...f, children: [
-      /* @__PURE__ */ t.jsx(r.HiddenInput, { ref: p, ...i }),
-      /* @__PURE__ */ t.jsx(r.Control, { children: /* @__PURE__ */ t.jsx(m, { attached: u, children: Array.from({ length: s }).map((j, n) => /* @__PURE__ */ t.jsx(r.Input, { index: n }, n)) }) })
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { PinInput as PinInput$1, Group } from "@chakra-ui/react";
+import { forwardRef } from "react";
+const PinInput = forwardRef(
+  function PinInput2(props, ref) {
+    const { count = 4, inputProps, rootRef, attached, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(PinInput$1.Root, { ref: rootRef, ...rest, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(PinInput$1.HiddenInput, { ref, ...inputProps }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(PinInput$1.Control, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Group, { attached, children: Array.from({ length: count }).map((_, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(PinInput$1.Input, { index }, index)) }) })
     ] });
   }
 );
 export {
-  h as PinInput
+  PinInput
 };
 //# sourceMappingURL=pin-input.mjs.map

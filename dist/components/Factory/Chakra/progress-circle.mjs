@@ -1,18 +1,20 @@
-import { j as r } from "../../../.chunks/CYK1ROHF.js";
-import { ProgressCircle as e, AbsoluteCenter as a } from "@chakra-ui/react";
-import { forwardRef as t } from "react";
-const f = e.Root, j = t(function(o, s) {
-  const { trackColor: i, cap: n, color: l, ...x } = o;
-  return /* @__PURE__ */ r.jsxs(e.Circle, { ...x, ref: s, children: [
-    /* @__PURE__ */ r.jsx(e.Track, { stroke: i }),
-    /* @__PURE__ */ r.jsx(e.Range, { stroke: l, strokeLinecap: n })
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { ProgressCircle, AbsoluteCenter } from "@chakra-ui/react";
+import { forwardRef } from "react";
+const ProgressCircleRoot = ProgressCircle.Root;
+const ProgressCircleRing = forwardRef(function ProgressCircleRing2(props, ref) {
+  const { trackColor, cap, color, ...rest } = props;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ProgressCircle.Circle, { ...rest, ref, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ProgressCircle.Track, { stroke: trackColor }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ProgressCircle.Range, { stroke: color, strokeLinecap: cap })
   ] });
-}), m = t(function(o, s) {
-  return /* @__PURE__ */ r.jsx(a, { children: /* @__PURE__ */ r.jsx(e.ValueText, { ...o, ref: s }) });
+});
+const ProgressCircleValueText = forwardRef(function ProgressCircleValueText2(props, ref) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(AbsoluteCenter, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(ProgressCircle.ValueText, { ...props, ref }) });
 });
 export {
-  j as ProgressCircleRing,
-  f as ProgressCircleRoot,
-  m as ProgressCircleValueText
+  ProgressCircleRing,
+  ProgressCircleRoot,
+  ProgressCircleValueText
 };
 //# sourceMappingURL=progress-circle.mjs.map

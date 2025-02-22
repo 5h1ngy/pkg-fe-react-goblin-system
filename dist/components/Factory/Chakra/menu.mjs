@@ -1,57 +1,70 @@
-import { j as t } from "../../../.chunks/CYK1ROHF.js";
-import { Portal as d, Menu as e, AbsoluteCenter as x } from "@chakra-ui/react";
-import { forwardRef as i } from "react";
-import { b as m, g as a } from "../../../.chunks/CF0BrBy-.js";
-const j = i(
-  function(n, r) {
-    const { portalled: o = !0, portalRef: s, ...u } = n;
-    return /* @__PURE__ */ t.jsx(d, { disabled: !o, container: s, children: /* @__PURE__ */ t.jsx(e.Positioner, { children: /* @__PURE__ */ t.jsx(e.Content, { ref: r, ...u }) }) });
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
+import { Portal, Menu, AbsoluteCenter } from "@chakra-ui/react";
+import { forwardRef } from "react";
+import { b as LuCheck, g as LuChevronRight } from "../../../.chunks/Bol7GxK0.js";
+const MenuContent = forwardRef(
+  function MenuContent2(props, ref) {
+    const { portalled = true, portalRef, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Portal, { disabled: !portalled, container: portalRef, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Menu.Positioner, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Menu.Content, { ref, ...rest }) }) });
   }
-), g = i(
-  function(n, r) {
-    return /* @__PURE__ */ t.jsx(e.Arrow, { ref: r, ...n, children: /* @__PURE__ */ t.jsx(e.ArrowTip, {}) });
+);
+const MenuArrow = forwardRef(
+  function MenuArrow2(props, ref) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Menu.Arrow, { ref, ...props, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Menu.ArrowTip, {}) });
   }
-), p = i(function(n, r) {
-  return /* @__PURE__ */ t.jsxs(e.CheckboxItem, { ref: r, ...n, children: [
-    /* @__PURE__ */ t.jsx(e.ItemIndicator, { hidden: !1, children: /* @__PURE__ */ t.jsx(m, {}) }),
-    n.children
+);
+const MenuCheckboxItem = forwardRef(function MenuCheckboxItem2(props, ref) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Menu.CheckboxItem, { ref, ...props, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Menu.ItemIndicator, { hidden: false, children: /* @__PURE__ */ jsxRuntimeExports.jsx(LuCheck, {}) }),
+    props.children
   ] });
-}), f = i(function(n, r) {
-  const { children: o, ...s } = n;
-  return /* @__PURE__ */ t.jsxs(e.RadioItem, { ps: "8", ref: r, ...s, children: [
-    /* @__PURE__ */ t.jsx(x, { axis: "horizontal", left: "4", asChild: !0, children: /* @__PURE__ */ t.jsx(e.ItemIndicator, { children: /* @__PURE__ */ t.jsx(m, {}) }) }),
-    /* @__PURE__ */ t.jsx(e.ItemText, { children: o })
+});
+const MenuRadioItem = forwardRef(function MenuRadioItem2(props, ref) {
+  const { children, ...rest } = props;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Menu.RadioItem, { ps: "8", ref, ...rest, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AbsoluteCenter, { axis: "horizontal", left: "4", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Menu.ItemIndicator, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(LuCheck, {}) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Menu.ItemText, { children })
   ] });
-}), C = i(function(n, r) {
-  const { title: o, children: s, ...u } = n;
-  return /* @__PURE__ */ t.jsxs(e.ItemGroup, { ref: r, ...u, children: [
-    o && /* @__PURE__ */ t.jsx(e.ItemGroupLabel, { userSelect: "none", children: o }),
-    s
+});
+const MenuItemGroup = forwardRef(function MenuItemGroup2(props, ref) {
+  const { title, children, ...rest } = props;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Menu.ItemGroup, { ref, ...rest, children: [
+    title && /* @__PURE__ */ jsxRuntimeExports.jsx(Menu.ItemGroupLabel, { userSelect: "none", children: title }),
+    children
   ] });
-}), R = i(
-  function(n, r) {
-    const { startIcon: o, children: s, ...u } = n;
-    return /* @__PURE__ */ t.jsxs(e.TriggerItem, { ref: r, ...u, children: [
-      o,
-      s,
-      /* @__PURE__ */ t.jsx(a, {})
+});
+const MenuTriggerItem = forwardRef(
+  function MenuTriggerItem2(props, ref) {
+    const { startIcon, children, ...rest } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Menu.TriggerItem, { ref, ...rest, children: [
+      startIcon,
+      children,
+      /* @__PURE__ */ jsxRuntimeExports.jsx(LuChevronRight, {})
     ] });
   }
-), T = e.RadioItemGroup, b = e.ContextTrigger, G = e.Root, w = e.Separator, A = e.Item, k = e.ItemText, L = e.ItemCommand, S = e.Trigger;
+);
+const MenuRadioItemGroup = Menu.RadioItemGroup;
+const MenuContextTrigger = Menu.ContextTrigger;
+const MenuRoot = Menu.Root;
+const MenuSeparator = Menu.Separator;
+const MenuItem = Menu.Item;
+const MenuItemText = Menu.ItemText;
+const MenuItemCommand = Menu.ItemCommand;
+const MenuTrigger = Menu.Trigger;
 export {
-  g as MenuArrow,
-  p as MenuCheckboxItem,
-  j as MenuContent,
-  b as MenuContextTrigger,
-  A as MenuItem,
-  L as MenuItemCommand,
-  C as MenuItemGroup,
-  k as MenuItemText,
-  f as MenuRadioItem,
-  T as MenuRadioItemGroup,
-  G as MenuRoot,
-  w as MenuSeparator,
-  S as MenuTrigger,
-  R as MenuTriggerItem
+  MenuArrow,
+  MenuCheckboxItem,
+  MenuContent,
+  MenuContextTrigger,
+  MenuItem,
+  MenuItemCommand,
+  MenuItemGroup,
+  MenuItemText,
+  MenuRadioItem,
+  MenuRadioItemGroup,
+  MenuRoot,
+  MenuSeparator,
+  MenuTrigger,
+  MenuTriggerItem
 };
 //# sourceMappingURL=menu.mjs.map
