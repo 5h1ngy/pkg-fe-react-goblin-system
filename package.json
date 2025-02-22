@@ -1,6 +1,6 @@
 {
   "name": "react-goblin-system",
-  "version": "0.3.29",
+  "version": "0.3.30",
   "license": "MIT",
   "description": "",
   "keywords": [],
@@ -356,7 +356,8 @@
     "react-helmet-async": "*",
     "react-hook-form": "*",
     "react-redux": "*",
-    "react-router-dom": "*"
+    "react-router-dom": "*",
+    "zod": "*"
   },
   "devDependencies": {
     "@chakra-ui/react": "^3.8.0",

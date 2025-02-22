@@ -112,7 +112,9 @@ export default defineConfig({
             external: [
                 "react",
                 "react-dom",
-                "@chakra-ui/react"
+                "@chakra-ui/react",
+                "react-router-dom",
+                "zod",
             ],
             output: {
                 plugins: [
@@ -125,11 +127,11 @@ export default defineConfig({
                 },
 
                 // chunkFileNames: () =>
-                    // `.chunks/[hash].js`,
+                // `.chunks/[hash].js`,
 
                 // assetFileNames: (asset) => asset.name && asset.name.endsWith('.css')
-                    // ? 'styles/[name][extname]'
-                    // : '[name][extname]',
+                // ? 'styles/[name][extname]'
+                // : '[name][extname]',
             }
         }
     }

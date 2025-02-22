@@ -15813,6 +15813,7 @@ __metadata:
     react-hook-form: "*"
     react-redux: "*"
     react-router-dom: "*"
+    zod: "*"
   languageName: unknown
   linkType: soft
 
