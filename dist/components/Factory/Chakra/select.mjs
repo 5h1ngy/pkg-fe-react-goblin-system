@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Select, Portal } from "@chakra-ui/react";
 import { CloseButton } from "./close-button.mjs";
 import { forwardRef } from "react";
@@ -89,4 +89,3 @@ export {
   SelectTrigger,
   SelectValueText
 };
-//# sourceMappingURL=select.mjs.map

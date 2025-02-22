@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { NumberInput } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const NumberInputRoot = forwardRef(
@@ -22,4 +22,3 @@ export {
   NumberInputRoot,
   NumberInputScruber
 };
-//# sourceMappingURL=number-input.mjs.map

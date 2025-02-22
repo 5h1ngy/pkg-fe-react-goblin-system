@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../.chunks/CSg68eI9.js";
 import { defineConfig, ChakraProvider, createSystem, defaultConfig } from "@chakra-ui/react";
 import { ColorModeProvider } from "../components/Factory/Chakra/color-mode.mjs";
 function ThemeProvider(props) {
@@ -11,4 +11,3 @@ function ThemeProvider(props) {
 export {
   ThemeProvider as default
 };
-//# sourceMappingURL=Theme.mjs.map

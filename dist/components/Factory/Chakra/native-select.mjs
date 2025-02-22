@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { NativeSelect } from "@chakra-ui/react";
 import { forwardRef, useMemo } from "react";
 const NativeSelectRoot = forwardRef(function NativeSelect$1(props, ref) {
@@ -25,4 +25,3 @@ export {
   NativeSelectField,
   NativeSelectRoot
 };
-//# sourceMappingURL=native-select.mjs.map

@@ -32,4 +32,3 @@ async function errorHandler(cb) {
 export {
   errorHandler
 };
-//# sourceMappingURL=handlers.mjs.map

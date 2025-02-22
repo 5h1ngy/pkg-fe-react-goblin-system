@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Breadcrumb } from "@chakra-ui/react";
 import { forwardRef, Children, isValidElement, Fragment } from "react";
 const BreadcrumbRoot = forwardRef(
@@ -23,4 +23,3 @@ export {
   BreadcrumbLink,
   BreadcrumbRoot
 };
-//# sourceMappingURL=breadcrumb.mjs.map

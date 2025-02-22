@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Group, InputElement } from "@chakra-ui/react";
 import { forwardRef, cloneElement } from "react";
 const InputGroup = forwardRef(
@@ -25,4 +25,3 @@ const InputGroup = forwardRef(
 export {
   InputGroup
 };
-//# sourceMappingURL=input-group.mjs.map

@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Tag as Tag$1 } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const Tag = forwardRef(
@@ -22,4 +22,3 @@ const Tag = forwardRef(
 export {
   Tag
 };
-//# sourceMappingURL=tag.mjs.map

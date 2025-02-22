@@ -1,6 +1,5 @@
-import { D, w } from "../../../DynamicForm-DnGxltq7.js";
+import { D, w } from "../../../.chunks/VhL-GHat.js";
 export {
   D as default,
   w as withMeta
 };
-//# sourceMappingURL=index.mjs.map

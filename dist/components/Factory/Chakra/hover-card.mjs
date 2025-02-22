@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Portal, HoverCard } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const HoverCardContent = forwardRef(function HoverCardContent2(props, ref) {
@@ -18,4 +18,3 @@ export {
   HoverCardRoot,
   HoverCardTrigger
 };
-//# sourceMappingURL=hover-card.mjs.map

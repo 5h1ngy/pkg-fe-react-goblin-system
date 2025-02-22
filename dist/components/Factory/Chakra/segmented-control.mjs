@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { SegmentGroup, For } from "@chakra-ui/react";
 import { forwardRef, useMemo } from "react";
 function normalize(items) {
@@ -29,4 +29,3 @@ const SegmentedControl = forwardRef(function SegmentedControl2(props, ref) {
 export {
   SegmentedControl
 };
-//# sourceMappingURL=segmented-control.mjs.map

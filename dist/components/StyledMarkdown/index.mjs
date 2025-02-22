@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
 }
@@ -27977,4 +27977,3 @@ const StyledMarkdown = ({ content: content2 }) => {
 export {
   StyledMarkdown as default
 };
-//# sourceMappingURL=index.mjs.map

@@ -1,6 +1,6 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Stat, IconButton, FormatNumber, Badge } from "@chakra-ui/react";
-import { T as ToggleTip, H as HiOutlineInformationCircle } from "../../../toggle-tip-CkGJm8zQ.js";
+import { T as ToggleTip, H as HiOutlineInformationCircle } from "../../../.chunks/4Il6cKWL.js";
 import { forwardRef } from "react";
 const StatLabel = forwardRef(
   function StatLabel2(props, ref) {
@@ -45,4 +45,3 @@ export {
   StatValueText,
   StatValueUnit
 };
-//# sourceMappingURL=stat.mjs.map

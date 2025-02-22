@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 import { createContext, useState, useContext, useEffect } from "react";
 import { Table, HStack, Kbd, Stack } from "@chakra-ui/react";
 import { Checkbox } from "../Factory/Chakra/checkbox.mjs";
@@ -166,4 +166,3 @@ const index = withContext(LiquidTable);
 export {
   index as default
 };
-//# sourceMappingURL=index.mjs.map

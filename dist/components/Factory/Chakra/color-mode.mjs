@@ -1,9 +1,9 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { ClientOnly, IconButton, Skeleton, Tabs } from "@chakra-ui/react";
-import { z, J } from "../../../index-CHz_-0gi.js";
+import { z, J } from "../../../.chunks/CHz_-0gi.js";
 import { forwardRef } from "react";
-import { a as HiSun, b as HiMoon } from "../../../index-Bsqq3xGi.js";
-import { j as LuSun, k as LuMoon } from "../../../index-B99rpP98.js";
+import { a as HiSun, b as HiMoon } from "../../../.chunks/DQ34BLAW.js";
+import { j as LuSun, k as LuMoon } from "../../../.chunks/Bol7GxK0.js";
 function ColorModeProvider(props) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(J, { attribute: "class", disableTransitionOnChange: true, ...props });
 }
@@ -81,4 +81,3 @@ export {
   useColorMode,
   useColorModeValue
 };
-//# sourceMappingURL=color-mode.mjs.map

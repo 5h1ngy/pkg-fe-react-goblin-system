@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Toggle as Toggle$1, useToggleContext, Button } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const variantMap = {
@@ -33,4 +33,3 @@ export {
   Toggle,
   ToggleIndicator
 };
-//# sourceMappingURL=toggle.mjs.map

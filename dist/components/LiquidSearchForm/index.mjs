@@ -1,6 +1,6 @@
-import { j as jsxRuntimeExports } from "../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 import { VStack, HStack } from "@chakra-ui/react";
-import { D as DynamicForm } from "../../DynamicForm-DnGxltq7.js";
+import { D as DynamicForm } from "../../.chunks/VhL-GHat.js";
 import { Button } from "../Factory/Chakra/button.mjs";
 function LiquidSearchForm({ schema }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -28,4 +28,3 @@ function LiquidSearchForm({ schema }) {
 export {
   LiquidSearchForm as default
 };
-//# sourceMappingURL=index.mjs.map

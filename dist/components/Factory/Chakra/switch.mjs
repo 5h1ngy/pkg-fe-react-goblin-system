@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Switch as Switch$1 } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const Switch = forwardRef(
@@ -17,4 +17,3 @@ const Switch = forwardRef(
 export {
   Switch
 };
-//# sourceMappingURL=switch.mjs.map

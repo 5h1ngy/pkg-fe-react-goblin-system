@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Button as Button$1, AbsoluteCenter, Spinner, Span } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const Button = forwardRef(
@@ -16,4 +16,3 @@ const Button = forwardRef(
 export {
   Button
 };
-//# sourceMappingURL=button.mjs.map

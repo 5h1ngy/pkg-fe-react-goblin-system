@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { createToaster, Portal, Toaster as Toaster$1, Toast, Spinner, Stack } from "@chakra-ui/react";
 const toaster = createToaster({
   placement: "bottom-end",
@@ -22,4 +22,3 @@ export {
   Toaster,
   toaster
 };
-//# sourceMappingURL=toaster.mjs.map

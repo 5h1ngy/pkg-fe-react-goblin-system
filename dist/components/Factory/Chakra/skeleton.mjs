@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Stack, Skeleton as Skeleton$1, Circle } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const SkeletonCircle = (props) => {
@@ -26,4 +26,3 @@ export {
   SkeletonCircle,
   SkeletonText
 };
-//# sourceMappingURL=skeleton.mjs.map

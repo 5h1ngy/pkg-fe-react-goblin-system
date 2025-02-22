@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Status as Status$1 } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const statusMap = {
@@ -20,4 +20,3 @@ const Status = forwardRef(
 export {
   Status
 };
-//# sourceMappingURL=status.mjs.map

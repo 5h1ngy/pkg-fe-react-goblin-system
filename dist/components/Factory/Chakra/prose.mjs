@@ -262,4 +262,3 @@ const Prose = chakra("div", {
 export {
   Prose
 };
-//# sourceMappingURL=prose.mjs.map

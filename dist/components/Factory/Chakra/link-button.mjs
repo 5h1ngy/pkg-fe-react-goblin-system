@@ -4,4 +4,3 @@ const LinkButton = withContext("a");
 export {
   LinkButton
 };
-//# sourceMappingURL=link-button.mjs.map

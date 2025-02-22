@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Tooltip as Tooltip$1, Portal } from "@chakra-ui/react";
 import { forwardRef } from "react";
 const Tooltip = forwardRef(
@@ -26,4 +26,3 @@ const Tooltip = forwardRef(
 export {
   Tooltip
 };
-//# sourceMappingURL=tooltip.mjs.map

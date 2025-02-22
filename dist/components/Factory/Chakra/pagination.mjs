@@ -1,7 +1,7 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { createContext, Pagination, Button, usePaginationContext, IconButton, Text } from "@chakra-ui/react";
 import { forwardRef, useMemo } from "react";
-import { c as HiMiniEllipsisHorizontal, d as HiChevronLeft, e as HiChevronRight } from "../../../index-Bsqq3xGi.js";
+import { c as HiMiniEllipsisHorizontal, d as HiChevronLeft, e as HiChevronRight } from "../../../.chunks/DQ34BLAW.js";
 import { LinkButton } from "./link-button.mjs";
 const [RootPropsProvider, useRootProps] = createContext({
   name: "RootPropsProvider"
@@ -108,4 +108,3 @@ export {
   PaginationPrevTrigger,
   PaginationRoot
 };
-//# sourceMappingURL=pagination.mjs.map

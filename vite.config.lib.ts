@@ -14,7 +14,7 @@ export default defineConfig({
         tsconfigPaths()
     ],
     build: {
-        sourcemap: true,
+        sourcemap: false,
         minify: 'terser',
         lib: {
             name: "react-goblin-system",
@@ -87,6 +87,7 @@ export default defineConfig({
 
                 "layouts/Error/index": path.resolve(__dirname, "src/layouts/Error/index.ts"),
                 "layouts/Loading/index": path.resolve(__dirname, "src/layouts/Loading/index.ts"),
+                "layouts/Transformer/index": path.resolve(__dirname, "src/layouts/Transformer/index.ts"),
 
                 "providers/Auth/index": path.resolve(__dirname, "src/providers/Auth/index.ts"),
                 "providers/Theme": path.resolve(__dirname, "src/providers/Theme.tsx"),
@@ -101,8 +102,8 @@ export default defineConfig({
         },
         terserOptions: {
             compress: {
-                drop_console: false,
-                drop_debugger: false,
+                drop_console: true,
+                drop_debugger: true,
             },
             format: {
                 comments: false,
@@ -126,12 +127,12 @@ export default defineConfig({
                     "react-dom": "ReactDOM",
                 },
 
-                // chunkFileNames: () =>
-                // `.chunks/[hash].js`,
+                chunkFileNames: () =>
+                    `.chunks/[hash].js`,
 
-                // assetFileNames: (asset) => asset.name && asset.name.endsWith('.css')
-                // ? 'styles/[name][extname]'
-                // : '[name][extname]',
+                assetFileNames: (asset) => asset.name && asset.name.endsWith('.css')
+                    ? 'styles/[name][extname]'
+                    : '[name][extname]',
             }
         }
     }

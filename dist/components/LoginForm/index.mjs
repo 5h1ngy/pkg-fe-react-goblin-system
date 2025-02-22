@@ -1,6 +1,6 @@
-import { j as jsxRuntimeExports } from "../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 import { Card, HStack, Image, VStack, Heading, Stack } from "@chakra-ui/react";
-import { w as withMeta, D as DynamicForm } from "../../DynamicForm-DnGxltq7.js";
+import { w as withMeta, D as DynamicForm } from "../../.chunks/VhL-GHat.js";
 import { Button } from "../Factory/Chakra/button.mjs";
 import { z } from "zod";
 const schema = z.object({
@@ -54,4 +54,3 @@ const LoginForm = ({ header, submit, children, root }) => {
 export {
   LoginForm as default
 };
-//# sourceMappingURL=index.mjs.map

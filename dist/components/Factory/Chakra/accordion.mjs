@@ -1,7 +1,7 @@
-import { j as jsxRuntimeExports } from "../../../jsx-runtime-CSg68eI9.js";
+import { j as jsxRuntimeExports } from "../../../.chunks/CSg68eI9.js";
 import { Accordion, HStack } from "@chakra-ui/react";
 import { forwardRef } from "react";
-import { L as LuChevronDown } from "../../../index-B99rpP98.js";
+import { L as LuChevronDown } from "../../../.chunks/Bol7GxK0.js";
 const AccordionItemTrigger = forwardRef(function AccordionItemTrigger2(props, ref) {
   const { children, indicatorPlacement = "end", ...rest } = props;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Accordion.ItemTrigger, { ...rest, ref, children: [
@@ -21,4 +21,3 @@ export {
   AccordionItemTrigger,
   AccordionRoot
 };
-//# sourceMappingURL=accordion.mjs.map
