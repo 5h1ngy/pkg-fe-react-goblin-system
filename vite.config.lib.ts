@@ -87,6 +87,7 @@ export default defineConfig({
 
                 "layouts/Error/index": path.resolve(__dirname, "src/layouts/Error/index.ts"),
                 "layouts/Loading/index": path.resolve(__dirname, "src/layouts/Loading/index.ts"),
+                "layouts/Transformer/index": path.resolve(__dirname, "src/layouts/Transformer/index.ts"),
 
                 "providers/Auth/index": path.resolve(__dirname, "src/providers/Auth/index.ts"),
                 "providers/Theme": path.resolve(__dirname, "src/providers/Theme.tsx"),
@@ -112,7 +113,9 @@ export default defineConfig({
             external: [
                 "react",
                 "react-dom",
-                "@chakra-ui/react"
+                "@chakra-ui/react",
+                "react-router-dom",
+                "zod",
             ],
             output: {
                 plugins: [
@@ -123,9 +126,6 @@ export default defineConfig({
                     react: "React",
                     "react-dom": "ReactDOM",
                 },
-
-                // entryFileNames: (chunk) =>
-                    // `${path.relative(path.resolve(__dirname, 'src'), chunk.facadeModuleId!).replace(/\.[^/.]+$/, '')}.js`,
 
                 chunkFileNames: () =>
                     `.chunks/[hash].js`,

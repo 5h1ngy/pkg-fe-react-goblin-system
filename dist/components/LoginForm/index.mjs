@@ -1,7 +1,8 @@
 import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 import { Card, HStack, Image, VStack, Heading, Stack } from "@chakra-ui/react";
-import { z, w as withMeta, D as DynamicForm } from "../../.chunks/COlaR-yO.js";
+import { w as withMeta, D as DynamicForm } from "../../.chunks/VhL-GHat.js";
 import { Button } from "../Factory/Chakra/button.mjs";
+import { z } from "zod";
 const schema = z.object({
   "id": withMeta(
     z.string().trim(),

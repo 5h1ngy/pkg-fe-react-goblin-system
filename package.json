@@ -1,6 +1,6 @@
 {
   "name": "react-goblin-system",
-  "version": "0.3.24",
+  "version": "0.3.31",
   "license": "MIT",
   "description": "",
   "keywords": [],
@@ -286,6 +286,10 @@
       "import": "./dist/layouts/Loading/index.mjs",
       "types": "./dist/types/layouts/Loading/index.d.ts"
     },
+    "./layouts/Transformer": {
+      "import": "./dist/layouts/Transformer/index.mjs",
+      "types": "./dist/types/layouts/Transformer/index.d.ts"
+    },
     "./providers/Auth": {
       "import": "./dist/providers/Auth/index.mjs",
       "types": "./dist/types/providers/Auth/index.d.ts"
@@ -356,7 +360,8 @@
     "react-helmet-async": "*",
     "react-hook-form": "*",
     "react-redux": "*",
-    "react-router-dom": "*"
+    "react-router-dom": "*",
+    "zod": "*"
   },
   "devDependencies": {
     "@chakra-ui/react": "^3.8.0",

@@ -1,4 +1,5 @@
-import { D } from "../../../.chunks/COlaR-yO.js";
+import { D, w } from "../../../.chunks/VhL-GHat.js";
 export {
-  D as default
+  D as default,
+  w as withMeta
 };
