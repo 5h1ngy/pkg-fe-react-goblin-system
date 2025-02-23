@@ -85,6 +85,8 @@ export default defineConfig({
                 "components/SectionCardRow/index": path.resolve(__dirname, "src/components/SectionCardRow/index.ts"),
                 "components/StyledMarkdown/index": path.resolve(__dirname, "src/components/StyledMarkdown/index.ts"),
 
+                "hocs/withRouter": path.resolve(__dirname, "src/hocs/withRouter.tsx"),
+
                 "layouts/Error/index": path.resolve(__dirname, "src/layouts/Error/index.ts"),
                 "layouts/Loading/index": path.resolve(__dirname, "src/layouts/Loading/index.ts"),
                 "layouts/Transformer/index": path.resolve(__dirname, "src/layouts/Transformer/index.ts"),
