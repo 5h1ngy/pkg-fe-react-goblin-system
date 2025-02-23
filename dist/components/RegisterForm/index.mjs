@@ -100,7 +100,7 @@ const RegisterForm = ({ rootStyle, children, submit }) => {
         display: { base: "none", lg: "block" },
         objectFit: "cover",
         height: "15rem",
-        src: `${void 0}/assets/background_card_register.png`,
+        src: `${""}/assets/background_card_register.png`,
         alt: ""
       }
     ),
