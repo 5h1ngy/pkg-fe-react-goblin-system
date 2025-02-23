@@ -278,9 +278,9 @@
       "import": "./dist/components/StyledMarkdown/index.mjs",
       "types": "./dist/types/components/StyledMarkdown/index.d.ts"
     },
-    "./layouts/hocs/withRouter": {
-      "import": "./dist/layouts/hocs/withRouter.mjs",
-      "types": "./dist/types/layouts/hocs/withRouter.d.ts"
+    "./hocs/withRouter": {
+      "import": "./dist/hocs/withRouter.mjs",
+      "types": "./dist/types/hocs/withRouter.d.ts"
     },
     "./layouts/Error": {
       "import": "./dist/layouts/Error/index.mjs",
