@@ -303,7 +303,7 @@
       "types": "./dist/types/providers/Theme.d.ts"
     },
     "./services/auth": {
-      "import": "./dist/services/auth/index.mjs",
+      "import": "./dist/services/auth.mjs",
       "types": "./dist/types/services/auth/index.d.ts"
     },
     "./services/handlers": {
@@ -315,7 +315,7 @@
       "types": "./dist/types/services/types.d.ts"
     },
     "./store/auth": {
-      "import": "./dist/store/auth/index.mjs",
+      "import": "./dist/store/auth.mjs",
       "types": "./dist/types/store/auth/index.d.ts"
     },
     "./store/shared": {
