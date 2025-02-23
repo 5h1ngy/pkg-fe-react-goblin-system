@@ -2384,7 +2384,7 @@ async function register(payload) {
   {
     return await errorHandler(
       async () => (await axios.post(
-        `${"http://localhost:3000/api/be-node-auth/"}/auth/register`,
+        `${"http://localhost:3000/api/be-node-auth"}/auth/register`,
         payload
       )).data
     );
@@ -2393,14 +2393,14 @@ async function register(payload) {
 async function login(payload) {
   {
     return await errorHandler(
-      async () => (await axios.post(`${"http://localhost:3000/api/be-node-auth/"}/auth/login`, payload)).data
+      async () => (await axios.post(`${"http://localhost:3000/api/be-node-auth"}/auth/login`, payload)).data
     );
   }
 }
 async function refresh(payload) {
   {
     return await errorHandler(
-      async () => (await axios.post(`${"http://localhost:3000/api/be-node-auth/"}/auth/refresh`, payload)).data
+      async () => (await axios.post(`${"http://localhost:3000/api/be-node-auth"}/auth/refresh`, payload)).data
     );
   }
 }
