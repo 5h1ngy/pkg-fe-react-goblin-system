@@ -28,7 +28,7 @@ const LoginForm = ({ header, submit, children, root }) => {
         display: { base: "none", lg: "block" },
         objectFit: "cover",
         height: "15rem",
-        src: `${void 0}/assets/background_card_login.png`,
+        src: `${""}/assets/background_card_login.png`,
         alt: ""
       }
     ),

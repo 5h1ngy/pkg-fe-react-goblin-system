@@ -1,6 +1,6 @@
 {
   "name": "react-goblin-system",
-  "version": "0.3.31",
+  "version": "0.3.35",
   "license": "MIT",
   "description": "",
   "keywords": [],
@@ -278,6 +278,10 @@
       "import": "./dist/components/StyledMarkdown/index.mjs",
       "types": "./dist/types/components/StyledMarkdown/index.d.ts"
     },
+    "./hocs/withRouter": {
+      "import": "./dist/hocs/withRouter.mjs",
+      "types": "./dist/types/hocs/withRouter.d.ts"
+    },
     "./layouts/Error": {
       "import": "./dist/layouts/Error/index.mjs",
       "types": "./dist/types/layouts/Error/index.d.ts"
@@ -299,7 +303,7 @@
       "types": "./dist/types/providers/Theme.d.ts"
     },
     "./services/auth": {
-      "import": "./dist/services/auth/index.mjs",
+      "import": "./dist/services/auth.mjs",
       "types": "./dist/types/services/auth/index.d.ts"
     },
     "./services/handlers": {
@@ -311,7 +315,7 @@
       "types": "./dist/types/services/types.d.ts"
     },
     "./store/auth": {
-      "import": "./dist/store/auth/index.mjs",
+      "import": "./dist/store/auth.mjs",
       "types": "./dist/types/store/auth/index.d.ts"
     },
     "./store/shared": {
@@ -328,12 +332,12 @@
     ]
   },
   "scripts": {
-    "start:storybook": "storybook dev --no-open",
+    "start:storybook": "storybook dev --no-open --mode dev",
     "start:docs": "yarn workspace react-goblin-system-docs docusaurus start",
     "test": "jest --passWithNoTests",
     "build:storybook": "storybook build --output-dir build-storybook",
     "build:docs": "yarn workspace react-goblin-system-docs docusaurus build && rm -rf build-docusaurus && mv docs/build build-docusaurus && rm -rf docs/build",
-    "build:lib": "vite build --config vite.config.lib.ts",
+    "build:lib": "vite build --config vite.config.lib.ts --mode dev",
     "build:types": "tsc --project tsconfig.types.json",
     "clean": "rm -rfdv node_modules dist build-docusaurus build-storybook .yarn"
   },
