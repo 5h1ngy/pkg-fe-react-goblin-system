@@ -20,7 +20,7 @@ function LiquidSearchForm({ schema }) {
           _dark: { backgroundColor: "gray.950" },
           children: [
             fields,
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", width: "fit-content", children: "Crea Account" })
           ]
         }
       )

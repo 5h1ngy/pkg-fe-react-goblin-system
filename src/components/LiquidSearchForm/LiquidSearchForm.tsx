@@ -17,7 +17,7 @@ function LiquidSearchForm<T extends z.ZodEffects<ZodObject<any>>>({ schema }: Co
                 backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.950", }}
             >
                 {fields}
-                <Button variant="outline" type="submit" colorPalette={"teal"}>
+                <Button variant="outline" type="submit" colorPalette={"teal"} width={"fit-content"}>
                     Crea Account
                 </Button>
             </Stack>
