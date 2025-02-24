@@ -14,6 +14,7 @@ function LiquidSearchForm({ schema }) {
         {
           width: "full",
           wrap: "wrap",
+          direction: "row",
           gap: "1rem",
           padding: "1.5rem",
           borderRadius: "10px",
