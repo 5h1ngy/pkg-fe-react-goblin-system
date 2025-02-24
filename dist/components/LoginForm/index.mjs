@@ -43,8 +43,10 @@ const LoginForm = ({ header, submit, children, root }) => {
           schema,
           render: (rows, onSubmit) => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Card.Body, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Stack, { gap: "4", width: { md: "fit-content" }, children: rows }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Card.Footer, { justifyContent: "center", paddingY: "1rem", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { onClick: onSubmit(submit), variant: "solid", width: "100%", children: "Accedi" }) }),
-            children
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Card.Footer, { justifyContent: "center", paddingY: "1rem", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { onClick: onSubmit(submit), variant: "solid", width: "100%", children: "Accedi" }),
+              children
+            ] })
           ] })
         }
       )
