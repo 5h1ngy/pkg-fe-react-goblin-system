@@ -8645,6 +8645,7 @@ function withMeta(schema, meta) {
 }
 function DynamicForm({
   width,
+  rowsWidth,
   schema,
   defaultValues,
   step = 0,
@@ -8672,7 +8673,7 @@ function DynamicForm({
         return /* @__PURE__ */ jsxRuntimeExports.jsx(
           Flex,
           {
-            width: "fit-content",
+            width: rowsWidth ?? "full",
             wrap: "wrap",
             direction: "row",
             gap: "0.8rem",

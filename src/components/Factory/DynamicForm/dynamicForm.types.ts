@@ -18,6 +18,7 @@ export interface MetaSchema extends ZodTypeAny {
 
 export interface ComponentProps<T extends z.ZodEffects<ZodObject<any>>> {
     width?: string;
+    rowsWidth?: string;
     schema: T;
     defaultValues?: DefaultValues<TypeOf<T>> | undefined;
     step?: number;

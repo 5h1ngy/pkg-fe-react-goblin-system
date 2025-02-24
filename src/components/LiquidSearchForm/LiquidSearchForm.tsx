@@ -10,7 +10,8 @@ function LiquidSearchForm<T extends z.ZodEffects<ZodObject<any>>>({ schema }: Co
 
     return <DynamicForm
         schema={schema}
-        width={"100%"}
+        width={"full"}
+        rowsWidth={"fit-content"}
         render={(fields: React.ReactNode[]) =>
             <VStack gap={"1rem"}
                 padding={"1.5rem"} borderRadius={"10px"}

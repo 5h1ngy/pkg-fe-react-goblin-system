@@ -1,13 +1,14 @@
 import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 import { VStack, Stack } from "@chakra-ui/react";
-import { D as DynamicForm } from "../../.chunks/U4EdF585.js";
+import { D as DynamicForm } from "../../.chunks/Clcub7Py.js";
 import { Button } from "../Factory/Chakra/button.mjs";
 function LiquidSearchForm({ schema }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     DynamicForm,
     {
       schema,
-      width: "100%",
+      width: "full",
+      rowsWidth: "fit-content",
       render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         VStack,
         {
