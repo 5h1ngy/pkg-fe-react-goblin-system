@@ -12,11 +12,11 @@ function LiquidSearchForm<T extends z.ZodEffects<ZodObject<any>>>({ schema }: Co
         schema={schema}
         width={"full"}
         render={(fields: React.ReactNode[]) =>
-            <VStack gap={"1rem"}
-                padding={"1.5rem"} borderRadius={"10px"}
-                backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.950", }}
-            >
-                <Stack gap="4" width={"full"} wrap={"wrap"}>
+            <VStack >
+                <Stack width={"full"} wrap={"wrap"}
+                    gap={"1rem"} padding={"1.5rem"} borderRadius={"10px"}
+                    backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.950", }}
+                >
                     {fields}
                 </Stack>
                 <VStack gap="4" width={"100%"} alignItems={"flex-end"}>

@@ -8,20 +8,22 @@ function LiquidSearchForm({ schema }) {
     {
       schema,
       width: "full",
-      render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        VStack,
-        {
-          gap: "1rem",
-          padding: "1.5rem",
-          borderRadius: "10px",
-          backgroundColor: "gray.100",
-          _dark: { backgroundColor: "gray.950" },
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Stack, { gap: "4", width: "full", wrap: "wrap", children: fields }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { gap: "4", width: "100%", alignItems: "flex-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" }) })
-          ]
-        }
-      )
+      render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsxs(VStack, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Stack,
+          {
+            width: "full",
+            wrap: "wrap",
+            gap: "1rem",
+            padding: "1.5rem",
+            borderRadius: "10px",
+            backgroundColor: "gray.100",
+            _dark: { backgroundColor: "gray.950" },
+            children: fields
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { gap: "4", width: "100%", alignItems: "flex-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" }) })
+      ] })
     }
   );
 }
