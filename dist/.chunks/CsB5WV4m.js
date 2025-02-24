@@ -8673,6 +8673,7 @@ function DynamicForm({
           Flex,
           {
             width: "100%",
+            wrap: "wrap",
             direction: "row",
             gap: "0.8rem",
             justifyContent: "start",
