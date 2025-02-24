@@ -42,9 +42,10 @@ const LoginForm: FC<ComponentProps> = ({ header, submit, children, root }) => {
                             </Card.Body>
 
                             <Card.Footer justifyContent="center" paddingY="1rem">
-                                <Button onClick={onSubmit(submit)} variant="solid" width={"100%"}>Accedi</Button>
-
-                                {children}
+                                <VStack width={"full"} alignItems={"center"} gap="4">
+                                    <Button onClick={onSubmit(submit)} variant="solid" width={"100%"}>Accedi</Button>
+                                    {children}
+                                </VStack>
                             </Card.Footer>
                         </>
                     }
