@@ -8,11 +8,11 @@ function LiquidSearchForm({ schema }) {
     {
       schema,
       width: "full",
-      render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsxs(VStack, { children: [
+      render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsxs(VStack, { width: "fit-content", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           Stack,
           {
-            width: "full",
+            width: "fit-content",
             wrap: "wrap",
             gap: "1rem",
             padding: "1.5rem",
@@ -22,7 +22,7 @@ function LiquidSearchForm({ schema }) {
             children: fields
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { gap: "4", width: "100%", alignItems: "flex-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" }) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { width: "100%", alignItems: "flex-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" }) })
       ] })
     }
   );

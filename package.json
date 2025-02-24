@@ -1,6 +1,6 @@
 {
   "name": "react-goblin-system",
-  "version": "0.3.45",
+  "version": "0.3.46",
   "license": "MIT",
   "description": "",
   "keywords": [],
@@ -332,7 +332,7 @@
     ]
   },
   "scripts": {
-    "start:storybook": "storybook dev --no-open --mode dev",
+    "start:storybook": "storybook dev --no-open",
     "start:docs": "yarn workspace react-goblin-system-docs docusaurus start",
     "test": "jest --passWithNoTests",
     "build:storybook": "storybook build --output-dir build-storybook",
