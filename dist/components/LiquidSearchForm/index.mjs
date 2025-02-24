@@ -15,6 +15,8 @@ function LiquidSearchForm({ schema }) {
           width: "full",
           wrap: "wrap",
           direction: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
           gap: "1rem",
           padding: "1.5rem",
           borderRadius: "10px",
@@ -22,7 +24,7 @@ function LiquidSearchForm({ schema }) {
           _dark: { backgroundColor: "gray.950" },
           children: [
             fields,
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", width: "fit-content", children: "Crea Account" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", width: "fit-content", marginTop: "20px", children: "Crea Account" })
           ]
         }
       )
