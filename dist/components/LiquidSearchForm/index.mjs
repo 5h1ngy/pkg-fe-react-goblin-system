@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
-import { VStack, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import { D as DynamicForm } from "../../.chunks/Clcub7Py.js";
 import { Button } from "../Factory/Chakra/button.mjs";
 function LiquidSearchForm({ schema }) {
@@ -8,7 +8,7 @@ function LiquidSearchForm({ schema }) {
     {
       schema,
       width: "full",
-      render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         Stack,
         {
           width: "full",
@@ -20,10 +20,10 @@ function LiquidSearchForm({ schema }) {
           _dark: { backgroundColor: "gray.950" },
           children: [
             fields,
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Stack, { width: "fit-content", alignItems: "flex-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" })
           ]
         }
-      ) })
+      )
     }
   );
 }
