@@ -8556,7 +8556,7 @@ function Field({ methods, name, meta, fieldSchema }) {
   function checkRenderType(field) {
     var _a, _b;
     if (baseSchema instanceof z$1.ZodString || baseSchema instanceof z$1.ZodDate) {
-      return /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { ...!(meta == null ? void 0 : meta.style) ? { width: "100%" } : { ...meta == null ? void 0 : meta.style }, alignItems: "left", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { ...!(meta == null ? void 0 : meta.style) ? { width: "fit-content" } : { ...meta == null ? void 0 : meta.style }, alignItems: "left", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         Field$1,
         {
           label: (meta == null ? void 0 : meta.label) && meta.label,
@@ -8645,6 +8645,7 @@ function withMeta(schema, meta) {
 }
 function DynamicForm({
   width,
+  rowsWidth,
   schema,
   defaultValues,
   step = 0,
@@ -8672,7 +8673,8 @@ function DynamicForm({
         return /* @__PURE__ */ jsxRuntimeExports.jsx(
           Flex,
           {
-            width: "100%",
+            width: rowsWidth ?? "full",
+            wrap: "wrap",
             direction: "row",
             gap: "0.8rem",
             justifyContent: "start",

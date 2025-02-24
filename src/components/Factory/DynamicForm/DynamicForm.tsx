@@ -16,7 +16,7 @@ export function withMeta<T extends ZodTypeAny>(schema: T, meta?: Meta): MetaSche
 }
 
 function DynamicForm<T extends z.ZodEffects<ZodObject<any>>>({
-  width, schema, defaultValues,
+  width, rowsWidth, schema, defaultValues,
   step = 0,
   onNext, onBack,
   render,
@@ -50,7 +50,8 @@ function DynamicForm<T extends z.ZodEffects<ZodObject<any>>>({
         default: {
           return (
             <Flex key={crypto.randomUUID()}
-              width={"100%"}
+              width={rowsWidth ?? "full"}
+              wrap={'wrap'}
               direction={'row'}
               gap={"0.8rem"}
               justifyContent={'start'}
