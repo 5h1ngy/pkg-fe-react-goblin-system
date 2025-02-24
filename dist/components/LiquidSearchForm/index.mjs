@@ -8,7 +8,6 @@ function LiquidSearchForm({ schema }) {
     {
       schema,
       width: "full",
-      rowsWidth: "fit-content",
       render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         VStack,
         {
