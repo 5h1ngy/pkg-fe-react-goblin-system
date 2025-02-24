@@ -20,7 +20,9 @@ function LiquidSearchForm<T extends z.ZodEffects<ZodObject<any>>>({ schema }: Co
                     {fields}
                 </Stack>
                 <VStack gap="4" width={"100%"} alignItems={"flex-end"}>
-                    <Button variant="outline" type="submit" colorPalette={"teal"} >Crea Account</Button>
+                    <Button variant="outline" type="submit" colorPalette={"teal"}>
+                        Crea Account
+                    </Button>
                 </VStack>
             </VStack>
         }

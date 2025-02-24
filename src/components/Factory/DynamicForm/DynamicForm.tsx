@@ -50,7 +50,7 @@ function DynamicForm<T extends z.ZodEffects<ZodObject<any>>>({
         default: {
           return (
             <Flex key={crypto.randomUUID()}
-              width={"100%"}
+              width={"fit-content"}
               wrap={'wrap'}
               direction={'row'}
               gap={"0.8rem"}

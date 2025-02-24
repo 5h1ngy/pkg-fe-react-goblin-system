@@ -41,7 +41,7 @@ function Field<T extends ZodObject<any>>({ methods, name, meta, fieldSchema, }: 
       baseSchema instanceof z.ZodString ||
       baseSchema instanceof z.ZodDate
     ) {
-      return <VStack {...!meta?.style ? { width: "100%" } : { ...meta?.style }} alignItems={'left'}>
+      return <VStack {...!meta?.style ? { width: "fit-content" } : { ...meta?.style }} alignItems={'left'}>
         <ChakraField
           label={meta?.label && meta.label}
           invalid={methods.formState.errors[name] !== undefined}
