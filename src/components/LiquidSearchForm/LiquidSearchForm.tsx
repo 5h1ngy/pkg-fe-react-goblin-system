@@ -12,18 +12,18 @@ function LiquidSearchForm<T extends z.ZodEffects<ZodObject<any>>>({ schema }: Co
         schema={schema}
         width={"full"}
         render={(fields: React.ReactNode[]) =>
-            <VStack width={"fit-content"} >
-                <Stack width={"fit-content"} wrap={"wrap"}
+            <VStack>
+                <Stack width={"full"} wrap={"wrap"}
                     gap={"1rem"} padding={"1.5rem"} borderRadius={"10px"}
                     backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.950", }}
                 >
                     {fields}
+                    <Stack width={"fit-content"} alignItems={"flex-end"}>
+                        <Button variant="outline" type="submit" colorPalette={"teal"}>
+                            Crea Account
+                        </Button>
+                    </Stack>
                 </Stack>
-                <VStack width={"100%"} alignItems={"flex-end"}>
-                    <Button variant="outline" type="submit" colorPalette={"teal"}>
-                        Crea Account
-                    </Button>
-                </VStack>
             </VStack>
         }
     />

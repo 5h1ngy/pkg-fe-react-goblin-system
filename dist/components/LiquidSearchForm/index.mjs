@@ -8,22 +8,22 @@ function LiquidSearchForm({ schema }) {
     {
       schema,
       width: "full",
-      render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsxs(VStack, { width: "fit-content", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Stack,
-          {
-            width: "fit-content",
-            wrap: "wrap",
-            gap: "1rem",
-            padding: "1.5rem",
-            borderRadius: "10px",
-            backgroundColor: "gray.100",
-            _dark: { backgroundColor: "gray.950" },
-            children: fields
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { width: "100%", alignItems: "flex-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" }) })
-      ] })
+      render: (fields) => /* @__PURE__ */ jsxRuntimeExports.jsx(VStack, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        Stack,
+        {
+          width: "full",
+          wrap: "wrap",
+          gap: "1rem",
+          padding: "1.5rem",
+          borderRadius: "10px",
+          backgroundColor: "gray.100",
+          _dark: { backgroundColor: "gray.950" },
+          children: [
+            fields,
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Stack, { width: "fit-content", alignItems: "flex-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", children: "Crea Account" }) })
+          ]
+        }
+      ) })
     }
   );
 }
