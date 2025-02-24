@@ -16,7 +16,7 @@ export async function register(payload: { formData: FormData, appId: string }): 
             (await axios.post<ResponseRegister>(
                 `${import.meta.env.VITE_API}/auth/register`,
                 payload.formData,
-                { headers: { appId: payload.appId } }
+                { headers: { 'app-id': payload.appId } }
             )).data
         )
     }

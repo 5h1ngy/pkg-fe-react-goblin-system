@@ -2386,7 +2386,7 @@ async function register(payload) {
       async () => (await axios.post(
         `${"http://localhost:3000/api/be-node-auth"}/auth/register`,
         payload.formData,
-        { headers: { appId: payload.appId } }
+        { headers: { "app-id": payload.appId } }
       )).data
     );
   }
