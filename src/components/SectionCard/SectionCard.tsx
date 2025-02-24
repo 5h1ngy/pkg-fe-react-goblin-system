@@ -14,7 +14,7 @@ const SectionCard: FC<ComponentTypes> = ({
     status, isEmpty = true,
     header, subHeader, body,
     empty,
-}) => <VStack gapY={"1rem"}>
+}) => <VStack gapY={"1rem"} width={"full"}>
 
         {header
             && <VStack gapY={"1rem"}>
@@ -50,7 +50,7 @@ const SectionCard: FC<ComponentTypes> = ({
 
         {isEmpty !== true
             && (status !== STATUS.LOADING && status === STATUS.SUCCESS)
-            && <Flex direction={"column"}
+            && <Flex direction={"column"} width={"full"}
                 {...!body.disableStyle && {
                     borderRadius: '10px', borderWidth: "1px",
                     backgroundColor: "gray.100", _dark: { backgroundColor: "gray.950" },

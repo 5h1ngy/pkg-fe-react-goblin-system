@@ -18,7 +18,7 @@ const SectionCard = ({
   subHeader,
   body,
   empty
-}) => /* @__PURE__ */ jsxRuntimeExports.jsxs(VStack, { gapY: "1rem", children: [
+}) => /* @__PURE__ */ jsxRuntimeExports.jsxs(VStack, { gapY: "1rem", width: "full", children: [
   header && /* @__PURE__ */ jsxRuntimeExports.jsxs(VStack, { gapY: "1rem", children: [
     status === 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       ((header == null ? void 0 : header.avatar) || subHeader) && /* @__PURE__ */ jsxRuntimeExports.jsxs(HStack, { gapY: "2rem", children: [
@@ -37,6 +37,7 @@ const SectionCard = ({
     Flex,
     {
       direction: "column",
+      width: "full",
       ...!body.disableStyle && {
         borderRadius: "10px",
         borderWidth: "1px",

@@ -8,16 +8,17 @@ import { ParsedColumn, ParsedRow, ParsedTableData } from "../liquidTable.types";
 function prettifyFieldName(fieldName: string): string {
     if (!fieldName) return "";
 
-    // 1. Inserisce uno spazio prima di ogni lettera maiuscola (tranne la prima).
-    //    Esempio: "firstName" -> "first Name"
-    //    Poi la prima lettera verrà capitalizzata nel passo successivo.
-    let spaced = fieldName.replace(/([A-Z])/g, " $1");
-
-    // 2. Trim per rimuovere eventuali spazi iniziali
-    spaced = spaced.trim();
-
-    // 3. Capitalizza la prima lettera dell'intera stringa
-    return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+    // 1. Sostituisci gli underscore con uno spazio
+    let replaced = fieldName.replace(/_/g, " ");
+    
+    // 2. Inserisci uno spazio prima di ogni lettera maiuscola (tranne la prima)
+    replaced = replaced.replace(/([A-Z])/g, " $1");
+    
+    // 3. Rimpiazza eventuali spazi multipli con uno singolo e trimma la stringa
+    replaced = replaced.replace(/\s+/g, " ").trim();
+    
+    // 4. Capitalizza la prima lettera dell'intera stringa
+    return replaced.charAt(0).toUpperCase() + replaced.slice(1);
 }
 
 export function parseItems(items: Record<string, any>[], hiddenFields: string[] = []): ParsedTableData {

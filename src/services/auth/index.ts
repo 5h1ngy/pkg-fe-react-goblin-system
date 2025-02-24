@@ -5,7 +5,7 @@ import { ResponseLogin, ResponseRegister, ResponseRegisterError } from "./types"
 import { RequestRefresh, ResponseRefresh, ResponseRefreshError } from "./types";
 import { errorHandler } from "../handlers";
 
-export async function register(payload: FormData): Promise<ResponseRegister> {
+export async function register(payload: { formData: FormData, appId: string }): Promise<ResponseRegister> {
 
     if (import.meta.env.VITE_USE_MOCK === "true") {
         console.log("Modalità Mock attiva. Restituisco dati mock.");
@@ -15,7 +15,8 @@ export async function register(payload: FormData): Promise<ResponseRegister> {
         return await errorHandler<ResponseRegister, ResponseRegisterError>(async () =>
             (await axios.post<ResponseRegister>(
                 `${import.meta.env.VITE_API}/auth/register`,
-                payload
+                payload.formData,
+                { headers: { appId: payload.appId } }
             )).data
         )
     }

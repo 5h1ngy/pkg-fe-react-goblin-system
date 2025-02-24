@@ -1,5 +1,8 @@
 import { RequestRefresh } from '@/services/auth/types';
-export declare const doRegister: import("@reduxjs/toolkit").AsyncThunk<import("@/services/auth/types").ResponseRegister, FormData, {
+export declare const doRegister: import("@reduxjs/toolkit").AsyncThunk<import("@/services/auth/types").ResponseRegister, {
+    formData: FormData;
+    appId: string;
+}, {
     state?: unknown;
     dispatch?: import("redux-thunk").ThunkDispatch<unknown, unknown, import("redux").UnknownAction>;
     extra?: unknown;

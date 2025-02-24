@@ -5,7 +5,7 @@ import { RequestRefresh } from '@/services/auth/types';
 
 export const doRegister = createAsyncThunk(
     'slice/auth/doRegister',
-    async (payload: FormData, { rejectWithValue }) =>
+    async (payload: { formData: FormData, appId: string }, { rejectWithValue }) =>
         api.register(payload)
             .then(response => response)
             .catch(error => rejectWithValue(error))

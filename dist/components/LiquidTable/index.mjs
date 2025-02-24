@@ -7,9 +7,10 @@ import { Button } from "../Factory/Chakra/button.mjs";
 import { ActionBarRoot, ActionBarContent, ActionBarSelectionTrigger, ActionBarSeparator } from "../Factory/Chakra/action-bar.mjs";
 function prettifyFieldName(fieldName) {
   if (!fieldName) return "";
-  let spaced = fieldName.replace(/([A-Z])/g, " $1");
-  spaced = spaced.trim();
-  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+  let replaced = fieldName.replace(/_/g, " ");
+  replaced = replaced.replace(/([A-Z])/g, " $1");
+  replaced = replaced.replace(/\s+/g, " ").trim();
+  return replaced.charAt(0).toUpperCase() + replaced.slice(1);
 }
 function parseItems(items, hiddenFields = []) {
   if (!items || items.length === 0) {
