@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "../../.chunks/CSg68eI9.js";
 import { Stack, Box } from "@chakra-ui/react";
-import { D as DynamicForm } from "../../.chunks/Clcub7Py.js";
+import { D as DynamicForm } from "../../.chunks/Bl3vSNnG.js";
 import { Button } from "../Factory/Chakra/button.mjs";
 function LiquidSearchForm({ schema }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -14,7 +14,7 @@ function LiquidSearchForm({ schema }) {
         {
           width: "full",
           wrap: "wrap",
-          direction: "row",
+          direction: "row-reverse",
           alignItems: "center",
           justifyContent: "space-between",
           gap: "1rem",
