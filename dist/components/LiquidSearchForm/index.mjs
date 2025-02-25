@@ -24,7 +24,7 @@ function LiquidSearchForm({ schema }) {
           _dark: { backgroundColor: "gray.950" },
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Box, { width: "fit-content", height: "fit-content", children: fields }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Box, { width: "fit-content", height: "fit-content", alignItems: "end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", width: "fit-content", marginTop: "20px", children: "Crea Account" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Box, { width: "fit-content", height: "fit-content", alignItems: "end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "outline", type: "submit", colorPalette: "teal", width: "fit-content", marginTop: "20px", children: "Search" }) })
           ]
         }
       )
