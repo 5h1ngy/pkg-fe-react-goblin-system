@@ -20,7 +20,7 @@ function LiquidSearchForm<T extends z.ZodEffects<ZodObject<any>>>({ schema }: Co
                 <Box width={'fit-content'} height={'fit-content'}>
                     {fields}
                 </Box>
-                <Box width={'fit-content'} height={"full"} alignItems={"end"}>
+                <Box width={'fit-content'} height={'fit-content'} alignItems={"end"}>
                     <Button variant="outline" type="submit" colorPalette={"teal"} width={"fit-content"} marginTop={'20px'}>
                         Crea Account
                     </Button>
