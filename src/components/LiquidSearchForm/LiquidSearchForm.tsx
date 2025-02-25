@@ -13,7 +13,7 @@ function LiquidSearchForm<T extends z.ZodEffects<ZodObject<any>>>({ schema }: Co
         width={"full"}
         rowsWidth={"fit-content"}
         render={(fields: React.ReactNode[]) =>
-            <Stack width={"full"} wrap={"wrap"} direction={'row-reverse'} alignItems={"center"} justifyContent={'space-between'}
+            <Stack width={"full"} wrap={"wrap"} direction={'row'} alignItems={"center"} justifyContent={'space-between'}
                 gap={"1rem"} padding={"1.5rem"} borderRadius={"10px"}
                 backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.950", }}
             >
