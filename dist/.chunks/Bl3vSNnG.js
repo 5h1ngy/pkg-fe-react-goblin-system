@@ -8677,7 +8677,7 @@ function DynamicForm({
             wrap: "wrap",
             direction: "row",
             gap: "0.8rem",
-            justifyContent: "start",
+            justifyContent: "center",
             children: value.map(([name, fieldSchema]) => /* @__PURE__ */ jsxRuntimeExports.jsx(
               Field,
               {

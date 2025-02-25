@@ -54,7 +54,7 @@ function DynamicForm<T extends z.ZodEffects<ZodObject<any>>>({
               wrap={'wrap'}
               direction={'row'}
               gap={"0.8rem"}
-              justifyContent={'start'}
+              justifyContent={'center'}
             >
               {value.map(([name, fieldSchema]) => (
                 <Field key={crypto.randomUUID()}
