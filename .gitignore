@@ -10,7 +10,7 @@ lerna-debug.log*
 .yarn
 dist
 node_modules
-build
+build-lib
 build-docusaurus
 build-storybook
 build-ssr
