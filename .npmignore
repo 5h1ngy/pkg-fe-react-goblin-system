@@ -1,0 +1,48 @@
+# Se non hai una .npmignore, crea questo file nella root del progetto
+
+# 1) Includi esplicitamente la cartella di output.
+!dist/
+
+# 2) Escludi la cartella dei sorgenti.
+src/
+
+# 3) Escludi test, documenti e altre cartelle di sviluppo.
+test/
+tests/
+__tests__/
+coverage/
+docs/
+
+# 4) Escludi le cartelle di configurazione di Git, editor e CI, se presenti.
+.git/
+.github/
+.vscode/
+.idea/
+
+# 5) Escludi i file di configurazione non necessari all’uso del pacchetto.
+.gitignore
+.eslintignore
+.eslintrc
+.eslint*
+.prettierrc
+.prettierignore
+.stylelintrc
+*.config.js
+tsconfig.json
+# Se usi Babel/Webpack/Rollup, escludi i file di config:
+babel.config.js
+webpack.config.js
+rollup.config.js
+
+# 6) Escludi file vari di log, environment o lock.
+.env
+.env.*
+*.log
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 7) Includi il resto, ad esempio README, LICENSE e package.json
+# (NPM, di default, include package.json e README.* se non li escludi esplicitamente)
+
