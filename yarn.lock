@@ -9924,6 +9924,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-glob@npm:3.3.2":
+  version: 3.3.2
+  resolution: "fast-glob@npm:3.3.2"
+  dependencies:
+    "@nodelib/fs.stat": "npm:^2.0.2"
+    "@nodelib/fs.walk": "npm:^1.2.3"
+    glob-parent: "npm:^5.1.2"
+    merge2: "npm:^1.3.0"
+    micromatch: "npm:^4.0.4"
+  checksum: 10c0/42baad7b9cd40b63e42039132bde27ca2cb3a4950d0a0f9abe4639ea1aa9d3e3b40f98b1fe31cbc0cc17b664c9ea7447d911a152fa34ec5b72977b125a6fc845
+  languageName: node
+  linkType: hard
+
 "fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.0, fast-glob@npm:^3.3.2, fast-glob@npm:^3.3.3":
   version: 3.3.3
   resolution: "fast-glob@npm:3.3.3"
@@ -15785,6 +15798,7 @@ __metadata:
     regenerator-runtime: "npm:^0.14.1"
     rehype-highlight: "npm:^7.0.2"
     remark-gfm: "npm:^4.0.1"
+    rollup-plugin-multi-input: "npm:^1.5.0"
     rollup-plugin-visualizer: "npm:^5.14.0"
     sass: "npm:^1.85.0"
     sass-embedded: "npm:^1.85.0"
@@ -16660,6 +16674,15 @@ __metadata:
   bin:
     rimraf: dist/esm/bin.mjs
   checksum: 10c0/7da4fd0e15118ee05b918359462cfa1e7fe4b1228c7765195a45b55576e8c15b95db513b8466ec89129666f4af45ad978a3057a02139afba1a63512a2d9644cc
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-multi-input@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "rollup-plugin-multi-input@npm:1.5.0"
+  dependencies:
+    fast-glob: "npm:3.3.2"
+  checksum: 10c0/ae462527df59b94cc5567b329d05438d194ffb9de85960d61166114830aaff4db33c9c7154eb481c41817ff6b8f92286f65ff9427525bbf5826754433f237df6
   languageName: node
   linkType: hard
 
