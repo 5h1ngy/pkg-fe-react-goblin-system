@@ -2,25 +2,42 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   docs: [
-    'overview',
-    'architecture',
-    'installazione',
-    'utilizzo-generale',
+    {
+      type: 'doc',
+      id: 'installation',
+      label: 'Installation 🚀',
+    },
     {
       type: 'category',
-      label: 'Components 🧩',
+      label: 'Store 🏬',
       items: [
         {
-          type: 'link',
-          label: 'Storybook',
-          href: 'https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook',
+          type: 'doc',
+          id: 'store/overview',
+          label: 'Overview 📖',
         },
-        'componenti',
+        {
+          type: 'doc',
+          id: 'store/auth',
+          label: 'Authentication 🔐',
+        },
       ],
     },
-    'layouts',
-    'providers',
-    'store',
+    {
+      type: 'doc',
+      id: 'hocs',
+      label: 'HOCs 🔧',
+    },
+    {
+      type: 'doc',
+      id: 'providers',
+      label: 'Providers 🌐',
+    },
+    {
+      type: 'doc',
+      id: 'services',
+      label: 'Services ⚡',
+    },
   ],
 };
 

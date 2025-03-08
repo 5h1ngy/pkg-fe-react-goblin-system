@@ -2,14 +2,14 @@
   "name": "react-goblin-system",
   "version": "0.3.58",
   "license": "MIT",
-  "description": "A React component library built on top of Chakra UI for creating modern, responsive user interfaces",
+  "description": "React UI component library.",
   "keywords": [
     "react",
     "chakra-ui",
-    "componenti",
-    "design system",
-    "UI",
-    "libreria"
+    "components",
+    "design-system",
+    "ui",
+    "library"
   ],
   "repository": {
     "type": "git",

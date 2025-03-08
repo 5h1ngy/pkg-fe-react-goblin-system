@@ -1,20 +1,16 @@
-import { Meta } from '@storybook/addon-docs';
+# Introduction to Layouts
 
-<Meta title="layouts/Introduction" />
+This section showcases the **three main layouts** used in your project:
 
-# Introduzione ai Layouts
-
-Questa sezione raccoglie i **tre layout** principali del tuo progetto:
-
-1. **Error** – Viene utilizzato per gestire errori o schermate di fallback.
-2. **Loading** – Mostra una schermata di caricamento globale.
-3. **Transformer** – Un layout più elaborato, con animazioni GSAP, router e logica contestuale.
+1. **Error** – Used to display error or fallback screens.
+2. **Loading** – Shows a global loading screen.
+3. **Transformer** – A more advanced layout featuring GSAP animations, router integration, and contextual logic.
 
 ---
 
-## Struttura delle cartelle
+## Folder Structure
 
-La struttura di massima in `src/layouts` è la seguente (semplificata):
+A simplified overview of the folder structure in `src/layouts` is as follows:
 
 ```
 src/
@@ -35,18 +31,17 @@ src/
             └── ...
 ```
 
-Ciascuna cartella contiene un `index.ts` come entrypoint (re-export), da importare direttamente nelle storie.
+Each folder contains an `index.ts` entry point (which re-exports the main component) to be directly imported in your stories.
 
 ---
 
 ## Error Layout
 
-Il **layout Error** visualizza uno stato di errore o fallback quando qualcosa non va come previsto.  
-In genere contiene:
-- Un componente `EmptyState` con icona e messaggio di errore.
-- Uno stile a schermo intero con **Flex** di Chakra UI che centra il contenuto.
+The **Error layout** displays an error or fallback state when something goes wrong. Typically, it includes:
+- An `EmptyState` component that shows an error icon and message.
+- A full-screen Flex layout from Chakra UI that centers the content.
 
-**Uso tipico**:
+**Typical Usage**:
 
 ```tsx
 import ErrorLayout from '@/layouts/Error';
@@ -63,12 +58,12 @@ function App() {
 
 ## Loading Layout
 
-Il **layout Loading** mostra una schermata di caricamento globale, utile per fasi di fetch iniziale o routing asincrono.  
-Utilizza:
-- Un’icona di caricamento (Loader).
-- Una barra di progresso/indicatore.
+The **Loading layout** provides a global loading screen, ideal for initial data fetching or asynchronous routing. It features:
+- A loader icon.
+- A progress bar or indicator.
 
-**Uso tipico**:
+**Typical Usage**:
+
 ```tsx
 import LoadingLayout from '@/layouts/Loading';
 
@@ -84,19 +79,20 @@ function App() {
 
 ## Transformer Layout
 
-Il **layout Transformer** è più complesso e fa uso di:
-- `react-router-dom` (hook `useLocation`, `useNavigate`, ecc.).
-- Contesto personalizzato (`Provider.tsx`) che espone `navbarItems`, `background`, ecc.
-- Animazioni GSAP (un **cerchio** che segue il mouse, transizioni sulle sezioni).
-- Un `Header` con logica di navigazione, una sezione `Body` per il contenuto, e uno **sfondo** personalizzabile.
+The **Transformer layout** is more sophisticated and leverages:
+- **React Router**: Uses hooks like `useLocation` and `useNavigate` for navigation.
+- **Custom Context**: Provided via a custom Provider (`Provider.tsx`) exposing properties such as `navbarItems` and `background`.
+- **GSAP Animations**: Includes a circle that follows the mouse and smooth section transitions.
+- **Header & Body**: Contains a header with navigation logic, a body for content, and a customizable background.
 
-### Punti Chiave
+### Key Points
 
-1. **Router Context**: per funzionare correttamente, in Storybook bisogna avvolgere i componenti in un _Router_ (ad esempio `MemoryRouter`).  
-2. **Navbar Items**: puoi passare array di item (`navbarItems`, `navbarSubItems`) per popolare il menu di navigazione.
-3. **Background**: puoi configurare un’immagine di sfondo (anche differenziata per modalità scura) e gestire il blur con la prop `opacity`.
+1. **Router Context**: To work correctly in Storybook, wrap your component with a Router (e.g., `MemoryRouter`).
+2. **Navbar Items**: Pass an array of items (`navbarItems`, `navbarSubItems`) to populate the navigation menu.
+3. **Background**: Configure a background image (with a separate version for dark mode) and control the blur using the `opacity` property.
 
-**Uso tipico**:
+**Typical Usage**:
+
 ```tsx
 import TransformerLayout from '@/layouts/Transformer';
 
@@ -111,7 +107,7 @@ function App() {
         imageDark: 'dark_background.png',
       }}
     >
-      <div>Contenuto Principale</div>
+      <div>Main Content</div>
     </TransformerLayout>
   );
 }
@@ -119,10 +115,9 @@ function App() {
 
 ---
 
-## Suggerimenti per l’uso in Storybook
+## Tips for Storybook
 
-- **Router Decorator**: Se il tuo layout utilizza `react-router-dom`, includi un decorator con `MemoryRouter` o `BrowserRouter`.  
-  Esempio (in un file `.stories.tsx` o `.stories.mdx`):
+- **Router Decorator**: If your layout uses `react-router-dom`, include a decorator with `MemoryRouter` or `BrowserRouter`. For example:
   ```tsx
   decorators: [
     (Story) => (
@@ -132,23 +127,16 @@ function App() {
     ),
   ],
   ```
-- **Argomenti (Args)**: Se vuoi testare diverse configurazioni di background, navbar, ecc., sfrutta gli argomenti (args) di Storybook.
-- **AutoDocs**: Nelle storie `.stories.tsx`, configura la proprietà `parameters.docs.autodocs = 'tag'` per sfruttare la documentazione automatica.
+- **Args**: Test different configurations (backgrounds, navbar items, etc.) by using Storybook’s args.
+- **AutoDocs**: In your `.stories.tsx` files, set `parameters.docs.autodocs = 'tag'` to enable automatic documentation.
 
 ---
 
-## Prossimi passi
+## Next Steps
 
-Ora che conosci la struttura e le funzionalità base dei layout:
-- Esplora le storie per ciascuno di essi, nella sezione `layouts/` della sidebar di Storybook.
-- Personalizza i **props** nelle storie per testare diverse varianti.
-- Integra i layout nelle tue pagine e verifica come si comportano in diverse modalità (desktop/mobile).
+Now that you understand the structure and basic functionality of the layouts:
+- Explore each layout’s story in the Storybook sidebar under `layouts/`.
+- Customize the props in the stories to test different variants.
+- Integrate the layouts into your pages and verify their behavior across different devices (desktop/mobile).
 
-Se riscontri errori legati a provider o contesti, assicurati di aver configurato correttamente i **decorators** di Storybook.
-
----
-
-**Buona esplorazione!**  
-Sfrutta questi layout come fondamenta per gestire stati globali di errore, caricamento e viste animate personalizzabili.  
-Per ulteriori dettagli, fai riferimento alle storie specifiche di ogni layout o alla documentazione interna del tuo progetto.
-```
+If you encounter provider or context-related issues, ensure that your Storybook decorators are properly configured.

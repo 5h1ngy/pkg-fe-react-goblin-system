@@ -9,7 +9,7 @@ const config: Config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: '5h1ngy',
-  projectName: 'pkg-fe-react-goblin-system', 
+  projectName: 'pkg-fe-react-goblin-system',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -41,7 +41,7 @@ const config: Config = {
       },
       items: [
         {
-          to: '/docs/overview',
+          to: '/docs/installation',
           label: 'Docs',
           position: 'left',
         },
