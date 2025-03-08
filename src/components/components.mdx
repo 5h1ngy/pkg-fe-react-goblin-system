@@ -1,0 +1,94 @@
+# Components Overview
+
+This page provides a guide and usage examples for the two main components included in this project:
+
+- **LiquidTable**: A dynamic table component designed for data display with support for multi-selection, pagination, and the ability to hide columns.
+- **LiquidSearchForm**: A search form that is automatically generated from a Zod schema, simplifying the creation and validation of input fields.
+
+---
+
+## LiquidTable
+
+**LiquidTable** allows you to display data in a dynamic table. Its features include:
+
+- Automatic rendering of rows based on an array of objects.
+- Multiple row selection via an integrated ActionBar.
+- Optional pagination to handle large datasets.
+- The ability to hide specific columns using the `hiddenFields` prop.
+
+### Usage Example
+
+```jsx
+import LiquidTable from '@/components/LiquidTable/LiquidTable';
+
+const items = [
+  { id: '1', firstName: 'Mario', lastName: 'Rossi', age: 30 },
+  { id: '2', firstName: 'Luigi', lastName: 'Bianchi', age: 40 },
+];
+
+const pagination = {
+  offset: 1,           // Current page
+  size: 10,            // Rows per page
+  totalOccurrences: 2, // Total number of rows
+  totalPages: 1,       // Total number of pages
+};
+
+function MyTable() {
+  return (
+    <LiquidTable
+      items={items}
+      hiddenFields={['age']} // Hide the "age" column
+      pagination={pagination}
+    />
+  );
+}
+
+export default MyTable;
+```
+
+### Props Details
+
+- **items**: An array of objects representing the rows of the table.
+- **hiddenFields**: An array of strings indicating which fields should be hidden.
+- **pagination**: An object with the following properties:
+  - `offset`: The current page number.
+  - `size`: The number of rows per page.
+  - `totalOccurrences`: The total number of rows.
+  - `totalPages`: The total number of pages.
+
+---
+
+## LiquidSearchForm
+
+**LiquidSearchForm** is designed to automatically generate a search form based on a Zod schema. This approach centralizes the definition of the form’s structure and validation rules, making it easier to maintain and extend.
+
+### Usage Example
+
+```jsx
+import LiquidSearchForm from '@/components/LiquidSearchForm/LiquidSearchForm';
+import { z } from 'zod';
+import { withMeta } from '@/components/Factory/DynamicForm/DynamicForm';
+
+const schema = z.object({
+  searchTerm: withMeta(
+    z.string().optional(),
+    { label: 'Search', step: 0 }
+  ),
+  category: withMeta(
+    z.enum(['all', 'books', 'electronics']).default('all'),
+    { label: 'Category', step: 0 }
+  ),
+}).superRefine(() => {});
+
+function MySearchForm() {
+  return <LiquidSearchForm schema={schema} />;
+}
+
+export default MySearchForm;
+```
+
+### Props Details
+
+- **schema**: A Zod object that defines the form fields and their validation rules.  
+  _(For example, the schema above includes an optional text field for search input and a selection field for the category.)_
+- **defaultValues** (Optional): An object used to pre-populate the form with initial values.

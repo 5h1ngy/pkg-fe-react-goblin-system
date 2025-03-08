@@ -1,0 +1,142 @@
+# Introduction to Layouts
+
+This section showcases the **three main layouts** used in your project:
+
+1. **Error** – Used to display error or fallback screens.
+2. **Loading** – Shows a global loading screen.
+3. **Transformer** – A more advanced layout featuring GSAP animations, router integration, and contextual logic.
+
+---
+
+## Folder Structure
+
+A simplified overview of the folder structure in `src/layouts` is as follows:
+
+```
+src/
+└── layouts/
+    ├── Error/
+    │   ├── Error.tsx
+    │   └── index.ts
+    ├── Loading/
+    │   ├── Loading.tsx
+    │   └── index.ts
+    └── Transformer/
+        ├── Header.tsx
+        ├── Body.tsx
+        ├── Transformer.tsx
+        ├── index.ts
+        └── shared/
+            ├── Provider.tsx
+            └── ...
+```
+
+Each folder contains an `index.ts` entry point (which re-exports the main component) to be directly imported in your stories.
+
+---
+
+## Error Layout
+
+The **Error layout** displays an error or fallback state when something goes wrong. Typically, it includes:
+- An `EmptyState` component that shows an error icon and message.
+- A full-screen Flex layout from Chakra UI that centers the content.
+
+**Typical Usage**:
+
+```tsx
+import ErrorLayout from '@/layouts/Error';
+
+function App() {
+  return (
+    // ...
+    <ErrorLayout />
+  );
+}
+```
+
+---
+
+## Loading Layout
+
+The **Loading layout** provides a global loading screen, ideal for initial data fetching or asynchronous routing. It features:
+- A loader icon.
+- A progress bar or indicator.
+
+**Typical Usage**:
+
+```tsx
+import LoadingLayout from '@/layouts/Loading';
+
+function App() {
+  return (
+    // ...
+    <LoadingLayout />
+  );
+}
+```
+
+---
+
+## Transformer Layout
+
+The **Transformer layout** is more sophisticated and leverages:
+- **React Router**: Uses hooks like `useLocation` and `useNavigate` for navigation.
+- **Custom Context**: Provided via a custom Provider (`Provider.tsx`) exposing properties such as `navbarItems` and `background`.
+- **GSAP Animations**: Includes a circle that follows the mouse and smooth section transitions.
+- **Header & Body**: Contains a header with navigation logic, a body for content, and a customizable background.
+
+### Key Points
+
+1. **Router Context**: To work correctly in Storybook, wrap your component with a Router (e.g., `MemoryRouter`).
+2. **Navbar Items**: Pass an array of items (`navbarItems`, `navbarSubItems`) to populate the navigation menu.
+3. **Background**: Configure a background image (with a separate version for dark mode) and control the blur using the `opacity` property.
+
+**Typical Usage**:
+
+```tsx
+import TransformerLayout from '@/layouts/Transformer';
+
+function App() {
+  return (
+    <TransformerLayout
+      navigationScroll
+      navbarItems={[{ icon: '🏠', label: 'Home', value: '/home' }]}
+      background={{
+        opacity: 10,
+        image: 'white_background.png',
+        imageDark: 'dark_background.png',
+      }}
+    >
+      <div>Main Content</div>
+    </TransformerLayout>
+  );
+}
+```
+
+---
+
+## Tips for Storybook
+
+- **Router Decorator**: If your layout uses `react-router-dom`, include a decorator with `MemoryRouter` or `BrowserRouter`. For example:
+  ```tsx
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
+  ```
+- **Args**: Test different configurations (backgrounds, navbar items, etc.) by using Storybook’s args.
+- **AutoDocs**: In your `.stories.tsx` files, set `parameters.docs.autodocs = 'tag'` to enable automatic documentation.
+
+---
+
+## Next Steps
+
+Now that you understand the structure and basic functionality of the layouts:
+- Explore each layout’s story in the Storybook sidebar under `layouts/`.
+- Customize the props in the stories to test different variants.
+- Integrate the layouts into your pages and verify their behavior across different devices (desktop/mobile).
+
+If you encounter provider or context-related issues, ensure that your Storybook decorators are properly configured.

@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.app.json",
+    "compilerOptions": {
+      "rootDir": "src",
+      "noEmit": false,
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "outDir": "dist/types",
+      "types": ["jest", "node"]
+    },
+    "include": [
+      "src"
+    ]
+  }
+  
