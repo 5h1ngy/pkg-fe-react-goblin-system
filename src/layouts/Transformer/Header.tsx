@@ -37,7 +37,7 @@ const Component: FC<ComponentProps> = () => {
                         <Text key={item.value}
                             onClick={() => handleNavigationAndScroll(item.value, navigationScroll)}
                             style={{ cursor: 'pointer' }}
-                            textStyle="xl" fontWeight="medium">{item.label}</Text>
+                            textStyle="xl" fontWeight="medium">{item.icon} {item.label}</Text>
                     )}
                     <Spacer />
                     <ColorModeButtonExtended variant="enclosed" size={"sm"} />

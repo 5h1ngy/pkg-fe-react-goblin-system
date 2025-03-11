@@ -5,7 +5,7 @@ import { NavigateFunction } from "react-router-dom";
  * Interfaccia per un elemento della barra di navigazione principale.
  */
 export type NavbarItem = {
-    icon: ReactElement | string;
+    icon?: ReactElement | string;
     label: string; // Etichetta visibile dell'elemento di navigazione.
     value: string; // Valore o URL associato all'elemento.
     group?: string;
@@ -15,7 +15,7 @@ export type NavbarItem = {
  * Interfaccia per un elemento secondario della barra di navigazione (submenu).
  */
 export type NavbarSubItem = {
-    icon: ReactElement | string; // Icona associata all'elemento secondario, può essere un ReactElement o una stringa (es. URL).
+    icon?: ReactElement | string; // Icona associata all'elemento secondario, può essere un ReactElement o una stringa (es. URL).
     label: string; // Etichetta visibile dell'elemento secondario.
     value: string; // Valore o URL associato all'elemento secondario.
     group?: string[];

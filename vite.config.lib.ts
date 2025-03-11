@@ -81,6 +81,7 @@ export default defineConfig(({ mode }) => {
 
                     "components/Factory/DynamicForm/index": path.resolve(__dirname, "src/components/Factory/DynamicForm/index.ts"),
 
+                    "components/GalacticOrbiter/index": path.resolve(__dirname, "src/components/GalacticOrbiter/index.ts"),
                     "components/LiquidSearchForm/index": path.resolve(__dirname, "src/components/LiquidSearchForm/index.ts"),
                     "components/LiquidTable/index": path.resolve(__dirname, "src/components/LiquidTable/index.ts"),
                     "components/LoginForm/index": path.resolve(__dirname, "src/components/LoginForm/index.ts"),
