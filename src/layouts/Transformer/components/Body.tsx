@@ -26,7 +26,7 @@ const Body: FC<ComponentProps> = () => {
     return (
         <Flex ref={flexRef} zIndex="3"
             minHeight="100vh"
-            wrap="wrap"
+            direction="column"
             borderYWidth="1px"
             paddingTop="8rem"
             paddingBottom="8rem"
