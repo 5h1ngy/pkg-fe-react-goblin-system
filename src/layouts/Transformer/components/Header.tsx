@@ -8,9 +8,9 @@ import { ColorModeButtonExtended } from "@/components/Factory/Chakra/color-mode"
 import { DrawerBackdrop, DrawerBody, DrawerCloseTrigger } from "@/components/Factory/Chakra/drawer";
 import { DrawerContent, DrawerRoot, DrawerTrigger } from "@/components/Factory/Chakra/drawer";
 
-import { usePageContext, useMouse } from "./shared/hooks";
-import { findMatchingNavbarValue } from "./shared/utils";
-import { ComponentProps } from "./transformer.types";
+import { usePageContext, useMouse } from "../shared/hooks";
+import { findMatchingNavbarValue } from "../shared/utils";
+import { ComponentProps } from "../transformer.types";
 
 const Component: FC<ComponentProps> = () => {
     const { isMobileRef, handleNavigationAndScroll, } = useMouse()
