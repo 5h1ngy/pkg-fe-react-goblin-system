@@ -1,13 +1,7 @@
-import { useEffect, useLayoutEffect, RefObject } from "react";
+import { useLayoutEffect, RefObject, useEffect } from "react";
 import gsap from "gsap";
-import { OrbitConfig } from "./GalacticOrbiter.types";
+import { OrbitConfig } from "../GalacticOrbiter.types";
 
-/**
- * Hook per osservare i cambiamenti di dimensioni di un elemento DOM tramite ResizeObserver.
- *
- * @param ref - Riferimento all'elemento DOM da osservare.
- * @param callback - Funzione chiamata ogni volta che le dimensioni cambiano.
- */
 export function useResizeObserver(
     ref: RefObject<HTMLDivElement | null>,
     callback: (entry: ResizeObserverEntry) => void

@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Table } from "@chakra-ui/react"
 
 import { Checkbox } from "@/components/Factory/Chakra/checkbox";
-import { useTableContext } from "./shared/hooks";
+import { useTableContext } from "../shared/hooks";
 
 const DynamicTable: FC = () => {
     const { columns, rows, select } = useTableContext();

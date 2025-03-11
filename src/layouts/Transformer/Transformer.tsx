@@ -2,8 +2,8 @@ import { FC } from "react";
 import { Flex, chakra } from "@chakra-ui/react";
 
 import { usePageContext, useMouse } from "./shared/hooks";
-import Header from "./Header";
-import Body from "./Body";
+import Header from "./components/Header";
+import Body from "./components/Body";
 import { ComponentProps } from "./transformer.types";
 
 const Transformer: FC<ComponentProps> = () => {
