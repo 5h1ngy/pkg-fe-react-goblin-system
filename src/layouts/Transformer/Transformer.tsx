@@ -22,10 +22,10 @@ const Transformer: FC<ComponentProps> = () => {
             backgroundPosition="top"
             backgroundSize="cover"
             filter={background.opacity ? `blur(${background.opacity}px)` : undefined}
-            backgroundColor={"gray.100"}
+            backgroundColor={"white"}
             backgroundImage={background.image ? `url(${background.image})` : undefined}
             _dark={{
-                backgroundColor: "gray.950",
+                backgroundColor: "dark",
                 backgroundImage: background.imageDark ? `url(${background.imageDark})` : undefined
             }}
         />}
@@ -50,7 +50,7 @@ const Transformer: FC<ComponentProps> = () => {
             <Body />
 
             {footer && <HStack
-                borderTopRadius='10px' borderWidth="1px"
+                borderBottomLeftRadius='10px' borderWidth="1px"
                 backgroundColor="gray.100" _dark={{ backgroundColor: "gray.950" }} padding={"2rem"}
             >
                 {footer}
