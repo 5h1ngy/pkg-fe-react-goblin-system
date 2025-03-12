@@ -25,7 +25,7 @@ const Transformer: FC<ComponentProps> = () => {
             backgroundColor={"white"}
             backgroundImage={background.image ? `url(${background.image})` : undefined}
             _dark={{
-                backgroundColor: "dark",
+                backgroundColor: "black",
                 backgroundImage: background.imageDark ? `url(${background.imageDark})` : undefined
             }}
         />}
