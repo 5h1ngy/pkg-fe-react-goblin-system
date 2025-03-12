@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Flex, HStack, chakra } from "@chakra-ui/react";
+import { Flex, chakra } from "@chakra-ui/react";
 
 import { usePageContext, useMouse } from "./shared/hooks";
 import Header from "./components/Header";
@@ -48,10 +48,7 @@ const Transformer: FC<ComponentProps> = () => {
         >
             <Header />
             <Body />
-
-            <HStack >
-                {footer}
-            </HStack>
+            {footer}
         </Flex>
     </Flex>;
 }
