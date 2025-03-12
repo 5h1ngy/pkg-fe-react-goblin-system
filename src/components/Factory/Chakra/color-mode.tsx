@@ -68,7 +68,7 @@ export const ColorModeButtonExtended = function ColorModeButtonExtended(props: C
       // colorPalette={'red'}
       >
         <Tabs.List
-          backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.950", }}
+          backgroundColor={"gray.950"} _dark={{ backgroundColor: "gray.100", }}
         >
           <Tabs.Trigger value="light">
             <HiSun />

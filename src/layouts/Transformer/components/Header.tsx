@@ -31,6 +31,7 @@ const Component: FC<ComponentProps> = () => {
                     wrap={"wrap"} direction={"row"} width={'100%'}
                     gapX={'1rem'} justifyContent={"center"} justifyItems={"center"} alignContent={'center'} alignItems={'center'}
                     paddingX={'5%'} paddingY={!navbarSubItems ? "1rem" : ''} paddingTop={navbarSubItems ? "1rem" : ''}
+                    borderBottomRadius='10px' borderWidth="1px"
                 >
                     <Logo />
                     {navbarItems?.map(item =>
