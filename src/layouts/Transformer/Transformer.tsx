@@ -48,13 +48,13 @@ const Transformer: FC<ComponentProps> = () => {
         >
             <Header />
             <Body />
-            
-            <HStack
+
+            {footer && <HStack
                 borderTopRadius='10px' borderWidth="1px"
                 backgroundColor="gray.100" _dark={{ backgroundColor: "gray.950" }} padding={"2rem"}
             >
                 {footer}
-            </HStack>
+            </HStack>}
 
         </Flex>
     </Flex>;
