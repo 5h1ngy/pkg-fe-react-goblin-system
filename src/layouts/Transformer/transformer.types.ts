@@ -1,4 +1,4 @@
-import { ReactElement } from "react"; // Importa il tipo ReactElement da React per la tipizzazione dei componenti.
+import { ReactElement, ReactNode } from "react"; // Importa il tipo ReactElement da React per la tipizzazione dei componenti.
 import { NavigateFunction } from "react-router-dom";
 
 /**
@@ -37,12 +37,13 @@ export type ComponentProps = {
     navbarSubItems?: Array<NavbarSubItem>;
     logo?: string; // URL del logo o null se non è presente.
     background?: Background;
-
     location?: Location;
     navigate?: NavigateFunction;
 }
 
 export type ContextType = {
+    footer: ReactNode;
+    setFooter: React.Dispatch<React.SetStateAction<ReactNode | undefined>>;
     setBackground: React.Dispatch<React.SetStateAction<Background | undefined>>;
     props: ComponentProps;
 }

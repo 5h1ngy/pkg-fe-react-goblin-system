@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { ReactNode, useContext, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 
@@ -59,6 +59,15 @@ export function useMouse() {
     }, [isMobileRef]);
 
     return { handleNavigationAndScroll, isMobileRef, circleRef }
+}
+
+export function useFooter(footerElement: ReactNode) {
+    const { setFooter } = usePageContext();
+
+    useEffect(() => {
+        setFooter(footerElement);
+        return () => setFooter(undefined);
+    }, [footerElement, setFooter]);
 }
 
 export const usePageContext = (): ContextType => {

@@ -12,7 +12,9 @@ export default function withContext<T extends ComponentProps>(
     const HOC: FC<T> = (props) => {
         const location = useLocation()
         const navigate = useNavigate()
+
         const [background, setBackground] = useState(props.background);
+        const [footer, setFooter] = useState<React.ReactNode | undefined>(undefined);
 
         useEffect(() => {
             setBackground(props.background);
@@ -20,7 +22,12 @@ export default function withContext<T extends ComponentProps>(
 
         return (
             <Context.Provider
-                value={{ props: { ...props, background, location: location, navigate: navigate }, setBackground }}
+                value={{
+                    props: { ...props, background, location, navigate },
+                    setBackground,
+                    footer,
+                    setFooter,
+                }}
             >
                 <WrappedComponent {...props} />
                 <Toaster />
@@ -28,10 +35,7 @@ export default function withContext<T extends ComponentProps>(
         );
     };
 
-    HOC.displayName = `withTransformerLayout(${WrappedComponent.displayName ||
-        WrappedComponent.name ||
-        "Component"
-        })`;
+    HOC.displayName = `withTransformerLayout(${WrappedComponent.displayName || WrappedComponent.name || "Transformer"})`;
 
     return HOC;
 }

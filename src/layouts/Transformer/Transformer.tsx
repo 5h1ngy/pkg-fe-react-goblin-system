@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Flex, chakra } from "@chakra-ui/react";
+import { Flex, HStack, chakra } from "@chakra-ui/react";
 
 import { usePageContext, useMouse } from "./shared/hooks";
 import Header from "./components/Header";
@@ -8,8 +8,8 @@ import { ComponentProps } from "./transformer.types";
 
 const Transformer: FC<ComponentProps> = () => {
     const { isMobileRef, circleRef } = useMouse()
-    const { props, } = usePageContext()
-    const { background } = props;
+    const { props, footer, } = usePageContext()
+    const { background, } = props;
 
     return <Flex position="relative" overflow="hidden"
         direction={"column"} width={"100%"} minHeight={'100vh'}
@@ -48,6 +48,10 @@ const Transformer: FC<ComponentProps> = () => {
         >
             <Header />
             <Body />
+
+            <HStack >
+                {footer}
+            </HStack>
         </Flex>
     </Flex>;
 }
