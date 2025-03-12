@@ -8,7 +8,7 @@ const Error: FC = () =>
         position={"fixed"}
         flexDirection="column"
         justifyContent="center"
-        width="fit-content"
+        width="100%"
         height="100vh"
     >
         <EmptyState

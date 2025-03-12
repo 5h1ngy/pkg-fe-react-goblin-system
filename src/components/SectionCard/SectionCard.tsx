@@ -37,7 +37,7 @@ const SectionCard: FC<ComponentTypes> = ({
                     && (status !== STATUS.LOADING && status === STATUS.SUCCESS)
                     && <HStack gapX={"1rem"}>
                         {header?.avatar && <Avatar size="2xl" variant="subtle" name={header.avatar} />}
-                        {header?.title && <Heading size="4xl">{header.title}</Heading>}
+                        {header?.title && <Heading size="4xl" fontWeight="bold">{header.title}</Heading>}
                     </HStack>
                 }
 
