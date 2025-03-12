@@ -9,7 +9,7 @@ const Loading: FC = () =>
         position={"fixed"}
         flexDirection="column"
         justifyContent="center"
-        width="100%"
+        width="fit-content"
         height="100vh"
     >
         <EmptyState

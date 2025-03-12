@@ -26,13 +26,14 @@ const Body: FC<ComponentProps> = () => {
     return (
         <Flex ref={flexRef} zIndex="3"
             minHeight="100vh"
-            flexDir="column"
+            flexDirection="column"
             borderYWidth="1px"
             paddingTop="8rem"
             paddingBottom="8rem"
             paddingX={{ base: "5%", sm: "5%", md: "5%", lg: "5%", xl: "10%", "2xl": "10%" }}
             gap="8rem"
             justifyContent="center"
+            alignItems='center'
         >
             {children}
         </Flex>
