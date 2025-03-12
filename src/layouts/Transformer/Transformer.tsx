@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Flex, chakra } from "@chakra-ui/react";
+import { Flex, HStack, chakra } from "@chakra-ui/react";
 
 import { usePageContext, useMouse } from "./shared/hooks";
 import Header from "./components/Header";
@@ -48,7 +48,10 @@ const Transformer: FC<ComponentProps> = () => {
         >
             <Header />
             <Body />
-            {footer}
+            <HStack backgroundColor="gray.100" _dark={{ backgroundColor: "gray.950" }} padding={"2rem"}>
+                {footer}
+            </HStack>
+
         </Flex>
     </Flex>;
 }

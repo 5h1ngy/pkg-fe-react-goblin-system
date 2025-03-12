@@ -21,7 +21,7 @@ const Component: FC<ComponentProps> = () => {
         logo && <Image src={logo} width={'42px'} />;
 
     return <Flex wrap={"wrap"} position={"fixed"} zIndex={4} width={"100%"} top={0}
-        backgroundColor={"white"} _dark={{ backgroundColor: "black" }}
+        backgroundColor="gray.100" _dark={{ backgroundColor: "gray.950" }}
     >
         {!isMobileRef
 
