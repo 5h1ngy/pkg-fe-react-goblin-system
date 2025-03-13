@@ -51,7 +51,7 @@ const Transformer: FC<ComponentProps> = () => {
 
             {footer && <HStack
                 borderBottomLeftRadius='10px' borderWidth="1px"
-                backgroundColor="gray.100" _dark={{ backgroundColor: "gray.950" }} padding={"2rem"}
+                backgroundColor="gray.100" _dark={{ backgroundColor: "gray.950" }} padding={"1.5rem"}
             >
                 {footer}
             </HStack>}
