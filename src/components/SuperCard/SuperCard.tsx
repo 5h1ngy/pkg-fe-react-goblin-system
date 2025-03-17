@@ -11,19 +11,16 @@ import {
     Wrap,
 } from "@chakra-ui/react";
 import { Props } from "./SuperCard.types";
-import { CiFolderOff } from "react-icons/ci";
 import { getRandomColor } from "@/shared/utils";
 
 const SuperCard: React.FC<Props> = (props) => {
     const {
         compact = false,
         orientation = "vertical",
-        thumbnail,
-        title,
-        subTitle,
+        thumbnail, thumbnailFallback,
+        title, subTitle,
         description,
-        topics,
-        links,
+        topics, links,
         onCardClick,
         children,
         // Props passati a <Card.Root>
@@ -93,7 +90,7 @@ const SuperCard: React.FC<Props> = (props) => {
                         setThumbnailError(true);
                     }}
                 />
-            ) : thumbnail ? (
+            ) : thumbnail && thumbnailFallback ? (
                 // Se c'è la prop thumbnail ma l'immagine ha fallito il caricamento, mostriamo l'icona
                 <Flex
                     align="center"
@@ -104,7 +101,7 @@ const SuperCard: React.FC<Props> = (props) => {
                     backgroundColor="transparent"
                     padding={'2rem'}
                 >
-                    <Icon as={CiFolderOff} boxSize={12} /* icona più grande */ />
+                    <Icon as={thumbnailFallback} boxSize={12} /* icona più grande */ />
                 </Flex>
             ) : null}
 

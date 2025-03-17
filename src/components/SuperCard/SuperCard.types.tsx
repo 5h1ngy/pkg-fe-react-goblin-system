@@ -12,6 +12,7 @@ export interface Props extends Partial<CardRootProps> {
     compact?: boolean;
     orientation?: "vertical" | "horizontal";
     thumbnail?: string;
+    thumbnailFallback?: React.ElementType;
     title?: string;
     subTitle?: React.ReactNode;
     description?: React.ReactNode;
