@@ -64,7 +64,7 @@ const SectionCard: FC<ComponentTypes> = ({
         {isEmpty === true
             && (status !== STATUS.LOADING && (status === STATUS.SUCCESS || status === STATUS.FAILED || status === STATUS.IDLE))
             && (empty && <EmptyState
-                icon={empty.icon ? <Icon as={CiFolderOff} /> : undefined}
+                icon={!empty.icon ? <Icon as={CiFolderOff} /> : undefined}
                 title={empty.title ?? "No results found"}
                 description={empty.description ?? undefined}
             />)
