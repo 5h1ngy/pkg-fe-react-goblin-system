@@ -22,7 +22,7 @@ export default function useMediaQuery(query: string): boolean {
     return matches;
 }
 
-export function useMouse() {
+export function useHooks(navigationScroll?: boolean) {
     const location = useLocation();
     const navigate = useNavigate();
     const circleRef = useRef<HTMLDivElement>(null);
@@ -47,9 +47,22 @@ export function useMouse() {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            scrollToSection(location.pathname.split('/').pop() || "");
-        }, 500);
+        if (navigationScroll) {
+            const handleLoad = () => {
+                setTimeout(() => {
+                    scrollToSection(location.pathname.split('/').pop() || "");
+                }, 500);
+            };
+
+            if (document.readyState === 'complete') {
+                handleLoad();
+            } else {
+                window.addEventListener('load', handleLoad);
+                return () => {
+                    window.removeEventListener('load', handleLoad);
+                };
+            }
+        }
     }, []);
 
     useEffect(() => {

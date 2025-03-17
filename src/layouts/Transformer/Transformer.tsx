@@ -1,15 +1,15 @@
 import { FC } from "react";
 import { Flex, HStack, chakra } from "@chakra-ui/react";
 
-import { usePageContext, useMouse } from "./shared/hooks";
+import { usePageContext, useHooks } from "./shared/hooks";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { ComponentProps } from "./transformer.types";
 
 const Transformer: FC<ComponentProps> = () => {
-    const { isMobileRef, circleRef } = useMouse()
     const { props, footer, } = usePageContext()
-    const { background, } = props;
+    const { background, navigationScroll, } = props;
+    const { isMobileRef, circleRef } = useHooks(navigationScroll)
 
     return <Flex position="relative" overflow="hidden"
         direction={"column"} width={"100%"} minHeight={'100vh'}
