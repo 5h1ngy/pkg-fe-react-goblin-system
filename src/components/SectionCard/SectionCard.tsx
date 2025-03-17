@@ -33,23 +33,21 @@ const SectionCard: FC<ComponentTypes> = ({
                     </>
                 }
 
-                {isEmpty !== true
-                    && (status !== STATUS.LOADING && status === STATUS.SUCCESS)
+                {(status !== STATUS.LOADING && (status === STATUS.SUCCESS || status === STATUS.FAILED || status === STATUS.IDLE))
                     && <HStack gapX={"1rem"}>
                         {header?.avatar && <Avatar size="2xl" variant="subtle" name={header.avatar} />}
                         {header?.title && <Heading size="4xl" fontWeight="bold">{header.title}</Heading>}
                     </HStack>
                 }
 
-                {isEmpty !== true
-                    && (status !== STATUS.LOADING && status === STATUS.SUCCESS)
+                {(status !== STATUS.LOADING && (status === STATUS.SUCCESS || status === STATUS.FAILED || status === STATUS.IDLE))
                     && subHeader?.content
                 }
             </VStack>
         }
 
         {isEmpty !== true
-            && (status !== STATUS.LOADING && status === STATUS.SUCCESS)
+            && (status !== STATUS.LOADING && (status === STATUS.SUCCESS || status === STATUS.FAILED || status === STATUS.IDLE))
             && <Flex direction={"column"} width={"full"}
                 {...!body.disableStyle && {
                     borderRadius: '10px', borderWidth: "1px",
@@ -63,8 +61,8 @@ const SectionCard: FC<ComponentTypes> = ({
             </Flex>
         }
 
-        {isEmpty && status !== STATUS.LOADING
-            && (status === STATUS.SUCCESS || status === STATUS.FAILED)
+        {isEmpty === true
+            && (status !== STATUS.LOADING && (status === STATUS.SUCCESS || status === STATUS.FAILED || status === STATUS.IDLE))
             && (empty && <EmptyState
                 icon={empty.icon ? <Icon as={CiFolderOff} /> : undefined}
                 title={empty.title ?? "No results found"}
