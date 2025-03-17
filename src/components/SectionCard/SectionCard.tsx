@@ -11,10 +11,10 @@ import { ComponentTypes } from "./sectionCard.types";
 enum STATUS { IDLE, LOADING, SUCCESS, FAILED }
 
 const SectionCard: FC<ComponentTypes> = ({
-    status, isEmpty = true, style,
+    id, status, isEmpty = true, style,
     header, subHeader, body,
     empty,
-}) => <VStack gapY={"1rem"} width={"full"} {...style}>
+}) => <VStack gapY={"1rem"} width={"full"} id={id} {...style}>
 
         {header
             && <VStack gapY={"1rem"}>

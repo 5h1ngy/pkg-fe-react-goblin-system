@@ -1,6 +1,6 @@
 {
   "name": "pkg-fe-react-goblin-system",
-  "version": "1.3.7",
+  "version": "1.4.0",
   "license": "MIT",
   "description": "React UI component library.",
   "keywords": [
@@ -291,6 +291,10 @@
       "import": "./dist/components/StyledMarkdown/index.mjs",
       "types": "./dist/types/components/StyledMarkdown/index.d.ts"
     },
+    "./components/SuperCard": {
+      "import": "./dist/components/SuperCard/index.mjs",
+      "types": "./dist/types/components/SuperCard/index.d.ts"
+    },
     "./hocs/withRouter": {
       "import": "./dist/hocs/withRouter.mjs",
       "types": "./dist/types/hocs/withRouter.d.ts"
@@ -334,6 +338,10 @@
     "./store/shared": {
       "import": "./dist/store/shared.mjs",
       "types": "./dist/types/store/shared.d.ts"
+    },
+    "./shared/utils": {
+      "import": "./dist/shared/utils.mjs",
+      "types": "./dist/types/shared/utils.d.ts"
     }
   },
   "files": [

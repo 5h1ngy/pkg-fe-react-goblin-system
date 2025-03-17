@@ -9,6 +9,7 @@ export enum STATUS {
 
 export type ComponentTypes = {
     status: STATUS;
+    id?: string;
     isEmpty: boolean;
     style?: StackProps & React.RefAttributes<HTMLDivElement>;
     header?: {

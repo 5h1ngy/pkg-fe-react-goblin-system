@@ -89,6 +89,7 @@ export default defineConfig(({ mode }) => {
                     "components/SectionCard/index": path.resolve(__dirname, "src/components/SectionCard/index.ts"),
                     "components/SectionCardRow/index": path.resolve(__dirname, "src/components/SectionCardRow/index.ts"),
                     "components/StyledMarkdown/index": path.resolve(__dirname, "src/components/StyledMarkdown/index.ts"),
+                    "components/SuperCard/index": path.resolve(__dirname, "src/components/SuperCard/index.ts"),
 
                     "hocs/withRouter": path.resolve(__dirname, "src/hocs/withRouter.tsx"),
 
@@ -105,6 +106,8 @@ export default defineConfig(({ mode }) => {
 
                     "store/auth": path.resolve(__dirname, "src/store/auth/index.ts"),
                     "store/shared": path.resolve(__dirname, "src/store/shared.ts"),
+
+                    "shared/utils": path.resolve(__dirname, "src/shared/utils.ts"),
                 },
             },
             terserOptions: {
