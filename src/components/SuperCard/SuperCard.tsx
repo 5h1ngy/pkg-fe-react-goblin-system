@@ -38,11 +38,10 @@ const SuperCard: React.FC<Props> = (props) => {
             style={{ cursor: "pointer" }}
             overflow="hidden"
             flexDirection="row"
-            // Qui puoi mettere dimensioni "fisse" anche in modalità compatta
-            minHeight="16rem"
-            maxHeight="16rem"
-            minWidth="4rem"
-            maxWidth="4rem"
+
+            width={{ base: "1rem", xs: "2rem", sm: "3rem", md: "4rem", lg: "4rem", "2xl": "4rem" } as any}
+            height={{ base: "auto", xs: "26rem", sm: "24rem", md: "22rem", lg: "20rem", "2xl": "18rem" } as any}
+
             borderRadius="15px"
             backgroundColor="gray.100"
             _dark={{ backgroundColor: "gray.900" }}
@@ -67,8 +66,8 @@ const SuperCard: React.FC<Props> = (props) => {
             flexDirection={flexDirection}
             overflow="hidden"
             // Esempio di dimensioni "fisse" leggermente diverse a seconda del breakpoint
-            width={{ base: "19rem", md: "17rem", lg: "15rem" }}
-            height={{ base: "28rem", md: "26rem", lg: "24rem" }}
+            width={{ base: "100%", xs: '13rem', sm: "15rem", md: "17rem", lg: "19rem", "2xl": "21rem" } as any}
+            height={{ base: "auto", xs: '30rem', sm: "28rem", md: "26rem", lg: "24rem", "2xl": "22rem" } as any}
             // Props passati a <Card.Root>
             {...restCardRootProps}
         >

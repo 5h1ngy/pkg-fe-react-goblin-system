@@ -26,7 +26,7 @@ export function useHooks(navigationScroll?: boolean) {
     const location = useLocation();
     const navigate = useNavigate();
     const circleRef = useRef<HTMLDivElement>(null);
-    const isMobileRef = useMediaQuery('(max-width: 519px)');
+    const isMobileRef = useMediaQuery('(max-width: 768px)');
 
     function handleMouseMove(event: MouseEvent) {
         if (circleRef.current) {
