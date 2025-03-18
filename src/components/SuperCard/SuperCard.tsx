@@ -1,15 +1,10 @@
 import React, { useState } from "react";
-import {
-    Card,
-    Flex,
-    Image,
-    Text,
-    Badge,
-    IconButton,
-    Icon,
-    Box,
-    Wrap,
-} from "@chakra-ui/react";
+
+import { Card, Icon, } from "@chakra-ui/react";
+import { Box, Wrap, Flex, } from "@chakra-ui/react";
+import { Image, Text, Badge, } from "@chakra-ui/react";
+import { IconButton, } from "@chakra-ui/react";
+
 import { Props } from "./SuperCard.types";
 import { getRandomColor } from "@/shared/utils";
 
