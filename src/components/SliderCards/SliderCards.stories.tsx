@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SliderCards from "./SliderCards";
 import { Icon } from "@chakra-ui/react";
 import { FaLink, FaHeart } from "react-icons/fa";
-import SuperCard from "@/components/SuperCard";
 
 export default {
     title: "Components/SliderCards",
