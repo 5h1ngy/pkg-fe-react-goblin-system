@@ -6,7 +6,7 @@ import { Image, Text, Badge, } from "@chakra-ui/react";
 import { IconButton, } from "@chakra-ui/react";
 
 import { Props } from "./SuperCard.types";
-import { getRandomColor } from "react-goblin-system/shared/utils";
+import { getRandomColor } from "@/shared/utils";
 
 const SuperCard: React.FC<Props> = (props) => {
     const {
