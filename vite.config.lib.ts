@@ -90,7 +90,7 @@ export default defineConfig(({ mode }) => {
                     "components/SectionCardRow/index": path.resolve(__dirname, "src/components/SectionCardRow/index.ts"),
                     "components/StyledMarkdown/index": path.resolve(__dirname, "src/components/StyledMarkdown/index.ts"),
                     "components/SuperCard/index": path.resolve(__dirname, "src/components/SuperCard/index.ts"),
-                    "components/SliderCard/index": path.resolve(__dirname, "src/components/SliderCard/index.ts"),
+                    "components/SliderCards/index": path.resolve(__dirname, "src/components/SliderCards/index.ts"),
 
                     "hocs/withRouter": path.resolve(__dirname, "src/hocs/withRouter.tsx"),
 

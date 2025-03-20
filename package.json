@@ -295,9 +295,9 @@
       "import": "./dist/components/SuperCard/index.mjs",
       "types": "./dist/types/components/SuperCard/index.d.ts"
     },
-    "./components/SliderCard": {
-      "import": "./dist/components/SliderCard/index.mjs",
-      "types": "./dist/types/components/SliderCard/index.d.ts"
+    "./components/SliderCards": {
+      "import": "./dist/components/SliderCards/index.mjs",
+      "types": "./dist/types/components/SliderCards/index.d.ts"
     },
     "./hocs/withRouter": {
       "import": "./dist/hocs/withRouter.mjs",
