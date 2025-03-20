@@ -1,6 +1,6 @@
 {
   "name": "pkg-fe-react-goblin-system",
-  "version": "1.4.7",
+  "version": "1.5.0",
   "license": "MIT",
   "description": "React UI component library.",
   "keywords": [
@@ -295,6 +295,10 @@
       "import": "./dist/components/SuperCard/index.mjs",
       "types": "./dist/types/components/SuperCard/index.d.ts"
     },
+    "./components/SliderCard": {
+      "import": "./dist/components/SliderCard/index.mjs",
+      "types": "./dist/types/components/SliderCard/index.d.ts"
+    },
     "./hocs/withRouter": {
       "import": "./dist/hocs/withRouter.mjs",
       "types": "./dist/types/hocs/withRouter.d.ts"
@@ -408,6 +412,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
+    "@types/add": "^2",
     "@types/gh-pages": "^6.1.0",
     "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.16",
@@ -417,7 +422,9 @@
     "@types/react-dom": "^19.0.4",
     "@types/react-helmet": "^6.1.11",
     "@vitejs/plugin-react": "^4.3.4",
+    "add": "^2.0.6",
     "chakra-react-select": "^6.0.1",
+    "csstype": "^3.1.3",
     "dotenv": "^16.4.7",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
@@ -458,6 +465,7 @@
     "vite": "^6.2.1",
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.8"
+    "vitest": "^3.0.8",
+    "yarn": "^1.22.22"
   }
 }

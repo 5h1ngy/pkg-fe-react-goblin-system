@@ -1,5 +1,6 @@
 import React from "react";
-import { CardRootProps, CardHeaderProps, CardBodyProps, CardFooterProps, } from "@chakra-ui/react";
+import { CardRootProps, CardHeaderProps, CardBodyProps, CardFooterProps, ConditionalValue, } from "@chakra-ui/react";
+import type { Property } from "csstype";
 
 export interface Link {
     icon?: React.ReactElement; // ora si aspetta un React element
@@ -23,4 +24,5 @@ export interface Props extends Partial<CardRootProps> {
     headerProps?: Partial<CardHeaderProps>;
     bodyProps?: Partial<CardBodyProps>;
     footerProps?: Partial<CardFooterProps>;
+    display?: ConditionalValue<string | readonly string[] | Property.Display | undefined>;
 }
