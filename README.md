@@ -19,43 +19,45 @@
   </a>
 </div>
 
-## URLs
+## URLs 🌐
 
 | Key       | Value                                                                           |
 |-----------|---------------------------------------------------------------------------------|
 | Website   | https://5h1ngy.github.io/pkg-fe-react-goblin-system/                            |
 | Storybook | https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook                   |
 
-## Overview
+## Overview 🚀
 
-**pkg-fe-react-goblin-system** (also referred to as **React Goblin System**) is a **TypeScript** and **React**-based front-end package that provides reusable UI components, context providers (e.g., Auth and Theme), layouts, services, and Redux store modules. It streamlines the development of modular, scalable applications by leveraging modern libraries and best practices, including **Chakra UI**, **React Router**, and **Redux Toolkit**.
+**pkg-fe-react-goblin-system** (also known as **React Goblin System**) is a **TypeScript** and **React** package that provides reusable UI components, context providers (e.g., Auth and Theme), layouts, services, and Redux store modules. It streamlines the development of modular, scalable applications by leveraging modern libraries and best practices such as **Chakra UI**, **React Router**, and **Redux Toolkit**.
 
-### Key Features
+## Features ✨
 
-- **Rich UI Components** powered by [Chakra UI](https://chakra-ui.com) (buttons, alerts, accordions, dialogs, and more).
-- **Providers** for theme (`Theme`) and authentication (`AuthProvider`) for seamless integration.
-- **Layouts** (e.g., `Error`, `Loading`, `Transformer`) for structured and maintainable code.
-- **Pre-built Auth Services** (`services/auth`) and **Redux Store** slices (`store/auth`, `store/shared`).
-- **Preconfigured** with:
-  - **Vite** for development and library builds.
-  - **Storybook** for component development and interactive demos.
-  - **Jest** & **Testing Library** for unit/integration tests.
-  - **Docusaurus** for comprehensive documentation (`docs` folder).
+- **UI components** ready to use (buttons, alerts, accordions, dialogs...) based on [Chakra UI](https://chakra-ui.com) 🪄  
+- **Integrated Context Providers** (for example, `AuthProvider` and `Theme`) to simplify authentication and theme management.  
+- **Modular layouts** like `Error`, `Loading`, `Transformer` for better code organization.  
+- **Redux Store** with preconfigured slices (`auth`, `shared`, etc.) and **services** such as `auth`.  
+- **Development tools**:  
+  - **Vite** for development and library builds.  
+  - **Storybook** for interactive component exploration.  
+  - **Jest** & **Testing Library** for tests.  
+  - **Docusaurus** for comprehensive documentation (in the `docs` folder).  
 
-## Requirements
+In short, this project aims to provide a robust front-end architecture with many “ready-to-go” solutions to speed up development.
 
-Before building or using the package, ensure your development environment meets these requirements:
+## Requirements 🏁
 
-- **Node.js**: >= 20.18.0
-- **Yarn**: >= 4.7.0 (or npm, if preferred)
-- **React**: 18.x (peer dependency)
-- Other peer dependencies as specified in the package.json (e.g., Chakra UI, Redux Toolkit, etc.)
+Before using or building the package, make sure you have:
 
-## Project Structure
+- **Node.js**: >= 20.18.0  
+- **Yarn**: >= 4.7.0 (or npm, if you prefer)  
+- **React**: 18.x (peer dependency)  
+- Other peer dependencies specified in `package.json` (e.g., Chakra UI, Redux Toolkit…)
+
+## Project Structure 🏗
 
 ```
 pkg-fe-react-goblin-system/
-├─ .storybook/           # Storybook configuration (addons, preview, main.ts, etc.)
+├─ .storybook/           # Storybook configurations (addons, preview, main.ts, etc.)
 ├─ docs/                 # Docusaurus documentation
 ├─ src/
 │  ├─ components/        # React components (Chakra-based, forms, tables, etc.)
@@ -63,91 +65,90 @@ pkg-fe-react-goblin-system/
 │  ├─ layouts/           # Top-level layouts (Error, Loading, etc.)
 │  ├─ providers/         # Providers for Auth, Theme, etc.
 │  ├─ services/          # Service modules (e.g., auth)
-│  └─ store/             # Redux store setup and slices
+│  └─ store/             # Redux store and slices
 ├─ package.json          # Project info, dependencies, and scripts
-├─ tsconfig.json         # Main TypeScript config (references to app, node, types)
+├─ tsconfig.json         # Main TypeScript config (references for app, node, types)
 ├─ tsconfig.app.json     # TS config for the application
 ├─ tsconfig.node.json    # TS config for Node environments
-├─ tsconfig.types.json   # TS config for .d.ts generation
+├─ tsconfig.types.json   # TS config for generating .d.ts
 ├─ vite.config.ts        # Main Vite config (development)
 ├─ vite.config.lib.ts    # Vite config for library builds
 ├─ jest.config.js        # Jest test configuration
 └─ ... (other configs)
 ```
 
-## Installation
+## Installation 📦
 
-### Local Development Setup
+### Local Development Setup 🛠
 
-1. **Install Dependencies**:
+1. **Install dependencies**:
 
    ```bash
    yarn install
    ```
-   > Alternatively, use `npm install` based on your preference.
+   > Alternatively, use `npm install`.
 
-2. **Start Developing**:
+2. **Start the development environment**:
    - **Storybook**:
      ```bash
      yarn start:storybook
      ```
-     Storybook will run on port `6006`.
+     By default, it runs on port `6006`.
    - **Docs (Docusaurus)**:
      ```bash
      yarn start:docs
      ```
-     Documentation will run locally (usually on port `3000`).
+     Usually runs locally on port `3000`.
 
-### Local Installation from Tarball
+### Local Installation from Tarball 🍂
 
-After building the library, a tarball is generated which can be used as a local development dependency:
+After building the library, a tarball is generated that can be used as a local development dependency:
 
-1. **Build the Library** (see Build Process below).
+1. **Build the library** (see Build Process below).
 2. Locate the generated tarball in the `build-lib/` folder.
-3. Install the tarball as a development dependency in your project:
+3. Install the `.tgz` file as a dev dependency in your project:
 
    ```bash
    yarn add file:./build-lib/<tarball-file-name>.tgz --dev
    ```
-   Replace `<tarball-file-name>` with the actual tarball name (e.g., `react-goblin-system-0.3.58.tgz`).
 
-## Build Process
+## Build Process 🏭
 
-The build process compiles the library, generates type declarations, and packages the library into a tarball. Follow these steps:
+This process compiles the library, generates declaration files, and creates a tarball:
 
-1. **Build the Library**:
+1. **Build the library**:
    ```bash
    yarn build:lib
    ```
-   This command uses Vite with `vite.config.lib.ts` to compile the library into the `dist/` folder, generates TypeScript declaration files in `dist/types`, creates a tarball using `npm pack`, moves the tarball to the `build-lib/` folder, and cleans up the `dist/` directory.
+   Uses Vite (`vite.config.lib.ts`) to compile into `dist/`, generates `.d.ts` in `dist/types`, runs `npm pack`, moves the tarball to `build-lib/`, and cleans `dist/`.
 
-2. **Build Type Declarations**:
+2. **Build declarations**:
    ```bash
    yarn build:types
    ```
-   Generates `.d.ts` files in `dist/types` (this is also handled by the `build:lib` script).
+   Generates `.d.ts` (also handled by `build:lib`).
 
 3. **Build Storybook**:
    ```bash
    yarn build:storybook
    ```
-   Outputs a static Storybook site in `build-storybook/`.
+   Outputs a static Storybook in `build-storybook/`.
 
-4. **Build Documentation**:
+4. **Build documentation**:
    ```bash
    yarn build:docs
    ```
-   Generates a static Docusaurus site in `build-docusaurus/`.
+   Produces a static Docusaurus site in `build-docusaurus/`.
 
-5. **Clean Build Artifacts**:
+5. **Clean**:
    ```bash
    yarn clean
    ```
-   Removes `node_modules`, `dist`, `build-docusaurus`, `build-storybook`, and `build-lib` to ensure a clean build environment.
+   Removes `node_modules`, `dist`, `build-docusaurus`, `build-storybook`, and `build-lib`.
 
-## Usage Example
+## Usage Example 💻
 
-Once the library is built or installed locally, you can import its components, services, or providers. For example:
+Once installed or built locally:
 
 ```jsx
 import { Button } from "react-goblin-system/components/Factory/Chakra/button";
@@ -168,7 +169,7 @@ function MyComponent() {
 export default MyComponent;
 ```
 
-Wrap your root application with the **Theme** and **Auth** providers:
+Then wrap your app with the **Theme** and **Auth** providers:
 
 ```jsx
 import { createRoot } from "react-dom/client";
@@ -185,28 +186,28 @@ createRoot(document.getElementById("root")).render(
 );
 ```
 
-## Scripts from `package.json`
+## Scripts from `package.json` 🚀
 
-- **`start:storybook`** – Start Storybook in development mode (default on port 6006).  
-- **`start:docs`** – Start local Docusaurus documentation (default on port 3000).  
-- **`test`** – Run tests with Jest (and Vitest if configured).  
-- **`build:storybook`** – Build a static Storybook site in `build-storybook/`.  
+- **`start:storybook`** – Start Storybook in dev mode (port `6006`).  
+- **`start:docs`** – Start Docusaurus locally (port `3000`).  
+- **`test`** – Run tests with Jest.  
+- **`build:storybook`** – Build a static Storybook into `build-storybook/`.  
 - **`build:docs`** – Build static documentation in `build-docusaurus/`.  
-- **`build:lib`** – Build the library with Vite (`vite.config.lib.ts`) and package it into a tarball.  
-- **`build:types`** – Generate `.d.ts` TypeScript declaration files.  
-- **`clean`** – Remove `node_modules` and build directories (`dist`, `build-docusaurus`, `build-storybook`, `build-lib`).
+- **`build:lib`** – Build the library with Vite and package it as a tarball.  
+- **`build:types`** – Generate `.d.ts` declaration files.  
+- **`clean`** – Remove build directories (`dist`, `build-docusaurus`, `build-storybook`, `build-lib`) and `node_modules`.
 
-## Contributing
+## Contributing 🤝
 
 1. **Fork** the repository or create a new branch in your clone.
-2. **Install** dependencies and work on your feature or fix in the `src/` folder.
+2. **Install** dependencies and develop your feature/fix in `src/`.
 3. **Open a pull request** describing your changes and improvements.
 
-## License
+## License 📜
 
-This project is licensed under the **MIT License**. See the `LICENSE` file or refer to the `package.json` for details.
+This project is released under the **MIT** License. For details, see the `LICENSE` file or the `package.json`.
 
-## References
+## References 📚
 
 - [React](https://reactjs.org/)
 - [Chakra UI](https://chakra-ui.com/)

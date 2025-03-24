@@ -2,14 +2,19 @@
   "name": "pkg-fe-react-goblin-system",
   "version": "1.7.0",
   "license": "MIT",
-  "description": "React UI component library.",
+  "description": "Flexible front-end library built on TypeScript & Chakra UI. It provides UI components, advanced providers, Redux slices, and an integrated Storybook for fast and modular development.",
   "keywords": [
     "react",
+    "typescript",
     "chakra-ui",
-    "components",
     "design-system",
-    "ui",
-    "library"
+    "best-practices",
+    "modular",
+    "storybook",
+    "testing",
+    "docs",
+    "vite",
+    "docusaurus"
   ],
   "repository": {
     "type": "git",
