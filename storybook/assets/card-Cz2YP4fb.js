@@ -1,1 +1,0 @@
-import{c as t}from"./stack-C7r7ZhPl.js";const{withProvider:e,withContext:o}=t({key:"card"}),d=e("div","root"),i=o("div","body");o("div","header");const a=o("div","footer");o("h3","title");o("p","description");export{d as C,i as a,a as b};
