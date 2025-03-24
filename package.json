@@ -465,7 +465,6 @@
     "vite": "^6.2.1",
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.8",
-    "yarn": "^1.22.22"
+    "vitest": "^3.0.8"
   }
 }
