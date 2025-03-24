@@ -1,6 +1,5 @@
 import { ReactNode, useContext, useEffect, useRef, useState } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
-import gsap from "gsap";
+import { useLocation } from "react-router-dom";
 
 import { scrollToSection } from "./utils";
 import { Context } from './Provider';
@@ -24,54 +23,23 @@ export default function useMediaQuery(query: string): boolean {
 
 export function useHooks(navigationScroll?: boolean) {
     const location = useLocation();
-    const navigate = useNavigate();
     const circleRef = useRef<HTMLDivElement>(null);
     const isMobileRef = useMediaQuery('(max-width: 768px)');
 
-    function handleMouseMove(event: MouseEvent) {
-        if (circleRef.current) {
-            gsap.to(circleRef.current, {
-                x: event.clientX - 50, y: event.clientY - 50,
-                duration: 0.1, ease: "power1.out",
-            });
-        }
-    };
-
-    function handleNavigationAndScroll(path: string, navigationScroll?: boolean) {
-        if (navigationScroll) {
-            navigate(path.replace('/', '').split('/').pop() || "");
-            scrollToSection(path.replace('/', '').split('/').pop() || "");
-        } else {
-            navigate(path, { replace: true })
-        }
-    }
-
     useEffect(() => {
         if (navigationScroll) {
-            const handleLoad = () => {
-                setTimeout(() => {
-                    scrollToSection(location.pathname.split('/').pop() || "");
-                }, 500);
-            };
-
-            if (document.readyState === 'complete') {
-                handleLoad();
-            } else {
-                window.addEventListener('load', handleLoad);
-                return () => {
-                    window.removeEventListener('load', handleLoad);
-                };
-            }
+          const handleLoad = () => setTimeout(() => scrollToSection(location.pathname.split('/').pop() || ""), 1000);
+      
+          if (document.readyState === 'complete') {
+            handleLoad();
+          } else {
+            window.addEventListener('load', handleLoad)
+            return () => window.removeEventListener('load', handleLoad)
+          }
         }
-    }, []);
+      }, []);
 
-    useEffect(() => {
-        if (isMobileRef) return;
-        document.addEventListener("mousemove", handleMouseMove);
-        return () => document.removeEventListener("mousemove", handleMouseMove);
-    }, [isMobileRef]);
-
-    return { handleNavigationAndScroll, isMobileRef, circleRef }
+    return { isMobileRef, circleRef }
 }
 
 export function useFooter(footerElement: ReactNode) {

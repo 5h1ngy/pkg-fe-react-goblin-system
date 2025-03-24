@@ -43,6 +43,7 @@ export type ComponentProps = {
 
 export type ContextType = {
     footer: ReactNode;
+    handleNavigationAndScroll: (path: string, navigationScroll?: boolean) => void;
     setFooter: React.Dispatch<React.SetStateAction<ReactNode | undefined>>;
     setBackground: React.Dispatch<React.SetStateAction<Background | undefined>>;
     props: ComponentProps;

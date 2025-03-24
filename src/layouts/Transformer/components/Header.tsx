@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Flex, Spacer, Image, Text } from "@chakra-ui/react";
 import { IconButton, Tabs } from "@chakra-ui/react";
@@ -13,9 +13,11 @@ import { findMatchingNavbarValue } from "../shared/utils";
 import { ComponentProps } from "../transformer.types";
 
 const Component: FC<ComponentProps> = () => {
-    const { isMobileRef, handleNavigationAndScroll, } = useHooks()
-    const { props, } = usePageContext()
+    const { isMobileRef, } = useHooks()
+    const { props, handleNavigationAndScroll } = usePageContext()
     const { navigationScroll, logo, navbarItems, navbarSubItems } = props;
+    const [open, setOpen] = useState(false)
+
 
     const Logo: FC = () =>
         logo && <Image src={logo} width={'42px'} />;
@@ -84,7 +86,7 @@ const Component: FC<ComponentProps> = () => {
                 gapX={'1rem'} justifyContent={"start"} justifyItems={"center"} alignContent={'center'} alignItems={'center'}
                 paddingX={'5%'} paddingY={'1rem'}
             >
-                <DrawerRoot size={"full"}>
+                <DrawerRoot size={"full"} open={open} onOpenChange={(event) => setOpen(event.open)}>
                     <DrawerBackdrop />
                     <DrawerTrigger asChild>
                         <IconButton aria-label="" variant={"subtle"} >
@@ -98,7 +100,13 @@ const Component: FC<ComponentProps> = () => {
                             <Flex direction={"column"} gap={"3rem"} height={"100%"} alignItems={"center"} justifyContent={"center"}>
                                 {navbarItems?.map(item => (
                                     <NavLink key={crypto.randomUUID()} to={item.value} end>
-                                        <Text textStyle="3xl" fontWeight="medium">{item.label}</Text>
+                                        <Text textStyle="3xl" fontWeight="medium"
+                                            onClick={() => {
+                                                handleNavigationAndScroll(item.value, navigationScroll)
+                                                setOpen(false)
+                                            }}>
+                                            {item.label}
+                                        </Text>
                                     </NavLink>
                                 ))}
                             </Flex>

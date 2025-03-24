@@ -47,9 +47,9 @@ const SliderCards: React.FC<SliderCardsProps> = ({
 
       {/* Container delle card, che si adatta fluidamente */}
       <Flex direction="row" align="center" justify="center" gap={4} wrap="wrap">
-        {leftCard && <SuperCard {...leftCard} display={{ base: "none", xs: "none", lg: "flex", } as any} compact orientation={"horizontal"} />}
-        <SuperCard {...mainCard} orientation={"horizontal"} />
-        {rightCard && <SuperCard {...rightCard} display={{ base: "none", xs: "none", lg: "flex", } as any} compact orientation={"horizontal"} />}
+        {leftCard && <SuperCard {...leftCard} display={{ base: "none", md: "flex" } as any} compact />}
+        <SuperCard {...mainCard} />
+        {rightCard && <SuperCard {...rightCard} display={{ base: "none", md: "flex" } as any} compact />}
       </Flex>
 
       {/* Container dei pulsanti: in una riga, sotto le card */}

@@ -65,7 +65,6 @@ export const Compact: Story = {
  */
 export const Horizontal: Story = {
     args: {
-        orientation: "horizontal",
         title: "SuperCard orizzontale",
         subTitle: "Layout in orizzontale",
         description:
