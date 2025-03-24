@@ -1,6 +1,6 @@
 {
   "name": "pkg-fe-react-goblin-system",
-  "version": "1.0.1",
+  "version": "1.7.0",
   "license": "MIT",
   "description": "React UI component library.",
   "keywords": [
@@ -259,6 +259,10 @@
       "import": "./dist/components/Factory/DynamicForm/index.mjs",
       "types": "./dist/types/components/Factory/DynamicForm/index.d.ts"
     },
+    "./components/GalacticOrbiter": {
+      "import": "./dist/components/GalacticOrbiter/index.mjs",
+      "types": "./dist/types/components/GalacticOrbiter/index.d.ts"
+    },
     "./components/LiquidSearchForm": {
       "import": "./dist/components/LiquidSearchForm/index.mjs",
       "types": "./dist/types/components/LiquidSearchForm/index.d.ts"
@@ -286,6 +290,14 @@
     "./components/StyledMarkdown": {
       "import": "./dist/components/StyledMarkdown/index.mjs",
       "types": "./dist/types/components/StyledMarkdown/index.d.ts"
+    },
+    "./components/SuperCard": {
+      "import": "./dist/components/SuperCard/index.mjs",
+      "types": "./dist/types/components/SuperCard/index.d.ts"
+    },
+    "./components/SliderCards": {
+      "import": "./dist/components/SliderCards/index.mjs",
+      "types": "./dist/types/components/SliderCards/index.d.ts"
     },
     "./hocs/withRouter": {
       "import": "./dist/hocs/withRouter.mjs",
@@ -330,6 +342,10 @@
     "./store/shared": {
       "import": "./dist/store/shared.mjs",
       "types": "./dist/types/store/shared.d.ts"
+    },
+    "./shared/utils": {
+      "import": "./dist/shared/utils.mjs",
+      "types": "./dist/types/shared/utils.d.ts"
     }
   },
   "files": [
@@ -396,6 +412,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
+    "@types/add": "^2",
     "@types/gh-pages": "^6.1.0",
     "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.16",
@@ -405,7 +422,9 @@
     "@types/react-dom": "^19.0.4",
     "@types/react-helmet": "^6.1.11",
     "@vitejs/plugin-react": "^4.3.4",
+    "add": "^2.0.6",
     "chakra-react-select": "^6.0.1",
+    "csstype": "^3.1.3",
     "dotenv": "^16.4.7",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
@@ -446,6 +465,7 @@
     "vite": "^6.2.1",
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.8"
+    "vitest": "^3.0.8",
+    "yarn": "^1.22.22"
   }
 }

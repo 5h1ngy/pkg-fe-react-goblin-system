@@ -11,10 +11,10 @@ import { ComponentTypes } from "./sectionCard.types";
 enum STATUS { IDLE, LOADING, SUCCESS, FAILED }
 
 const SectionCard: FC<ComponentTypes> = ({
-    status, isEmpty = true,
+    id, status, isEmpty = true, style,
     header, subHeader, body,
     empty,
-}) => <VStack gapY={"1rem"} width={"full"}>
+}) => <VStack gapY={"1rem"} width={"full"} id={id} {...style}>
 
         {header
             && <VStack gapY={"1rem"}>
@@ -33,23 +33,21 @@ const SectionCard: FC<ComponentTypes> = ({
                     </>
                 }
 
-                {isEmpty !== true
-                    && (status !== STATUS.LOADING && status === STATUS.SUCCESS)
+                {(status !== STATUS.LOADING && (status === STATUS.SUCCESS || status === STATUS.FAILED || status === STATUS.IDLE))
                     && <HStack gapX={"1rem"}>
                         {header?.avatar && <Avatar size="2xl" variant="subtle" name={header.avatar} />}
-                        {header?.title && <Heading size="4xl">{header.title}</Heading>}
+                        {header?.title && <Heading size="4xl" fontWeight="bold">{header.title}</Heading>}
                     </HStack>
                 }
 
-                {isEmpty !== true
-                    && (status !== STATUS.LOADING && status === STATUS.SUCCESS)
+                {(status !== STATUS.LOADING && (status === STATUS.SUCCESS || status === STATUS.FAILED || status === STATUS.IDLE))
                     && subHeader?.content
                 }
             </VStack>
         }
 
         {isEmpty !== true
-            && (status !== STATUS.LOADING && status === STATUS.SUCCESS)
+            && (status !== STATUS.LOADING && (status === STATUS.SUCCESS || status === STATUS.FAILED || status === STATUS.IDLE))
             && <Flex direction={"column"} width={"full"}
                 {...!body.disableStyle && {
                     borderRadius: '10px', borderWidth: "1px",
@@ -63,10 +61,10 @@ const SectionCard: FC<ComponentTypes> = ({
             </Flex>
         }
 
-        {isEmpty && status !== STATUS.LOADING
-            && (status === STATUS.SUCCESS || status === STATUS.FAILED)
+        {isEmpty === true
+            && (status !== STATUS.LOADING && (status === STATUS.SUCCESS || status === STATUS.FAILED || status === STATUS.IDLE))
             && (empty && <EmptyState
-                icon={empty.icon ? <Icon as={CiFolderOff} /> : undefined}
+                icon={!empty.icon ? <Icon as={CiFolderOff} /> : empty.icon}
                 title={empty.title ?? "No results found"}
                 description={empty.description ?? undefined}
             />)

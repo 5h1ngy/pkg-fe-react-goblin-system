@@ -1,15 +1,15 @@
 import { FC } from "react";
-import { Flex, chakra } from "@chakra-ui/react";
+import { Flex, HStack, chakra } from "@chakra-ui/react";
 
-import { usePageContext, useMouse } from "./shared/hooks";
-import Header from "./Header";
-import Body from "./Body";
+import { usePageContext, useHooks } from "./shared/hooks";
+import Header from "./components/Header";
+import Body from "./components/Body";
 import { ComponentProps } from "./transformer.types";
 
 const Transformer: FC<ComponentProps> = () => {
-    const { isMobileRef, circleRef } = useMouse()
-    const { props, } = usePageContext()
-    const { background } = props;
+    const { props, footer, } = usePageContext()
+    const { background, navigationScroll, } = props;
+    const { isMobileRef, circleRef } = useHooks(navigationScroll)
 
     return <Flex position="relative" overflow="hidden"
         direction={"column"} width={"100%"} minHeight={'100vh'}
@@ -22,10 +22,10 @@ const Transformer: FC<ComponentProps> = () => {
             backgroundPosition="top"
             backgroundSize="cover"
             filter={background.opacity ? `blur(${background.opacity}px)` : undefined}
-            backgroundColor={"gray.100"}
+            backgroundColor={"white"}
             backgroundImage={background.image ? `url(${background.image})` : undefined}
             _dark={{
-                backgroundColor: "gray.950",
+                backgroundColor: "black",
                 backgroundImage: background.imageDark ? `url(${background.imageDark})` : undefined
             }}
         />}
@@ -48,6 +48,14 @@ const Transformer: FC<ComponentProps> = () => {
         >
             <Header />
             <Body />
+
+            {footer && <HStack
+                borderBottomLeftRadius='10px' borderWidth="1px"
+                backgroundColor="gray.100" _dark={{ backgroundColor: "gray.950" }} padding={"1.5rem"}
+            >
+                {footer}
+            </HStack>}
+
         </Flex>
     </Flex>;
 }

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Flex, Spacer, Image, Text } from "@chakra-ui/react";
 import { IconButton, Tabs } from "@chakra-ui/react";
@@ -8,20 +8,22 @@ import { ColorModeButtonExtended } from "@/components/Factory/Chakra/color-mode"
 import { DrawerBackdrop, DrawerBody, DrawerCloseTrigger } from "@/components/Factory/Chakra/drawer";
 import { DrawerContent, DrawerRoot, DrawerTrigger } from "@/components/Factory/Chakra/drawer";
 
-import { usePageContext, useMouse } from "./shared/hooks";
-import { findMatchingNavbarValue } from "./shared/utils";
-import { ComponentProps } from "./transformer.types";
+import { usePageContext, useHooks } from "../shared/hooks";
+import { findMatchingNavbarValue } from "../shared/utils";
+import { ComponentProps } from "../transformer.types";
 
 const Component: FC<ComponentProps> = () => {
-    const { isMobileRef, handleNavigationAndScroll, } = useMouse()
-    const { props, } = usePageContext()
+    const { isMobileRef, } = useHooks()
+    const { props, handleNavigationAndScroll } = usePageContext()
     const { navigationScroll, logo, navbarItems, navbarSubItems } = props;
+    const [open, setOpen] = useState(false)
+
 
     const Logo: FC = () =>
         logo && <Image src={logo} width={'42px'} />;
 
     return <Flex wrap={"wrap"} position={"fixed"} zIndex={4} width={"100%"} top={0}
-        backgroundColor={"white"} _dark={{ backgroundColor: "black" }}
+        backgroundColor="gray.100" _dark={{ backgroundColor: "gray.950" }}
     >
         {!isMobileRef
 
@@ -31,13 +33,14 @@ const Component: FC<ComponentProps> = () => {
                     wrap={"wrap"} direction={"row"} width={'100%'}
                     gapX={'1rem'} justifyContent={"center"} justifyItems={"center"} alignContent={'center'} alignItems={'center'}
                     paddingX={'5%'} paddingY={!navbarSubItems ? "1rem" : ''} paddingTop={navbarSubItems ? "1rem" : ''}
+                    borderWidth="1px"
                 >
                     <Logo />
                     {navbarItems?.map(item =>
                         <Text key={item.value}
                             onClick={() => handleNavigationAndScroll(item.value, navigationScroll)}
                             style={{ cursor: 'pointer' }}
-                            textStyle="xl" fontWeight="medium">{item.label}</Text>
+                            textStyle="xl" fontWeight="medium">{item.icon} {item.label}</Text>
                     )}
                     <Spacer />
                     <ColorModeButtonExtended variant="enclosed" size={"sm"} />
@@ -83,7 +86,7 @@ const Component: FC<ComponentProps> = () => {
                 gapX={'1rem'} justifyContent={"start"} justifyItems={"center"} alignContent={'center'} alignItems={'center'}
                 paddingX={'5%'} paddingY={'1rem'}
             >
-                <DrawerRoot size={"full"}>
+                <DrawerRoot size={"full"} open={open} onOpenChange={(event) => setOpen(event.open)}>
                     <DrawerBackdrop />
                     <DrawerTrigger asChild>
                         <IconButton aria-label="" variant={"subtle"} >
@@ -97,7 +100,13 @@ const Component: FC<ComponentProps> = () => {
                             <Flex direction={"column"} gap={"3rem"} height={"100%"} alignItems={"center"} justifyContent={"center"}>
                                 {navbarItems?.map(item => (
                                     <NavLink key={crypto.randomUUID()} to={item.value} end>
-                                        <Text textStyle="3xl" fontWeight="medium">{item.label}</Text>
+                                        <Text textStyle="3xl" fontWeight="medium"
+                                            onClick={() => {
+                                                handleNavigationAndScroll(item.value, navigationScroll)
+                                                setOpen(false)
+                                            }}>
+                                            {item.label}
+                                        </Text>
                                     </NavLink>
                                 ))}
                             </Flex>

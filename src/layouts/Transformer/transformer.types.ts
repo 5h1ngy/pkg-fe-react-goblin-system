@@ -1,11 +1,11 @@
-import { ReactElement } from "react"; // Importa il tipo ReactElement da React per la tipizzazione dei componenti.
+import { ReactElement, ReactNode } from "react"; // Importa il tipo ReactElement da React per la tipizzazione dei componenti.
 import { NavigateFunction } from "react-router-dom";
 
 /**
  * Interfaccia per un elemento della barra di navigazione principale.
  */
 export type NavbarItem = {
-    icon: ReactElement | string;
+    icon?: ReactElement | string;
     label: string; // Etichetta visibile dell'elemento di navigazione.
     value: string; // Valore o URL associato all'elemento.
     group?: string;
@@ -15,7 +15,7 @@ export type NavbarItem = {
  * Interfaccia per un elemento secondario della barra di navigazione (submenu).
  */
 export type NavbarSubItem = {
-    icon: ReactElement | string; // Icona associata all'elemento secondario, può essere un ReactElement o una stringa (es. URL).
+    icon?: ReactElement | string; // Icona associata all'elemento secondario, può essere un ReactElement o una stringa (es. URL).
     label: string; // Etichetta visibile dell'elemento secondario.
     value: string; // Valore o URL associato all'elemento secondario.
     group?: string[];
@@ -37,12 +37,14 @@ export type ComponentProps = {
     navbarSubItems?: Array<NavbarSubItem>;
     logo?: string; // URL del logo o null se non è presente.
     background?: Background;
-
     location?: Location;
     navigate?: NavigateFunction;
 }
 
 export type ContextType = {
+    footer: ReactNode;
+    handleNavigationAndScroll: (path: string, navigationScroll?: boolean) => void;
+    setFooter: React.Dispatch<React.SetStateAction<ReactNode | undefined>>;
     setBackground: React.Dispatch<React.SetStateAction<Background | undefined>>;
     props: ComponentProps;
 }

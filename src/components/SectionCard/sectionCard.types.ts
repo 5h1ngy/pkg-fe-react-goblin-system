@@ -1,4 +1,4 @@
-import { FlexProps } from "@chakra-ui/react";
+import { FlexProps, StackProps } from "@chakra-ui/react";
 
 export enum STATUS {
     IDLE,
@@ -9,7 +9,9 @@ export enum STATUS {
 
 export type ComponentTypes = {
     status: STATUS;
+    id?: string;
     isEmpty: boolean;
+    style?: StackProps & React.RefAttributes<HTMLDivElement>;
     header?: {
         avatar?: string;
         title?: string;

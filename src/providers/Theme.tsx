@@ -4,7 +4,18 @@ import { ColorModeProvider, type ColorModeProviderProps } from "@/components/Fac
 
 function ThemeProvider(props: ColorModeProviderProps) {
 
-  const _config = defineConfig({})
+  const _config = defineConfig({
+    theme: {
+      breakpoints: {
+        "xs": "340px", // >=
+        "sm": "480px", // >=
+        "md": "768px", // >=
+        "lg": "1024px", // >=
+        "xl": "1280px", // >=
+        "2xl": "1536px", // >=
+      }
+    }
+  })
 
   if (localStorage.getItem("theme") === null) {
     localStorage.setItem("theme", "dark")

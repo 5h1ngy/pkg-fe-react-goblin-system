@@ -2,8 +2,8 @@ import { FC, useRef, useEffect } from "react";
 import { Flex } from "@chakra-ui/react";
 import gsap from "gsap";
 
-import { usePageContext } from "./shared/hooks";
-import { ComponentProps } from "./transformer.types";
+import { usePageContext } from "../shared/hooks";
+import { ComponentProps } from "../transformer.types";
 
 const Body: FC<ComponentProps> = () => {
     const { props } = usePageContext();
@@ -26,13 +26,14 @@ const Body: FC<ComponentProps> = () => {
     return (
         <Flex ref={flexRef} zIndex="3"
             minHeight="100vh"
-            wrap="wrap"
+            flexDirection="column"
             borderYWidth="1px"
             paddingTop="8rem"
             paddingBottom="8rem"
             paddingX={{ base: "5%", sm: "5%", md: "5%", lg: "5%", xl: "10%", "2xl": "10%" }}
             gap="8rem"
             justifyContent="center"
+            alignItems='center'
         >
             {children}
         </Flex>

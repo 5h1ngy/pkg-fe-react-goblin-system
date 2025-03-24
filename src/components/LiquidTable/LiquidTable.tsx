@@ -2,10 +2,10 @@ import { FC } from "react";
 import { Stack } from "@chakra-ui/react"
 import { Table } from "@chakra-ui/react"
 
-import Header from "./Header";
-import Body from "./Body";
-import Pagination from "./Pagination";
-import ActionBar from "./ActionBar";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import Pagination from "./components/Pagination";
+import ActionBar from "./components/ActionBar";
 
 const LiquidTable: FC = () => {
 

@@ -4,7 +4,7 @@ import { Kbd } from "@chakra-ui/react"
 import { Button } from "@/components/Factory/Chakra/button";
 import { ActionBarContent, ActionBarRoot, ActionBarSelectionTrigger, ActionBarSeparator, } from "@/components/Factory/Chakra/action-bar";
 
-import { useTableContext } from "./shared/hooks";
+import { useTableContext } from "../shared/hooks";
 
 const DynamicTable: FC = () => {
     const { select } = useTableContext();
