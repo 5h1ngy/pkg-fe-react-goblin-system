@@ -2,11 +2,10 @@
   "name": "pkg-fe-react-goblin-system",
   "version": "1.7.0",
   "license": "MIT",
-  "description": "Flexible front-end library built on TypeScript & Chakra UI. It provides UI components, advanced providers, Redux slices, and an integrated Storybook for fast and modular development.",
+  "description": "Flexible front-end library built on TypeScript. It provides UI components, advanced providers, Redux slices, and an integrated Storybook for fast and modular development.",
   "keywords": [
     "react",
     "typescript",
-    "chakra-ui",
     "design-system",
     "best-practices",
     "modular",
@@ -59,206 +58,6 @@
     "./store/*": {
       "import": "./dist/store/*",
       "types": "./dist/types/store/*"
-    },
-    "./components/Factory/Chakra/accordion": {
-      "import": "./dist/components/Factory/Chakra/accordion.mjs",
-      "types": "./dist/types/components/Factory/Chakra/accordion.d.ts"
-    },
-    "./components/Factory/Chakra/action-bar": {
-      "import": "./dist/components/Factory/Chakra/action-bar.mjs",
-      "types": "./dist/types/components/Factory/Chakra/action-bar.d.ts"
-    },
-    "./components/Factory/Chakra/alert": {
-      "import": "./dist/components/Factory/Chakra/alert.mjs",
-      "types": "./dist/types/components/Factory/Chakra/alert.d.ts"
-    },
-    "./components/Factory/Chakra/avatar": {
-      "import": "./dist/components/Factory/Chakra/avatar.mjs",
-      "types": "./dist/types/components/Factory/Chakra/avatar.d.ts"
-    },
-    "./components/Factory/Chakra/blockquote": {
-      "import": "./dist/components/Factory/Chakra/blockquote.mjs",
-      "types": "./dist/types/components/Factory/Chakra/blockquote.d.ts"
-    },
-    "./components/Factory/Chakra/breadcrumb": {
-      "import": "./dist/components/Factory/Chakra/breadcrumb.mjs",
-      "types": "./dist/types/components/Factory/Chakra/breadcrumb.d.ts"
-    },
-    "./components/Factory/Chakra/button": {
-      "import": "./dist/components/Factory/Chakra/button.mjs",
-      "types": "./dist/types/components/Factory/Chakra/button.d.ts"
-    },
-    "./components/Factory/Chakra/checkbox": {
-      "import": "./dist/components/Factory/Chakra/checkbox.mjs",
-      "types": "./dist/types/components/Factory/Chakra/checkbox.d.ts"
-    },
-    "./components/Factory/Chakra/checkbox-card": {
-      "import": "./dist/components/Factory/Chakra/checkbox-card.mjs",
-      "types": "./dist/types/components/Factory/Chakra/checkbox-card.d.ts"
-    },
-    "./components/Factory/Chakra/clipboard": {
-      "import": "./dist/components/Factory/Chakra/clipboard.mjs",
-      "types": "./dist/types/components/Factory/Chakra/clipboard.d.ts"
-    },
-    "./components/Factory/Chakra/close-button": {
-      "import": "./dist/components/Factory/Chakra/close-button.mjs",
-      "types": "./dist/types/components/Factory/Chakra/close-button.d.ts"
-    },
-    "./components/Factory/Chakra/color-mode": {
-      "import": "./dist/components/Factory/Chakra/color-mode.mjs",
-      "types": "./dist/types/components/Factory/Chakra/color-mode.d.ts"
-    },
-    "./components/Factory/Chakra/data-list": {
-      "import": "./dist/components/Factory/Chakra/data-list.mjs",
-      "types": "./dist/types/components/Factory/Chakra/data-list.d.ts"
-    },
-    "./components/Factory/Chakra/dialog": {
-      "import": "./dist/components/Factory/Chakra/dialog.mjs",
-      "types": "./dist/types/components/Factory/Chakra/dialog.d.ts"
-    },
-    "./components/Factory/Chakra/drawer": {
-      "import": "./dist/components/Factory/Chakra/drawer.mjs",
-      "types": "./dist/types/components/Factory/Chakra/drawer.d.ts"
-    },
-    "./components/Factory/Chakra/empty-state": {
-      "import": "./dist/components/Factory/Chakra/empty-state.mjs",
-      "types": "./dist/types/components/Factory/Chakra/empty-state.d.ts"
-    },
-    "./components/Factory/Chakra/field": {
-      "import": "./dist/components/Factory/Chakra/field.mjs",
-      "types": "./dist/types/components/Factory/Chakra/field.d.ts"
-    },
-    "./components/Factory/Chakra/file-button": {
-      "import": "./dist/components/Factory/Chakra/file-button.mjs",
-      "types": "./dist/types/components/Factory/Chakra/file-button.d.ts"
-    },
-    "./components/Factory/Chakra/hover-card": {
-      "import": "./dist/components/Factory/Chakra/hover-card.mjs",
-      "types": "./dist/types/components/Factory/Chakra/hover-card.d.ts"
-    },
-    "./components/Factory/Chakra/input-group": {
-      "import": "./dist/components/Factory/Chakra/input-group.mjs",
-      "types": "./dist/types/components/Factory/Chakra/input-group.d.ts"
-    },
-    "./components/Factory/Chakra/link-button": {
-      "import": "./dist/components/Factory/Chakra/link-button.mjs",
-      "types": "./dist/types/components/Factory/Chakra/link-button.d.ts"
-    },
-    "./components/Factory/Chakra/menu": {
-      "import": "./dist/components/Factory/Chakra/menu.mjs",
-      "types": "./dist/types/components/Factory/Chakra/menu.d.ts"
-    },
-    "./components/Factory/Chakra/native-select": {
-      "import": "./dist/components/Factory/Chakra/native-select.mjs",
-      "types": "./dist/types/components/Factory/Chakra/native-select.d.ts"
-    },
-    "./components/Factory/Chakra/number-input": {
-      "import": "./dist/components/Factory/Chakra/number-input.mjs",
-      "types": "./dist/types/components/Factory/Chakra/number-input.d.ts"
-    },
-    "./components/Factory/Chakra/pagination": {
-      "import": "./dist/components/Factory/Chakra/pagination.mjs",
-      "types": "./dist/types/components/Factory/Chakra/pagination.d.ts"
-    },
-    "./components/Factory/Chakra/password-input": {
-      "import": "./dist/components/Factory/Chakra/password-input.mjs",
-      "types": "./dist/types/components/Factory/Chakra/password-input.d.ts"
-    },
-    "./components/Factory/Chakra/pin-input": {
-      "import": "./dist/components/Factory/Chakra/pin-input.mjs",
-      "types": "./dist/types/components/Factory/Chakra/pin-input.d.ts"
-    },
-    "./components/Factory/Chakra/popover": {
-      "import": "./dist/components/Factory/Chakra/popover.mjs",
-      "types": "./dist/types/components/Factory/Chakra/popover.d.ts"
-    },
-    "./components/Factory/Chakra/progress": {
-      "import": "./dist/components/Factory/Chakra/progress.mjs",
-      "types": "./dist/types/components/Factory/Chakra/progress.d.ts"
-    },
-    "./components/Factory/Chakra/progress-circle": {
-      "import": "./dist/components/Factory/Chakra/progress-circle.mjs",
-      "types": "./dist/types/components/Factory/Chakra/progress-circle.d.ts"
-    },
-    "./components/Factory/Chakra/prose": {
-      "import": "./dist/components/Factory/Chakra/prose.mjs",
-      "types": "./dist/types/components/Factory/Chakra/prose.d.ts"
-    },
-    "./components/Factory/Chakra/provider": {
-      "import": "./dist/components/Factory/Chakra/provider.mjs",
-      "types": "./dist/types/components/Factory/Chakra/provider.d.ts"
-    },
-    "./components/Factory/Chakra/radio": {
-      "import": "./dist/components/Factory/Chakra/radio.mjs",
-      "types": "./dist/types/components/Factory/Chakra/radio.d.ts"
-    },
-    "./components/Factory/Chakra/radio-card": {
-      "import": "./dist/components/Factory/Chakra/radio-card.mjs",
-      "types": "./dist/types/components/Factory/Chakra/radio-card.d.ts"
-    },
-    "./components/Factory/Chakra/rating": {
-      "import": "./dist/components/Factory/Chakra/rating.mjs",
-      "types": "./dist/types/components/Factory/Chakra/rating.d.ts"
-    },
-    "./components/Factory/Chakra/segmented-control": {
-      "import": "./dist/components/Factory/Chakra/segmented-control.mjs",
-      "types": "./dist/types/components/Factory/Chakra/segmented-control.d.ts"
-    },
-    "./components/Factory/Chakra/select": {
-      "import": "./dist/components/Factory/Chakra/select.mjs",
-      "types": "./dist/types/components/Factory/Chakra/select.d.ts"
-    },
-    "./components/Factory/Chakra/skeleton": {
-      "import": "./dist/components/Factory/Chakra/skeleton.mjs",
-      "types": "./dist/types/components/Factory/Chakra/skeleton.d.ts"
-    },
-    "./components/Factory/Chakra/slider": {
-      "import": "./dist/components/Factory/Chakra/slider.mjs",
-      "types": "./dist/types/components/Factory/Chakra/slider.d.ts"
-    },
-    "./components/Factory/Chakra/stat": {
-      "import": "./dist/components/Factory/Chakra/stat.mjs",
-      "types": "./dist/types/components/Factory/Chakra/stat.d.ts"
-    },
-    "./components/Factory/Chakra/status": {
-      "import": "./dist/components/Factory/Chakra/status.mjs",
-      "types": "./dist/types/components/Factory/Chakra/status.d.ts"
-    },
-    "./components/Factory/Chakra/stepper-input": {
-      "import": "./dist/components/Factory/Chakra/stepper-input.mjs",
-      "types": "./dist/types/components/Factory/Chakra/stepper-input.d.ts"
-    },
-    "./components/Factory/Chakra/steps": {
-      "import": "./dist/components/Factory/Chakra/steps.mjs",
-      "types": "./dist/types/components/Factory/Chakra/steps.d.ts"
-    },
-    "./components/Factory/Chakra/switch": {
-      "import": "./dist/components/Factory/Chakra/switch.mjs",
-      "types": "./dist/types/components/Factory/Chakra/switch.d.ts"
-    },
-    "./components/Factory/Chakra/tag": {
-      "import": "./dist/components/Factory/Chakra/tag.mjs",
-      "types": "./dist/types/components/Factory/Chakra/tag.d.ts"
-    },
-    "./components/Factory/Chakra/timeline": {
-      "import": "./dist/components/Factory/Chakra/timeline.mjs",
-      "types": "./dist/types/components/Factory/Chakra/timeline.d.ts"
-    },
-    "./components/Factory/Chakra/toaster": {
-      "import": "./dist/components/Factory/Chakra/toaster.mjs",
-      "types": "./dist/types/components/Factory/Chakra/toaster.d.ts"
-    },
-    "./components/Factory/Chakra/toggle": {
-      "import": "./dist/components/Factory/Chakra/toggle.mjs",
-      "types": "./dist/types/components/Factory/Chakra/toggle.d.ts"
-    },
-    "./components/Factory/Chakra/toggle-tip": {
-      "import": "./dist/components/Factory/Chakra/toggle-tip.mjs",
-      "types": "./dist/types/components/Factory/Chakra/toggle-tip.d.ts"
-    },
-    "./components/Factory/Chakra/tooltip": {
-      "import": "./dist/components/Factory/Chakra/tooltip.mjs",
-      "types": "./dist/types/components/Factory/Chakra/tooltip.d.ts"
     },
     "./components/Factory/DynamicForm": {
       "import": "./dist/components/Factory/DynamicForm/index.mjs",
@@ -382,11 +181,9 @@
     "zod": "^3.24.2"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "*",
     "@emotion/react": "*",
     "@hookform/resolvers": "*",
     "@reduxjs/toolkit": "*",
-    "chakra-react-select": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "*",
@@ -397,7 +194,6 @@
     "zod": "*"
   },
   "devDependencies": {
-    "@chakra-ui/react": "^3.9.0",
     "@chromatic-com/storybook": "^3.2.5",
     "@emotion/react": "^11.14.0",
     "@eslint/js": "^9.22.0",
@@ -428,7 +224,6 @@
     "@types/react-helmet": "^6.1.11",
     "@vitejs/plugin-react": "^4.3.4",
     "add": "^2.0.6",
-    "chakra-react-select": "^6.0.1",
     "csstype": "^3.1.3",
     "dotenv": "^16.4.7",
     "eslint": "^9.22.0",
