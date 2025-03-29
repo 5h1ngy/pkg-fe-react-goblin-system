@@ -9,6 +9,8 @@ import styled from 'styled-components';
 export interface ContainerProps {
   /** Sets maximum width of container. Can be a px value or percentage */
   maxWidth?: string;
+  /** Disable default padding on the container */
+  disableGutters?: boolean;
   /** Apply padding to the container */
   p?: string;
   /** Apply padding top to the container */
@@ -68,11 +70,11 @@ const Container = styled.div<ContainerProps>`
   };
   
   /* Padding */
-  padding: ${props => props.p || props.theme.spacing.md};
-  padding-top: ${props => props.pt || props.py || props.p || props.theme.spacing.md};
-  padding-right: ${props => props.pr || props.px || props.p || props.theme.spacing.md};
-  padding-bottom: ${props => props.pb || props.py || props.p || props.theme.spacing.md};
-  padding-left: ${props => props.pl || props.px || props.p || props.theme.spacing.md};
+  padding: ${props => props.disableGutters ? '0' : props.p || props.theme.spacing.md};
+  padding-top: ${props => props.disableGutters ? '0' : props.pt || props.py || props.p || props.theme.spacing.md};
+  padding-right: ${props => props.disableGutters ? '0' : props.pr || props.px || props.p || props.theme.spacing.md};
+  padding-bottom: ${props => props.disableGutters ? '0' : props.pb || props.py || props.p || props.theme.spacing.md};
+  padding-left: ${props => props.disableGutters ? '0' : props.pl || props.px || props.p || props.theme.spacing.md};
   
   /* Margin */
   margin: ${props => props.m || ''};

@@ -152,14 +152,14 @@
     ]
   },
   "scripts": {
+    "test": "jest",
     "start:storybook": "storybook dev",
     "start:docs": "npm run docusaurus start",
     "build:storybook": "storybook build --output-dir build-storybook",
     "build:docs": "npm run docusaurus build && rm -rf build-docusaurus && mv docs/build build-docusaurus && rm -rf docs/build",
     "build:lib": "vite build --config vite.config.lib.ts --mode prod && tsc --project tsconfig.types.json && npm pack && mkdir build-lib/ && mv *.tgz build-lib/ && rm -rfdv dist/",
     "reset": "rm -rfdv node_modules dist build-docusaurus build-storybook build-lib docs/node_modules docs/.docusaurus",
-    "clean": "rm -rfdv dist build-docusaurus build-storybook build-lib",
-    "test": "jest"
+    "clean": "rm -rfdv dist build-docusaurus build-storybook build-lib"
   },
   "dependencies": {
     "axios": "^1.8.2",

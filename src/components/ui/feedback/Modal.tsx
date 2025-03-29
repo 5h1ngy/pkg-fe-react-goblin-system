@@ -1,9 +1,3 @@
-/**
- * Modal component
- * A flexible and accessible dialog component
- * 
- * @module Modal
- */
 import React, { useEffect, useRef } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { createPortal } from 'react-dom';
@@ -75,7 +69,10 @@ const fullScreenAnimation = keyframes`
   }
 `;
 
-// Size variants
+/**
+ * Ritorna un blocco di regole CSS personalizzate
+ * in base alle dimensioni del Modal richieste.
+ */
 const getModalSizeStyles = (size: string, customWidth?: string, fullScreen?: boolean) => {
   if (fullScreen) {
     return css`
@@ -87,14 +84,14 @@ const getModalSizeStyles = (size: string, customWidth?: string, fullScreen?: boo
       animation: ${fullScreenAnimation} 0.3s ease-out;
     `;
   }
-  
+
   if (customWidth) {
     return css`
       width: ${customWidth};
       max-width: 95vw;
     `;
   }
-  
+
   switch (size) {
     case 'small':
       return css`
@@ -120,57 +117,68 @@ const getModalSizeStyles = (size: string, customWidth?: string, fullScreen?: boo
   }
 };
 
-const Backdrop = styled.div<{ zIndex?: number; fullScreen?: boolean; centered?: boolean }>`
+const Backdrop = styled.div<{ zIndex?: number; $fullScreen?: boolean; $centered?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: ${props => props.fullScreen ? props.theme.colors.bgDefault : 'rgba(0, 0, 0, 0.5)'};
+  width: 100%;
+  height: 100%;
+  background-color: ${props =>
+    props.$fullScreen ? props.theme.colors.bgDefault : 'rgba(0, 0, 0, 0.5)'};
   display: flex;
-  align-items: ${props => props.centered ? 'center' : 'flex-start'};
   justify-content: center;
-  z-index: ${props => props.zIndex || 1050};
+  align-items: ${props => (props.$centered ? 'center' : 'flex-start')};
   overflow-y: auto;
+  z-index: ${props => props.zIndex || 1050};
   animation: ${fadeIn} 0.2s ease-out;
-  padding: ${props => props.fullScreen ? '0' : props.centered ? '0' : '80px 0'};
+  padding: ${props =>
+    props.$fullScreen ? '0' : props.$centered ? '0' : '80px 0'};
 `;
 
 const ModalContainer = styled.div<{
-  size: string;
+  size?: string;
+  $fullScreen?: boolean;
   width?: string;
-  centered?: boolean;
-  fullScreen?: boolean;
+  maxBodyHeight?: string;
 }>`
-  background-color: ${props => props.theme.colors.bgElevated};
-  border-radius: ${props => props.fullScreen ? '0' : props.theme.radii.lg};
-  box-shadow: ${props => props.fullScreen ? 'none' : props.theme.shadows.lg};
+  position: relative;
   display: flex;
   flex-direction: column;
-  ${props => getModalSizeStyles(props.size, props.width, props.fullScreen)}
-  margin: ${props => props.fullScreen ? '0' : props.centered ? '0' : '0 auto'};
-  animation: ${props => props.fullScreen ? fullScreenAnimation : slideIn} 0.3s ease-out;
-  max-height: ${props => props.fullScreen ? '100vh' : props.centered ? '90vh' : 'none'};
+  background-color: ${props => props.theme.colors.bgElevated};
+  border-radius: ${props => (props.$fullScreen ? '0' : '8px')};
+  box-shadow: ${props =>
+    props.$fullScreen ? 'none' : '0 4px 20px rgba(0, 0, 0, 0.15)'};
+  max-height: ${props => (props.$fullScreen ? '100%' : '90vh')};
+  overflow: hidden;
+  animation: ${slideIn} 0.2s ease-out;
+
+  /* Se è fullscreen, applichiamo le regole da fullscreen.
+     Altrimenti inseriamo il blocco di regole generato da getModalSizeStyles */
+  ${props =>
+    props.$fullScreen
+      ? css`
+          width: 100vw;
+          height: 100vh;
+          max-width: 100vw;
+          max-height: 100vh;
+          border-radius: 0;
+          animation: ${fullScreenAnimation} 0.3s ease-out;
+        `
+      : getModalSizeStyles(props.size || 'medium', props.width)}
 `;
 
-const ModalHeader = styled.div<{ fullScreen?: boolean }>`
+const ModalHeader = styled.div<{ $fullScreen?: boolean }>`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: ${props => props.fullScreen 
-    ? `${props.theme.spacing.lg} ${props.theme.spacing.xl}` 
-    : `${props.theme.spacing.md} ${props.theme.spacing.lg}`
-  };
-  border-bottom: 1px solid ${props => props.theme.colors.borderLight};
+  align-items: center;
+  padding: ${props => (props.$fullScreen ? '24px 32px' : '16px 24px')};
+  border-bottom: 1px solid ${props => props.theme.colors.border};
 `;
 
-const ModalTitle = styled.h3<{ fullScreen?: boolean }>`
+const ModalTitle = styled.h2`
   margin: 0;
-  font-size: ${props => props.fullScreen 
-    ? props.theme.typography.fontSize.xl
-    : props.theme.typography.fontSize.lg
-  };
-  font-weight: ${props => props.theme.typography.fontWeight.bold};
+font-size: ${props => props.theme.fontSizes.lg}; // <-- QUI
+  font-weight: ${props => props.theme.fontWeights.medium};
   color: ${props => props.theme.colors.textPrimary};
 `;
 
@@ -178,65 +186,68 @@ const CloseButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  padding: ${props => props.theme.spacing.xs};
   color: ${props => props.theme.colors.textSecondary};
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: ${props => props.theme.radii.sm};
-  transition: background-color 0.2s, color 0.2s;
-  
+  margin: -8px;
+  transition: color 0.2s;
+
   &:hover {
-    background-color: ${props => `${props.theme.colors.bgContainer}`};
     color: ${props => props.theme.colors.textPrimary};
   }
-  
+
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${props => `${props.theme.colors.primary}33`};
-  }
-  
-  svg {
-    width: 20px;
-    height: 20px;
+    color: ${props => props.theme.colors.textPrimary};
   }
 `;
 
-const ModalBody = styled.div<{ maxHeight?: string; fullScreen?: boolean }>`
-  padding: ${props => props.fullScreen 
-    ? `${props.theme.spacing.xl}`
-    : props.theme.spacing.lg
-  };
+const ModalBody = styled.div<{ maxBodyHeight?: string; $fullScreen?: boolean }>`
+  padding: ${props => (props.$fullScreen ? '32px' : '24px')};
+  flex: 1;
   overflow-y: auto;
-  flex: ${props => props.fullScreen ? '1' : 'none'};
-  ${props => !props.fullScreen && props.maxHeight && css`
-    max-height: ${props.maxHeight};
-  `}
+  max-height: ${props => props.maxBodyHeight || 'none'};
 `;
 
-const ModalFooter = styled.div<{ fullScreen?: boolean }>`
+const ModalFooter = styled.div<{ $fullScreen?: boolean }>`
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  padding: ${props => props.fullScreen 
-    ? `${props.theme.spacing.lg} ${props.theme.spacing.xl}`
-    : `${props.theme.spacing.md} ${props.theme.spacing.lg}`
-  };
-  border-top: 1px solid ${props => props.theme.colors.borderLight};
-  gap: ${props => props.theme.spacing.sm};
+  padding: ${props => (props.$fullScreen ? '24px 32px' : '16px 24px')};
+  border-top: 1px solid ${props => props.theme.colors.border};
+  gap: 12px;
 `;
 
 // Close icon component
 const CloseIcon: React.FC = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M18 6L6 18"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M6 6L18 18"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 /**
  * Modal component for dialogs, forms, and alerts
- * 
+ *
  * Features:
  * - Multiple size options
  * - Fullscreen mode
@@ -266,7 +277,7 @@ const Modal: React.FC<ModalProps> = ({
   width,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  
+
   // Handle ESC key press
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -274,16 +285,16 @@ const Modal: React.FC<ModalProps> = ({
         onClose();
       }
     };
-    
+
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
     }
-    
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, closeOnEsc, onClose]);
-  
+
   // Lock body scroll
   useEffect(() => {
     if (lockBodyScroll) {
@@ -293,41 +304,41 @@ const Modal: React.FC<ModalProps> = ({
         document.body.style.overflow = '';
       }
     }
-    
+
     return () => {
       if (lockBodyScroll) {
         document.body.style.overflow = '';
       }
     };
   }, [isOpen, lockBodyScroll]);
-  
+
   // Focus the modal when it opens
   useEffect(() => {
     if (isOpen && modalRef.current) {
       modalRef.current.focus();
     }
   }, [isOpen]);
-  
+
   if (!isOpen) {
     return null;
   }
-  
+
   // Handle backdrop click
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (closeOnBackdropClick && e.target === e.currentTarget) {
       onClose();
     }
   };
-  
+
   const modalContent = (
-    <Backdrop 
-      onClick={handleBackdropClick} 
+    <Backdrop
+      onClick={handleBackdropClick}
       zIndex={zIndex}
-      centered={!fullScreen && centered}
-      fullScreen={fullScreen}
+      $centered={!fullScreen && centered}
+      $fullScreen={fullScreen}
       data-testid="modal-backdrop"
     >
-      <ModalContainer 
+      <ModalContainer
         ref={modalRef}
         size={size}
         width={width}
@@ -337,38 +348,45 @@ const Modal: React.FC<ModalProps> = ({
         role="dialog"
         aria-modal="true"
         aria-labelledby={title ? 'modal-title' : undefined}
-        centered={centered}
-        fullScreen={fullScreen}
+        $fullScreen={fullScreen}
         data-testid="modal-container"
       >
         {(title || showCloseButton) && (
-          <ModalHeader fullScreen={fullScreen}>
-            {title && <ModalTitle id="modal-title" fullScreen={fullScreen}>{title}</ModalTitle>}
+          <ModalHeader $fullScreen={fullScreen} data-testid="modal-header">
+            {title && (
+              <ModalTitle id="modal-title" data-testid="modal-title">
+                {title}
+              </ModalTitle>
+            )}
             {showCloseButton && (
-              <CloseButton 
+              <CloseButton
                 onClick={onClose}
                 aria-label="Close modal"
-                data-testid="modal-close-button"
+                data-testid="modal-close-btn"
               >
                 <CloseIcon />
               </CloseButton>
             )}
           </ModalHeader>
         )}
-        
-        <ModalBody maxHeight={maxBodyHeight} fullScreen={fullScreen}>
+
+        <ModalBody
+          maxBodyHeight={maxBodyHeight}
+          $fullScreen={fullScreen}
+          data-testid="modal-body"
+        >
           {children}
         </ModalBody>
-        
+
         {footer && (
-          <ModalFooter fullScreen={fullScreen}>
+          <ModalFooter $fullScreen={fullScreen} data-testid="modal-footer">
             {footer}
           </ModalFooter>
         )}
       </ModalContainer>
     </Backdrop>
   );
-  
+
   return createPortal(modalContent, document.body);
 };
 

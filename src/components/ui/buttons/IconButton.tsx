@@ -152,29 +152,34 @@ const getVariantStyles = (variant: ButtonVariant) => {
 /**
  * Base styled IconButton component
  */
-const StyledIconButton = styled.button<Omit<IconButtonProps, 'icon'>>`
+const StyledIconButton = styled.button<Omit<IconButtonProps, 'icon'> & { $loading?: boolean }>`
   /* Base button styles */
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  outline: none;
-  border-radius: ${props => props.circular ? '50%' : props.theme.radii.md};
-  transition: all 0.2s ease-in-out;
+  border: none;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
   padding: 0;
+  background: transparent;
   
   /* Size variants */
   ${props => getSizeStyles(props.size || 'medium')}
   
-  /* Style variants */
+  /* Shape variants */
+  border-radius: ${props => props.circular ? '50%' : '4px'};
+  
+  /* Color and style variants */
   ${props => getVariantStyles(props.variant || 'primary')}
   
   /* Disabled state */
-  &:disabled {
-    opacity: 0.5;
+  ${props => props.disabled && css`
+    opacity: 0.65;
     cursor: not-allowed;
-  }
+    pointer-events: none;
+  `}
   
   /* Margin */
   margin-bottom: ${props => props.mb || '0'};
@@ -183,7 +188,7 @@ const StyledIconButton = styled.button<Omit<IconButtonProps, 'icon'>>`
   margin-right: ${props => props.mr || '0'};
   
   /* Loading state */
-  ${props => props.loading && css`
+  ${props => props.$loading && css`
     pointer-events: none;
     opacity: 0.7;
     
@@ -246,7 +251,7 @@ const IconButton: React.FC<IconButtonProps> = ({
     <StyledIconButton
       type={type}
       disabled={disabled || loading}
-      loading={loading}
+      $loading={loading}
       aria-label={ariaLabel}
       {...rest}
     >

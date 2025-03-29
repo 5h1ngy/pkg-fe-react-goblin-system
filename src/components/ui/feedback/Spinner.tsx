@@ -93,7 +93,7 @@ const getColor = (color: string | undefined, theme: any): string => {
 
 // Styled container component
 const SpinnerContainer = styled.div<{
-  centered?: boolean;
+  $centered?: boolean;
   mb?: string;
   mt?: string;
   ml?: string;
@@ -106,7 +106,7 @@ const SpinnerContainer = styled.div<{
   margin-left: ${props => props.ml || '0'};
   margin-right: ${props => props.mr || '0'};
   
-  ${props => props.centered && css`
+  ${props => props.$centered && css`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,7 +205,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 }) => {
   return (
     <SpinnerContainer
-      centered={centered}
+      $centered={centered}
       mb={mb}
       mt={mt}
       ml={ml}

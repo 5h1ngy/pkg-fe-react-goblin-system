@@ -19,199 +19,166 @@
   </a>
 </div>
 
-## URLs 🌐
+## URLs
 
 | Key       | Value                                                                           |
 |-----------|---------------------------------------------------------------------------------|
 | Website   | https://5h1ngy.github.io/pkg-fe-react-goblin-system/                            |
 | Storybook | https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook                   |
+| Docs      | https://5h1ngy.github.io/pkg-fe-react-goblin-system/docs                        |
 
-## Overview 🚀
+## Panoramica
 
-**pkg-fe-react-goblin-system** (also known as **React Goblin System**) is a **TypeScript** and **React** package that provides reusable UI components, context providers (e.g., Auth and Theme), layouts, services, and Redux store modules. It streamlines the development of modular, scalable applications by leveraging modern libraries and best practices such as **Chakra UI**, **React Router**, and **Redux Toolkit**.
+**pkg-fe-react-goblin-system** (anche noto come **React Goblin System**) è una libreria UI completa per React e TypeScript che fornisce componenti riutilizzabili, accessibili e altamente personalizzabili. Progettata con Styled Components, la libreria offre un sistema di componenti moderno con un'architettura flessibile e un potente sistema di theming.
 
-## Features ✨
+## Caratteristiche principali
 
-- **UI components** ready to use (buttons, alerts, accordions, dialogs...) based on [Chakra UI](https://chakra-ui.com) 🪄  
-- **Integrated Context Providers** (for example, `AuthProvider` and `Theme`) to simplify authentication and theme management.  
-- **Modular layouts** like `Error`, `Loading`, `Transformer` for better code organization.  
-- **Redux Store** with preconfigured slices (`auth`, `shared`, etc.) and **services** such as `auth`.  
-- **Development tools**:  
-  - **Vite** for development and library builds.  
-  - **Storybook** for interactive component exploration.  
-  - **Jest** & **Testing Library** for tests.  
-  - **Docusaurus** for comprehensive documentation (in the `docs` folder).  
+- **Componenti UI completamente personalizzabili** - Pulsanti, modali, grid, layout e altro
+- **Sistema di theming avanzato** - Personalizza l'aspetto completo della tua applicazione
+- **Design responsivo** - Interfacce ottimizzate per ogni dimensione di schermo
+- **Accessibilità integrata** - Conformità WCAG e supporto per le tecnologie assistive
+- **API consistenti** - Patterns di progettazione uniformi in tutti i componenti
+- **Documentazione completa** - Guide dettagliate e esempi per ogni componente
+- **TypeScript** - Tipizzazione completa per una migliore developer experience
 
-In short, this project aims to provide a robust front-end architecture with many “ready-to-go” solutions to speed up development.
+## Documentazione
 
-## Requirements 🏁
+La documentazione completa è disponibile nella [directory docs](./docs/docs/intro.md) del repository.
 
-Before using or building the package, make sure you have:
+### Guide principali
 
-- **Node.js**: >= 20.18.0  
-- **Yarn**: >= 4.7.0 (or npm, if you prefer)  
-- **React**: 18.x (peer dependency)  
-- Other peer dependencies specified in `package.json` (e.g., Chakra UI, Redux Toolkit…)
+- [Introduzione](./docs/docs/intro.md)
+- [Guida all'installazione](./docs/docs/getting-started.md)
+- [Lista dei componenti](./docs/docs/components/index.md)
+- [Personalizzazione dei temi](./docs/docs/theming/index.md)
 
-## Project Structure 🏗
+### Componenti
 
+#### Layout
+- [Container](./docs/docs/components/layout/container.md) - Contenitore per limitare e centrare i contenuti
+- [Grid](./docs/docs/components/layout/grid.md) - Sistema di griglia flessibile per layout responsivi
+
+#### Pulsanti
+- [Button](./docs/docs/components/buttons/button.md) - Pulsanti standard con varianti e stati
+- [IconButton](./docs/docs/components/buttons/iconbutton.md) - Pulsanti con icone integrate
+
+#### Feedback
+- [Modal](./docs/docs/components/feedback/modal.md) - Finestre modali per dialoghi e contenuti sovrapposti
+- [Spinner](./docs/docs/components/feedback/spinner.md) - Indicatori di caricamento animati
+
+#### Tipografia
+- [Text](./docs/docs/components/typography/text.md) - Componenti per la gestione del testo
+
+## Installazione
+
+```bash
+# Con npm
+npm install pkg-fe-react-goblin-system
+
+# Con Yarn
+yarn add pkg-fe-react-goblin-system
+
+# Con pnpm
+pnpm add pkg-fe-react-goblin-system
 ```
-pkg-fe-react-goblin-system/
-├─ .storybook/           # Storybook configurations (addons, preview, main.ts, etc.)
-├─ docs/                 # Docusaurus documentation
-├─ src/
-│  ├─ components/        # React components (Chakra-based, forms, tables, etc.)
-│  ├─ hocs/              # Higher-Order Components
-│  ├─ layouts/           # Top-level layouts (Error, Loading, etc.)
-│  ├─ providers/         # Providers for Auth, Theme, etc.
-│  ├─ services/          # Service modules (e.g., auth)
-│  └─ store/             # Redux store and slices
-├─ package.json          # Project info, dependencies, and scripts
-├─ tsconfig.json         # Main TypeScript config (references for app, node, types)
-├─ tsconfig.app.json     # TS config for the application
-├─ tsconfig.node.json    # TS config for Node environments
-├─ tsconfig.types.json   # TS config for generating .d.ts
-├─ vite.config.ts        # Main Vite config (development)
-├─ vite.config.lib.ts    # Vite config for library builds
-├─ jest.config.js        # Jest test configuration
-└─ ... (other configs)
-```
 
-## Installation 📦
-
-### Local Development Setup 🛠
-
-1. **Install dependencies**:
-
-   ```bash
-   yarn install
-   ```
-   > Alternatively, use `npm install`.
-
-2. **Start the development environment**:
-   - **Storybook**:
-     ```bash
-     yarn start:storybook
-     ```
-     By default, it runs on port `6006`.
-   - **Docs (Docusaurus)**:
-     ```bash
-     yarn start:docs
-     ```
-     Usually runs locally on port `3000`.
-
-### Local Installation from Tarball 🍂
-
-After building the library, a tarball is generated that can be used as a local development dependency:
-
-1. **Build the library** (see Build Process below).
-2. Locate the generated tarball in the `build-lib/` folder.
-3. Install the `.tgz` file as a dev dependency in your project:
-
-   ```bash
-   yarn add file:./build-lib/<tarball-file-name>.tgz --dev
-   ```
-
-## Build Process 🏭
-
-This process compiles the library, generates declaration files, and creates a tarball:
-
-1. **Build the library**:
-   ```bash
-   yarn build:lib
-   ```
-   Uses Vite (`vite.config.lib.ts`) to compile into `dist/`, generates `.d.ts` in `dist/types`, runs `npm pack`, moves the tarball to `build-lib/`, and cleans `dist/`.
-
-2. **Build declarations**:
-   ```bash
-   yarn build:types
-   ```
-   Generates `.d.ts` (also handled by `build:lib`).
-
-3. **Build Storybook**:
-   ```bash
-   yarn build:storybook
-   ```
-   Outputs a static Storybook in `build-storybook/`.
-
-4. **Build documentation**:
-   ```bash
-   yarn build:docs
-   ```
-   Produces a static Docusaurus site in `build-docusaurus/`.
-
-5. **Clean**:
-   ```bash
-   yarn clean
-   ```
-   Removes `node_modules`, `dist`, `build-docusaurus`, `build-storybook`, and `build-lib`.
-
-## Usage Example 💻
-
-Once installed or built locally:
+## Utilizzo rapido
 
 ```jsx
-import { Button } from "react-goblin-system/components/Factory/Chakra/button";
-import { useAuthStore } from "react-goblin-system/store/auth";
+import React from 'react';
+import { 
+  ThemeProvider, 
+  Container, 
+  Row, 
+  Col, 
+  Button, 
+  Text 
+} from 'pkg-fe-react-goblin-system';
 
-function MyComponent() {
-  const { login } = useAuthStore();
-
+function App() {
   return (
-    <div>
-      <Button onClick={() => login("user", "password")}>
-        Login
-      </Button>
-    </div>
+    <ThemeProvider>
+      <Container>
+        <Row>
+          <Col span={12}>
+            <Text as="h1" size="xxl" weight="bold">
+              Benvenuto in Goblin System
+            </Text>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}>
+            <Text>
+              Una libreria moderna di componenti UI per React
+            </Text>
+          </Col>
+          <Col span={6}>
+            <Button variant="primary">
+              Inizia ora
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </ThemeProvider>
   );
 }
 
-export default MyComponent;
+export default App;
 ```
 
-Then wrap your app with the **Theme** and **Auth** providers:
+## Requisiti
 
-```jsx
-import { createRoot } from "react-dom/client";
-import { AuthProvider } from "react-goblin-system/providers/Auth";
-import { Theme } from "react-goblin-system/providers/Theme";
-import App from "./App";
+- **Node.js**: >= 20.18.0
+- **React**: 18.x (peer dependency)  
+- **Styled Components**: >= 6.0.0 (peer dependency)
 
-createRoot(document.getElementById("root")).render(
-  <Theme>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
-  </Theme>
-);
+## Struttura del progetto
+
+```
+pkg-fe-react-goblin-system/
+├─ .storybook/          # Configurazioni Storybook
+├─ docs/                # Documentazione Docusaurus
+├─ src/
+│  ├─ components/       # Componenti React
+│  │  ├─ ui/            # Componenti UI di base
+│  │  │  ├─ buttons/    # Button, IconButton, ecc.
+│  │  │  ├─ feedback/   # Modal, Spinner, ecc.
+│  │  │  ├─ layout/     # Container, Grid, ecc.
+│  │  │  ├─ typography/ # Text, Heading, ecc.
+│  │  ├─ providers/     # ThemeProvider e altri provider
+│  ├─ styles/           # Temi e utilità di stile
+│  ├─ utils/            # Funzioni di utilità
+├─ package.json         # Informazioni sul progetto e dipendenze
+└─ ... (altre configurazioni)
 ```
 
-## Scripts from `package.json` 🚀
+## Script disponibili
 
-- **`start:storybook`** – Start Storybook in dev mode (port `6006`).  
-- **`start:docs`** – Start Docusaurus locally (port `3000`).  
-- **`test`** – Run tests with Jest.  
-- **`build:storybook`** – Build a static Storybook into `build-storybook/`.  
-- **`build:docs`** – Build static documentation in `build-docusaurus/`.  
-- **`build:lib`** – Build the library with Vite and package it as a tarball.  
-- **`build:types`** – Generate `.d.ts` declaration files.  
-- **`clean`** – Remove build directories (`dist`, `build-docusaurus`, `build-storybook`, `build-lib`) and `node_modules`.
+- **`start:storybook`** – Avvia Storybook in modalità di sviluppo (porta `6006`)
+- **`start:docs`** – Avvia Docusaurus in locale (porta `3000`)
+- **`build:storybook`** – Compila Storybook statico nella cartella `build-storybook/`
+- **`build:docs`** – Compila la documentazione statica in `build-docusaurus/`
+- **`build:lib`** – Compila la libreria con Vite e la impacchetta come tarball
+- **`test`** – Esegue i test con Jest
 
-## Contributing 🤝
+## Compatibilità con i browser
 
-1. **Fork** the repository or create a new branch in your clone.
-2. **Install** dependencies and develop your feature/fix in `src/`.
-3. **Open a pull request** describing your changes and improvements.
+- Chrome (ultime 2 versioni)
+- Firefox (ultime 2 versioni)
+- Safari (ultime 2 versioni)
+- Edge (ultime 2 versioni)
+- iOS 12+ (Safari)
+- Android 5.0+ (Chrome)
 
-## License 📜
+## Contribuire
 
-This project is released under the **MIT** License. For details, see the `LICENSE` file or the `package.json`.
+Siamo lieti di ricevere contributi al progetto! Per favore, segui questi passaggi:
 
-## References 📚
+1. Fai una fork del repository o crea un nuovo branch nel tuo clone
+2. Installa le dipendenze e sviluppa la tua feature/fix in `src/`
+3. Assicurati che i test passino e che la documentazione sia aggiornata
+4. Invia una Pull Request con una chiara descrizione delle modifiche
 
-- [React](https://reactjs.org/)
-- [Chakra UI](https://chakra-ui.com/)
-- [Storybook](https://storybook.js.org/)
-- [Docusaurus](https://docusaurus.io/)
-- [Vite](https://vitejs.dev/)
-- [Jest](https://jestjs.io/) & [Testing Library](https://testing-library.com/)
+## Licenza
+
+Questo progetto è rilasciato sotto la licenza **MIT**. Per dettagli, vedi il file `LICENSE`.

@@ -9,9 +9,9 @@ import styled from 'styled-components';
 // Row Props Interface
 export interface RowProps {
   /** Sets horizontal gap between columns (in px or any CSS unit) */
-  gutter?: string;
+  gutter?: string | number;
   /** Sets vertical gap between rows in nested columns (in px or any CSS unit) */
-  gutterY?: string;
+  gutterY?: string | number;
   /** Horizontal alignment of columns */
   justify?: 'start' | 'end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   /** Vertical alignment of columns */

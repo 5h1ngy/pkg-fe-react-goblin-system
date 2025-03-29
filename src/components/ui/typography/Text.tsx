@@ -7,6 +7,8 @@
 import styled, { css } from 'styled-components';
 
 export interface TextProps {
+  /** Text variant */
+  variant?: 'body1' | 'body2' | 'caption' | 'overline';
   /** Text variant size */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   /** Custom font size (overrides size) */
