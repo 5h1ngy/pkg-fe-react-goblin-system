@@ -50,7 +50,7 @@ describe('Row Component', () => {
 
   test('renders with different alignments', () => {
     const { rerender } = renderWithTheme(
-      <Row align="flex-start" data-testid="test-row">
+      <Row align="start" data-testid="test-row">
         <div>Row Content</div>
       </Row>
     );
@@ -71,7 +71,7 @@ describe('Row Component', () => {
     
     rerender(
       <ThemeProvider>
-        <Row align="flex-end" data-testid="test-row">
+        <Row align="end" data-testid="test-row">
           <div>Row Content</div>
         </Row>
       </ThemeProvider>
@@ -83,7 +83,7 @@ describe('Row Component', () => {
 
   test('renders with different justifications', () => {
     const { rerender } = renderWithTheme(
-      <Row justify="flex-start" data-testid="test-row">
+      <Row justify="start" data-testid="test-row">
         <div>Row Content</div>
       </Row>
     );
@@ -104,7 +104,7 @@ describe('Row Component', () => {
     
     rerender(
       <ThemeProvider>
-        <Row justify="flex-end" data-testid="test-row">
+        <Row justify="end" data-testid="test-row">
           <div>Row Content</div>
         </Row>
       </ThemeProvider>

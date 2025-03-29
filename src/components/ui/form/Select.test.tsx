@@ -111,7 +111,8 @@ describe('Select Component', () => {
     renderWithTheme(
       <Select 
         options={options} 
-        error="This is an error message"
+        error={true}
+        errorText="This is an error message"
         id="test-select"
         data-testid="test-select"
       />

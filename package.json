@@ -171,7 +171,7 @@
     "rehype-highlight": "^7.0.2",
     "remark-gfm": "^4.0.1",
     "styled-components": "^6.1.8",
-    "zod": "^3.24.2"
+    "zod": "*"
   },
   "peerDependencies": {
     "@hookform/resolvers": "*",
@@ -266,5 +266,6 @@
   "bugs": {
     "url": "https://github.com/5h1ngy/pkg-fe-react-goblin-system/issues"
   },
-  "homepage": "https://github.com/5h1ngy/pkg-fe-react-goblin-system#readme"
+  "homepage": "https://github.com/5h1ngy/pkg-fe-react-goblin-system#readme",
+  "packageManager": "yarn@4.1.1+sha512.ec40d0639bb307441b945d9467139cbb88d14394baac760b52eca038b330d16542d66fef61574271534ace5a200518dabf3b53a85f1f9e4bfa37141b538a9590"
 }

@@ -83,7 +83,8 @@ describe('Checkbox Component', () => {
       <Checkbox 
         id="test-checkbox" 
         label="Test Checkbox" 
-        error="This is an error message" 
+        error={true}
+        errorText="This is an error message" 
       />
     );
     

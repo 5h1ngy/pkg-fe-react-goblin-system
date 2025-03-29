@@ -231,4 +231,7 @@ export const Col = styled.div<ColProps>`
   border-radius: ${props => props.borderRadius || '0'};
 `;
 
-export default { Row, Col };
+// Export Col as Column as well for backward compatibility
+export const Column = Col;
+
+export default { Row, Col, Column };

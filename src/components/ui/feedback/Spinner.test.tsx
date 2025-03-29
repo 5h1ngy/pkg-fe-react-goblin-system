@@ -84,9 +84,9 @@ describe('Spinner Component', () => {
     expect(spinner).toBeInTheDocument();
   });
 
-  test('renders with fullPage layout', () => {
+  test('renders with centered layout', () => {
     renderWithTheme(
-      <Spinner fullPage data-testid="test-spinner" />
+      <Spinner centered data-testid="test-spinner" />
     );
     
     const spinner = screen.getByTestId('test-spinner');
@@ -121,13 +121,13 @@ describe('Spinner Component', () => {
     expect(spinner).toBeInTheDocument();
   });
 
-  test('renders with custom speed', () => {
+  test('renders with custom size', () => {
     renderWithTheme(
-      <Spinner speed="slow" data-testid="test-spinner" />
+      <Spinner size="large" data-testid="test-spinner" />
     );
     
     const spinner = screen.getByTestId('test-spinner');
     expect(spinner).toBeInTheDocument();
-    // Testing animation speed would require checking styles which is challenging
+    // Testing size would require checking styles which is challenging
   });
 });

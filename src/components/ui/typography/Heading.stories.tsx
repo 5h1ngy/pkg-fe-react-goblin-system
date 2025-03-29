@@ -58,7 +58,7 @@ export const Colors = () => (
 // Text weights
 export const Weights = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-    <Heading level={2} weight="normal">Normal Weight Heading (400)</Heading>
+    <Heading level={2} weight="regular">Regular Weight Heading (400)</Heading>
     <Heading level={2} weight="medium">Medium Weight Heading (500)</Heading>
     <Heading level={2} weight="bold">Bold Weight Heading (700)</Heading>
   </div>

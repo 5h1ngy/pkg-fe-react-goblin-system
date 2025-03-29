@@ -9,7 +9,7 @@ import styled, { css } from 'styled-components';
 
 export type InputSize = 'small' | 'medium' | 'large';
 
-export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'suffix'> {
   /** Input size variant */
   size?: InputSize;
   /** Shows error styling */
@@ -134,7 +134,14 @@ const Suffix = styled.div`
   }
 `;
 
-const StyledInput = styled.input<Omit<InputProps, 'errorText' | 'prefix' | 'suffix' | 'label'>>`
+const StyledInput = styled.input<{
+  size?: InputSize; 
+  error?: boolean;
+  success?: boolean;
+  fullWidth?: boolean;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
+}>`
   /* Base styles */
   display: block;
   width: 100%;

@@ -7,7 +7,7 @@
 import React, { forwardRef, useId } from 'react';
 import styled, { css } from 'styled-components';
 
-export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
   /** Label text for the radio button */
   label?: string | React.ReactNode;
   /** Error state */

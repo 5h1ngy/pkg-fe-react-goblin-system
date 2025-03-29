@@ -201,6 +201,7 @@ const Spinner: React.FC<SpinnerProps> = ({
   ml,
   mr,
   className,
+  ...rest
 }) => {
   return (
     <SpinnerContainer
@@ -211,6 +212,7 @@ const Spinner: React.FC<SpinnerProps> = ({
       mr={mr}
       className={className}
       role="status"
+      {...rest}
     >
       {type === 'border' && (
         <BorderSpinner size={size} color={color} />

@@ -98,7 +98,7 @@ describe('Text Component', () => {
 
   test('renders with different weights', () => {
     const { rerender } = renderWithTheme(
-      <Text weight="normal" data-testid="test-text">Normal Weight</Text>
+      <Text weight="regular" data-testid="test-text">Regular Weight</Text>
     );
     
     expect(screen.getByTestId('test-text')).toBeInTheDocument();
@@ -226,10 +226,11 @@ describe('Text Component', () => {
     expect(screen.getByTestId('test-text').tagName).toBe('DIV');
   });
 
-  test('supports truncation with ellipsis', () => {
+  test('renders with truncation', () => {
     renderWithTheme(
-      <Text truncate data-testid="test-text">
-        This is a very long text that should be truncated if it exceeds the container width
+      <Text truncate={2} data-testid="test-text">
+        This is a very long text that should be truncated after a certain number of lines
+        to prevent it from taking up too much space in the layout and to maintain a clean design.
       </Text>
     );
     

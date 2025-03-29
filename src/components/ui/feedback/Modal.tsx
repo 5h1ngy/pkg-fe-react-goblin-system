@@ -120,7 +120,7 @@ const getModalSizeStyles = (size: string, customWidth?: string, fullScreen?: boo
   }
 };
 
-const Backdrop = styled.div<{ zIndex?: number; fullScreen?: boolean }>`
+const Backdrop = styled.div<{ zIndex?: number; fullScreen?: boolean; centered?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;

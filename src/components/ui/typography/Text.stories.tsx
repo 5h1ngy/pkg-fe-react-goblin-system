@@ -68,7 +68,7 @@ export const Colors = () => (
 // Text weights
 export const Weights = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-    <Text weight="normal">Normal weight text (400)</Text>
+    <Text weight="regular">Regular weight text (400)</Text>
     <Text weight="medium">Medium weight text (500)</Text>
     <Text weight="bold">Bold weight text (700)</Text>
   </div>
@@ -148,7 +148,7 @@ export const Decoration = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
     <Text decoration="underline">Underlined text</Text>
     <Text decoration="line-through">Text with strikethrough</Text>
-    <Text decoration="overline">Text with overline</Text>
+    <Text decoration="none">Text with no decoration</Text>
   </div>
 );
 

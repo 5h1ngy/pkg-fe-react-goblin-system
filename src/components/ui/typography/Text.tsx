@@ -9,6 +9,8 @@ import styled, { css } from 'styled-components';
 export interface TextProps {
   /** Text variant size */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  /** Custom font size (overrides size) */
+  fontSize?: string;
   /** Font weight */
   weight?: 'light' | 'regular' | 'medium' | 'bold';
   /** Text color - can use theme colors or custom colors */
@@ -89,19 +91,18 @@ const Text = styled.p<TextProps>`
   margin-left: ${props => props.ml || '0'};
   margin-right: ${props => props.mr || '0'};
 
-  /* Font size based on variant */
-  font-size: ${props => {
-    switch (props.size) {
-      case 'xs': return props.theme.typography.fontSize.xs;
-      case 'sm': return props.theme.typography.fontSize.sm;
-      case 'lg': return props.theme.typography.fontSize.lg;
-      case 'xl': return props.theme.typography.fontSize.xl;
-      case 'xxl': return props.theme.typography.fontSize.xxl;
-      case 'md':
-      default: return props.theme.typography.fontSize.md;
-    }
-  }};
-  
+  /* Font size based on variant or custom font size */
+  font-size: ${props => props.fontSize || (
+    props.size && {
+      xs: props.theme.typography.fontSize.xs,
+      sm: props.theme.typography.fontSize.sm,
+      md: props.theme.typography.fontSize.md,
+      lg: props.theme.typography.fontSize.lg,
+      xl: props.theme.typography.fontSize.xl,
+      xxl: props.theme.typography.fontSize.xxl,
+    }[props.size]
+  )};
+
   /* Font weight */
   font-weight: ${props => {
     switch (props.weight) {

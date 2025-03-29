@@ -7,7 +7,7 @@
 import React, { forwardRef, useId } from 'react';
 import styled, { css } from 'styled-components';
 
-export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
   /** Label text for the checkbox */
   label?: string | React.ReactNode;
   /** Error state */
@@ -209,6 +209,12 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
   const handleRef = (element: HTMLInputElement | null) => {
     if (element) {
       element.indeterminate = indeterminate;
+      
+      // If defaultChecked is true and no controlled value is provided,
+      // ensure the checkbox is checked on initial render
+      if (defaultChecked && checked === false && !onChange) {
+        element.checked = true;
+      }
       
       // Pass the ref to the parent component if provided
       if (typeof ref === 'function') {

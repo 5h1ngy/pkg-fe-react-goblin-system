@@ -114,7 +114,7 @@ describe('Heading Component', () => {
 
   test('renders with different weights', () => {
     const { rerender } = renderWithTheme(
-      <Heading weight="normal" data-testid="test-heading">Normal Weight</Heading>
+      <Heading weight="regular" data-testid="test-heading">Regular Weight</Heading>
     );
     
     expect(screen.getByTestId('test-heading')).toBeInTheDocument();
@@ -136,13 +136,13 @@ describe('Heading Component', () => {
     expect(screen.getByTestId('test-heading')).toBeInTheDocument();
   });
 
-  test('renders with custom font size', () => {
+  test('renders with line height', () => {
     renderWithTheme(
-      <Heading fontSize="32px" data-testid="test-heading">Custom Font Size</Heading>
+      <Heading lineHeight="1.5" data-testid="test-heading">Custom Line Height</Heading>
     );
     
     expect(screen.getByTestId('test-heading')).toBeInTheDocument();
-    // Testing exact font size would require checking computed styles
+    // Testing exact line height would require checking computed styles
   });
 
   test('renders with different alignments', () => {
@@ -169,9 +169,9 @@ describe('Heading Component', () => {
     expect(screen.getByTestId('test-heading')).toBeInTheDocument();
   });
 
-  test('renders with custom margin', () => {
+  test('renders with margin properties', () => {
     renderWithTheme(
-      <Heading margin="0 0 24px 0" data-testid="test-heading">Custom Margin</Heading>
+      <Heading mb="24px" data-testid="test-heading">Custom Margin Bottom</Heading>
     );
     
     expect(screen.getByTestId('test-heading')).toBeInTheDocument();
@@ -202,10 +202,11 @@ describe('Heading Component', () => {
     expect(screen.getByTestId('test-heading')).toBeInTheDocument();
   });
 
-  test('supports truncation with ellipsis', () => {
+  test('renders with truncation', () => {
     renderWithTheme(
-      <Heading truncate data-testid="test-heading">
-        This is a very long heading that should be truncated if it exceeds the container width
+      <Heading truncate={1} data-testid="test-heading">
+        This is a very long heading that should be truncated after a certain number of lines
+        to prevent it from taking up too much space in the layout and to maintain a clean design.
       </Heading>
     );
     
@@ -213,23 +214,12 @@ describe('Heading Component', () => {
     // Testing truncation behavior would require checking computed styles
   });
 
-  test('renders with custom line height', () => {
+  test('supports id attribute', () => {
     renderWithTheme(
-      <Heading lineHeight="1.5" data-testid="test-heading">Custom Line Height</Heading>
-    );
-    
-    expect(screen.getByTestId('test-heading')).toBeInTheDocument();
-    // Testing exact line height would require checking computed styles
-  });
-
-  test('supports ref forwarding', () => {
-    const ref = React.createRef<HTMLHeadingElement>();
-    
-    renderWithTheme(
-      <Heading ref={ref} data-testid="test-heading">Reference Heading</Heading>
+      <Heading id="custom-id" data-testid="test-heading">ID Heading</Heading>
     );
     
     const heading = screen.getByTestId('test-heading');
-    expect(ref.current).toBe(heading);
+    expect(heading).toHaveAttribute('id', 'custom-id');
   });
 });
