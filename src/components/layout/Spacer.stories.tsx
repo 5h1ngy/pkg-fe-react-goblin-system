@@ -3,7 +3,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider';
 import Spacer from './Spacer';
 
 const meta = {
-  title: 'UI/Layout/Spacer',
+  title: 'Components/Layout/Spacer',
   component: Spacer,
   parameters: {
     layout: 'centered',

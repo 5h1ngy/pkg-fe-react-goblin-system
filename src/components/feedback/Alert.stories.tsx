@@ -4,7 +4,7 @@ import Alert from './Alert';
 import Button from '../buttons/Button';
 
 const meta = {
-  title: 'UI/Feedback/Alert',
+  title: 'Components/Feedback/Alert',
   component: Alert,
   parameters: {
     layout: 'centered',

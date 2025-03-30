@@ -3,7 +3,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider';
 import Radio, { RadioGroup } from './Radio';
 
 const meta = {
-  title: 'UI/Form/Radio',
+  title: 'Components/Form/Radio',
   component: Radio,
   parameters: {
     layout: 'centered',

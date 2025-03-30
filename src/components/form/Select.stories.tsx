@@ -3,7 +3,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider';
 import Select from './Select';
 
 const meta = {
-  title: 'UI/Form/Select',
+  title: 'Components/Form/Select',
   component: Select,
   parameters: {
     layout: 'centered',

@@ -5,7 +5,7 @@ import Button from '../buttons/Button';
 import { useRef, useState } from 'react';
 
 const meta = {
-  title: 'UI/Navigation/Menu',
+  title: 'Components/Navigation/Menu',
   component: Menu,
   parameters: {
     layout: 'centered',

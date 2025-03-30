@@ -1,6 +1,7 @@
 /**
  * Alert component
  * Displays important messages with different severity levels
+ * Styled according to Ant Design principles with modern aesthetics
  * 
  * @module Alert
  */
@@ -41,28 +42,27 @@ const getTypeStyles = (type: AlertType) => {
   switch (type) {
     case 'success':
       return css`
-        background-color: ${props => `${props.theme.colors.success}11`};
-        border-color: ${props => props.theme.colors.success};
-        color: ${props => props.theme.colors.success};
+        background-color: ${props => `${props.theme.colors?.success || '#52c41a'}11`};
+        border-color: ${props => props.theme.colors?.success || '#52c41a'};
+        color: ${props => props.theme.colors?.success || '#52c41a'};
       `;
     case 'error':
       return css`
-        background-color: ${props => `${props.theme.colors.danger}11`};
-        border-color: ${props => props.theme.colors.danger};
-        color: ${props => props.theme.colors.danger};
+        background-color: ${props => `${props.theme.colors?.danger || '#ff4d4f'}11`};
+        border-color: ${props => props.theme.colors?.danger || '#ff4d4f'};
+        color: ${props => props.theme.colors?.danger || '#ff4d4f'};
       `;
     case 'warning':
       return css`
-        background-color: ${props => `${props.theme.colors.warning}11`};
-        border-color: ${props => props.theme.colors.warning};
-        color: ${props => props.theme.colors.warning};
+        background-color: ${props => `${props.theme.colors?.warning || '#faad14'}11`};
+        border-color: ${props => props.theme.colors?.warning || '#faad14'};
+        color: ${props => props.theme.colors?.warning || '#faad14'};
       `;
-    case 'info':
     default:
       return css`
-        background-color: ${props => `${props.theme.colors.info}11`};
-        border-color: ${props => props.theme.colors.info};
-        color: ${props => props.theme.colors.info};
+        background-color: ${props => `${props.theme.colors?.info || '#1890ff'}11`};
+        border-color: ${props => props.theme.colors?.info || '#1890ff'};
+        color: ${props => props.theme.colors?.info || '#1890ff'};
       `;
   }
 };
@@ -76,13 +76,14 @@ const AlertContainer = styled.div<{
 }>`
   display: flex;
   position: relative;
-  padding: ${props => props.theme.spacing.md};
-  border-radius: ${props => props.theme.radii.md};
+  padding: ${props => props.theme.spacing?.md || '1rem'};
+  border-radius: ${props => props.theme.radii?.md || '8px'};
   border-left: 4px solid;
   margin-bottom: ${props => props.mb || '0'};
   margin-top: ${props => props.mt || '0'};
   width: ${props => props.fullWidth ? '100%' : 'auto'};
-  box-shadow: ${props => props.withShadow ? props.theme.shadows.sm : 'none'};
+  box-shadow: ${props => props.withShadow ? (props.theme.shadows?.sm || '0 2px 8px rgba(0, 0, 0, 0.15)') : 'none'};
+  transition: all 0.3s ease;
   
   /* Apply type-specific styles */
   ${props => getTypeStyles(props.type)}
@@ -91,12 +92,17 @@ const AlertContainer = styled.div<{
 const IconWrapper = styled.div`
   display: flex;
   align-items: flex-start;
-  margin-right: ${props => props.theme.spacing.sm};
+  margin-right: ${props => props.theme.spacing?.sm || '0.5rem'};
   flex-shrink: 0;
   
   svg {
     width: 20px;
     height: 20px;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 `;
 
@@ -105,12 +111,14 @@ const ContentWrapper = styled.div`
 `;
 
 const AlertTitle = styled.div`
-  font-weight: ${props => props.theme.typography.fontWeight.bold};
-  margin-bottom: ${props => props.theme.spacing.xs};
+  font-weight: ${props => props.theme.typography?.fontWeight?.bold || '600'};
+  margin-bottom: ${props => props.theme.spacing?.xs || '0.25rem'};
+  letter-spacing: -0.01em;
 `;
 
 const AlertMessage = styled.div`
-  color: ${props => props.theme.colors.textPrimary};
+  color: ${props => props.theme.colors?.textPrimary || 'rgba(0, 0, 0, 0.85)'};
+  line-height: 1.5;
 `;
 
 const CloseButton = styled.button`
@@ -120,27 +128,28 @@ const CloseButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${props => props.theme.spacing.xs};
-  border-radius: ${props => props.theme.radii.sm};
+  padding: ${props => props.theme.spacing?.xs || '0.25rem'};
+  border-radius: ${props => props.theme.radii?.sm || '4px'};
   color: inherit;
   opacity: 0.6;
-  transition: opacity 0.2s;
-  margin-left: ${props => props.theme.spacing.sm};
+  transition: all 0.2s ease;
+  margin-left: ${props => props.theme.spacing?.sm || '0.5rem'};
   
   &:hover {
     opacity: 1;
+    transform: scale(1.05);
   }
   
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${props => `${props.theme.colors.primary}33`};
+    box-shadow: 0 0 0 2px ${props => `${props.theme.colors?.primary || '#1890ff'}33`};
   }
 `;
 
 const ActionWrapper = styled.div`
-  margin-top: ${props => props.theme.spacing.sm};
+  margin-top: ${props => props.theme.spacing?.sm || '0.5rem'};
   display: flex;
-  gap: ${props => props.theme.spacing.sm};
+  gap: ${props => props.theme.spacing?.sm || '0.5rem'};
 `;
 
 /**
@@ -201,6 +210,7 @@ const getDefaultIcon = (type: AlertType) => {
  * - Optional title and close button
  * - Custom icon support
  * - Action buttons or links
+ * - Ant Design styling with modern rounded aesthetics
  */
 const Alert: React.FC<AlertProps> = ({
   type = 'info',

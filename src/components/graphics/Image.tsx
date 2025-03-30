@@ -1,6 +1,7 @@
 /**
  * Image component
  * Enhanced image component with additional features and styling
+ * Designed according to Ant Design principles
  * 
  * @module Image
  */
@@ -35,6 +36,13 @@ const ImageWrapper = styled.div<{
   width: ${props => typeof props.width === 'number' ? `${props.width}px` : props.width || 'auto'};
   height: ${props => typeof props.height === 'number' ? `${props.height}px` : props.height || 'auto'};
   position: relative;
+  box-shadow: ${props => props.theme.shadows?.sm || '0 1px 2px rgba(0, 0, 0, 0.05)'};
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: ${props => props.theme.shadows?.md || '0 4px 6px rgba(0, 0, 0, 0.1)'};
+  }
 `;
 
 const StyledImage = styled.img<{
@@ -47,17 +55,19 @@ const StyledImage = styled.img<{
   object-fit: ${props => props.fit || 'cover'};
   object-position: ${props => props.objectPosition || 'center'};
   border-radius: ${props => props.borderRadius || '0'};
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 `;
 
 /**
- * Enhanced Image component
+ * Enhanced Image component with modern aesthetics
  * 
  * Features:
  * - Object-fit control
  * - Fallback image support
  * - Border radius
  * - Native lazy loading
+ * - Smooth transitions and hover effects
+ * - Ant Design styling with modern aesthetics
  */
 const Image: React.FC<ImageProps> = ({
   src,
@@ -74,18 +84,30 @@ const Image: React.FC<ImageProps> = ({
   wrapperClassName,
   ...rest
 }) => {
-  const [imgSrc, setImgSrc] = React.useState<string | undefined>(src);
+  const [imgSrc, setImgSrc] = React.useState(src);
+  const [hasError, setHasError] = React.useState(false);
   
+  // Update imgSrc when src prop changes
+  React.useEffect(() => {
+    setImgSrc(src);
+    setHasError(false);
+  }, [src]);
+  
+  // Handle image load error
   const handleError = () => {
-    if (fallbackSrc && imgSrc !== fallbackSrc) {
+    if (!hasError && fallbackSrc) {
       setImgSrc(fallbackSrc);
+      setHasError(true);
     }
   };
-
+  
+  // Handle loading attribute
+  const loadingAttr = nativeLazy ? 'lazy' : loading;
+  
   return (
     <ImageWrapper 
-      borderRadius={borderRadius} 
-      width={width} 
+      borderRadius={borderRadius}
+      width={width}
       height={height}
       className={wrapperClassName}
     >
@@ -93,13 +115,11 @@ const Image: React.FC<ImageProps> = ({
         src={imgSrc}
         alt={alt}
         fit={fit}
-        borderRadius={borderRadius}
         objectPosition={objectPosition}
-        loading={nativeLazy ? 'lazy' : loading}
+        borderRadius={borderRadius}
         onError={handleError}
+        loading={loadingAttr}
         className={className}
-        width={width}
-        height={height}
         {...rest}
       />
     </ImageWrapper>

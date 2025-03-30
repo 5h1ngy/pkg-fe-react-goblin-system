@@ -4,7 +4,7 @@ import Checkbox from './Checkbox';
 import { useState } from 'react';
 
 const meta = {
-  title: 'UI/Form/Checkbox',
+  title: 'Components/Form/Checkbox',
   component: Checkbox,
   parameters: {
     layout: 'centered',

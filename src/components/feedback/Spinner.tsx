@@ -1,6 +1,7 @@
 /**
  * Spinner component
  * A loading indicator with customizable size and color
+ * Styled according to Ant Design principles with modern aesthetics
  * 
  * @module Spinner
  */
@@ -80,15 +81,25 @@ const getSize = (size: SpinnerSize): number => {
 
 // Get color from theme or use custom color
 const getColor = (color: string | undefined, theme: any): string => {
-  if (!color) return theme.colors.primary;
+  if (!color) return theme.colors?.primary || '#1890ff';
   
-  // Check if the color is a theme color
-  if (theme.colors[color as keyof typeof theme.colors]) {
+  // Check if the color is a theme color and theme exists
+  if (theme.colors && theme.colors[color as keyof typeof theme.colors]) {
     return theme.colors[color as keyof typeof theme.colors];
   }
   
-  // Return the custom color
-  return color;
+  // Fallback colors for common names
+  const fallbackColors: Record<string, string> = {
+    primary: '#1890ff',
+    secondary: '#7c4dff',
+    success: '#52c41a',
+    danger: '#ff4d4f',
+    warning: '#faad14',
+    info: '#1890ff'
+  };
+  
+  // Return the custom color or fallback if available
+  return fallbackColors[color] || color;
 };
 
 // Styled container component
@@ -105,6 +116,7 @@ const SpinnerContainer = styled.div<{
   margin-top: ${props => props.mt || '0'};
   margin-left: ${props => props.ml || '0'};
   margin-right: ${props => props.mr || '0'};
+  transition: all 0.3s ease-in-out;
   
   ${props => props.$centered && css`
     display: flex;
@@ -127,6 +139,7 @@ const BorderSpinner = styled.div<{
   border-right-color: transparent;
   border-radius: 50%;
   animation: ${rotate} 0.75s linear infinite;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 `;
 
 // Grow spinner (pulsing circle style)
@@ -140,6 +153,7 @@ const GrowSpinner = styled.div<{
   background-color: ${props => getColor(props.color, props.theme)};
   border-radius: 50%;
   animation: ${grow} 1s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 `;
 
 // Dots spinner (three bouncing dots)
@@ -165,6 +179,7 @@ const Dot = styled.div<{
   border-radius: 50%;
   animation: ${bounce} 1.4s ease-in-out infinite;
   animation-delay: ${props => `${props.index * 0.16}s`};
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 `;
 
 // Hidden text for screen readers
@@ -189,6 +204,7 @@ const VisuallyHidden = styled.span`
  * - Custom color support
  * - Accessible labeling
  * - Centered positioning option
+ * - Ant Design styling with modern rounded aesthetics
  */
 const Spinner: React.FC<SpinnerProps> = ({
   size = 'medium',

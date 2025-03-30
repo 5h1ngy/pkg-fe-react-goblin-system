@@ -26,6 +26,10 @@
   "private": true,
   "type": "module",
   "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/types/index.d.ts"
+    },
     "./*": {
       "import": "./dist/*.mjs",
       "types": "./dist/types/*.d.ts"

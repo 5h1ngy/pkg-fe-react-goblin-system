@@ -1,6 +1,7 @@
 /**
  * Select component
  * A styled select dropdown component
+ * Designed according to Ant Design principles
  * 
  * @module Select
  */
@@ -56,21 +57,21 @@ const getSelectSizeStyles = (size: SelectSize) => {
   switch (size) {
     case 'small':
       return css`
-        font-size: ${props => props.theme.typography.fontSize.xs};
-        padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
+        font-size: ${props => props.theme.typography?.fontSize?.xs || '12px'};
+        padding: ${props => props.theme.spacing?.xs || '4px'} ${props => props.theme.spacing?.sm || '8px'};
         height: 32px;
       `;
     case 'large':
       return css`
-        font-size: ${props => props.theme.typography.fontSize.md};
-        padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
+        font-size: ${props => props.theme.typography?.fontSize?.md || '16px'};
+        padding: ${props => props.theme.spacing?.sm || '8px'} ${props => props.theme.spacing?.lg || '24px'};
         height: 48px;
       `;
     case 'medium':
     default:
       return css`
-        font-size: ${props => props.theme.typography.fontSize.sm};
-        padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.md};
+        font-size: ${props => props.theme.typography?.fontSize?.sm || '14px'};
+        padding: ${props => props.theme.spacing?.xs || '4px'} ${props => props.theme.spacing?.md || '16px'};
         height: 40px;
       `;
   }
@@ -89,16 +90,16 @@ const SelectWrapper = styled.div<{ fullWidth?: boolean; mb?: string; mt?: string
 
 const SelectLabel = styled.label<{ required?: boolean }>`
   display: block;
-  margin-bottom: ${props => props.theme.spacing.xs};
-  font-size: ${props => props.theme.typography.fontSize.sm};
-  font-weight: ${props => props.theme.typography.fontWeight.medium};
-  color: ${props => props.theme.colors.textPrimary};
+  margin-bottom: ${props => props.theme.spacing?.xs || '4px'};
+  font-size: ${props => props.theme.typography?.fontSize?.sm || '14px'};
+  font-weight: ${props => props.theme.typography?.fontWeight?.medium || '500'};
+  color: ${props => props.theme.colors?.textPrimary || '#000000'};
   
   ${props => props.required && css`
     &::after {
       content: '*';
-      color: ${props => props.theme.colors.danger};
-      margin-left: ${props => props.theme.spacing.xs};
+      color: ${props => props.theme.colors?.danger || '#ff4d4f'};
+      margin-left: ${props => props.theme.spacing?.xs || '4px'};
     }
   `}
 `;
@@ -112,14 +113,14 @@ const SelectContainer = styled.div`
   &::after {
     content: '';
     position: absolute;
-    right: ${props => props.theme.spacing.md};
+    right: ${props => props.theme.spacing?.md || '16px'};
     top: 50%;
     transform: translateY(-50%);
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid ${props => props.theme.colors.textSecondary};
+    border-top: 5px solid ${props => props.theme.colors?.textSecondary || '#8c8c8c'};
     pointer-events: none;
   }
 `;
@@ -129,66 +130,66 @@ const StyledSelect = styled.select<Omit<SelectProps, 'options' | 'errorText' | '
   display: block;
   width: 100%;
   appearance: none;
-  border-radius: ${props => props.theme.radii.md};
-  border: 1px solid ${props => props.theme.colors.borderBase};
-  background-color: ${props => props.theme.colors.bgElevated};
-  color: ${props => props.theme.colors.textPrimary};
+  border-radius: ${props => props.theme.radii?.md || '6px'};
+  border: 1px solid ${props => props.theme.colors?.borderBase || '#d9d9d9'};
+  background-color: ${props => props.theme.colors?.bgElevated || '#ffffff'};
+  color: ${props => props.theme.colors?.textPrimary || '#000000'};
   transition: all 0.2s ease-in-out;
   outline: none;
   cursor: pointer;
-  padding-right: ${props => props.theme.spacing.xl}; /* Space for custom arrow */
+  padding-right: ${props => props.theme.spacing?.xl || '32px'}; /* Space for custom arrow */
   
   /* Size variants */
   ${props => getSelectSizeStyles(props.size || 'medium')}
   
   /* Focus state */
   &:focus {
-    border-color: ${props => props.theme.colors.primary};
-    box-shadow: 0 0 0 2px ${props => `${props.theme.colors.primary}33`};
+    border-color: ${props => props.theme.colors?.primary || '#1890ff'};
+    box-shadow: 0 0 0 2px ${props => `${props.theme.colors?.primary || '#1890ff'}33`};
   }
   
   /* Error state */
   ${props => props.error && css`
-    border-color: ${props => props.theme.colors.danger};
+    border-color: ${props => props.theme.colors?.danger || '#ff4d4f'};
     
     &:focus {
-      box-shadow: 0 0 0 2px ${props => `${props.theme.colors.danger}33`};
+      box-shadow: 0 0 0 2px ${props => `${props.theme.colors?.danger || '#ff4d4f'}33`};
     }
   `}
   
   /* Success state */
   ${props => props.success && css`
-    border-color: ${props => props.theme.colors.success};
+    border-color: ${props => props.theme.colors?.success || '#52c41a'};
     
     &:focus {
-      box-shadow: 0 0 0 2px ${props => `${props.theme.colors.success}33`};
+      box-shadow: 0 0 0 2px ${props => `${props.theme.colors?.success || '#52c41a'}33`};
     }
   `}
   
   /* Disabled state */
   &:disabled {
-    background-color: ${props => props.theme.colors.bgContainer};
-    border-color: ${props => props.theme.colors.borderLight};
-    color: ${props => props.theme.colors.textDisabled};
+    background-color: ${props => props.theme.colors?.bgContainer || '#f5f5f5'};
+    border-color: ${props => props.theme.colors?.borderLight || '#e8e8e8'};
+    color: ${props => props.theme.colors?.textDisabled || '#bfbfbf'};
     cursor: not-allowed;
   }
   
   /* Style for option elements */
   & option {
-    background-color: ${props => props.theme.colors.bgElevated};
-    color: ${props => props.theme.colors.textPrimary};
-    padding: ${props => props.theme.spacing.sm};
+    background-color: ${props => props.theme.colors?.bgElevated || '#ffffff'};
+    color: ${props => props.theme.colors?.textPrimary || '#000000'};
+    padding: ${props => props.theme.spacing?.sm || '8px'};
   }
   
   & option:disabled {
-    color: ${props => props.theme.colors.textDisabled};
+    color: ${props => props.theme.colors?.textDisabled || '#bfbfbf'};
   }
 `;
 
 const ErrorText = styled.div`
-  color: ${props => props.theme.colors.danger};
-  font-size: ${props => props.theme.typography.fontSize.xs};
-  margin-top: ${props => props.theme.spacing.xs};
+  color: ${props => props.theme.colors?.danger || '#ff4d4f'};
+  font-size: ${props => props.theme.typography?.fontSize?.xs || '12px'};
+  margin-top: ${props => props.theme.spacing?.xs || '4px'};
 `;
 
 /**
@@ -201,6 +202,7 @@ const ErrorText = styled.div`
  * - Placeholder support
  * - Disabled options
  * - Label support
+ * - Ant Design styling with modern rounded aesthetics
  */
 const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   options,

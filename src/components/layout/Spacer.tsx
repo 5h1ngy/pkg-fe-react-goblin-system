@@ -1,6 +1,7 @@
 /**
  * Spacer component
  * Creates empty space between components with configurable size and orientation
+ * Styled according to Ant Design principles with modern aesthetics
  * 
  * @module Spacer
  */
@@ -22,20 +23,22 @@ export interface SpacerProps {
  * - Configurable size
  * - Horizontal or vertical orientation
  * - Option to grow and fill available space
+ * - Follows Ant Design 2025 spacing standards
  */
 const Spacer = styled.div<SpacerProps>`
   display: block;
+  transition: all 0.3s ease;
   ${props => props.horizontal
     ? `
       display: inline-block;
-      width: ${props.size || props.theme.spacing.md};
+      width: ${props.size || props.theme.spacing?.md || '1rem'};
       height: 1px;
-      min-width: ${props.size || props.theme.spacing.md};
+      min-width: ${props.size || props.theme.spacing?.md || '1rem'};
     `
     : `
       width: 100%;
-      height: ${props.size || props.theme.spacing.md};
-      min-height: ${props.size || props.theme.spacing.md};
+      height: ${props.size || props.theme.spacing?.md || '1rem'};
+      min-height: ${props.size || props.theme.spacing?.md || '1rem'};
     `
   }
   

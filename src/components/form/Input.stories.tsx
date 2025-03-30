@@ -3,7 +3,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider';
 import Input from './Input';
 
 const meta = {
-  title: 'UI/Form/Input',
+  title: 'Components/Form/Input',
   component: Input,
   parameters: {
     layout: 'centered',

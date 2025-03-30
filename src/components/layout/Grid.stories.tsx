@@ -3,7 +3,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider';
 import { Row, Column } from './Grid';
 
 const meta = {
-  title: 'UI/Layout/Grid',
+  title: 'Components/Layout/Grid',
   component: Row,
   parameters: {
     layout: 'centered',

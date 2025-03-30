@@ -3,7 +3,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider';
 import Text from './Text';
 
 const meta = {
-  title: 'UI/Typography/Text',
+  title: 'Components/Typography/Text',
   component: Text,
   parameters: {
     layout: 'centered',

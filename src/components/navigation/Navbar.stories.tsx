@@ -4,7 +4,7 @@ import Navbar, { NavItem } from './Navbar';
 import Button from '../buttons/Button';
 
 const meta = {
-  title: 'UI/Navigation/Navbar',
+  title: 'Components/Navigation/Navbar',
   component: Navbar,
   parameters: {
     layout: 'fullscreen',

@@ -1,6 +1,7 @@
 /**
  * Input component
  * A styled text input field with various state variations
+ * Designed according to Ant Design principles
  * 
  * @module Input
  */
@@ -53,21 +54,21 @@ const getInputSizeStyles = (size: InputSize) => {
   switch (size) {
     case 'small':
       return css`
-        font-size: ${props => props.theme.typography.fontSize.xs};
-        padding: ${props => props.theme.spacing.xs};
+        font-size: ${props => props.theme.typography?.fontSize?.xs || '12px'};
+        padding: ${props => props.theme.spacing?.xs || '4px'};
         height: 32px;
       `;
     case 'large':
       return css`
-        font-size: ${props => props.theme.typography.fontSize.md};
-        padding: ${props => props.theme.spacing.sm};
+        font-size: ${props => props.theme.typography?.fontSize?.md || '16px'};
+        padding: ${props => props.theme.spacing?.sm || '8px'};
         height: 48px;
       `;
     case 'medium':
     default:
       return css`
-        font-size: ${props => props.theme.typography.fontSize.sm};
-        padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
+        font-size: ${props => props.theme.typography?.fontSize?.sm || '14px'};
+        padding: ${props => props.theme.spacing?.xs || '4px'} ${props => props.theme.spacing?.sm || '8px'};
         height: 40px;
       `;
   }
@@ -86,16 +87,16 @@ const InputWrapper = styled.div<{ fullWidth?: boolean; mb?: string; mt?: string;
 
 const InputLabel = styled.label<{ required?: boolean }>`
   display: block;
-  margin-bottom: ${props => props.theme.spacing.xs};
-  font-size: ${props => props.theme.typography.fontSize.sm};
-  font-weight: ${props => props.theme.typography.fontWeight.medium};
-  color: ${props => props.theme.colors.textPrimary};
+  margin-bottom: ${props => props.theme.spacing?.xs || '4px'};
+  font-size: ${props => props.theme.typography?.fontSize?.sm || '14px'};
+  font-weight: ${props => props.theme.typography?.fontWeight?.medium || '500'};
+  color: ${props => props.theme.colors?.textPrimary || '#000000'};
   
   ${props => props.required && css`
     &::after {
       content: '*';
-      color: ${props => props.theme.colors.danger};
-      margin-left: ${props => props.theme.spacing.xs};
+      color: ${props => props.theme.colors?.danger || '#ff4d4f'};
+      margin-left: ${props => props.theme.spacing?.xs || '4px'};
     }
   `}
 `;
@@ -111,10 +112,10 @@ const Prefix = styled.div`
   display: flex;
   align-items: center;
   position: absolute;
-  left: ${props => props.theme.spacing.sm};
+  left: ${props => props.theme.spacing?.sm || '8px'};
   top: 50%;
   transform: translateY(-50%);
-  color: ${props => props.theme.colors.textSecondary};
+  color: ${props => props.theme.colors?.textSecondary || '#666666'};
   pointer-events: none;
 `;
 
@@ -122,10 +123,10 @@ const Suffix = styled.div`
   display: flex;
   align-items: center;
   position: absolute;
-  right: ${props => props.theme.spacing.sm};
+  right: ${props => props.theme.spacing?.sm || '8px'};
   top: 50%;
   transform: translateY(-50%);
-  color: ${props => props.theme.colors.textSecondary};
+  color: ${props => props.theme.colors?.textSecondary || '#666666'};
   pointer-events: none;
   
   /* Allow clicking if it's a button or interactive element */
@@ -145,10 +146,10 @@ const StyledInput = styled.input<{
   /* Base styles */
   display: block;
   width: 100%;
-  border-radius: ${props => props.theme.radii.md};
-  border: 1px solid ${props => props.theme.colors.borderBase};
-  background-color: ${props => props.theme.colors.bgElevated};
-  color: ${props => props.theme.colors.textPrimary};
+  border-radius: ${props => props.theme.radii?.md || '6px'};
+  border: 1px solid ${props => props.theme.colors?.borderBase || '#d9d9d9'};
+  background-color: ${props => props.theme.colors?.bgElevated || '#ffffff'};
+  color: ${props => props.theme.colors?.textPrimary || '#000000'};
   transition: all 0.2s ease-in-out;
   outline: none;
   
@@ -166,46 +167,46 @@ const StyledInput = styled.input<{
   
   /* Focus state */
   &:focus {
-    border-color: ${props => props.theme.colors.primary};
-    box-shadow: 0 0 0 2px ${props => `${props.theme.colors.primary}33`};
+    border-color: ${props => props.theme.colors?.primary || '#1890ff'};
+    box-shadow: 0 0 0 2px ${props => `${props.theme.colors?.primary || '#1890ff'}33`};
   }
   
   /* Error state */
   ${props => props.error && css`
-    border-color: ${props => props.theme.colors.danger};
+    border-color: ${props => props.theme.colors?.danger || '#ff4d4f'};
     
     &:focus {
-      box-shadow: 0 0 0 2px ${props => `${props.theme.colors.danger}33`};
+      box-shadow: 0 0 0 2px ${props => `${props.theme.colors?.danger || '#ff4d4f'}33`};
     }
   `}
   
   /* Success state */
   ${props => props.success && css`
-    border-color: ${props => props.theme.colors.success};
+    border-color: ${props => props.theme.colors?.success || '#52c41a'};
     
     &:focus {
-      box-shadow: 0 0 0 2px ${props => `${props.theme.colors.success}33`};
+      box-shadow: 0 0 0 2px ${props => `${props.theme.colors?.success || '#52c41a'}33`};
     }
   `}
   
   /* Disabled state */
   &:disabled {
-    background-color: ${props => props.theme.colors.bgContainer};
-    border-color: ${props => props.theme.colors.borderLight};
-    color: ${props => props.theme.colors.textDisabled};
+    background-color: ${props => props.theme.colors?.bgContainer || '#f5f5f5'};
+    border-color: ${props => props.theme.colors?.borderLight || '#d9d9d9'};
+    color: ${props => props.theme.colors?.textDisabled || '#bfbfbf'};
     cursor: not-allowed;
   }
   
   /* Placeholder styling */
   &::placeholder {
-    color: ${props => props.theme.colors.textDisabled};
+    color: ${props => props.theme.colors?.textDisabled || '#bfbfbf'};
   }
 `;
 
 const ErrorText = styled.div`
-  color: ${props => props.theme.colors.danger};
-  font-size: ${props => props.theme.typography.fontSize.xs};
-  margin-top: ${props => props.theme.spacing.xs};
+  color: ${props => props.theme.colors?.danger || '#ff4d4f'};
+  font-size: ${props => props.theme.typography?.fontSize?.xs || '12px'};
+  margin-top: ${props => props.theme.spacing?.xs || '4px'};
 `;
 
 /**
@@ -217,6 +218,7 @@ const ErrorText = styled.div`
  * - Prefix and suffix support
  * - Fully controlled or uncontrolled usage
  * - Label and error text support
+ * - Ant Design styling with modern rounded aesthetics
  */
 const Input = forwardRef<HTMLInputElement, InputProps>(({
   size = 'medium',

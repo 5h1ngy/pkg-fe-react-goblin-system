@@ -1,6 +1,7 @@
 /**
  * Radio component
  * A styled radio input with label support
+ * Designed according to Ant Design principles
  * 
  * @module Radio
  */
@@ -124,10 +125,10 @@ const StyledRadio = styled.div<{
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background-color: ${props => props.theme.colors.bgElevated};
+  background-color: ${props => props.theme.colors?.bgElevated || '#ffffff'};
   border: 1px solid ${props => props.checked
-    ? props.theme.colors.primary
-    : props.theme.colors.borderBase
+    ? props.theme.colors?.primary || '#1890ff'
+    : props.theme.colors?.borderBase || '#d9d9d9'
   };
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
@@ -138,18 +139,18 @@ const StyledRadio = styled.div<{
   
   /* Error state */
   ${props => props.error && css`
-    border-color: ${props => props.theme.colors.danger};
+    border-color: ${props => props.theme.colors?.danger || '#ff4d4f'};
   `}
   
   /* Disabled state */
   ${props => props.disabled && css`
     opacity: 0.5;
-    background-color: ${props => props.theme.colors.bgContainer};
+    background-color: ${props => props.theme.colors?.bgContainer || '#f5f5f5'};
   `}
   
   /* Focus style applied when parent is focused */
   input:focus + & {
-    box-shadow: 0 0 0 2px ${props => `${props.theme.colors.primary}33`};
+    box-shadow: 0 0 0 2px ${props => `${props.theme.colors?.primary || '#1890ff'}33`};
   }
   
   /* Inner circle when checked */
@@ -173,7 +174,7 @@ const StyledRadio = styled.div<{
       }
     }};
     border-radius: 50%;
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${props => props.theme.colors?.primary || '#1890ff'};
   }
 `;
 
@@ -185,17 +186,17 @@ const RadioLabel = styled.label<{
   align-items: center;
   user-select: none;
   color: ${props => props.disabled
-    ? props.theme.colors.textDisabled
-    : props.theme.colors.textPrimary
+    ? props.theme.colors?.textDisabled || '#bfbfbf'
+    : props.theme.colors?.textPrimary || '#000000'
   };
-  margin-left: ${props => props.theme.spacing.sm};
+  margin-left: ${props => props.theme.spacing?.sm || '8px'};
   
   /* Size variant */
   font-size: ${props => {
     switch (props.size) {
-      case 'small': return props.theme.typography.fontSize.xs;
-      case 'large': return props.theme.typography.fontSize.md;
-      default: return props.theme.typography.fontSize.sm;
+      case 'small': return props.theme.typography?.fontSize?.xs || '12px';
+      case 'large': return props.theme.typography?.fontSize?.md || '16px';
+      default: return props.theme.typography?.fontSize?.sm || '14px';
     }
   }};
   
@@ -203,9 +204,9 @@ const RadioLabel = styled.label<{
 `;
 
 const ErrorText = styled.div`
-  color: ${props => props.theme.colors.danger};
-  font-size: ${props => props.theme.typography.fontSize.xs};
-  margin-top: ${props => props.theme.spacing.xs};
+  color: ${props => props.theme.colors?.danger || '#ff4d4f'};
+  font-size: ${props => props.theme.typography?.fontSize?.xs || '12px'};
+  margin-top: ${props => props.theme.spacing?.xs || '4px'};
 `;
 
 const RadioGroupContainer = styled.div<{
@@ -224,7 +225,7 @@ const RadioGroupContainer = styled.div<{
   
   ${props => props.layout === 'horizontal' && css`
     & > * {
-      margin-right: ${props => props.theme.spacing.md};
+      margin-right: ${props => props.theme.spacing?.md || '16px'};
       
       &:last-child {
         margin-right: 0;
@@ -234,7 +235,7 @@ const RadioGroupContainer = styled.div<{
   
   ${props => props.layout === 'vertical' && css`
     & > * {
-      margin-bottom: ${props => props.theme.spacing.sm};
+      margin-bottom: ${props => props.theme.spacing?.sm || '8px'};
       
       &:last-child {
         margin-bottom: 0;
@@ -251,6 +252,7 @@ const RadioGroupContainer = styled.div<{
  * - Error state with error message
  * - Disabled state
  * - Label support
+ * - Ant Design styling with modern rounded aesthetics
  */
 const Radio = forwardRef<HTMLInputElement, RadioProps>(({
   label,
@@ -265,6 +267,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(({
   defaultChecked,
   disabled = false,
   className,
+  onChange,
   ...rest
 }, ref) => {
   const id = useId();
@@ -278,16 +281,17 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(({
           checked={checked}
           defaultChecked={defaultChecked}
           disabled={disabled}
+          onChange={onChange}
           {...rest}
         />
         <StyledRadio
-          checked={checked || !!defaultChecked}
+          checked={checked}
           disabled={disabled}
           error={error}
           size={size}
         />
         {label && (
-          <RadioLabel
+          <RadioLabel 
             htmlFor={id}
             disabled={disabled}
             size={size}
@@ -309,8 +313,9 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(({
  * - Controlled and uncontrolled usage
  * - Error state with error message
  * - Propagates size and disabled state to children
+ * - Ant Design styling with modern rounded aesthetics
  */
-export const RadioGroup: React.FC<RadioGroupProps> = ({
+const RadioGroup: React.FC<RadioGroupProps> = ({
   children,
   name,
   defaultValue,
@@ -326,22 +331,35 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
   ml,
   mr,
 }) => {
-  // Handler for radio change events
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // State for uncontrolled component
+  const [selectedValue, setSelectedValue] = React.useState<string | number | undefined>(defaultValue);
+  
+  // Use either controlled or uncontrolled value
+  const currentValue = value !== undefined ? value : selectedValue;
+  
+  // Handle change events
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    
+    // Update internal state for uncontrolled component
+    if (value === undefined) {
+      setSelectedValue(newValue);
+    }
+    
+    // Call external onChange handler
     if (onChange) {
-      onChange(e.target.value);
+      onChange(newValue);
     }
   };
   
-  // Clone children with additional props
-  const enhancedChildren = React.Children.map(children, (child) => {
-    if (React.isValidElement(child)) {
+  // Clone children to add props
+  const radioButtons = React.Children.map(children, (child) => {
+    if (React.isValidElement<RadioProps>(child)) {
       return React.cloneElement(child, {
         name,
+        checked: child.props.value === currentValue,
         size,
-        disabled: child.props.disabled || disabled,
-        checked: value !== undefined ? child.props.value === value : undefined,
-        defaultChecked: defaultValue !== undefined ? child.props.value === defaultValue : undefined,
+        disabled: disabled || child.props.disabled,
         onChange: handleChange,
       });
     }
@@ -350,8 +368,14 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
   
   return (
     <div>
-      <RadioGroupContainer layout={layout} mb={mb} mt={mt} ml={ml} mr={mr}>
-        {enhancedChildren}
+      <RadioGroupContainer 
+        layout={layout}
+        mb={mb}
+        mt={mt}
+        ml={ml}
+        mr={mr}
+      >
+        {radioButtons}
       </RadioGroupContainer>
       {error && errorText && <ErrorText>{errorText}</ErrorText>}
     </div>
@@ -360,4 +384,12 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
 
 Radio.displayName = 'Radio';
 
-export default Radio;
+// Define the Radio component with Group property
+type RadioWithGroup = typeof Radio & {
+  Group: typeof RadioGroup;
+};
+
+// Attach the Group component
+(Radio as RadioWithGroup).Group = RadioGroup;
+
+export default Radio as RadioWithGroup;

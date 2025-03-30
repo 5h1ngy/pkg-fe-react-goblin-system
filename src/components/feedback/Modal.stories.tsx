@@ -5,7 +5,7 @@ import Button from '../buttons/Button';
 import { useState } from 'react';
 
 const meta = {
-  title: 'UI/Feedback/Modal',
+  title: 'Components/Feedback/Modal',
   component: Modal,
   parameters: {
     layout: 'centered',

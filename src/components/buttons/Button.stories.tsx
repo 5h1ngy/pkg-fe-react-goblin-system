@@ -3,7 +3,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider';
 import Button from './Button';
 
 const meta = {
-  title: 'UI/Buttons/Button',
+  title: 'Components/Buttons/Button',
   component: Button,
   parameters: {
     layout: 'centered',

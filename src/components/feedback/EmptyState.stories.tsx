@@ -4,7 +4,7 @@ import EmptyState from './EmptyState';
 import Button from '../buttons/Button';
 
 const meta: Meta<typeof EmptyState> = {
-  title: 'UI/Feedback/EmptyState',
+  title: 'Components/Feedback/EmptyState',
   component: EmptyState,
   parameters: {
     layout: 'centered',

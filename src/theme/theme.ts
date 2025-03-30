@@ -2,6 +2,7 @@
  * Base theme configuration for the Goblin System design system
  * Defines colors, spacing, typography, and other design tokens
  * Supports light and dark modes
+ * Updated for Ant Design 2025 standards
  * @module theme
  */
 
@@ -16,6 +17,7 @@ export interface ColorPalette {
   bgDefault: string;
   bgElevated: string;
   bgContainer: string;
+  bgContainerHover: string;
   textPrimary: string;
   textSecondary: string;
   textDisabled: string;
@@ -23,6 +25,9 @@ export interface ColorPalette {
   borderStrong: string;
   borderLight: string;
   shadow: string;
+  background: string;
+  backgroundDark: string;
+  modalOverlay: string;
 }
 
 // Typography definitions
@@ -41,6 +46,7 @@ export interface Typography {
     light: number;
     regular: number;
     medium: number;
+    semibold: number;
     bold: number;
   };
   lineHeight: {
@@ -94,6 +100,7 @@ export interface Theme {
     sm: string;
     md: string;
     lg: string;
+    xl: string;
   };
   zIndices: {
     base: number;
@@ -104,6 +111,11 @@ export interface Theme {
     popover: number;
     tooltip: number;
   };
+  borderRadius?: {
+    sm: string;
+    md: string;
+    lg: string;
+  };
 }
 
 // Light theme colors
@@ -112,18 +124,22 @@ const lightColors: ColorPalette = {
   secondary: '#722ed1',
   success: '#52c41a',
   warning: '#faad14',
-  danger: '#f5222d',
-  info: '#13c2c2',
+  danger: '#ff4d4f',
+  info: '#1890ff',
   bgDefault: '#f0f2f5',
   bgElevated: '#ffffff',
-  bgContainer: '#fafafa',
+  bgContainer: '#f5f5f5',
+  bgContainerHover: 'rgba(0, 0, 0, 0.04)',
   textPrimary: 'rgba(0, 0, 0, 0.85)',
   textSecondary: 'rgba(0, 0, 0, 0.65)',
   textDisabled: 'rgba(0, 0, 0, 0.25)',
   borderBase: '#d9d9d9',
-  borderStrong: '#bfbfbf',
-  borderLight: '#f0f0f0',
-  shadow: 'rgba(0, 0, 0, 0.05)',
+  borderStrong: '#8c8c8c',
+  borderLight: '#e8e8e8',
+  shadow: 'rgba(0, 0, 0, 0.15)',
+  background: '#f0f2f5',
+  backgroundDark: '#141414',
+  modalOverlay: 'rgba(0, 0, 0, 0.45)',
 };
 
 // Dark theme colors
@@ -132,49 +148,55 @@ const darkColors: ColorPalette = {
   secondary: '#9254de',
   success: '#49aa19',
   warning: '#d89614',
-  danger: '#d32029',
-  info: '#13a8a8',
+  danger: '#a61d24',
+  info: '#177ddc',
   bgDefault: '#141414',
   bgElevated: '#1f1f1f',
-  bgContainer: '#262626',
+  bgContainer: '#141414',
+  bgContainerHover: 'rgba(255, 255, 255, 0.08)',
   textPrimary: 'rgba(255, 255, 255, 0.85)',
   textSecondary: 'rgba(255, 255, 255, 0.65)',
   textDisabled: 'rgba(255, 255, 255, 0.30)',
   borderBase: '#434343',
-  borderStrong: '#595959',
+  borderStrong: '#8c8c8c',
   borderLight: '#303030',
   shadow: 'rgba(0, 0, 0, 0.45)',
+  background: '#141414',
+  backgroundDark: '#000000',
+  modalOverlay: 'rgba(0, 0, 0, 0.75)',
 };
 
-// Shared typography settings
+// Typography configuration
 const typography: Typography = {
-  fontFamily: "'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif",
-  fontFamilyMono: "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace",
+  // 2025 Modern Font Stack
+  fontFamily: "'Inter Variable', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI Variable', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+  fontFamilyMono: "'JetBrains Mono', 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', monospace",
   fontSize: {
     xs: '12px',
     sm: '14px',
     md: '16px',
-    lg: '20px',
-    xl: '24px',
-    xxl: '30px',
+    lg: '18px',
+    xl: '20px',
+    xxl: '24px',
   },
   fontWeight: {
     light: 300,
     regular: 400,
     medium: 500,
+    semibold: 600,
     bold: 700,
   },
   lineHeight: {
-    xs: 1.25,
-    sm: 1.4,
-    md: 1.5,
-    lg: 1.55,
-    xl: 1.6,
-    xxl: 1.3,
+    xs: 1.4,
+    sm: 1.5,
+    md: 1.6,
+    lg: 1.7,
+    xl: 1.8,
+    xxl: 1.8,
   },
 };
 
-// Shared spacing settings
+// Spacing scale
 const spacing: Spacing = {
   xs: '4px',
   sm: '8px',
@@ -184,17 +206,17 @@ const spacing: Spacing = {
   xxl: '48px',
 };
 
-// Shared radii settings
+// Border radius scale
 const radii: Radii = {
   none: '0',
   xs: '2px',
   sm: '4px',
   md: '6px',
-  lg: '12px',
+  lg: '8px',
   full: '9999px',
 };
 
-// Shared breakpoints
+// Breakpoints for responsive design
 const breakpoints: Breakpoints = {
   xs: '480px',
   sm: '576px',
@@ -203,7 +225,7 @@ const breakpoints: Breakpoints = {
   xl: '1200px',
 };
 
-// Light theme configuration
+// Light theme
 export const lightTheme: Theme = {
   mode: 'light',
   colors: lightColors,
@@ -212,22 +234,28 @@ export const lightTheme: Theme = {
   radii,
   breakpoints,
   shadows: {
-    sm: '0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1)',
-    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    sm: '0 1px 2px rgba(0, 0, 0, 0.05)',
+    md: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    lg: '0 4px 12px rgba(0, 0, 0, 0.15)',
+    xl: '0 8px 24px rgba(0, 0, 0, 0.12)',
   },
   zIndices: {
-    base: 0,
-    dropdown: 1000,
-    sticky: 1100,
-    fixed: 1200,
-    modal: 1300,
-    popover: 1400,
-    tooltip: 1500,
+    base: 1,
+    dropdown: 10,
+    sticky: 100,
+    fixed: 200,
+    modal: 1000,
+    popover: 1500,
+    tooltip: 2000,
+  },
+  borderRadius: {
+    sm: '4px',
+    md: '6px',
+    lg: '8px',
   },
 };
 
-// Dark theme configuration
+// Dark theme
 export const darkTheme: Theme = {
   mode: 'dark',
   colors: darkColors,
@@ -236,22 +264,26 @@ export const darkTheme: Theme = {
   radii,
   breakpoints,
   shadows: {
-    sm: '0 1px 2px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.5)',
-    md: '0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4)',
-    lg: '0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4)',
+    sm: '0 1px 2px rgba(0, 0, 0, 0.5)',
+    md: '0 2px 4px rgba(0, 0, 0, 0.5)',
+    lg: '0 4px 12px rgba(0, 0, 0, 0.5)',
+    xl: '0 8px 24px rgba(0, 0, 0, 0.7)',
   },
   zIndices: {
-    base: 0,
-    dropdown: 1000,
-    sticky: 1100,
-    fixed: 1200,
-    modal: 1300,
-    popover: 1400,
-    tooltip: 1500,
+    base: 1,
+    dropdown: 10,
+    sticky: 100,
+    fixed: 200,
+    modal: 1000,
+    popover: 1500,
+    tooltip: 2000,
+  },
+  borderRadius: {
+    sm: '4px',
+    md: '6px',
+    lg: '8px',
   },
 };
 
-// Default theme is light
-const theme = lightTheme;
-
-export default theme;
+// Default theme
+export default lightTheme;

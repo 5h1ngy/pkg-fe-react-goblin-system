@@ -1,6 +1,7 @@
 /**
  * Checkbox component
  * A styled checkbox input with label support
+ * Designed according to Ant Design principles
  * 
  * @module Checkbox
  */
@@ -93,14 +94,14 @@ const StyledCheckbox = styled.div<{
   justify-content: center;
   flex-shrink: 0;
   background-color: ${props => props.checked || props.indeterminate
-    ? props.theme.colors.primary
-    : props.theme.colors.bgElevated
+    ? props.theme.colors?.primary || '#1890ff'
+    : props.theme.colors?.bgElevated || '#ffffff'
   };
   border: 1px solid ${props => props.checked || props.indeterminate
-    ? props.theme.colors.primary
-    : props.theme.colors.borderBase
+    ? props.theme.colors?.primary || '#1890ff'
+    : props.theme.colors?.borderBase || '#d9d9d9'
   };
-  border-radius: ${props => props.theme.radii.sm};
+  border-radius: ${props => props.theme.radii?.sm || '2px'};
   transition: all 0.2s ease-in-out;
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
   
@@ -109,18 +110,18 @@ const StyledCheckbox = styled.div<{
   
   /* Error state */
   ${props => props.error && css`
-    border-color: ${props => props.theme.colors.danger};
+    border-color: ${props => props.theme.colors?.danger || '#ff4d4f'};
   `}
   
   /* Disabled state */
   ${props => props.disabled && css`
     opacity: 0.5;
-    background-color: ${props => props.theme.colors.bgContainer};
+    background-color: ${props => props.theme.colors?.bgContainer || '#f5f5f5'};
   `}
   
   /* Focus style applied when parent is focused */
   input:focus + & {
-    box-shadow: 0 0 0 2px ${props => `${props.theme.colors.primary}33`};
+    box-shadow: 0 0 0 2px ${props => `${props.theme.colors?.primary || '#1890ff'}33`};
   }
   
   /* Check/indeterminate mark */
@@ -151,40 +152,45 @@ const CheckboxLabel = styled.label<{
 }>`
   display: inline-flex;
   align-items: center;
-  user-select: none;
-  color: ${props => props.disabled
-    ? props.theme.colors.textDisabled
-    : props.theme.colors.textPrimary
-  };
-  margin-left: ${props => props.theme.spacing.xs};
-  
-  /* Size variant */
-  font-size: ${props => {
+  margin-left: ${props => {
     switch (props.size) {
-      case 'small': return props.theme.typography.fontSize.xs;
-      case 'large': return props.theme.typography.fontSize.md;
-      default: return props.theme.typography.fontSize.sm;
+      case 'small': return '6px';
+      case 'large': return '10px';
+      default: return '8px';
     }
   }};
-  
+  font-size: ${props => {
+    switch (props.size) {
+      case 'small': return props.theme.typography?.fontSize?.xs || '12px';
+      case 'large': return props.theme.typography?.fontSize?.md || '16px';
+      default: return props.theme.typography?.fontSize?.sm || '14px';
+    }
+  }};
+  color: ${props => props.disabled 
+    ? props.theme.colors?.textDisabled || '#bfbfbf' 
+    : props.theme.colors?.textPrimary || '#000000'
+  };
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+  user-select: none;
 `;
 
 const ErrorText = styled.div`
-  color: ${props => props.theme.colors.danger};
-  font-size: ${props => props.theme.typography.fontSize.xs};
-  margin-top: ${props => props.theme.spacing.xs};
+  color: ${props => props.theme.colors?.danger || '#ff4d4f'};
+  font-size: ${props => props.theme.typography?.fontSize?.xs || '12px'};
+  margin-top: ${props => props.theme.spacing?.xs || '4px'};
+  margin-left: 24px;
 `;
 
 /**
- * Checkbox component for selecting single items
+ * Checkbox component for boolean selections
  * 
  * Features:
  * - Multiple size options (small, medium, large)
- * - Error state with error message
+ * - Error state and message
  * - Indeterminate state support
- * - Disabled state
- * - Label support
+ * - Accessible labeling
+ * - Controlled and uncontrolled modes
+ * - Ant Design styling with modern rounded aesthetics
  */
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
   label,
@@ -195,7 +201,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
   mt,
   ml,
   mr,
-  checked = false,
+  checked,
   defaultChecked,
   indeterminate = false,
   disabled = false,
@@ -203,25 +209,21 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
   onChange,
   ...rest
 }, ref) => {
+  // Generate unique ID for input-label connection
   const id = useId();
   
-  // Handle ref and indeterminate state
+  // Create a ref that syncs with the forwarded ref
   const handleRef = (element: HTMLInputElement | null) => {
+    // Handle the ref (either callback or object)
+    if (typeof ref === 'function') {
+      ref(element);
+    } else if (ref) {
+      ref.current = element;
+    }
+    
+    // Set indeterminate prop (not available in HTML attributes)
     if (element) {
       element.indeterminate = indeterminate;
-      
-      // If defaultChecked is true and no controlled value is provided,
-      // ensure the checkbox is checked on initial render
-      if (defaultChecked && checked === false && !onChange) {
-        element.checked = true;
-      }
-      
-      // Pass the ref to the parent component if provided
-      if (typeof ref === 'function') {
-        ref(element);
-      } else if (ref) {
-        ref.current = element;
-      }
     }
   };
   
@@ -238,14 +240,14 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
           {...rest}
         />
         <StyledCheckbox
-          checked={checked || !!defaultChecked}
+          checked={!!checked}
           disabled={disabled}
           error={error}
           indeterminate={indeterminate}
           size={size}
         />
         {label && (
-          <CheckboxLabel
+          <CheckboxLabel 
             htmlFor={id}
             disabled={disabled}
             size={size}

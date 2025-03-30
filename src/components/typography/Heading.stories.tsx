@@ -3,7 +3,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider';
 import Heading from './Heading';
 
 const meta = {
-  title: 'UI/Typography/Heading',
+  title: 'Components/Typography/Heading',
   component: Heading,
   parameters: {
     layout: 'centered',

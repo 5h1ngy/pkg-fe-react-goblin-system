@@ -3,7 +3,7 @@ import { ThemeProvider } from '../../theme/ThemeProvider';
 import Spinner from './Spinner';
 
 const meta = {
-  title: 'UI/Feedback/Spinner',
+  title: 'Components/Feedback/Spinner',
   component: Spinner,
   parameters: {
     layout: 'centered',

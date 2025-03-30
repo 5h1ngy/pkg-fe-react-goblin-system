@@ -4,7 +4,7 @@ import Container from './Container';
 import Text from '../typography/Text';
 
 const meta = {
-  title: 'UI/Layout/Container',
+  title: 'Components/Layout/Container',
   component: Container,
   parameters: {
     layout: 'centered',
