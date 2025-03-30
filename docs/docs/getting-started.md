@@ -53,9 +53,9 @@ export default Root;
 Importa i componenti necessari dai rispettivi moduli:
 
 ```jsx
-import { Button } from 'pkg-fe-react-goblin-system/src/components/ui/buttons';
-import { Text } from 'pkg-fe-react-goblin-system/src/components/ui/typography';
-import { Input } from 'pkg-fe-react-goblin-system/src/components/ui/form';
+import { Button } from 'pkg-fe-react-goblin-system/src/components/buttons';
+import { Text } from 'pkg-fe-react-goblin-system/src/components/typography';
+import { Input } from 'pkg-fe-react-goblin-system/src/components/form';
 ```
 
 Oppure, per importare più componenti contemporaneamente:
