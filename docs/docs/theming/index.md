@@ -2,21 +2,21 @@
 sidebar_position: 4
 ---
 
-# Personalizzazione dei temi
+# Theme Customization
 
-Goblin System offre un sistema di theming potente e flessibile che ti permette di personalizzare facilmente l'aspetto di tutti i componenti.
+Goblin System offers a powerful and flexible theming system that allows you to easily customize the appearance of all components.
 
-## Concetti base del theming
+## Theming Core Concepts
 
-Il sistema di theming di Goblin System è basato su:
+The Goblin System theming system is based on:
 
-1. **Theme Provider**: Un componente context provider che avvolge la tua applicazione
-2. **Theme Object**: Un oggetto JavaScript che definisce tutti i valori del tema
-3. **Styled Components**: La libreria sottostante che gestisce gli stili dei componenti
+1. **Theme Provider**: A context provider component that wraps your application
+2. **Theme Object**: A JavaScript object that defines all theme values
+3. **Styled Components**: The underlying library that manages component styles
 
 ## Theme Provider
 
-Il `ThemeProvider` deve avvolgere la tua applicazione per garantire che tutti i componenti abbiano accesso al tema:
+The `ThemeProvider` must wrap your application to ensure that all components have access to the theme:
 
 ```jsx
 import { ThemeProvider } from 'pkg-fe-react-goblin-system';
@@ -31,20 +31,20 @@ const Root = () => (
 export default Root;
 ```
 
-## Utilizzo del tema predefinito
+## Using the Default Theme
 
-Per default, Goblin System utilizza un tema moderno e professionale che si adatta alla maggior parte delle applicazioni. Non hai bisogno di configurare nulla per utilizzare questo tema.
+By default, Goblin System uses a modern and professional theme that suits most applications. You don't need to configure anything to use this theme.
 
-## Personalizzazione del tema
+## Theme Customization
 
-### Tema completo personalizzato
+### Custom Complete Theme
 
-Puoi fornire un tema personalizzato al `ThemeProvider`:
+You can provide a custom theme to the `ThemeProvider`:
 
 ```jsx
 import { ThemeProvider, createTheme } from 'pkg-fe-react-goblin-system';
 
-// Crea un tema personalizzato
+// Create a custom theme
 const customTheme = createTheme({
   colors: {
     primary: '#1E88E5',
@@ -59,7 +59,7 @@ const customTheme = createTheme({
     textSecondary: '#757575',
     border: '#DFE3E8',
   },
-  // Altre personalizzazioni...
+  // Other customizations...
 });
 
 const App = () => (
@@ -69,14 +69,14 @@ const App = () => (
 );
 ```
 
-### Estensione del tema predefinito
+### Extending the Default Theme
 
-Puoi estendere il tema predefinito modificando solo specifiche parti:
+You can extend the default theme by modifying only specific parts:
 
 ```jsx
 import { ThemeProvider, defaultTheme } from 'pkg-fe-react-goblin-system';
 
-// Estendi il tema predefinito
+// Extend the default theme
 const customTheme = {
   ...defaultTheme,
   colors: {
@@ -93,13 +93,13 @@ const App = () => (
 );
 ```
 
-## Struttura completa del tema
+## Complete Theme Structure
 
-Il tema di Goblin System è organizzato in sezioni logiche:
+The Goblin System theme is organized into logical sections:
 
 ```jsx
 const themeStructure = {
-  // Palette colori
+  // Color palette
   colors: {
     primary: '#1976D2',
     secondary: '#6C757D',
@@ -113,10 +113,10 @@ const themeStructure = {
     textSecondary: '#757575',
     border: '#E0E0E0',
     borderLight: '#F0F0F0',
-    // ... altri colori
+    // ... other colors
   },
   
-  // Tipografia
+  // Typography
   typography: {
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
     fontSizes: {
@@ -141,13 +141,13 @@ const themeStructure = {
       xl: 2,
     },
     variants: {
-      h1: { /* stili specifici per h1 */ },
-      h2: { /* stili specifici per h2 */ },
-      // ... altre varianti
+      h1: { /* specific styles for h1 */ },
+      h2: { /* specific styles for h2 */ },
+      // ... other variants
     },
   },
   
-  // Spaziatura
+  // Spacing
   spacing: {
     xs: '0.25rem',
     sm: '0.5rem',
@@ -157,7 +157,7 @@ const themeStructure = {
     xxl: '3rem',
   },
   
-  // Breakpoint
+  // Breakpoints
   breakpoints: {
     xs: '0px',
     sm: '576px',
@@ -166,7 +166,7 @@ const themeStructure = {
     xl: '1200px',
   },
   
-  // Bordi e arrotondamenti
+  // Borders and radius
   radii: {
     xs: '2px',
     sm: '4px',
@@ -176,7 +176,7 @@ const themeStructure = {
     round: '50%',
   },
   
-  // Ombre
+  // Shadows
   shadows: {
     sm: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
     md: '0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12)',
@@ -184,7 +184,7 @@ const themeStructure = {
     xl: '0 15px 25px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.05)',
   },
   
-  // Transizioni
+  // Transitions
   transitions: {
     duration: {
       short: '150ms',
@@ -199,7 +199,7 @@ const themeStructure = {
     },
   },
   
-  // Griglia
+  // Grid
   grid: {
     columns: 12,
     gutters: {
@@ -211,26 +211,26 @@ const themeStructure = {
     },
   },
   
-  // Stili specifici per componenti
+  // Component-specific styles
   components: {
     Button: {
-      // Personalizzazioni specifiche per il componente Button
+      // Button-specific customizations
     },
     Modal: {
-      // Personalizzazioni specifiche per il componente Modal
+      // Modal-specific customizations
     },
-    // ... altri componenti
+    // ... other components
   },
 };
 ```
 
-## Personalizzazione di componenti specifici
+## Component-Specific Customization
 
-Ogni componente può essere personalizzato individualmente attraverso la proprietà `components` del tema:
+Each component can be customized individually through the theme's `components` property:
 
 ```jsx
 const customTheme = createTheme({
-  // Tema generale...
+  // General theme...
   
   components: {
     Button: {
@@ -245,9 +245,9 @@ const customTheme = createTheme({
           },
         },
         secondary: {
-          // ... personalizzazioni per variante secondary
+          // ... customizations for secondary variant
         },
-        // ... altre varianti
+        // ... other variants
       },
       sizes: {
         small: {
@@ -255,10 +255,10 @@ const customTheme = createTheme({
           fontSize: '0.85rem',
         },
         medium: {
-          // ... personalizzazioni per dimensione medium
+          // ... customizations for medium size
         },
         large: {
-          // ... personalizzazioni per dimensione large
+          // ... customizations for large size
         },
       },
     },
@@ -267,17 +267,17 @@ const customTheme = createTheme({
       borderRadius: '12px',
       backgroundColor: '#FFFFFF',
       boxShadow: '0 20px 25px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.05)',
-      // ... altre personalizzazioni
+      // ... other customizations
     },
     
-    // ... altri componenti
+    // ... other components
   },
 });
 ```
 
-## Utilizzo dei valori del tema nei tuoi componenti
+## Using Theme Values in Your Components
 
-Puoi accedere ai valori del tema nei tuoi componenti personalizzati utilizzando il hook `useTheme`:
+You can access theme values in your custom components using the `useTheme` hook:
 
 ```jsx
 import React from 'react';
@@ -298,9 +298,9 @@ const MyCustomComponent = () => {
         fontSize: theme.typography.fontSizes.lg,
         fontWeight: theme.typography.fontWeights.medium,
       }}>
-        Il mio componente personalizzato
+        My Custom Component
       </h3>
-      <p>Questo componente utilizza i valori del tema di Goblin System</p>
+      <p>This component uses Goblin System theme values</p>
     </div>
   );
 };
@@ -308,9 +308,9 @@ const MyCustomComponent = () => {
 export default MyCustomComponent;
 ```
 
-## Temi predefiniti
+## Predefined Themes
 
-Goblin System include alcuni temi predefiniti che puoi utilizzare come punto di partenza:
+Goblin System includes several predefined themes that you can use as starting points:
 
 ```jsx
 import { 
@@ -320,21 +320,21 @@ import {
   contrastTheme 
 } from 'pkg-fe-react-goblin-system';
 
-// Tema chiaro (default)
+// Light theme (default)
 const App1 = () => (
   <ThemeProvider theme={lightTheme}>
     <YourApplication />
   </ThemeProvider>
 );
 
-// Tema scuro
+// Dark theme
 const App2 = () => (
   <ThemeProvider theme={darkTheme}>
     <YourApplication />
   </ThemeProvider>
 );
 
-// Tema ad alto contrasto (per accessibilità migliorata)
+// High contrast theme (for improved accessibility)
 const App3 = () => (
   <ThemeProvider theme={contrastTheme}>
     <YourApplication />
@@ -342,9 +342,9 @@ const App3 = () => (
 );
 ```
 
-## Modalità scura dinamica
+## Dynamic Dark Mode
 
-Puoi implementare un toggle per la modalità scura utilizzando un hook personalizzato:
+You can implement a toggle for dark mode using a custom hook:
 
 ```jsx
 import React, { useState, useMemo } from 'react';
@@ -381,7 +381,7 @@ export const ThemeToggleProvider = ({ children }) => {
   );
 };
 
-// Utilizzo
+// Usage
 const App = () => (
   <ThemeToggleProvider>
     <RootComponent />
@@ -393,16 +393,16 @@ const ThemeToggleButton = () => {
   
   return (
     <button onClick={toggleTheme}>
-      {isDarkMode ? 'Passa alla modalità chiara' : 'Passa alla modalità scura'}
+      {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
     </button>
   );
 };
 ```
 
-## Best Practices per il theming
+## Theming Best Practices
 
-1. **Consistenza**: Utilizza i valori del tema in modo coerente in tutta l'applicazione
-2. **Accessibilità**: Assicurati che i colori scelti rispettino i requisiti di accessibilità (contrasto adeguato)
-3. **Modularità**: Crea temi specifici per sezioni diverse dell'applicazione se necessario
-4. **Semantica**: Usa nomi semantici per le variabili del tema (es. `primary`, `error`) anziché nomi specifici (`blue`, `red`)
-5. **Testing**: Testa la tua applicazione con diversi temi per garantire che tutti i componenti si adattino correttamente
+1. **Consistency**: Use theme values consistently throughout the application
+2. **Accessibility**: Ensure that the colors you choose meet accessibility requirements (adequate contrast)
+3. **Modularity**: Define common values in the theme to promote reuse and maintainability
+4. **Flexibility**: Design your theme to support different use cases and preferences
+5. **Semantics**: Use semantic naming for color variables (e.g., `primary`, `success`) rather than visual names (e.g., `blue`, `green`)

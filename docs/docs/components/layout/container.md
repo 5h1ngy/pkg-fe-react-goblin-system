@@ -4,90 +4,90 @@ sidebar_position: 1
 
 # Container
 
-Il componente `Container` è un elemento fondamentale per il layout che centra il contenuto orizzontalmente con un padding adeguato e larghezza massima responsiva.
+The `Container` component is a fundamental layout element that centers content horizontally with appropriate padding and responsive maximum width.
 
-## Importazione
+## Importing
 
 ```jsx
 import { Container } from 'pkg-fe-react-goblin-system';
 ```
 
-## Utilizzo di base
+## Basic Usage
 
 ```jsx
 <Container>
-  <h1>Titolo della pagina</h1>
-  <p>Contenuto della pagina...</p>
+  <h1>Page Title</h1>
+  <p>Page content...</p>
 </Container>
 ```
 
-## Proprietà
+## Properties
 
-| Proprietà | Tipo | Default | Descrizione |
+| Property | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `maxWidth` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| string` | `'lg'` | Larghezza massima del container |
-| `disableGutters` | `boolean` | `false` | Se `true`, rimuove il padding laterale |
-| `fluid` | `boolean` | `false` | Se `true`, il container occupa sempre il 100% della larghezza disponibile |
-| `as` | `React.ElementType` | `'div'` | Componente HTML o React da utilizzare |
-| `children` | `ReactNode` | - | Contenuto del container |
+| `maxWidth` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| string` | `'lg'` | Maximum width of the container |
+| `disableGutters` | `boolean` | `false` | If `true`, removes side padding |
+| `fluid` | `boolean` | `false` | If `true`, the container always occupies 100% of the available width |
+| `as` | `React.ElementType` | `'div'` | HTML or React component to use |
+| `children` | `ReactNode` | - | Container content |
 
-## Varianti
+## Variants
 
-### Dimensioni
+### Sizes
 
 ```jsx
-<Container maxWidth="xs">Container extra small (max 576px)</Container>
-<Container maxWidth="sm">Container small (max 768px)</Container>
-<Container maxWidth="md">Container medium (max 992px)</Container>
-<Container maxWidth="lg">Container large (max 1200px, default)</Container>
-<Container maxWidth="xl">Container extra large (max 1400px)</Container>
+<Container maxWidth="xs">Extra small container (max 576px)</Container>
+<Container maxWidth="sm">Small container (max 768px)</Container>
+<Container maxWidth="md">Medium container (max 992px)</Container>
+<Container maxWidth="lg">Large container (max 1200px, default)</Container>
+<Container maxWidth="xl">Extra large container (max 1400px)</Container>
 ```
 
-### Personalizzazione della dimensione
+### Custom Size
 
 ```jsx
 <Container maxWidth="800px">
-  Container con larghezza massima personalizzata di 800px
+  Container with custom maximum width of 800px
 </Container>
 ```
 
-### Container fluid
+### Fluid Container
 
 ```jsx
 <Container fluid>
-  Questo container occupa sempre il 100% della larghezza disponibile,
-  mantenendo il padding laterale.
+  This container always occupies 100% of the available width,
+  while maintaining side padding.
 </Container>
 ```
 
-### Senza padding laterale
+### Without Side Padding
 
 ```jsx
 <Container disableGutters>
-  Container senza padding laterale
+  Container without side padding
 </Container>
 ```
 
-## Esempi avanzati
+## Advanced Examples
 
-### Layout di pagina base
+### Basic Page Layout
 
 ```jsx
 <Container>
   <Header />
   <main>
-    <Heading level={1}>Titolo della pagina</Heading>
-    <Text>Questo è il contenuto principale della pagina...</Text>
+    <Heading level={1}>Page Title</Heading>
+    <Text>This is the main content of the page...</Text>
   </main>
   <Footer />
 </Container>
 ```
 
-### Layout a sezioni
+### Section Layout
 
 ```jsx
 <>
-  {/* Sezione hero a larghezza piena */}
+  {/* Full-width hero section */}
   <Container fluid disableGutters>
     <div style={{ backgroundColor: '#f0f0f0', padding: '48px 0' }}>
       <Container>
@@ -97,72 +97,108 @@ import { Container } from 'pkg-fe-react-goblin-system';
     </div>
   </Container>
 
-  {/* Contenuto principale con larghezza contenuta */}
+  {/* Main content with contained width */}
   <Container maxWidth="md">
-    <div style={{ padding: '48px 0' }}>
-      <h2>Main Content</h2>
-      <p>Page content with constrained width...</p>
-    </div>
-  </Container>
-
-  {/* Footer a tutta larghezza */}
-  <Container fluid disableGutters>
-    <div style={{ backgroundColor: '#333', color: 'white', padding: '24px 0' }}>
-      <Container>
-        <p>Footer content...</p>
-      </Container>
-    </div>
+    <h2>Main Content</h2>
+    <p>Content with a medium-width container...</p>
   </Container>
 </>
 ```
 
-### Container con elemento HTML personalizzato
+### Nested Containers
 
 ```jsx
-<Container as="section" maxWidth="md">
-  Questo container è renderizzato come un elemento <section>
+<Container fluid>
+  <div style={{ backgroundColor: '#f5f5f5', padding: '24px 0' }}>
+    <Container>
+      <h2>Nested Container</h2>
+      <p>
+        A fluid container can contain a regular container to create 
+        full-width colored sections with contained content.
+      </p>
+    </Container>
+  </div>
+</Container>
+```
+
+## Complex Layouts
+
+For more complex layouts, consider using the `Container` component in combination with the `Grid` component:
+
+```jsx
+<Container>
+  <Grid container spacing="md">
+    <Grid item xs={12} md={6}>
+      <Card>Left column content</Card>
+    </Grid>
+    <Grid item xs={12} md={6}>
+      <Card>Right column content</Card>
+    </Grid>
+  </Grid>
+</Container>
+```
+
+## Custom Component
+
+You can change the HTML element using the `as` prop:
+
+```jsx
+<Container as="section">
+  This will render as a <section> element instead of a <div>
 </Container>
 
-<Container as="article" maxWidth="md">
-  Questo container è renderizzato come un elemento <article>
+<Container as="article">
+  This will render as an <article> element
 </Container>
+```
+
+## Responsive Behavior
+
+The `Container` component is fully responsive by default:
+
+- On small screens, it has appropriate side margins
+- It will never exceed its `maxWidth` on larger screens
+- When using `fluid`, it will always be 100% width but still with appropriate side padding
+
+## Theme Customization
+
+The Container component can be customized through the theme:
+
+```jsx
+const theme = {
+  components: {
+    Container: {
+      defaultProps: {
+        maxWidth: 'md',  // Change default max width
+      },
+      styleOverrides: {
+        root: {
+          // Override default padding
+          padding: '0 24px',
+          
+          // Add custom media queries
+          '@media (min-width: 768px)': {
+            padding: '0 32px',
+          },
+        },
+      },
+      variants: {
+        // Custom variant for content containers
+        content: {
+          backgroundColor: '#fff',
+          borderRadius: '8px',
+          padding: '24px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        },
+      },
+    },
+  },
+};
 ```
 
 ## Best Practices
 
-- Usa il componente `Container` come wrapper di primo livello per le tue pagine
-- Utilizza dimensioni adeguate in base al contenuto: `md` o `lg` per contenuti generali, `sm` per form e contenuti a larghezza ridotta
-- Combina `Container fluid` con un `Container` annidato per creare sezioni a larghezza piena con contenuto centrato
-- Utilizza la proprietà `disableGutters` quando hai bisogno di estendere il contenuto fino ai bordi (utile per header, footer o elementi di sfondo)
-
-## Responsive Design
-
-Il `Container` si adatta automaticamente alle diverse dimensioni dello schermo:
-
-- Su schermi più piccoli della larghezza massima specificata, il container occuperà il 100% della larghezza disponibile (meno il padding laterale)
-- Su schermi più grandi della larghezza massima specificata, il container manterrà la sua larghezza massima e rimarrà centrato
-
-## Personalizzazione
-
-Puoi personalizzare i valori predefiniti del Container nel tema:
-
-```jsx
-const customTheme = {
-  components: {
-    Container: {
-      maxWidths: {
-        xs: '540px',
-        sm: '720px',
-        md: '960px',
-        lg: '1140px',
-        xl: '1320px',
-      },
-      padding: '24px', // Padding laterale predefinito
-    }
-  }
-};
-
-<ThemeProvider theme={customTheme}>
-  <Container>Contenuto</Container>
-</ThemeProvider>
-```
+- Use the `Container` component as a top-level wrapper for your pages
+- Choose suitable sizes based on content: `md` or `lg` for general content, `sm` for forms and reduced-width content
+- Combine `Container fluid` with a nested `Container` to create full-width sections with centered content
+- Use the `disableGutters` property when you need to extend content to the edges (useful for headers, footers, or background elements)

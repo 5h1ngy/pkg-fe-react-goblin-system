@@ -4,35 +4,35 @@ sidebar_position: 2
 
 # Spinner
 
-Il componente `Spinner` è un indicatore di caricamento che segnala agli utenti che un'operazione è in corso.
+The `Spinner` component is a loading indicator that signals to users that an operation is in progress.
 
-## Importazione
+## Importing
 
 ```jsx
 import { Spinner } from 'pkg-fe-react-goblin-system';
 ```
 
-## Utilizzo di base
+## Basic Usage
 
 ```jsx
 <Spinner />
 ```
 
-## Proprietà
+## Properties
 
-| Proprietà | Tipo | Default | Descrizione |
+| Property | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Dimensione dello spinner |
-| `color` | `string` | `'primary'` | Colore dello spinner (supporta colori del tema o valori CSS) |
-| `$centered` | `boolean` | `false` | Centra lo spinner nel suo contenitore |
-| `thickness` | `number` | `2` | Spessore delle linee dello spinner |
-| `visible` | `boolean` | `true` | Controlla la visibilità dello spinner |
-| `label` | `string` | - | Testo accessibile per lo spinner |
-| `labelPosition` | `'top' \| 'bottom' \| 'left' \| 'right'` | `'bottom'` | Posizione del testo di etichetta |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Size of the spinner |
+| `color` | `string` | `'primary'` | Color of the spinner (supports theme colors or CSS values) |
+| `$centered` | `boolean` | `false` | Centers the spinner in its container |
+| `thickness` | `number` | `2` | Thickness of the spinner lines |
+| `visible` | `boolean` | `true` | Controls the visibility of the spinner |
+| `label` | `string` | - | Accessible text for the spinner |
+| `labelPosition` | `'top' \| 'bottom' \| 'left' \| 'right'` | `'bottom'` | Position of the label text |
 
-## Varianti
+## Variants
 
-### Dimensioni
+### Sizes
 
 ```jsx
 <Spinner size="small" />
@@ -40,7 +40,7 @@ import { Spinner } from 'pkg-fe-react-goblin-system';
 <Spinner size="large" />
 ```
 
-### Colori
+### Colors
 
 ```jsx
 <Spinner color="primary" />
@@ -49,23 +49,23 @@ import { Spinner } from 'pkg-fe-react-goblin-system';
 <Spinner color="#FF5722" />
 ```
 
-### Posizionamento
+### Positioning
 
 ```jsx
 <Spinner $centered />
 ```
 
-### Con etichetta
+### With Label
 
 ```jsx
-<Spinner label="Caricamento in corso..." />
-<Spinner label="Attendere..." labelPosition="top" />
-<Spinner label="Elaborazione" labelPosition="right" />
+<Spinner label="Loading..." />
+<Spinner label="Please wait..." labelPosition="top" />
+<Spinner label="Processing" labelPosition="right" />
 ```
 
-## Esempi avanzati
+## Advanced Examples
 
-### Spinner a schermo intero
+### Full-screen Spinner
 
 ```jsx
 <div style={{ 
@@ -80,11 +80,11 @@ import { Spinner } from 'pkg-fe-react-goblin-system';
   alignItems: 'center',
   zIndex: 1000
 }}>
-  <Spinner size="large" label="Caricamento della pagina..." />
+  <Spinner size="large" label="Loading page..." />
 </div>
 ```
 
-### Componente di loading condizionale
+### Conditional Loading Component
 
 ```jsx
 function LoadingContent({ isLoading, children }) {
@@ -96,37 +96,37 @@ function LoadingContent({ isLoading, children }) {
         alignItems: 'center', 
         justifyContent: 'center'
       }}>
-        <Spinner label="Caricamento dati..." />
+        <Spinner label="Loading data..." />
       </div>
     );
   }
-  
+
   return children;
 }
 
-// Utilizzo
+// Usage
 function MyComponent() {
   const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState(null);
   
   React.useEffect(() => {
-    // Simula una richiesta API
+    // Simulate an API request
     setTimeout(() => {
-      setData({ /* dati */ });
+      setData({ /* data */ });
       setIsLoading(false);
     }, 2000);
   }, []);
   
   return (
     <LoadingContent isLoading={isLoading}>
-      {/* Contenuto da mostrare quando il caricamento è completato */}
-      <div>Dati caricati!</div>
+      {/* Content to display when loading is complete */}
+      <div>Data loaded!</div>
     </LoadingContent>
   );
 }
 ```
 
-### Pulsante con spinner di caricamento
+### Button with Loading State
 
 ```jsx
 function LoadingButton({ isLoading, children, ...props }) {
@@ -142,21 +142,21 @@ function LoadingButton({ isLoading, children, ...props }) {
             color="currentColor" 
             style={{ marginRight: '8px' }}
           />
-          Caricamento...
+          Loading...
         </>
       ) : children}
     </Button>
   );
 }
 
-// Utilizzo
+// Usage
 function FormWithLoading() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      // Simula una richiesta API
+      // Simulate an API request
       await new Promise(resolve => setTimeout(resolve, 2000));
       // Success
     } finally {
@@ -166,37 +166,36 @@ function FormWithLoading() {
   
   return (
     <form onSubmit={e => { e.preventDefault(); handleSubmit(); }}>
-      {/* Campi del form */}
+      {/* Form fields */}
       <LoadingButton 
         isLoading={isSubmitting} 
         type="submit"
         variant="primary"
       >
-        Invia
+        Submit
       </LoadingButton>
     </form>
   );
 }
 ```
 
-## Accessibilità
+## Accessibility
 
-Il componente Spinner implementa le migliori pratiche di accessibilità:
+The `Spinner` component follows accessibility best practices:
 
-- Include un attributo `role="status"` per gli screen reader
-- Fornisce un `aria-label` adeguato (dalla prop `label` o un testo predefinito)
-- Comunica visivamente il caricamento con movimento e colore
-- Può includere un'etichetta visibile per aumentare la chiarezza
+- Includes an `aria-label` attribute for screen readers
+- Provides a way to add descriptive text via the `label` prop
+- Maintains sufficient contrast ratios for visibility
 
-## Note tecniche
+## Technical Notes
 
-- Utilizza il prefisso `$` per le props booleane come `$centered` per prevenire che vengano passate direttamente al DOM
-- L'animazione è implementata con CSS keyframes tramite styled-components
-- Lo spinner è renderizzato come SVG per una migliore risoluzione e scalabilità su tutti i dispositivi
+- Uses the `$` prefix for boolean props like `$centered` to prevent them from being passed directly to the DOM
+- The animation is implemented using CSS keyframes via styled-components
+- The spinner is rendered as an SVG for better resolution and scalability on all devices
 
-## Personalizzazione
+## Customization
 
-Puoi personalizzare l'aspetto dello Spinner attraverso il tema:
+You can customize the appearance of the Spinner component through the theme:
 
 ```jsx
 const customTheme = {
@@ -212,7 +211,7 @@ const customTheme = {
         duration: '1s',
         timingFunction: 'linear',
       },
-      // Altre personalizzazioni...
+      // Other customizations...
     }
   }
 };

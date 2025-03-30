@@ -17,7 +17,7 @@ const sidebars: SidebarsConfig = {
     'getting-started',
     {
       type: 'category',
-      label: 'Componenti',
+      label: 'Components',
       items: [
         'components/index',
         {
@@ -30,7 +30,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Pulsanti',
+          label: 'Buttons',
           items: [
             'components/buttons/button',
             'components/buttons/iconbutton',
@@ -46,7 +46,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Tipografia',
+          label: 'Typography',
           items: [
             'components/typography/text',
           ],
@@ -55,7 +55,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Personalizzazione',
+      label: 'Customization',
       items: [
         'theming/index',
       ],

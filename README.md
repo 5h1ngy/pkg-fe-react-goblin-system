@@ -1,4 +1,4 @@
-# pkg-fe-react-goblin-system
+# 🧙‍♂️ pkg-fe-react-goblin-system
 
 <div align="center">
   <img src="assets/logo.png" alt="pkg-fe-react-goblin-system Logo" width="500">
@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License MIT">
   </a>
   <a href="package.json">
-    <img src="https://img.shields.io/badge/version-0.3.58-blue" alt="Version 0.3.58">
+    <img src="https://img.shields.io/badge/version-1.7.0-blue" alt="Version 1.7.0">
   </a>
   <a href="#">
     <img src="https://img.shields.io/badge/node-%3E%3D20.18.0-blue" alt="Node >=20.18.0">
@@ -19,77 +19,108 @@
   </a>
 </div>
 
-## URLs
+## 🔗 URLs
 
-| Key       | Value                                                                           |
-|-----------|---------------------------------------------------------------------------------|
-| Website   | https://5h1ngy.github.io/pkg-fe-react-goblin-system/                            |
-| Storybook | https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook                   |
-| Docs      | https://5h1ngy.github.io/pkg-fe-react-goblin-system/docs                        |
+| Resource  | URL                                                             |
+|-----------|------------------------------------------------------------------|
+| Website   | https://5h1ngy.github.io/pkg-fe-react-goblin-system/             |
+| Storybook | https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook    |
+| Docs      | https://5h1ngy.github.io/pkg-fe-react-goblin-system/docs         |
 
-## Panoramica
+## 🔍 Overview
 
-**pkg-fe-react-goblin-system** (anche noto come **React Goblin System**) è una libreria UI completa per React e TypeScript che fornisce componenti riutilizzabili, accessibili e altamente personalizzabili. Progettata con Styled Components, la libreria offre un sistema di componenti moderno con un'architettura flessibile e un potente sistema di theming.
+**pkg-fe-react-goblin-system** (also known as **React Goblin System**) is a comprehensive UI library for React and TypeScript that provides reusable, accessible, and highly customizable components. Built with Styled Components, the library offers a modern component system with a flexible architecture and a powerful theming system.
 
-## Caratteristiche principali
+## ✨ Key Features
 
-- **Componenti UI completamente personalizzabili** - Pulsanti, modali, grid, layout e altro
-- **Sistema di theming avanzato** - Personalizza l'aspetto completo della tua applicazione
-- **Design responsivo** - Interfacce ottimizzate per ogni dimensione di schermo
-- **Accessibilità integrata** - Conformità WCAG e supporto per le tecnologie assistive
-- **API consistenti** - Patterns di progettazione uniformi in tutti i componenti
-- **Documentazione completa** - Guide dettagliate e esempi per ogni componente
-- **TypeScript** - Tipizzazione completa per una migliore developer experience
+- **🎨 Fully customizable UI components** - Buttons, modals, grids, layouts, and more
+- **🎭 Advanced theming system** - Customize the complete look and feel of your application
+- **📱 Responsive design** - Interfaces optimized for every screen size
+- **♿ Built-in accessibility** - WCAG compliance and support for assistive technologies
+- **🧩 Consistent APIs** - Uniform design patterns across all components
+- **📚 Comprehensive documentation** - Detailed guides and examples for each component
+- **🔒 TypeScript** - Complete type definitions for a better developer experience
+- **🌐 Global Provider** - Easy application of themes and fonts across your entire application
 
-## Documentazione
+## 🏗️ Core Architecture
 
-La documentazione completa è disponibile nella [directory docs](./docs/docs/intro.md) del repository.
+The library is organized into several key modules:
 
-### Guide principali
+### 🧱 Components
+Reusable UI elements organized by function (buttons, feedback, layout, etc.)
 
-- [Introduzione](./docs/docs/intro.md)
-- [Guida all'installazione](./docs/docs/getting-started.md)
-- [Lista dei componenti](./docs/docs/components/index.md)
-- [Personalizzazione dei temi](./docs/docs/theming/index.md)
+### 🛡️ Providers
+Context providers that manage global state and functionality:
+- **🧙‍♂️ GoblinProvider**: Main provider that applies theme, global styles, and fonts
+- **🎨 ThemeProvider**: Manages theme state with light/dark mode support
+- **🔑 Auth**: Authentication provider for user authentication flows
 
-### Componenti
+### ⚙️ Services
+Utility services for common application needs:
+- **🔐 auth**: Authentication services with JWT support
+- **🔄 handlers**: Common HTTP request handlers
 
-#### Layout
-- [Container](./docs/docs/components/layout/container.md) - Contenitore per limitare e centrare i contenuti
-- [Grid](./docs/docs/components/layout/grid.md) - Sistema di griglia flessibile per layout responsivi
+### 🗄️ Store
+Redux slices for state management:
+- **👤 auth**: Authentication state management
+- **🔄 shared**: Shared state utilities
 
-#### Pulsanti
-- [Button](./docs/docs/components/buttons/button.md) - Pulsanti standard con varianti e stati
-- [IconButton](./docs/docs/components/buttons/iconbutton.md) - Pulsanti con icone integrate
+### 🎨 Theme
+Comprehensive theming system:
+- **🎭 theme.ts**: Theme definitions and tokens
+- **🌐 GlobalStyles**: Global style definitions
+- **🌓 ThemeProvider**: Theme context provider
 
-#### Feedback
-- [Modal](./docs/docs/components/feedback/modal.md) - Finestre modali per dialoghi e contenuti sovrapposti
-- [Spinner](./docs/docs/components/feedback/spinner.md) - Indicatori di caricamento animati
+## 📚 Documentation
 
-#### Tipografia
-- [Text](./docs/docs/components/typography/text.md) - Componenti per la gestione del testo
+Complete documentation is available in the [docs directory](./docs/docs/intro.md) of the repository.
 
-## Installazione
+### 📖 Main Guides
+
+- [🚀 Introduction](./docs/docs/intro.md)
+- [💻 Installation Guide](./docs/docs/getting-started.md)
+- [🧩 Component List](./docs/docs/components/index.md)
+- [🎨 Theme Customization](./docs/docs/theming/index.md)
+
+### 🧱 Components
+
+#### 📐 Layout
+- [📦 Container](./docs/docs/components/layout/container.md) - Container to limit and center content
+- [📏 Grid](./docs/docs/components/layout/grid.md) - Flexible grid system for responsive layouts
+
+#### 🔘 Buttons
+- [👆 Button](./docs/docs/components/buttons/button.md) - Standard buttons with variants and states
+- [🔣 IconButton](./docs/docs/components/buttons/iconbutton.md) - Buttons with integrated icons
+
+#### 💬 Feedback
+- [🪟 Modal](./docs/docs/components/feedback/modal.md) - Modal windows for dialogs and overlaid content
+- [🔄 Spinner](./docs/docs/components/feedback/spinner.md) - Animated loading indicators
+
+#### 📝 Typography
+- [📄 Text](./docs/docs/components/typography/text.md) - Text management components
+- [📑 Heading](./docs/docs/components/typography/heading.md) - Heading components with various levels
+
+## 📥 Installation
 
 ```bash
-# Con npm
+# With npm
 npm install pkg-fe-react-goblin-system
 
-# Con Yarn
+# With Yarn
 yarn add pkg-fe-react-goblin-system
 
-# Con pnpm
+# With pnpm
 pnpm add pkg-fe-react-goblin-system
 ```
 
-## Utilizzo rapido
+## 🚀 Quick Usage
 
 ```jsx
 import React from 'react';
 import { 
-  ThemeProvider, 
+  GoblinProvider, 
   Container, 
-  Row, 
+  Grid, 
   Col, 
   Button, 
   Text 
@@ -97,88 +128,74 @@ import {
 
 function App() {
   return (
-    <ThemeProvider>
+    <GoblinProvider>
       <Container>
-        <Row>
-          <Col span={12}>
-            <Text as="h1" size="xxl" weight="bold">
-              Benvenuto in Goblin System
-            </Text>
+        <Grid>
+          <Col xs={12} md={6}>
+            <Text variant="h1">Welcome to Goblin System</Text>
+            <Text>A modern React component library for building beautiful UIs</Text>
+            <Button variant="primary">Get Started</Button>
           </Col>
-        </Row>
-        <Row>
-          <Col span={6}>
-            <Text>
-              Una libreria moderna di componenti UI per React
-            </Text>
-          </Col>
-          <Col span={6}>
-            <Button variant="primary">
-              Inizia ora
-            </Button>
-          </Col>
-        </Row>
+        </Grid>
       </Container>
-    </ThemeProvider>
+    </GoblinProvider>
   );
 }
-
-export default App;
 ```
 
-## Requisiti
-
-- **Node.js**: >= 20.18.0
-- **React**: 18.x (peer dependency)  
-- **Styled Components**: >= 6.0.0 (peer dependency)
-
-## Struttura del progetto
+## 📂 Project Structure
 
 ```
-pkg-fe-react-goblin-system/
-├─ .storybook/          # Configurazioni Storybook
-├─ docs/                # Documentazione Docusaurus
-├─ src/
-│  ├─ components/       # Componenti React
-│  │  ├─ ui/            # Componenti UI di base
-│  │  │  ├─ buttons/    # Button, IconButton, ecc.
-│  │  │  ├─ feedback/   # Modal, Spinner, ecc.
-│  │  │  ├─ layout/     # Container, Grid, ecc.
-│  │  │  ├─ typography/ # Text, Heading, ecc.
-│  │  ├─ providers/     # ThemeProvider e altri provider
-│  ├─ styles/           # Temi e utilità di stile
-│  ├─ utils/            # Funzioni di utilità
-├─ package.json         # Informazioni sul progetto e dipendenze
-└─ ... (altre configurazioni)
+src/
+├── assets/           # Static assets (images, fonts)
+├── components/       # UI components
+│   ├── buttons/      # Button components
+│   ├── feedback/     # Feedback components (modals, alerts)
+│   ├── form/         # Form components and inputs
+│   ├── graphics/     # Visual and graphic components
+│   ├── layout/       # Layout components (grid, container)
+│   ├── navigation/   # Navigation components
+│   └── typography/   # Typography components
+├── hocs/             # Higher-order components
+├── pages/            # Page layouts and templates
+│   ├── Error/        # Error page templates
+│   ├── Loading/      # Loading page templates
+│   └── Transformer/  # Data transformation views
+├── providers/        # Context providers
+│   └── Auth/         # Authentication provider
+├── services/         # Service utilities
+│   └── auth/         # Authentication services
+├── store/            # State management
+│   └── auth/         # Authentication state
+└── theme/            # Theming system
+    ├── GlobalStyles.tsx  # Global styles
+    ├── ThemeProvider.tsx # Theme provider
+    └── theme.ts      # Theme definitions
 ```
 
-## Script disponibili
+## 🛠️ Development
 
-- **`start:storybook`** – Avvia Storybook in modalità di sviluppo (porta `6006`)
-- **`start:docs`** – Avvia Docusaurus in locale (porta `3000`)
-- **`build:storybook`** – Compila Storybook statico nella cartella `build-storybook/`
-- **`build:docs`** – Compila la documentazione statica in `build-docusaurus/`
-- **`build:lib`** – Compila la libreria con Vite e la impacchetta come tarball
-- **`test`** – Esegue i test con Jest
+```bash
+# Start Storybook development server
+npm run start:storybook
 
-## Compatibilità con i browser
+# Start documentation site
+npm run start:docs
 
-- Chrome (ultime 2 versioni)
-- Firefox (ultime 2 versioni)
-- Safari (ultime 2 versioni)
-- Edge (ultime 2 versioni)
-- iOS 12+ (Safari)
-- Android 5.0+ (Chrome)
+# Build the library
+npm run build:lib
 
-## Contribuire
+# Build Storybook
+npm run build:storybook
 
-Siamo lieti di ricevere contributi al progetto! Per favore, segui questi passaggi:
+# Build documentation site
+npm run build:docs
+```
 
-1. Fai una fork del repository o crea un nuovo branch nel tuo clone
-2. Installa le dipendenze e sviluppa la tua feature/fix in `src/`
-3. Assicurati che i test passino e che la documentazione sia aggiornata
-4. Invia una Pull Request con una chiara descrizione delle modifiche
+## 👥 Contributing
 
-## Licenza
+We welcome contributions! Please see our [contributing guidelines](CONTRIBUTING.md) for details.
 
-Questo progetto è rilasciato sotto la licenza **MIT**. Per dettagli, vedi il file `LICENSE`.
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -4,146 +4,154 @@ sidebar_position: 1
 
 # Text
 
-Il componente `Text` è un elemento fondamentale per la visualizzazione di contenuti testuali. Offre diverse varianti di stile e opzioni di formattazione per soddisfare tutte le esigenze di tipografia.
+The `Text` component is a fundamental element for displaying textual content. It offers various style variants and formatting options to meet all typography needs.
 
-## Importazione
+## Importing
 
 ```jsx
 import { Text } from 'pkg-fe-react-goblin-system';
 ```
 
-## Utilizzo di base
+## Basic Usage
 
 ```jsx
-<Text>Questo è un testo predefinito</Text>
-<Text variant="body1">Questo è un testo body1</Text>
-<Text variant="body2">Questo è un testo body2</Text>
-<Text variant="caption">Questo è un testo caption</Text>
-<Text variant="overline">QUESTO È UN TESTO OVERLINE</Text>
+<Text>This is the default text</Text>
+<Text variant="body1">This is body1 text</Text>
+<Text variant="body2">This is body2 text</Text>
+<Text variant="caption">This is caption text</Text>
+<Text variant="overline">THIS IS OVERLINE TEXT</Text>
 ```
 
-## Proprietà
+## Properties
 
-| Proprietà | Tipo | Default | Descrizione |
+| Property | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `variant` | `'body1' \| 'body2' \| 'caption' \| 'overline'` | `'body1'` | Variante di stile del testo |
-| `color` | `string` | - | Colore del testo (supporta colori del tema e valori CSS) |
-| `align` | `'left' \| 'center' \| 'right' \| 'justify'` | `'left'` | Allineamento orizzontale |
-| `weight` | `'regular' \| 'medium' \| 'bold' \| number` | - | Spessore del carattere |
-| `italic` | `boolean` | `false` | Applica lo stile corsivo |
-| `transform` | `'none' \| 'uppercase' \| 'lowercase' \| 'capitalize'` | `'none'` | Trasformazione del testo |
-| `nowrap` | `boolean` | `false` | Impedisce il wrapping del testo |
-| `truncate` | `boolean \| number` | `false` | Tronca il testo con ellipsis dopo una linea o un numero specificato di linee |
-| `fontSize` | `string \| number` | - | Dimensione personalizzata del carattere |
-| `lineHeight` | `string \| number` | - | Altezza della linea personalizzata |
-| `paragraph` | `boolean` | `false` | Usa il tag semantico `<p>` e applica margin-bottom |
-| `component` | `React.ElementType` | `'span'` | Componente React o elemento HTML da utilizzare |
+| `variant` | `'body1' \| 'body2' \| 'caption' \| 'overline'` | `'body1'` | Text style variant |
+| `color` | `string` | - | Text color (supports theme colors and CSS values) |
+| `align` | `'left' \| 'center' \| 'right' \| 'justify'` | `'left'` | Horizontal alignment |
+| `weight` | `'regular' \| 'medium' \| 'bold' \| number` | - | Font weight |
+| `italic` | `boolean` | `false` | Applies italic style |
+| `transform` | `'none' \| 'uppercase' \| 'lowercase' \| 'capitalize'` | `'none'` | Text transformation |
+| `nowrap` | `boolean` | `false` | Prevents text wrapping |
+| `truncate` | `boolean \| number` | `false` | Truncates text with ellipsis after one line or specified number of lines |
+| `fontSize` | `string \| number` | - | Custom font size |
+| `lineHeight` | `string \| number` | - | Custom line height |
+| `paragraph` | `boolean` | `false` | Uses the semantic `<p>` tag and applies margin-bottom |
+| `component` | `React.ElementType` | `'span'` | React component or HTML element to use |
 
-## Varianti
+## Variants
 
-### Varianti di stile
-
-```jsx
-<Text variant="body1">Body 1 - Testo principale</Text>
-<Text variant="body2">Body 2 - Testo secondario, leggermente più piccolo</Text>
-<Text variant="caption">Caption - Testo più piccolo per etichette e note</Text>
-<Text variant="overline">OVERLINE - PICCOLO TESTO IN MAIUSCOLO PER INTESTAZIONI</Text>
-```
-
-### Colori
+### Style Variants
 
 ```jsx
-<Text color="primary">Testo con colore primario del tema</Text>
-<Text color="secondary">Testo con colore secondario del tema</Text>
-<Text color="error">Testo di errore</Text>
-<Text color="textSecondary">Testo secondario</Text>
-<Text color="#FF5722">Testo con colore personalizzato</Text>
+<Text variant="body1">Body 1 - Main text</Text>
+<Text variant="body2">Body 2 - Secondary text, slightly smaller</Text>
+<Text variant="caption">Caption - Smaller text for labels and notes</Text>
+<Text variant="overline">OVERLINE - SMALL UPPERCASE TEXT FOR HEADERS</Text>
 ```
 
-### Allineamento
+### Colors
 
 ```jsx
-<Text align="left">Testo allineato a sinistra</Text>
-<Text align="center">Testo centrato</Text>
-<Text align="right">Testo allineato a destra</Text>
-<Text align="justify">Testo giustificato. Questo paragrafo dimostra come il testo venga distribuito uniformemente sulla larghezza disponibile creando uno spazio uniforme tra le parole.</Text>
+<Text color="primary">Text with theme primary color</Text>
+<Text color="secondary">Text with theme secondary color</Text>
+<Text color="error">Error text</Text>
+<Text color="textSecondary">Secondary text</Text>
+<Text color="#FF5722">Text with custom color</Text>
 ```
 
-### Peso e stile
+### Alignment
 
 ```jsx
-<Text weight="regular">Testo con peso regular</Text>
-<Text weight="medium">Testo con peso medium</Text>
-<Text weight="bold">Testo con peso bold</Text>
-<Text weight={500}>Testo con peso 500</Text>
-<Text italic>Testo in corsivo</Text>
-<Text weight="bold" italic>Testo bold e corsivo</Text>
+<Text align="left">Left-aligned text</Text>
+<Text align="center">Centered text</Text>
+<Text align="right">Right-aligned text</Text>
+<Text align="justify">Justified text. This paragraph demonstrates how text is distributed evenly across the available width, creating uniform spacing between words.</Text>
 ```
 
-### Testo troncato
+### Weight and Style
+
+```jsx
+<Text weight="regular">Text with regular weight</Text>
+<Text weight="medium">Text with medium weight</Text>
+<Text weight="bold">Text with bold weight</Text>
+<Text weight={500}>Text with weight 500</Text>
+<Text italic>Italic text</Text>
+<Text weight="bold" italic>Bold and italic text</Text>
+```
+
+### Truncated Text
 
 ```jsx
 <Text truncate style={{ width: '200px' }}>
-  Questo testo è molto lungo e verrà troncato con i puntini alla fine.
+  This text is very long and will be truncated with ellipsis at the end.
 </Text>
 
-{/* Tronca dopo 2 linee */}
+{/* Truncate after 2 lines */}
 <Text truncate={2} style={{ width: '200px' }}>
-  Questo è un testo molto lungo che occuperà più di una linea e verrà troncato dopo la seconda linea con i puntini di sospensione.
+  This is a very long text that will take up more than one line and will be truncated after the second line with ellipsis.
 </Text>
 ```
 
-## Esempi avanzati
+## Advanced Examples
 
-### Paragrafo
+### Paragraph
 
 ```jsx
 <Text paragraph>
-  Questo è un paragrafo di testo. Verrà renderizzato con un tag <p> e avrà un margin-bottom adeguato.
-  Il testo continua in questo paragrafo per dimostrare come appare un blocco di testo più lungo.
-</Text>
-<Text paragraph>Un altro paragrafo che segue il precedente con lo spazio appropriato.</Text>
-```
-
-### Componente personalizzato
-
-```jsx
-<Text component="label" htmlFor="my-input">
-  Etichetta per un campo di input
+  This is a paragraph of text. It uses the semantic paragraph tag and includes appropriate spacing below it. This is useful for creating readable content with proper vertical rhythm.
 </Text>
 
-<Text component="a" href="https://example.com" color="primary">
-  Questo è un link
+<Text paragraph>
+  A second paragraph will have proper spacing between it and the previous paragraph.
 </Text>
 ```
 
-### Combinazione di più proprietà
+### Custom Component
 
 ```jsx
+<Text component="label" htmlFor="input-id">
+  This text is rendered as a label
+</Text>
+
+<Text component="h3" variant="body1" weight="bold" color="primary">
+  This is rendered as an H3 heading with body1 styling
+</Text>
+```
+
+### Rich Text Formatting
+
+```jsx
+<Text>
+  You can combine <Text weight="bold" component="span">bold</Text>,{' '}
+  <Text italic component="span">italic</Text>, and{' '}
+  <Text color="primary" component="span">colored</Text> text within
+  a single paragraph.
+</Text>
+```
+
+## Responsive Typography
+
+```jsx
+// This text will be 1rem on mobile, 1.25rem on tablets, and 1.5rem on desktop
 <Text 
-  variant="body1"
-  color="primary"
-  weight="bold"
-  align="center"
-  transform="uppercase"
-  paragraph
+  style={{ 
+    fontSize: '1rem',
+    '@media (min-width: 768px)': {
+      fontSize: '1.25rem',
+    },
+    '@media (min-width: 1200px)': {
+      fontSize: '1.5rem',
+    }
+  }}
 >
-  UN TESTO IMPORTANTE IN EVIDENZA
+  Responsive text that adapts to screen size
 </Text>
 ```
 
-## Accessibilità
+## Theming
 
-Il componente `Text` è progettato per supportare le migliori pratiche di accessibilità:
-
-- Utilizza tag HTML semantici quando appropriato (`paragraph` → `<p>`)
-- Mantiene una gerarchia testuale coerente tramite le varianti
-- Garantisce rapporti di contrasto adeguati con i colori del tema predefinito
-- Supporta l'aumento di dimensioni del testo nei browser senza rompersi
-
-## Personalizzazione
-
-Puoi personalizzare gli stili di base di ogni variante attraverso il tema:
+The `Text` component can be customized through the theme:
 
 ```jsx
 const customTheme = {
@@ -165,15 +173,53 @@ const customTheme = {
     },
     overline: {
       fontSize: '0.75rem',
-      lineHeight: 1.5,
+      lineHeight: 1.4,
       fontWeight: 500,
-      letterSpacing: '0.08em',
       textTransform: 'uppercase',
+      letterSpacing: '0.08em',
     },
   },
 };
+```
 
-<ThemeProvider theme={customTheme}>
-  <Text variant="body1">Testo personalizzato</Text>
-</ThemeProvider>
+## Accessibility
+
+The `Text` component is designed to support best practices for accessibility:
+
+- Uses semantic HTML tags when appropriate (`paragraph` → `<p>`)
+- Maintains a consistent text hierarchy through variants
+- Ensures sufficient contrast with theme colors
+- Supports text size increase in browsers without breaking
+
+## Customization
+
+You can customize the base styles of each variant through the theme:
+
+```jsx
+const customTheme = {
+  typography: {
+    body1: {
+      fontSize: '1rem',
+      lineHeight: 1.6,
+      fontWeight: 400,
+    },
+    body2: {
+      fontSize: '0.875rem',
+      lineHeight: 1.5,
+      fontWeight: 400,
+    },
+    caption: {
+      fontSize: '0.75rem',
+      lineHeight: 1.4,
+      fontWeight: 400,
+    },
+    overline: {
+      fontSize: '0.75rem',
+      lineHeight: 1.4,
+      fontWeight: 500,
+      textTransform: 'uppercase',
+      letterSpacing: '0.08em',
+    },
+  },
+};
 ```

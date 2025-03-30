@@ -2,55 +2,55 @@
 sidebar_position: 3
 ---
 
-# Componenti
+# Components
 
-Goblin System offre una vasta gamma di componenti React pronti all'uso, progettati per essere flessibili, accessibili e facili da utilizzare.
+Goblin System offers a wide range of ready-to-use React components, designed to be flexible, accessible, and easy to use.
 
-I componenti sono organizzati nelle seguenti categorie:
+The components are organized into the following categories:
 
 ## Layout
 - [Container](/docs/components/layout/container)
 - [Grid](/docs/components/layout/grid)
 - [Spacer](/docs/components/layout/spacer)
 
-## Pulsanti e controlli
+## Buttons and Controls
 - [Button](/docs/components/buttons/button)
 - [IconButton](/docs/components/buttons/iconbutton)
 
-## Elementi di form
+## Form Elements
 - [Input](/docs/components/form/input)
 - [Select](/docs/components/form/select)
 - [Checkbox](/docs/components/form/checkbox)
 - [Radio](/docs/components/form/radio)
 
-## Feedback e notifiche
+## Feedback and Notifications
 - [Modal](/docs/components/feedback/modal)
 - [Alert](/docs/components/feedback/alert)
 - [Spinner](/docs/components/feedback/spinner)
 
-## Navigazione
+## Navigation
 - [Navbar](/docs/components/navigation/navbar)
 - [Menu](/docs/components/navigation/menu)
 
-## Tipografia
+## Typography
 - [Text](/docs/components/typography/text)
 - [Heading](/docs/components/typography/heading)
 
-## Grafica
+## Graphics
 - [Icon](/docs/components/graphics/icon)
 
 ## Best Practices
 
-Per un'esperienza ottimale con Goblin System, ti consigliamo di seguire queste best practices:
+For an optimal experience with Goblin System, we recommend following these best practices:
 
-1. **Utilizza sempre il ThemeProvider**: Assicurati che tutti i componenti siano avvolti dal `ThemeProvider` per garantire la corretta applicazione degli stili.
+1. **Always use ThemeProvider**: Ensure that all components are wrapped by the `ThemeProvider` to guarantee proper styling.
 
-2. **Sfrutta i componenti di layout**: Utilizza `Container`, `Grid` e `Spacer` per creare layout coerenti e responsivi.
+2. **Leverage layout components**: Use `Container`, `Grid`, and `Spacer` to create consistent and responsive layouts.
 
-3. **Mantieni la consistenza**: Utilizza varianti e dimensioni coerenti in tutta l'applicazione per un'esperienza utente migliore.
+3. **Maintain consistency**: Use consistent variants and sizes throughout the application for a better user experience.
 
-4. **Preferisci i componenti rispetto agli stili personalizzati**: Goblin System offre ampie opzioni di personalizzazione. Cerca di estendere i componenti esistenti piuttosto che creare stili da zero.
+4. **Prefer components over custom styles**: Goblin System offers extensive customization options. Try to extend existing components rather than creating styles from scratch.
 
-5. **Gestisci correttamente i props**: Passa sempre tutti i props necessari e mantieni i componenti controllati quando appropriato.
+5. **Properly manage props**: Always pass all necessary props and keep components controlled when appropriate.
 
-6. **Accessibilità**: Assicurati di fornire etichette e attributi ARIA appropriati quando necessario.
+6. **Accessibility**: Make sure to provide appropriate labels and ARIA attributes when needed.
