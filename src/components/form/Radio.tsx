@@ -392,4 +392,7 @@ type RadioWithGroup = typeof Radio & {
 // Attach the Group component
 (Radio as RadioWithGroup).Group = RadioGroup;
 
+// Esporta RadioGroup per permettere l'import con named export
+export { RadioGroup };
+
 export default Radio as RadioWithGroup;

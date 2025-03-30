@@ -11,33 +11,18 @@ The components are organized into the following categories:
 ## Layout
 - [Container](/docs/components/layout/container)
 - [Grid](/docs/components/layout/grid)
-- [Spacer](/docs/components/layout/spacer)
 
 ## Buttons and Controls
 - [Button](/docs/components/buttons/button)
 - [IconButton](/docs/components/buttons/iconbutton)
 
-## Form Elements
-- [Input](/docs/components/form/input)
-- [Select](/docs/components/form/select)
-- [Checkbox](/docs/components/form/checkbox)
-- [Radio](/docs/components/form/radio)
-
 ## Feedback and Notifications
 - [Modal](/docs/components/feedback/modal)
-- [Alert](/docs/components/feedback/alert)
-- [Spinner](/docs/components/feedback/spinner)
-
-## Navigation
-- [Navbar](/docs/components/navigation/navbar)
-- [Menu](/docs/components/navigation/menu)
+- [Alert](/docs/components/alert)
+- [Spinner](/docs/components/spinner)
 
 ## Typography
 - [Text](/docs/components/typography/text)
-- [Heading](/docs/components/typography/heading)
-
-## Graphics
-- [Icon](/docs/components/graphics/icon)
 
 ## Best Practices
 

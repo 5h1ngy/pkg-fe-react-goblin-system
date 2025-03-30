@@ -1,6 +1,6 @@
 {
   "name": "pkg-fe-react-goblin-system",
-  "version": "1.7.0",
+  "version": "2.1.0",
   "license": "MIT",
   "description": "Flexible front-end library built on TypeScript. It provides UI components, advanced providers, Redux slices, and an integrated Storybook for fast and modular development.",
   "keywords": [
@@ -30,137 +30,53 @@
       "import": "./dist/index.mjs",
       "types": "./dist/types/index.d.ts"
     },
-    "./*": {
-      "import": "./dist/*.mjs",
-      "types": "./dist/types/*.d.ts"
+    "./components": {
+      "import": "./dist/components/index.mjs",
+      "types": "./dist/types/components/index.d.ts"
+    },
+    "./pages": {
+      "import": "./dist/pages/index.mjs",
+      "types": "./dist/types/pages/index.d.ts"
+    },
+    "./providers": {
+      "import": "./dist/providers/index.mjs",
+      "types": "./dist/types/providers/index.d.ts"
+    },
+    "./services": {
+      "import": "./dist/services/index.mjs",
+      "types": "./dist/types/services/index.d.ts"
+    },
+    "./store": {
+      "import": "./dist/store/index.mjs",
+      "types": "./dist/types/store/index.d.ts"
+    },
+    "./theme": {
+      "import": "./dist/theme/index.mjs",
+      "types": "./dist/types/theme/index.d.ts"
     },
     "./components/*": {
-      "import": "./dist/components/*",
-      "types": "./dist/types/components/*"
-    },
-    "./hocs/*": {
-      "import": "./dist/hocs/*",
-      "types": "./dist/types/hocs/*"
+      "import": "./dist/components/*.mjs",
+      "types": "./dist/types/components/*.d.ts"
     },
     "./pages/*": {
-      "import": "./dist/pages/*",
-      "types": "./dist/types/pages/*"
+      "import": "./dist/pages/*.mjs",
+      "types": "./dist/types/pages/*.d.ts"
     },
     "./providers/*": {
-      "import": "./dist/providers/*",
-      "types": "./dist/types/providers/*"
+      "import": "./dist/providers/*.mjs",
+      "types": "./dist/types/providers/*.d.ts"
     },
     "./services/*": {
-      "import": "./dist/services/*",
-      "types": "./dist/types/services/*"
+      "import": "./dist/services/*.mjs",
+      "types": "./dist/types/services/*.d.ts"
     },
     "./store/*": {
-      "import": "./dist/store/*",
-      "types": "./dist/types/store/*"
+      "import": "./dist/store/*.mjs",
+      "types": "./dist/types/store/*.d.ts"
     },
     "./theme/*": {
-      "import": "./dist/theme/*",
-      "types": "./dist/types/theme/*"
-    },
-    "./components/GalacticOrbiter": {
-      "import": "./dist/components/GalacticOrbiter/index.mjs",
-      "types": "./dist/types/components/GalacticOrbiter/index.d.ts"
-    },
-    "./components/LiquidSearchForm": {
-      "import": "./dist/components/LiquidSearchForm/index.mjs",
-      "types": "./dist/types/components/LiquidSearchForm/index.d.ts"
-    },
-    "./components/LiquidTable": {
-      "import": "./dist/components/LiquidTable/index.mjs",
-      "types": "./dist/types/components/LiquidTable/index.d.ts"
-    },
-    "./components/LoginForm": {
-      "import": "./dist/components/LoginForm/index.mjs",
-      "types": "./dist/types/components/LoginForm/index.d.ts"
-    },
-    "./components/RegisterForm": {
-      "import": "./dist/components/RegisterForm/index.mjs",
-      "types": "./dist/types/components/RegisterForm/index.d.ts"
-    },
-    "./components/SectionCard": {
-      "import": "./dist/components/SectionCard/index.mjs",
-      "types": "./dist/types/components/SectionCard/index.d.ts"
-    },
-    "./components/SectionCardRow": {
-      "import": "./dist/components/SectionCardRow/index.mjs",
-      "types": "./dist/types/components/SectionCardRow/index.d.ts"
-    },
-    "./components/StyledMarkdown": {
-      "import": "./dist/components/StyledMarkdown/index.mjs",
-      "types": "./dist/types/components/StyledMarkdown/index.d.ts"
-    },
-    "./components/SuperCard": {
-      "import": "./dist/components/SuperCard/index.mjs",
-      "types": "./dist/types/components/SuperCard/index.d.ts"
-    },
-    "./components/SliderCards": {
-      "import": "./dist/components/SliderCards/index.mjs",
-      "types": "./dist/types/components/SliderCards/index.d.ts"
-    },
-    "./hocs/withRouter": {
-      "import": "./dist/hocs/withRouter.mjs",
-      "types": "./dist/types/hocs/withRouter.d.ts"
-    },
-    "./pages/Error": {
-      "import": "./dist/pages/Error/index.mjs",
-      "types": "./dist/types/pages/Error/index.d.ts"
-    },
-    "./pages/Loading": {
-      "import": "./dist/pages/Loading/index.mjs",
-      "types": "./dist/types/pages/Loading/index.d.ts"
-    },
-    "./pages/Transformer": {
-      "import": "./dist/pages/Transformer/index.mjs",
-      "types": "./dist/types/pages/Transformer/index.d.ts"
-    },
-    "./providers/Auth": {
-      "import": "./dist/providers/Auth/index.mjs",
-      "types": "./dist/types/providers/Auth/index.d.ts"
-    },
-    "./providers/GoblinProvider": {
-      "import": "./dist/providers/GoblinProvider.mjs",
-      "types": "./dist/types/providers/GoblinProvider.d.ts"
-    },
-    "./providers/Theme": {
-      "import": "./dist/providers/ThemeProvider.mjs",
-      "types": "./dist/types/providers/ThemeProvider.d.ts"
-    },
-    "./services/auth": {
-      "import": "./dist/services/auth/index.mjs",
-      "types": "./dist/types/services/auth/index.d.ts"
-    },
-    "./services/handlers": {
-      "import": "./dist/services/handlers.mjs",
-      "types": "./dist/types/services/handlers.d.ts"
-    },
-    "./services/types": {
-      "import": "./dist/services/types.mjs",
-      "types": "./dist/types/services/types.d.ts"
-    },
-    "./store/auth": {
-      "import": "./dist/store/auth/index.mjs",
-      "types": "./dist/types/store/auth/index.d.ts"
-    },
-    "./store/shared": {
-      "import": "./dist/store/shared.mjs",
-      "types": "./dist/types/store/shared.d.ts"
-    },
-    "./theme/GlobalStyles": {
-      "import": "./dist/theme/GlobalStyles.mjs",
-      "types": "./dist/types/theme/GlobalStyles.d.ts"
-    },
-    "./theme/ThemeProvider": {
-      "import": "./dist/theme/ThemeProvider.mjs",
-      "types": "./dist/types/theme/ThemeProvider.d.ts"
-    },
-    "./theme/theme": {
-      "import": "./dist/theme/theme.mjs",
-      "types": "./dist/types/theme/theme.d.ts"
+      "import": "./dist/theme/*.mjs",
+      "types": "./dist/types/theme/*.d.ts"
     }
   },
   "files": [
@@ -172,23 +88,14 @@
     ]
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "lint": "eslint .",
     "start:storybook": "storybook dev",
     "start:docs": "cd docs && npm run start",
     "build:storybook": "storybook build --output-dir build-storybook",
     "build:docs": "cd docs && npm run build && rm -rf ../build-docusaurus && mv build ../build-docusaurus",
-    "build:lib": "vite build --config vite.config.lib.ts --mode prod && tsc --project tsconfig.types.json && npm pack && mkdir -p build-lib/ && mv *.tgz build-lib/",
+    "build:lib": "vite build --config vite.config.lib.ts --mode production && mkdir build-lib && npm pack && move *.tgz build-lib\\",
     "reset": "rm -rf node_modules dist build-docusaurus build-storybook build-lib docs/node_modules docs/.docusaurus",
-    "clean": "rm -rf dist build-docusaurus build-storybook build-lib",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit",
-    "preview": "vite preview",
-    "prepare": "npm run build:lib",
-    "docusaurus": "cd docs && docusaurus"
+    "clean": "rm -rf dist build-docusaurus build-storybook build-lib"
   },
   "dependencies": {
     "axios": "^1.8.2",
@@ -231,31 +138,30 @@
     "@storybook/react-vite": "^8.6.4",
     "@storybook/test": "^8.6.4",
     "@testing-library/dom": "^9.3.4",
-    "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
-    "@types/jest": "^29.5.12",
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.11.25",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
-    "@types/testing-library__jest-dom": "^5.14.9",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "dotenv": "^16.4.7",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-storybook": "^0.8.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^6.22.3",
     "storybook": "^8.6.4",
-    "ts-jest": "^29.1.2",
     "typescript": "^5.4.2",
-    "vite": "^5.1.5"
+    "vite": "^5.1.5",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "browserslist": {
     "production": [

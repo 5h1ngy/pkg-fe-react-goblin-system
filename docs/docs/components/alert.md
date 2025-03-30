@@ -422,4 +422,4 @@ export const FirstTimeEmptyState = ({ onCreateNew }) => (
 
 - [LoadingPage](../pages/loading.md) - For loading states
 - [ErrorPage](../pages/error.md) - For error states
-- [Notification](./notification.md) - For temporary notifications
+- **Spinner** - For loading indicators within components

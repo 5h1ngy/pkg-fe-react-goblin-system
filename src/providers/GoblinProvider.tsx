@@ -50,30 +50,30 @@ export function GoblinProvider({
 }: GoblinProviderProps) {
   // Stato per tenere traccia del tema corrente
   const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(initialTheme);
-  
+
   // Gestisce le preferenze di sistema per il tema se abilitato
   useEffect(() => {
     if (!useSystemPreference || typeof window === 'undefined') return;
-    
+
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setCurrentTheme(prefersDarkMode ? 'dark' : 'light');
-    
+
     // Ascolta i cambiamenti delle preferenze di sistema
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e: MediaQueryListEvent) => {
       setCurrentTheme(e.matches ? 'dark' : 'light');
     };
-    
+
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, [useSystemPreference]);
-  
+
   // Determina il tema base in base all'impostazione corrente
   const themeObject = currentTheme === 'light' ? lightTheme : darkTheme;
-  
+
   return (
     <StyledThemeProvider theme={themeObject}>
-      {!disableGlobalStyles && <GlobalStyles />}
+      {!disableGlobalStyles && <GlobalStyles theme={themeObject} />}
       {!disableGlobalFonts && <GlobalFonts />}
       {children}
     </StyledThemeProvider>

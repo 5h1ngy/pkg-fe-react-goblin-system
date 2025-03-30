@@ -275,4 +275,4 @@ When an error occurs, the `handleApiError` function returns a standardized error
 ## Related Components
 
 - [Auth Service](./auth-service.md) - Authentication utilities that use these handlers
-- [Redux Store](../store/index.md) - State management that integrates with these services
+- **State Management** - Redux store and state handlers that integrates with these services

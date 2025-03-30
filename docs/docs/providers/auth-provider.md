@@ -262,6 +262,5 @@ function App() {
 
 ## Related Components
 
-- [LoginForm](../components/form/login-form.md) - Pre-built login form component
-- [RegisterForm](../components/form/register-form.md) - Pre-built registration form component
+- **Form Components** - Pre-built login and registration form components
 - [Auth Store](../store/auth-store.md) - Redux store for authentication

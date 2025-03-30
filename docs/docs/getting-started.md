@@ -185,4 +185,4 @@ Once you've set up Goblin System, you can explore the following resources:
 
 - [Component Documentation](./components/index.md): Learn about available components
 - [Theming Guide](./theming/index.md): Learn how to customize the look and feel
-- [Authentication](./providers/auth.md): Learn about authentication features
+- [Authentication](./providers/auth-provider.md): Learn about authentication features

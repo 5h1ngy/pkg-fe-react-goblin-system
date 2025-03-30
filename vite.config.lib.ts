@@ -3,147 +3,110 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import dotenv from "dotenv";
 import path from "path";
-import { visualizer } from "rollup-plugin-visualizer";
+import dts from 'vite-plugin-dts';
 
+// Carica variabili d'ambiente
 dotenv.config({ path: `.env.production` });
 
 export default defineConfig(({ mode }) => {
     dotenv.config({ path: `.env.${mode}` });
     console.log('env', `.env.${mode}`);
 
+    const basePath = process.env.VITE_BASENAME || '';
+
     return {
-        base: process.env.VITE_BASENAME,
+        base: basePath,
         plugins: [
             react(),
-            tsconfigPaths()
+            tsconfigPaths(),
+            // Genera automaticamente i file .d.ts durante la build
+            dts({
+                outDir: 'dist/types',
+                exclude: ['**/*.test.ts', '**/*.test.tsx', '**/*.stories.tsx'],
+                // Utilizziamo solo le opzioni supportate
+                compilerOptions: {
+                    skipLibCheck: true
+                }
+            }),
         ],
         build: {
-            sourcemap: false,
-            minify: 'terser',
+            outDir: 'dist',
+            sourcemap: mode === 'development',
+            minify: mode === 'production' ? 'terser' : false,
             lib: {
                 name: "react-goblin-system",
-                formats: [
-                    /** 'cjs', */
-                    'es',
-                ],
-                fileName: (format, entryName) => `${entryName}.${format === 'cjs' ? 'cjs' : 'mjs'}`,
+                formats: ['es'],
+                fileName: (format, entryName) => `${entryName}.mjs`,
+                // Usa un approccio più modulare per gli entry points - solo quelli che sappiamo esistere
                 entry: {
-                    "components/Factory/Chakra/accordion": path.resolve(__dirname, "src/components/Factory/Chakra/accordion.tsx"),
-                    "components/Factory/Chakra/action-bar": path.resolve(__dirname, "src/components/Factory/Chakra/action-bar.tsx"),
-                    "components/Factory/Chakra/alert": path.resolve(__dirname, "src/components/Factory/Chakra/alert.tsx"),
-                    "components/Factory/Chakra/avatar": path.resolve(__dirname, "src/components/Factory/Chakra/avatar.tsx"),
-                    "components/Factory/Chakra/blockquote": path.resolve(__dirname, "src/components/Factory/Chakra/blockquote.tsx"),
-                    "components/Factory/Chakra/breadcrumb": path.resolve(__dirname, "src/components/Factory/Chakra/breadcrumb.tsx"),
-                    "components/Factory/Chakra/button": path.resolve(__dirname, "src/components/Factory/Chakra/button.tsx"),
-                    "components/Factory/Chakra/checkbox": path.resolve(__dirname, "src/components/Factory/Chakra/checkbox.tsx"),
-                    "components/Factory/Chakra/checkbox-card": path.resolve(__dirname, "src/components/Factory/Chakra/checkbox-card.tsx"),
-                    "components/Factory/Chakra/clipboard": path.resolve(__dirname, "src/components/Factory/Chakra/clipboard.tsx"),
-                    "components/Factory/Chakra/close-button": path.resolve(__dirname, "src/components/Factory/Chakra/close-button.tsx"),
-                    "components/Factory/Chakra/color-mode": path.resolve(__dirname, "src/components/Factory/Chakra/color-mode.tsx"),
-                    "components/Factory/Chakra/data-list": path.resolve(__dirname, "src/components/Factory/Chakra/data-list.tsx"),
-                    "components/Factory/Chakra/dialog": path.resolve(__dirname, "src/components/Factory/Chakra/dialog.tsx"),
-                    "components/Factory/Chakra/drawer": path.resolve(__dirname, "src/components/Factory/Chakra/drawer.tsx"),
-                    "components/Factory/Chakra/empty-state": path.resolve(__dirname, "src/components/Factory/Chakra/empty-state.tsx"),
-                    "components/Factory/Chakra/field": path.resolve(__dirname, "src/components/Factory/Chakra/field.tsx"),
-                    "components/Factory/Chakra/file-button": path.resolve(__dirname, "src/components/Factory/Chakra/file-button.tsx"),
-                    "components/Factory/Chakra/hover-card": path.resolve(__dirname, "src/components/Factory/Chakra/hover-card.tsx"),
-                    "components/Factory/Chakra/input-group": path.resolve(__dirname, "src/components/Factory/Chakra/input-group.tsx"),
-                    "components/Factory/Chakra/link-button": path.resolve(__dirname, "src/components/Factory/Chakra/link-button.tsx"),
-                    "components/Factory/Chakra/menu": path.resolve(__dirname, "src/components/Factory/Chakra/menu.tsx"),
-                    "components/Factory/Chakra/native-select": path.resolve(__dirname, "src/components/Factory/Chakra/native-select.tsx"),
-                    "components/Factory/Chakra/number-input": path.resolve(__dirname, "src/components/Factory/Chakra/number-input.tsx"),
-                    "components/Factory/Chakra/pagination": path.resolve(__dirname, "src/components/Factory/Chakra/pagination.tsx"),
-                    "components/Factory/Chakra/password-input": path.resolve(__dirname, "src/components/Factory/Chakra/password-input.tsx"),
-                    "components/Factory/Chakra/pin-input": path.resolve(__dirname, "src/components/Factory/Chakra/pin-input.tsx"),
-                    "components/Factory/Chakra/popover": path.resolve(__dirname, "src/components/Factory/Chakra/popover.tsx"),
-                    "components/Factory/Chakra/progress": path.resolve(__dirname, "src/components/Factory/Chakra/progress.tsx"),
-                    "components/Factory/Chakra/progress-circle": path.resolve(__dirname, "src/components/Factory/Chakra/progress-circle.tsx"),
-                    "components/Factory/Chakra/prose": path.resolve(__dirname, "src/components/Factory/Chakra/prose.tsx"),
-                    "components/Factory/Chakra/provider": path.resolve(__dirname, "src/components/Factory/Chakra/provider.tsx"),
-                    "components/Factory/Chakra/radio": path.resolve(__dirname, "src/components/Factory/Chakra/radio.tsx"),
-                    "components/Factory/Chakra/radio-card": path.resolve(__dirname, "src/components/Factory/Chakra/radio-card.tsx"),
-                    "components/Factory/Chakra/rating": path.resolve(__dirname, "src/components/Factory/Chakra/rating.tsx"),
-                    "components/Factory/Chakra/segmented-control": path.resolve(__dirname, "src/components/Factory/Chakra/segmented-control.tsx"),
-                    "components/Factory/Chakra/select": path.resolve(__dirname, "src/components/Factory/Chakra/select.tsx"),
-                    "components/Factory/Chakra/skeleton": path.resolve(__dirname, "src/components/Factory/Chakra/skeleton.tsx"),
-                    "components/Factory/Chakra/slider": path.resolve(__dirname, "src/components/Factory/Chakra/slider.tsx"),
-                    "components/Factory/Chakra/stat": path.resolve(__dirname, "src/components/Factory/Chakra/stat.tsx"),
-                    "components/Factory/Chakra/status": path.resolve(__dirname, "src/components/Factory/Chakra/status.tsx"),
-                    "components/Factory/Chakra/stepper-input": path.resolve(__dirname, "src/components/Factory/Chakra/stepper-input.tsx"),
-                    "components/Factory/Chakra/steps": path.resolve(__dirname, "src/components/Factory/Chakra/steps.tsx"),
-                    "components/Factory/Chakra/switch": path.resolve(__dirname, "src/components/Factory/Chakra/switch.tsx"),
-                    "components/Factory/Chakra/tag": path.resolve(__dirname, "src/components/Factory/Chakra/tag.tsx"),
-                    "components/Factory/Chakra/timeline": path.resolve(__dirname, "src/components/Factory/Chakra/timeline.tsx"),
-                    "components/Factory/Chakra/toaster": path.resolve(__dirname, "src/components/Factory/Chakra/toaster.tsx"),
-                    "components/Factory/Chakra/toggle": path.resolve(__dirname, "src/components/Factory/Chakra/toggle.tsx"),
-                    "components/Factory/Chakra/toggle-tip": path.resolve(__dirname, "src/components/Factory/Chakra/toggle-tip.tsx"),
-                    "components/Factory/Chakra/tooltip": path.resolve(__dirname, "src/components/Factory/Chakra/tooltip.tsx"),
-
-                    "components/Factory/DynamicForm/index": path.resolve(__dirname, "src/components/Factory/DynamicForm/index.ts"),
-
-                    "components/GalacticOrbiter/index": path.resolve(__dirname, "src/components/GalacticOrbiter/index.ts"),
-                    "components/LiquidSearchForm/index": path.resolve(__dirname, "src/components/LiquidSearchForm/index.ts"),
-                    "components/LiquidTable/index": path.resolve(__dirname, "src/components/LiquidTable/index.ts"),
-                    "components/LoginForm/index": path.resolve(__dirname, "src/components/LoginForm/index.ts"),
-                    "components/RegisterForm/index": path.resolve(__dirname, "src/components/RegisterForm/index.ts"),
-                    "components/SectionCard/index": path.resolve(__dirname, "src/components/SectionCard/index.ts"),
-                    "components/SectionCardRow/index": path.resolve(__dirname, "src/components/SectionCardRow/index.ts"),
-                    "components/StyledMarkdown/index": path.resolve(__dirname, "src/components/StyledMarkdown/index.ts"),
-                    "components/SuperCard/index": path.resolve(__dirname, "src/components/SuperCard/index.ts"),
-                    "components/SliderCards/index": path.resolve(__dirname, "src/components/SliderCards/index.ts"),
-
-                    "hocs/withRouter": path.resolve(__dirname, "src/hocs/withRouter.tsx"),
-
-                    "layouts/Error/index": path.resolve(__dirname, "src/layouts/Error/index.ts"),
-                    "layouts/Loading/index": path.resolve(__dirname, "src/layouts/Loading/index.ts"),
-                    "layouts/Transformer/index": path.resolve(__dirname, "src/layouts/Transformer/index.ts"),
-
-                    "providers/Auth/index": path.resolve(__dirname, "src/providers/Auth/index.ts"),
-                    "providers/Theme": path.resolve(__dirname, "src/providers/Theme.tsx"),
-
-                    "services/auth": path.resolve(__dirname, "src/services/auth/index.ts"),
-                    "services/handlers": path.resolve(__dirname, "src/services/handlers.ts"),
-                    "services/types": path.resolve(__dirname, "src/services/types.ts"),
-
-                    "store/auth": path.resolve(__dirname, "src/store/auth/index.ts"),
-                    "store/shared": path.resolve(__dirname, "src/store/shared.ts"),
-
-                    "shared/utils": path.resolve(__dirname, "src/shared/utils.ts"),
-                },
-            },
-            terserOptions: {
-                compress: {
-                    drop_console: true,
-                    drop_debugger: true,
-                },
-                format: {
-                    comments: false,
+                    // Entry point principale della libreria
+                    "index": path.resolve(__dirname, "src/index.tsx"),
+                    
+                    // Moduli principali (con i file index.ts che abbiamo creato/verificato)
+                    "components/index": path.resolve(__dirname, "src/components/index.ts"),
+                    "pages/index": path.resolve(__dirname, "src/pages/index.ts"),
+                    "providers/index": path.resolve(__dirname, "src/providers/index.ts"),
+                    "services/index": path.resolve(__dirname, "src/services/index.ts"),
+                    "store/index": path.resolve(__dirname, "src/store/index.ts"),
+                    "theme/index": path.resolve(__dirname, "src/theme/index.ts"),
                 },
             },
             rollupOptions: {
                 external: [
-                    "react",
-                    "react-dom",
-                    "@chakra-ui/react",
-                    "react-router-dom",
-                    "zod",
+                    'react', 
+                    'react-dom', 
+                    'styled-components',
+                    '@reduxjs/toolkit',
+                    'react-redux',
+                    'react-router-dom',
+                    'react-hook-form',
+                    '@hookform/resolvers',
+                    'zod',
+                    'react-icons',
+                    'react-icons/bi',
+                    /^react-icons\/.*/,
+                    'react-redux'  // Aggiungiamo 'react-redux' alla lista delle dipendenze esterne
                 ],
                 output: {
-                    plugins: [
-                        visualizer({ open: false, filename: 'dist/stats.html' })
-                    ],
-
+                    // Evita di includere le dipendenze esterne nel bundle
                     globals: {
-                        react: "React",
-                        "react-dom": "ReactDOM",
+                        'react': 'React',
+                        'react-dom': 'ReactDOM',
+                        'styled-components': 'styled',
+                        '@reduxjs/toolkit': 'RTK',
+                        'react-redux': 'ReactRedux',
+                        'react-router-dom': 'ReactRouterDOM',
+                        'react-hook-form': 'ReactHookForm',
+                        '@hookform/resolvers': 'HookFormResolvers',
+                        'zod': 'zod',
+                        'react-icons': 'ReactIcons',
+                        'react-icons/bi': 'ReactIconsBi'
                     },
-
-                    chunkFileNames: () =>
-                        `.chunks/[hash].js`,
-
-                    assetFileNames: (asset) => asset.name && asset.name.endsWith('.css')
-                        ? 'styles/[name][extname]'
-                        : '[name][extname]',
+                    // Preserva la struttura delle directory nel bundle
+                    preserveModules: true,
+                    preserveModulesRoot: 'src',
+                    // Formatta il nome dei chunks in modo più leggibile
+                    chunkFileNames: (chunkInfo) => {
+                        const id = chunkInfo.facadeModuleId || '';
+                        if (!id) return 'chunks/[name]-[hash].mjs';
+                        const match = id.match(/src\/(.+?)\.tsx?$/);
+                        return match ? `chunks/${match[1]}.mjs` : 'chunks/[name]-[hash].mjs';
+                    },
+                    // Ottimizza i nomi dei file asset
+                    assetFileNames: (assetInfo) => {
+                        if (assetInfo.name) {
+                            const { name } = path.parse(assetInfo.name);
+                            return `assets/${name}[extname]`;
+                        }
+                        return 'assets/[name]-[hash][extname]';
+                    }
+                }
+            },
+            // Opzioni Terser per la minificazione
+            terserOptions: {
+                compress: {
+                    drop_console: mode === 'production',
+                    drop_debugger: mode === 'production'
                 }
             }
         }

@@ -399,5 +399,5 @@ const StatusIndicator = styled.div`
 ## Related Components
 
 - [GoblinProvider](../providers/goblin-provider.md) - Main provider for theming
-- [ThemeProvider](./theme-provider.md) - Underlying theme provider component
-- [GlobalStyles](./global-styles.md) - Global style definitions
+- **ThemeProvider** - Underlying theme provider component
+- **GlobalStyles** - Global style definitions

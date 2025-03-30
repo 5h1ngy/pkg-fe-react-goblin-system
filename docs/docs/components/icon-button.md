@@ -334,6 +334,20 @@ function MyComponent() {
 
 ## Related Components
 
-- [Button](./button.md) - Standard button component
-- [Icon](./icon.md) - Non-interactive icon component
-- [Tooltip](./tooltip.md) - Can be used with IconButton for additional information
+- **Button** - Use when you need a standard button without an icon
+- **Alert** - For notifications and messages that require user attention
+- **Spinner** - For loading states within buttons
+
+## Implementation Details
+
+The IconButton component is built with:
+
+- **Styled Components** - For consistent styling with the theme system
+- **Accessibility Focus** - Proper keyboard navigation and screen reader support
+- **Theme Integration** - Using theme tokens for colors, spacing, and sizes
+
+## Related Components
+
+- **Button** - Use when you need a standard button without an icon
+- **Alert** - For notifications and messages that require user attention
+- **Spinner** - For loading states within buttons

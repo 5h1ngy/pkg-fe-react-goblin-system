@@ -327,5 +327,5 @@ function FileUpload() {
 ## Related Components
 
 - [LoadingPage](../pages/loading.md) - Full page loading component
-- [Button](./button.md) - Can incorporate a spinner for loading states
+- **Button** - Can incorporate a spinner for loading states
 - [Alert](./alert.md) - For providing loading status messages

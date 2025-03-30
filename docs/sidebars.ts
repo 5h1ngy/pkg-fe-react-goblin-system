@@ -40,8 +40,9 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Feedback',
           items: [
+            'components/alert',
             'components/feedback/modal',
-            'components/feedback/spinner',
+            'components/spinner',
           ],
         },
         {
@@ -55,8 +56,42 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Customization',
+      label: 'Pages',
       items: [
+        'pages/index',
+        'pages/error',
+        'pages/loading',
+        'pages/transformer',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Providers',
+      items: [
+        'providers/goblin-provider',
+        'providers/auth-provider',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Services',
+      items: [
+        'services/http-handlers',
+        'services/auth-service',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Store',
+      items: [
+        'store/auth-store',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Theme',
+      items: [
+        'theme/theme-system',
         'theming/index',
       ],
     },

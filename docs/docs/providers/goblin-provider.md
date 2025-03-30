@@ -134,6 +134,6 @@ The GoblinProvider internally uses:
 
 ## Related Components
 
-- [ThemeProvider](../theme/theme-provider.md) - The underlying theme provider
-- [GlobalStyles](../theme/global-styles.md) - Global CSS styles
-- [GlobalFonts](../components/typography/global-fonts.md) - Typography and font management
+- **ThemeProvider** - The underlying theme provider
+- **GlobalStyles** - Global CSS styles
+- **Typography** - Typography and font management
