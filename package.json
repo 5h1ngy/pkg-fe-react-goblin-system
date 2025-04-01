@@ -90,10 +90,10 @@
   "scripts": {
     "lint": "eslint .",
     "start:storybook": "storybook dev",
-    "start:docs": "cd docs && npm run start",
+    "start:docs": "cd docs && yarn run start",
     "build:storybook": "storybook build --output-dir build-storybook",
-    "build:docs": "cd docs && npm run build && rm -rf ../build-docusaurus && mv build ../build-docusaurus",
-    "build:lib": "vite build --config vite.config.lib.ts --mode production && mkdir build-lib && npm pack && move *.tgz build-lib\\",
+    "build:docs": "cd docs && yarn run build && rm -rf ../build-docusaurus && mv build ../build-docusaurus",
+    "build:lib": "vite build --config vite.config.lib.ts --mode production && mkdir build-lib && yarn pack && move *.tgz build-lib\\",
     "reset": "rm -rf node_modules dist build-docusaurus build-storybook build-lib docs/node_modules docs/.docusaurus",
     "clean": "rm -rf dist build-docusaurus build-storybook build-lib"
   },
