@@ -22,8 +22,7 @@ const config: StorybookConfig = {
           external: [
             'react-icons',
             'react-icons/.*',
-            /^react-icons\/.*/,  // Espressione regolare per catturare tutti i sottomoduli
-            'react-redux'
+            /^react-icons\/.*/  // Espressione regolare per catturare tutti i sottomoduli
           ]
         }
       }
