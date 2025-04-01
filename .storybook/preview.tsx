@@ -2,7 +2,7 @@ import React from "react";
 import type { Preview } from "@storybook/react"
 import { withThemeByClassName } from "@storybook/addon-themes"
 
-import Theme from "../src/providers/Theme"
+import { GoblinProvider } from "../src/providers";
 
 const preview: Preview = {
   parameters: {
@@ -14,9 +14,9 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => <Theme>
+    (Story) => <GoblinProvider>
       <Story />
-    </Theme>,
+    </GoblinProvider>,
     withThemeByClassName({
       defaultTheme: "light",
       themes: { light: "", dark: "dark" },
