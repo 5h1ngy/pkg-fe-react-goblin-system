@@ -1,8 +1,14 @@
 {
   // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "strict": true
   },
-  "exclude": [".docusaurus", "build"]
+  "exclude": [".docusaurus", "build", "node_modules"]
 }

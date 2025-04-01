@@ -41,7 +41,7 @@ const config: Config = {
       },
       items: [
         {
-          to: '/docs/installation',
+          to: '/docs',
           label: 'Docs',
           position: 'left',
         },
