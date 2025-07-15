@@ -17,15 +17,6 @@ const config: StorybookConfig = {
 
     return mergeConfig(config, {
       base: "/pkg-fe-react-goblin-system/storybook/",
-      build: {
-        rollupOptions: {
-          external: [
-            'react-icons',
-            'react-icons/.*',
-            /^react-icons\/.*/  // Espressione regolare per catturare tutti i sottomoduli
-          ]
-        }
-      }
     });
   },
   refs: {
