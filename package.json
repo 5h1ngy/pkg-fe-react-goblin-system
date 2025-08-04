@@ -48,14 +48,6 @@
     "./styles/*": {
       "import": "./dist/styles/*.mjs",
       "types": "./dist/types/styles/*.d.ts"
-    },
-    "./data": {
-      "import": "./dist/data/index.mjs",
-      "types": "./dist/types/data/index.d.ts"
-    },
-    "./data/*": {
-      "import": "./dist/data/*.mjs",
-      "types": "./dist/types/data/*.d.ts"
     }
   },
   "files": [

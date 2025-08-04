@@ -1,67 +1,59 @@
-import type { ReactNode } from 'react'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import Layout from '@theme/Layout'
-import HomepageFeatures from '@site/src/components/HomepageFeatures'
-import SystemStack from '@site/src/components/SystemStack'
-import {
-  HeroSection,
-  AboutSection,
-  SkillsSection,
-  OpenSourceSection,
-  OpenSourceProductsSection,
-  ExperienceSection,
-} from 'pkg-fe-react-goblin-system/components/sections'
-import { PageFrame } from 'pkg-fe-react-goblin-system/components/shared/PageFrame'
-import { getPortfolioData } from 'pkg-fe-react-goblin-system/data/portfolio'
-import type { PortfolioHero, PortfolioOrbitIcon, PortfolioOrbitRing } from 'pkg-fe-react-goblin-system/data/portfolio.types'
+﻿/* eslint-disable @typescript-eslint/no-require-imports */
+import type {ReactNode} from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import Heading from '@theme/Heading';
 
-const portfolio = getPortfolioData('it')
+import styles from './index.module.css';
 
-const withBasePath = (baseUrl: string, assetPath: string) => {
-  if (/^https?:/i.test(assetPath)) {
-    return assetPath
-  }
-  const normalizedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
-  const normalizedPath = assetPath.startsWith('/') ? assetPath : `/${assetPath}`
-  return `${normalizedBase}${normalizedPath}`
-}
+function HomepageHeader() {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    // Removed 'hero--primary' to allow custom background styling that matches the logo
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <div className="container">
+        {/* Logo inclusion */}
+        <img
+          src={require('@site/static/img/logo.png').default}
+          alt="Logo"
+          className={styles.logo}
+        />
 
-const resolveOrbit = (hero: PortfolioHero, baseUrl: string): PortfolioHero => {
-  const mapIcons = (icons: PortfolioOrbitIcon[]) =>
-    icons.map((icon) => ({
-      ...icon,
-      icon: withBasePath(baseUrl, icon.icon),
-    }))
+        <Heading as="h1" className="hero__title">
+          {siteConfig.title}
+        </Heading>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
 
-  return {
-    ...hero,
-    orbit: {
-      ...hero.orbit,
-      center: withBasePath(baseUrl, hero.orbit.center),
-      rings: hero.orbit.rings.map<PortfolioOrbitRing>((ring) => ({
-        ...ring,
-        icons: mapIcons(ring.icons),
-      })),
-    },
-  }
+        {/* Extended description for the open source library */}
+        <div className={styles.description}>
+          <p>
+            Extracted from the original portfolio, Goblin System pairs React 18 and styled-components to deliver foggy
+            gradients, ambient cards, tags and overlays for expressive case studies.
+          </p>
+        </div>
+        <div className={styles.buttons}>
+          <Link className="button button--secondary button--lg" to="/docs/getting-started">
+            Start building
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
 }
 
 export default function Home(): ReactNode {
-  const { siteConfig } = useDocusaurusContext()
-  const hero = resolveOrbit(portfolio.hero, siteConfig.baseUrl ?? '/')
-
+  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout title={siteConfig.title} description="Goblin System documentation">
-      <PageFrame>
-        <HeroSection hero={hero} socialLinks={portfolio.profile.links} />
-        <AboutSection about={portfolio.about} />
-        <SkillsSection skills={portfolio.skills} />
-        <OpenSourceProductsSection products={portfolio.openSourceProducts} />
-        <OpenSourceSection openSource={portfolio.openSource} />
+      <HomepageHeader />
+      <main>
         <HomepageFeatures />
-        <SystemStack />
-        <ExperienceSection experience={portfolio.experience} />
-      </PageFrame>
+      </main>
     </Layout>
-  )
+  );
 }
+
+

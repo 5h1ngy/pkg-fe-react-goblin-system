@@ -1,3 +1,26 @@
 /**
- * Keep this file minimal—visual customizations now come from the component system itself.
+ * Global CSS overrides for Infima with a dark blue/azure sci‑fi style.
  */
+
+ :root {
+  --ifm-color-primary: #1A2B45;             /* Base dark blue */
+  --ifm-color-primary-dark: #162237;        /* Slightly darker */
+  --ifm-color-primary-darker: #121B2D;      /* More depth */
+  --ifm-color-primary-darkest: #0F1726;     /* Near-black blue for contrast */
+  --ifm-color-primary-light: #233A5E;       /* Lighter blue for accents */
+  --ifm-color-primary-lighter: #2A4371;     /* Additional accent shade */
+  --ifm-color-primary-lightest: #324C85;    /* Soft, glowing highlight */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(10, 10, 30, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #68A0D4;             /* Brighter blue for dark mode */
+  --ifm-color-primary-dark: #5C90C1;
+  --ifm-color-primary-darker: #517FAF;
+  --ifm-color-primary-darkest: #466D9D;
+  --ifm-color-primary-light: #79B2E2;
+  --ifm-color-primary-lighter: #8CB4E6;
+  --ifm-color-primary-lightest: #A0C7EC;
+  --docusaurus-highlighted-code-line-bg: rgba(20, 20, 50, 0.3);
+}
