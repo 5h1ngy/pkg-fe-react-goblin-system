@@ -1,24 +1,8 @@
+/* eslint-disable react-refresh/only-export-components */
 /**
  * Goblin System - Punto di accesso principale
- * Esporta componenti e provider per un facile utilizzo della libreria
- * 
- * @module GoblinSystem
+ * Ora fornisce il set di componenti condivisi e il tema dello stile portfolio.
  */
 
-// Esporta il provider principale
-export { default as GoblinProvider } from './providers/GoblinProvider';
-
-// Esporta i componenti
-export * from './components';
-
-// Esporta i provider
-export * from './providers';
-
-// Esporta i servizi
-export * from './services/auth';
-
-// Esporta gli store
-export * from './store/auth';
-
-// Esporta il tema
-export * from './theme/theme';
+export * from './components'
+export * from './styles'

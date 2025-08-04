@@ -39,16 +39,9 @@ export default defineConfig(({ mode }) => {
                 fileName: (format, entryName) => `${entryName}.mjs`,
                 // Usa un approccio più modulare per gli entry points - solo quelli che sappiamo esistere
                 entry: {
-                    // Entry point principale della libreria
                     "index": path.resolve(__dirname, "src/index.tsx"),
-                    
-                    // Moduli principali (con i file index.ts che abbiamo creato/verificato)
                     "components/index": path.resolve(__dirname, "src/components/index.ts"),
-                    "pages/index": path.resolve(__dirname, "src/pages/index.ts"),
-                    "providers/index": path.resolve(__dirname, "src/providers/index.ts"),
-                    "services/index": path.resolve(__dirname, "src/services/index.ts"),
-                    "store/index": path.resolve(__dirname, "src/store/index.ts"),
-                    "theme/index": path.resolve(__dirname, "src/theme/index.ts"),
+                    "styles/index": path.resolve(__dirname, "src/styles/index.ts"),
                 },
             },
             rollupOptions: {
@@ -56,16 +49,6 @@ export default defineConfig(({ mode }) => {
                     'react', 
                     'react-dom', 
                     'styled-components',
-                    '@reduxjs/toolkit',
-                    'react-redux',
-                    'react-router-dom',
-                    'react-hook-form',
-                    '@hookform/resolvers',
-                    'zod',
-                    'react-icons',
-                    'react-icons/bi',
-                    /^react-icons\/.*/,
-                    'react-redux'  // Aggiungiamo 'react-redux' alla lista delle dipendenze esterne
                 ],
                 output: {
                     // Evita di includere le dipendenze esterne nel bundle
@@ -73,14 +56,6 @@ export default defineConfig(({ mode }) => {
                         'react': 'React',
                         'react-dom': 'ReactDOM',
                         'styled-components': 'styled',
-                        '@reduxjs/toolkit': 'RTK',
-                        'react-redux': 'ReactRedux',
-                        'react-router-dom': 'ReactRouterDOM',
-                        'react-hook-form': 'ReactHookForm',
-                        '@hookform/resolvers': 'HookFormResolvers',
-                        'zod': 'zod',
-                        'react-icons': 'ReactIcons',
-                        'react-icons/bi': 'ReactIconsBi'
                     },
                     // Preserva la struttura delle directory nel bundle
                     preserveModules: true,

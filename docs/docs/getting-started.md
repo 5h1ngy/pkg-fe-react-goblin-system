@@ -4,185 +4,87 @@ sidebar_position: 2
 
 # Getting Started
 
-This guide will help you set up the Goblin System in your React application.
+This guide takes you from an empty React entry point to a foggy, glowing interface powered by Goblin System.
 
-## Installation
-
-You can install Goblin System using npm, yarn, or pnpm:
+## 1. Install
 
 ```bash
-# Using npm
-npm install pkg-fe-react-goblin-system
-
-# Using yarn
-yarn add pkg-fe-react-goblin-system
-
-# Using pnpm
-pnpm add pkg-fe-react-goblin-system
+yarn add pkg-fe-react-goblin-system styled-components
+# npm / pnpm work the same
 ```
 
-## Setup
+The runtime surface only depends on React 18+ and `styled-components`.
 
-### Using GoblinProvider
+## 2. Create a Theme
 
-The simplest way to use Goblin System is by wrapping your application with the `GoblinProvider`. This automatically sets up the theme, global styles, and fonts.
+```ts title="theme.ts"
+import { createTheme } from 'pkg-fe-react-goblin-system'
 
-```jsx
-import React from 'react';
-import { GoblinProvider } from 'pkg-fe-react-goblin-system';
+export const theme = createTheme('light', '#7f5bff')
+```
 
-function App() {
+- `mode` can be either `'light'` or `'dark'`.
+- `accent` feeds pills, borders, outlines, gradients and ambient shadows.
+
+## 3. Wire the Provider
+
+```tsx title="main.tsx"
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyle } from 'pkg-fe-react-goblin-system'
+import { theme } from './theme'
+
+export function AppRoot() {
   return (
-    <GoblinProvider>
-      {/* Your application code */}
-    </GoblinProvider>
-  );
-}
-
-export default App;
-```
-
-### GoblinProvider Options
-
-The `GoblinProvider` accepts several props to customize its behavior:
-
-```jsx
-<GoblinProvider
-  initialTheme="light" // 'light' or 'dark'
-  useSystemPreference={true} // Use system color scheme preference
-  disableGlobalStyles={false} // Set to true to disable global styles
-  disableGlobalFonts={false} // Set to true to disable global font styles
->
-  {/* Your application code */}
-</GoblinProvider>
-```
-
-#### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `initialTheme` | `'light' \| 'dark'` | `'light'` | Initial theme to use |
-| `useSystemPreference` | `boolean` | `false` | Whether to use system preference for theme |
-| `disableGlobalStyles` | `boolean` | `false` | Disable global styles |
-| `disableGlobalFonts` | `boolean` | `false` | Disable global fonts |
-
-## Using Components
-
-After setting up the `GoblinProvider`, you can start using Goblin System components:
-
-```jsx
-import React from 'react';
-import {
-  GoblinProvider,
-  Container,
-  Grid,
-  Col,
-  Text,
-  Button
-} from 'pkg-fe-react-goblin-system';
-
-function App() {
-  return (
-    <GoblinProvider>
-      <Container>
-        <Grid>
-          <Col xs={12} md={6}>
-            <Text variant="h1">Welcome to my app</Text>
-            <Text>Built with Goblin System</Text>
-            <Button variant="primary">Get Started</Button>
-          </Col>
-        </Grid>
-      </Container>
-    </GoblinProvider>
-  );
-}
-```
-
-## Advanced Configuration
-
-### Custom Theme
-
-You can customize the theme by extending the default theme:
-
-```jsx
-import React from 'react';
-import { GoblinProvider } from 'pkg-fe-react-goblin-system';
-import { ThemeProvider } from 'styled-components';
-import { lightTheme } from 'pkg-fe-react-goblin-system/theme/theme';
-
-// Create a custom theme by extending the default theme
-const customTheme = {
-  ...lightTheme,
-  colors: {
-    ...lightTheme.colors,
-    primary: {
-      ...lightTheme.colors.primary,
-      main: '#1a73e8', // Custom primary color
-    },
-  },
-};
-
-function App() {
-  return (
-    <ThemeProvider theme={customTheme}>
-      <GoblinProvider disableGlobalStyles={false}>
-        {/* Your application code */}
-      </GoblinProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      {/* screens */}
     </ThemeProvider>
-  );
+  )
 }
 ```
 
-### Using with Redux
+`GlobalStyle` brings the typography stack, smooth scrolling and link resets you see inside the portfolio scaffold.
 
-If your application uses Redux, you can combine Goblin System with your Redux store:
+## 4. Compose Sections
 
-```jsx
-import React from 'react';
-import { Provider } from 'react-redux';
-import { GoblinProvider } from 'pkg-fe-react-goblin-system';
-import store from './store';
+```tsx title="Hero.tsx"
+import {
+  Section,
+  SurfaceButton,
+  ActionLink,
+  Card,
+  TagList,
+  TagPill,
+} from 'pkg-fe-react-goblin-system'
 
-function App() {
+export function Hero() {
   return (
-    <Provider store={store}>
-      <GoblinProvider>
-        {/* Your application code */}
-      </GoblinProvider>
-    </Provider>
-  );
+    <Section id="hero" accent="Featured Work" description="Atoms tuned for narrative portfolios.">
+      <Card $variant="gradient" $interactive>
+        <p>Blend gradient cards, badges and pills to describe each case study.</p>
+        <TagList>
+          <TagPill>Motion</TagPill>
+          <TagPill>DX</TagPill>
+          <TagPill>3D</TagPill>
+        </TagList>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <SurfaceButton $tone="accent">Open project</SurfaceButton>
+          <ActionLink href="#">See process →</ActionLink>
+        </div>
+      </Card>
+    </Section>
+  )
 }
 ```
 
-### Using with React Router
+## 5. Optional Enhancements
 
-Goblin System works seamlessly with React Router:
-
-```jsx
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { GoblinProvider } from 'pkg-fe-react-goblin-system';
-import Home from './pages/Home';
-import About from './pages/About';
-
-function App() {
-  return (
-    <BrowserRouter>
-      <GoblinProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </GoblinProvider>
-    </BrowserRouter>
-  );
-}
-```
+- **Dark mode toggle** – Call `createTheme('dark', accent)` when the user flips a switch and feed it back into `ThemeProvider`.
+- **Accent switcher** – rotate the accent with `SECONDARY_COLORS` for per-section highlights.
+- **Type safety** – `AppTheme` is exported, so custom styled-components automatically infer the palette.
 
 ## Next Steps
 
-Once you've set up Goblin System, you can explore the following resources:
-
-- [Component Documentation](./components/index.md): Learn about available components
-- [Theming Guide](./theming/index.md): Learn how to customize the look and feel
-- [Authentication](./providers/auth-provider.md): Learn about authentication features
+- Explore every atom in [Components > Overview](./components/index.md).
+- Learn how gradients, fog and borders are generated in [Theme tokens](./styles/theme.md).
+- Review the global reset in [Styles > Global Style](./styles/global-style.md).

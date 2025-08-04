@@ -1,8 +1,8 @@
 import type { Config } from '@docusaurus/types';
 
 const config: Config = {
-  title: 'RG System Documentation',
-  tagline: 'Empowering Your Vision, One Module at a Time.',
+  title: 'Goblin System Docs',
+  tagline: 'Portfolio-grade React components and theme.',
   url: 'https://5h1ngy.github.io',
   baseUrl: '/pkg-fe-react-goblin-system/',
   onBrokenLinks: 'throw',
@@ -34,7 +34,7 @@ const config: Config = {
       disableSwitch: false,
     },
     navbar: {
-      title: 'RG System',
+      title: 'Goblin System',
       logo: {
         alt: 'logo',
         src: 'img/logo.png',
@@ -65,3 +65,4 @@ const config: Config = {
 };
 
 export default config;
+

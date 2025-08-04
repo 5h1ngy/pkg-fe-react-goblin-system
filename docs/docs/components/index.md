@@ -1,41 +1,31 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 
-# Components
+# Components Overview
 
-Goblin System offers a wide range of ready-to-use React components, designed to be flexible, accessible, and easy to use.
+Goblin System ships a focused set of shared components. Every piece is theme-aware and designed to snap together for portfolio sections.  
+The codebase mirrors the documentation: `src/components/shared/buttons`, `layout`, `metadata`, and `overlays` each host the assets for their respective chapters.
 
-The components are organized into the following categories:
+| Component | Description |
+| --- | --- |
+| `ActionLink`, `TextLink` | Inline actions with accent hover states. |
+| `SurfaceButton`, `IconButton`, `PillButton` | Density-friendly call-to-actions with tone modifiers. |
+| `Backdrop` | Blurred full-screen overlay that respects the current mode. |
+| `Card` | Gradient/surface containers with interactive elevation. |
+| `MenuSurface` | Floating surface for quick menus or command palettes. |
+| `MetaLabel` | Eyebrow, badge or counter metadata. |
+| `ModalOverlay`, `ModalContainer`, `ModalScrollArea` | Composable modal shell. |
+| `Section` | Spacing + header scaffold used across the portfolio. |
+| `ScreenLoader` | Full-viewport progress overlay with accent glow + progress bar. |
+| `TagList`, `TagPill` | Responsive skill or stack metadata list. |
+| `VisuallyHidden` | Accessibility helper for off-screen text. |
+| `Header`, `Footer` | Portfolio shell with locale/theme controls and social links. |
 
-## Layout
-- [Container](/docs/components/layout/container)
-- [Grid](/docs/components/layout/grid)
+Use the sub-pages to see code snippets and design guidance for each category:
 
-## Buttons and Controls
-- [Button](/docs/components/buttons/button)
-- [IconButton](/docs/components/buttons/iconbutton)
-
-## Feedback and Notifications
-- [Modal](/docs/components/feedback/modal)
-- [Alert](/docs/components/alert)
-- [Spinner](/docs/components/spinner)
-
-## Typography
-- [Text](/docs/components/typography/text)
-
-## Best Practices
-
-For an optimal experience with Goblin System, we recommend following these best practices:
-
-1. **Always use ThemeProvider**: Ensure that all components are wrapped by the `ThemeProvider` to guarantee proper styling.
-
-2. **Leverage layout components**: Use `Container`, `Grid`, and `Spacer` to create consistent and responsive layouts.
-
-3. **Maintain consistency**: Use consistent variants and sizes throughout the application for a better user experience.
-
-4. **Prefer components over custom styles**: Goblin System offers extensive customization options. Try to extend existing components rather than creating styles from scratch.
-
-5. **Properly manage props**: Always pass all necessary props and keep components controlled when appropriate.
-
-6. **Accessibility**: Make sure to provide appropriate labels and ARIA attributes when needed.
+- [Buttons & Links](./buttons.md)
+- [Cards & Sections](./cards.md)
+- [Metadata & Tags](./metadata.md)
+- [Overlays](./overlays.md)
+- [Header & Footer](./site-shell.md)

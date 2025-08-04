@@ -1,3 +1,4 @@
+﻿/* eslint-disable @typescript-eslint/no-require-imports */
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
@@ -11,29 +12,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Rapid Development',
+    title: 'Portfolio Fidelity',
     image: require('@site/static/img/home-rapid.png').default,
     description: (
       <>
-        Accelerate your projects with a set of ready-to-use, customizable components that help you build macrosections quickly and efficiently.
+        Gradients, fog layers and ambient shadows come from the same theme that powers the original portfolio, so every screen instantly feels bespoke.
       </>
     ),
   },
   {
-    title: 'Modular Architecture',
+    title: 'Shared Primitives',
     image: require('@site/static/img/home-modular.png').default,
     description: (
       <>
-        Benefit from a modular design that enables seamless integration and clean code, making your applications scalable and maintainable.
+        Cards, sections, overlays and tags live in one shared folder—mix and match them to build narrative case studies in minutes.
       </>
     ),
   },
   {
-    title: 'Modern Technologies',
+    title: 'Docs + Storybook',
     image: require('@site/static/img/home-modern.png').default,
     description: (
       <>
-        Leverage the power of React, Chakra UI, and TypeScript to build robust, dynamic interfaces that stand up to modern web challenges.
+        Storybook controls theme accents while Docusaurus explains the building blocks, keeping design and implementation perfectly aligned.
       </>
     ),
   },
@@ -66,3 +67,6 @@ export default function HomepageFeatures(): ReactNode {
     </section>
   );
 }
+
+
+

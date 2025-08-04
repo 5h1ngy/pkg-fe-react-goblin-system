@@ -11,7 +11,6 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
  Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
   docs: [
     'intro',
     'getting-started',
@@ -20,80 +19,17 @@ const sidebars: SidebarsConfig = {
       label: 'Components',
       items: [
         'components/index',
-        {
-          type: 'category',
-          label: 'Layout',
-          items: [
-            'components/layout/container',
-            'components/layout/grid',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Buttons',
-          items: [
-            'components/buttons/button',
-            'components/buttons/iconbutton',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Feedback',
-          items: [
-            'components/alert',
-            'components/feedback/modal',
-            'components/spinner',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Typography',
-          items: [
-            'components/typography/text',
-          ],
-        },
+        'components/buttons',
+        'components/cards',
+        'components/metadata',
+        'components/overlays',
+        'components/site-shell',
       ],
     },
     {
       type: 'category',
-      label: 'Pages',
-      items: [
-        'pages/index',
-        'pages/error',
-        'pages/loading',
-        'pages/transformer',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Providers',
-      items: [
-        'providers/goblin-provider',
-        'providers/auth-provider',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Services',
-      items: [
-        'services/http-handlers',
-        'services/auth-service',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Store',
-      items: [
-        'store/auth-store',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Theme',
-      items: [
-        'theme/theme-system',
-        'theming/index',
-      ],
+      label: 'Styles',
+      items: ['styles/global-style', 'styles/theme'],
     },
   ],
 };

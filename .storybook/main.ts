@@ -19,10 +19,5 @@ const config: StorybookConfig = {
       base: "/pkg-fe-react-goblin-system/storybook/",
     });
   },
-  refs: {
-    '@chakra-ui/react': {
-      disable: true, // Disabilita le storie di Chakra UI
-    },
-  },
 };
 export default config;

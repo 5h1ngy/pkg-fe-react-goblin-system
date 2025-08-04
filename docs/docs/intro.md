@@ -5,116 +5,52 @@ slug: /
 
 # Introduction to Goblin System
 
-**Goblin System** is a modern and flexible React component library designed to create elegant and functional user interfaces with ease.
+The new **Goblin System** distills the portfolio experience into a compact component kit powered by `styled-components`.  
+Every piece in the library lives inside `src/components/shared` and speaks the same theme language defined in `src/styles`.
 
-## Key Features
+## What You Get
 
-- **Modern, responsive components** - All components are designed to be responsive and work across all devices.
-- **Fully typed** - Built with TypeScript for an excellent development experience.
-- **Customizable** - Flexible theming system to adapt components to your brand.
-- **Accessible** - WAI-ARIA compatibility and focus on the best user experience for everyone.
-- **Performant** - Optimized for high performance with minimal footprint.
-- **Global Provider** - Easy application of themes and fonts across your entire application.
+- **Curated building blocks** – Action links, pill buttons, cards, sections, tags and overlays ready for storytelling layouts.
+- **One source of truth** – `createTheme` produces light/dark palettes plus gradients, fog layers and shadows that every component consumes.
+- **Just React + styled-components** – No React Router, Redux or form baggage. Drop the toolkit into any app without side effects.
+- **Docs & Storybook in sync** – Documentation and stories now describe exactly the shared components that ship in the package.
 
-## Installation
+## Install
 
 ```bash
-# Using npm
-npm install pkg-fe-react-goblin-system
-
-# Using yarn
-yarn add pkg-fe-react-goblin-system
-
-# Using pnpm
-pnpm add pkg-fe-react-goblin-system
+npm install pkg-fe-react-goblin-system styled-components
+# or
+yarn add pkg-fe-react-goblin-system styled-components
 ```
 
-## Quick Setup
+## Minimal Setup
 
-### Basic Usage
+```tsx title="app.tsx"
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyle, createTheme, SurfaceButton } from 'pkg-fe-react-goblin-system'
 
-Wrap your application with the `GoblinProvider` to enable theming and global styles:
+const theme = createTheme('dark', '#7f5bff')
 
-```jsx
-import React from 'react';
-import { GoblinProvider } from 'pkg-fe-react-goblin-system';
-
-function App() {
+export function App() {
   return (
-    <GoblinProvider>
-      {/* Your application code */}
-    </GoblinProvider>
-  );
-}
-
-export default App;
-```
-
-### Using Components
-
-```jsx
-import React from 'react';
-import { 
-  GoblinProvider,
-  Container, 
-  Grid, 
-  Col, 
-  Button, 
-  Text 
-} from 'pkg-fe-react-goblin-system';
-
-function App() {
-  return (
-    <GoblinProvider>
-      <Container>
-        <Grid>
-          <Col xs={12} md={6}>
-            <Text variant="h1">Welcome to Goblin System</Text>
-            <Text>A modern React component library for building beautiful UIs</Text>
-            <Button variant="primary">Get Started</Button>
-          </Col>
-        </Grid>
-      </Container>
-    </GoblinProvider>
-  );
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <SurfaceButton $tone="accent">Launch</SurfaceButton>
+    </ThemeProvider>
+  )
 }
 ```
 
-## Architecture Overview
+## Library Map
 
-Goblin System is organized into several key modules:
-
-### Components
-Reusable UI elements organized by function:
-- **buttons**: Button, IconButton
-- **feedback**: Modal, Spinner, Alert
-- **form**: Input, Checkbox, RadioButton
-- **layout**: Container, Grid, Spacer
-- **navigation**: Tabs, Pagination
-- **typography**: Text, Heading
-
-### Providers
-Context providers that manage global state and functionality:
-- **GoblinProvider**: Main provider that applies theme, global styles, and fonts
-- **ThemeProvider**: Manages theme state with light/dark mode support
-- **Auth**: Authentication provider for user flows
-
-### Services
-Utility services for common application needs:
-- **auth**: Authentication services
-- **handlers**: Common HTTP request handlers
-
-### Store
-Redux slices for state management:
-- **auth**: Authentication state management
-
-### Theme
-Comprehensive theming system:
-- **theme.ts**: Theme definitions and tokens
-- **GlobalStyles**: Global style definitions
+| Area | What it contains |
+| --- | --- |
+| `components/shared` | ActionLink, Backdrop, Button primitives, Card, Menu surface, MetaLabel, Modal shell, Section scaffolding, Tag utilities, TextLink, VisuallyHidden. |
+| `styles` | `GlobalStyle`, `createTheme`, icon set, theme typings and helpers. |
+| `src/index.tsx` | Re-exports everything so you can `import { Card } from 'pkg-fe-react-goblin-system'`. |
 
 ## Next Steps
 
-- Learn about [components](./components/index.md)
-- Explore [theming options](./theming/index.md)
-- Check out the [getting started guide](./getting-started.md)
+- Follow the [Getting Started](./getting-started.md) guide.
+- Dive into the [component breakdown](./components/index.md).
+- Learn how to [shape the theme](./styles/theme.md).

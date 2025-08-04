@@ -1,3 +1,4 @@
+﻿/* eslint-disable @typescript-eslint/no-require-imports */
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
@@ -29,14 +30,13 @@ function HomepageHeader() {
         {/* Extended description for the open source library */}
         <div className={styles.description}>
           <p>
-            Our open-source library-built on Chakra UI, React, and TypeScript-empowers you to rapidly create
-            the macrosections of your applications. It offers a comprehensive suite of modules designed to streamline
-            frontend management and accelerate development.
+            Extracted from the original portfolio, Goblin System pairs React 18 and styled-components to deliver foggy
+            gradients, ambient cards, tags and overlays for expressive case studies.
           </p>
         </div>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/getting-started">
-            Explore Documentation
+            Start building
           </Link>
         </div>
       </div>
@@ -47,9 +47,7 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+    <Layout title={siteConfig.title} description="Goblin System documentation">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
@@ -57,3 +55,5 @@ export default function Home(): ReactNode {
     </Layout>
   );
 }
+
+
