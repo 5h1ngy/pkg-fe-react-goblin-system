@@ -8,7 +8,7 @@ import { SurfaceButton } from '../buttons/Button'
 import { MetaLabel } from '../metadata/MetaLabel'
 
 const meta: Meta<typeof Backdrop> = {
-  title: 'shared/overlays',
+  title: 'overlays/Backdrop',
   component: Backdrop,
   parameters: {
     layout: 'fullscreen',

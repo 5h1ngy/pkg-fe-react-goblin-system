@@ -42,6 +42,7 @@ export interface AppTheme {
 
 ## Accent helpers
 
+Storybook and the docs boot with `createTheme('dark', '#ffb422')` to mirror the default amber glow from the portfolio.  
 `SECONDARY_COLORS` exposes a curated palette of four additional accents. Combine it with Storybook toolbar controls or build your own color picker:
 
 ```ts

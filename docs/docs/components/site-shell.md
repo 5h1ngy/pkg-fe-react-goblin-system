@@ -17,10 +17,10 @@ import { Header } from 'pkg-fe-react-goblin-system'
   ]}
   themeMode="dark"
   onThemeChange={setTheme}
-  accentOptions={['#7f5bff', '#00c8ff', '#ff4bd5', '#24f49b']}
+  accentOptions={['#ffb422', '#7f5bff', '#00c8ff', '#ff4bd5', '#24f49b']}
   accentColor={accent}
   onAccentChange={setAccent}
-  accentLabels={{ '#7f5bff': 'Violet pulse' }}
+  accentLabels={{ '#ffb422': 'Amber flare' }}
   locale={locale}
   locales={[
     { code: 'en', label: 'EN' },

@@ -20,11 +20,13 @@ The runtime surface only depends on React 18+ and `styled-components`.
 ```ts title="theme.ts"
 import { createTheme } from 'pkg-fe-react-goblin-system'
 
-export const theme = createTheme('light', '#7f5bff')
+export const theme = createTheme('dark', '#ffb422')
 ```
 
 - `mode` can be either `'light'` or `'dark'`.
 - `accent` feeds pills, borders, outlines, gradients and ambient shadows.
+
+Storybook and the docs use this dark/amber combo by default so you can copy the exact look.
 
 ## 3. Wire the Provider
 

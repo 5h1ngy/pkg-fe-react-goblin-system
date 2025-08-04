@@ -35,11 +35,11 @@ const preview: Preview = {
     accent: {
       name: 'Accent',
       description: 'Primary accent color',
-      defaultValue: '#7f5bff',
+      defaultValue: '#ffb422',
       toolbar: {
         icon: 'paintbrush',
         items: [
-          { value: '#7f5bff', title: 'Violet' },
+          { value: '#ffb422', title: 'Amber' },
           ...SECONDARY_COLORS.map((value, index) => ({ value, title: `Alt ${index + 1}` })),
         ],
       },
@@ -48,7 +48,7 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const mode = (context.globals.mode as ThemeMode) ?? 'dark'
-      const accent = (context.globals.accent as string) ?? '#7f5bff'
+      const accent = (context.globals.accent as string) ?? '#ffb422'
       const theme = createTheme(mode, accent)
 
       return (

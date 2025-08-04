@@ -8,7 +8,7 @@ Portfolio-grade React components plus the exact theme and fog gradients used in 
 
 - **Shared atoms** — `src/components/shared` contains ActionLink, SurfaceButton, IconButton, Card, Section, MenuSurface, MetaLabel, Modal shell, Tag utilities, TextLink and VisuallyHidden.
 - **Header & Footer included** — locale switcher, accent picker and footer link rail land beside the shared atoms so you can recreate the full shell.
-- **One theme to rule them all** — `createTheme(mode, accent)` generates light/dark palettes, gradients and shadows. `GlobalStyle` applies the typography stack and smooth scrolling.
+- **One theme to rule them all** — `createTheme(mode, accent)` generates light/dark palettes, gradients and shadows. `GlobalStyle` applies the typography stack and smooth scrolling. Storybook + docs boot in dark mode with the amber accent (`#ffb422`) so you can mirror the hero aesthetic instantly.
 - **Storybook + Docusaurus** — both environments showcase the same primitives and expose live accent/mode controls.
 - **Zero extra dependencies** — the runtime depends only on React 18+ and `styled-components`.
 
@@ -34,7 +34,7 @@ import {
   TagPill,
 } from 'pkg-fe-react-goblin-system'
 
-const theme = createTheme('dark', '#7f5bff')
+const theme = createTheme('dark', '#ffb422')
 
 export function App() {
   return (

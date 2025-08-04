@@ -47,7 +47,7 @@ type Palette = {
   ambientShadow: string
 }
 
-export const SECONDARY_COLORS = ['#00c8ff', '#ff4bd5', '#24f49b', '#ffb422']
+export const SECONDARY_COLORS = ['#7f5bff', '#00c8ff', '#ff4bd5', '#24f49b']
 
 const darkPalette: Palette = {
   background: '#030616',

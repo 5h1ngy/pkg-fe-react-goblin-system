@@ -6,7 +6,7 @@ import { TagPill } from './TagPill'
 import { VisuallyHidden } from './VisuallyHidden'
 
 const meta: Meta<typeof MetaLabel> = {
-  title: 'shared/metadata',
+  title: 'metadata/MetaLabel',
   component: MetaLabel,
   args: {
     children: 'Meta label',

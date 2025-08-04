@@ -5,7 +5,7 @@ import type { HeaderProps } from './Header.types'
 import { Header } from './Header'
 
 const meta: Meta<typeof Header> = {
-  title: 'Shell/Header',
+  title: 'site-shell/Header',
   component: Header,
   parameters: {
     layout: 'fullscreen',
@@ -16,8 +16,8 @@ const meta: Meta<typeof Header> = {
       { label: 'Projects', targetId: 'projects' },
       { label: 'About', targetId: 'about' },
     ],
-    accentOptions: ['#7f5bff', '#00c8ff', '#ff4bd5', '#24f49b'],
-    accentColor: '#7f5bff',
+    accentOptions: ['#ffb422', '#7f5bff', '#00c8ff', '#ff4bd5', '#24f49b'],
+    accentColor: '#ffb422',
     themeMode: 'dark',
     locale: 'en',
     locales: [

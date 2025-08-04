@@ -29,7 +29,7 @@ yarn add pkg-fe-react-goblin-system styled-components
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle, createTheme, SurfaceButton } from 'pkg-fe-react-goblin-system'
 
-const theme = createTheme('dark', '#7f5bff')
+const theme = createTheme('dark', '#ffb422')
 
 export function App() {
   return (

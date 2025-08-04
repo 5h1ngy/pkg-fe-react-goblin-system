@@ -7,7 +7,7 @@ import { SurfaceButton, IconButton, PillButton } from './Button'
 import { TextLink } from './TextLink'
 
 const meta: Meta<typeof SurfaceButton> = {
-  title: 'shared/buttons',
+  title: 'buttons/SurfaceButton',
   component: SurfaceButton,
   parameters: {
     layout: 'centered',

@@ -8,7 +8,7 @@ import { TagList } from '../metadata/TagList'
 import { TagPill } from '../metadata/TagPill'
 
 const meta: Meta<typeof Card> = {
-  title: 'shared/layout',
+  title: 'layout/Card',
   component: Card,
   parameters: {
     layout: 'padded',
@@ -77,7 +77,7 @@ export const ScreenLoaderShowcase: LoaderStory = {
     progress: 0.72,
     label: 'Preparing the experience',
     progressLabel: 'Loader progress',
-    accentColor: '#00c8ff',
+    accentColor: '#ffb422',
   },
   render: (args) => (
     <div style={{ minHeight: '480px', position: 'relative' }}>
