@@ -1,7 +1,5 @@
-import type { Preview } from "@storybook/react"
-import { ThemeProvider } from "styled-components"
-
-import { GlobalStyle, createTheme, SECONDARY_COLORS, ThemeMode } from "../src/styles";
+import type { Preview } from '@storybook/react'
+import { MaterialThemeProvider, CssBaseline, createMaterialTheme } from '../src/foundations'
 
 const preview: Preview = {
   parameters: {
@@ -14,53 +12,61 @@ const preview: Preview = {
     backgrounds: {
       default: 'surface',
       values: [
-        { name: 'surface', value: '#030616' },
-        { name: 'paper', value: '#f7f9ff' },
+        { name: 'surface', value: '#121212' },
+        { name: 'paper', value: '#ffffff' },
       ],
     },
   },
   globalTypes: {
     mode: {
       name: 'Mode',
-      description: 'App theme mode',
-      defaultValue: 'dark',
+      description: 'Theme mode',
+      defaultValue: 'light',
       toolbar: {
-        icon: 'mirror',
+        icon: 'contrast',
         items: [
           { value: 'light', title: 'Light' },
           { value: 'dark', title: 'Dark' },
         ],
       },
     },
-    accent: {
-      name: 'Accent',
-      description: 'Primary accent color',
-      defaultValue: '#ffb422',
+    primary: {
+      name: 'Primary',
+      description: 'Primary palette color',
+      defaultValue: '#1976d2',
       toolbar: {
         icon: 'paintbrush',
         items: [
-          { value: '#ffb422', title: 'Amber' },
-          ...SECONDARY_COLORS.map((value, index) => ({ value, title: `Alt ${index + 1}` })),
+          { value: '#1976d2', title: 'Blue' },
+          { value: '#9c27b0', title: 'Purple' },
+          { value: '#2e7d32', title: 'Green' },
+          { value: '#ed6c02', title: 'Orange' },
         ],
       },
     },
   },
   decorators: [
     (Story, context) => {
-      const mode = (context.globals.mode as ThemeMode) ?? 'dark'
-      const accent = (context.globals.accent as string) ?? '#ffb422'
-      const theme = createTheme(mode, accent)
+      const mode = context.globals.mode as 'light' | 'dark'
+      const primary = context.globals.primary as string
+      const theme = createMaterialTheme({
+        palette: {
+          mode,
+          primary: { main: primary },
+        },
+      })
 
       return (
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
+        <MaterialThemeProvider theme={theme}>
+          <CssBaseline />
           <div style={{ minHeight: '100vh', padding: '2rem' }}>
             <Story />
           </div>
-        </ThemeProvider>
+        </MaterialThemeProvider>
       )
     },
   ],
-};
+}
 
-export default preview;
+export default preview
+
