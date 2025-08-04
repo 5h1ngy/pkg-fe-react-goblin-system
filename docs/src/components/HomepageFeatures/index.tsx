@@ -1,72 +1,55 @@
-﻿/* eslint-disable @typescript-eslint/no-require-imports */
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import type { ReactNode } from 'react'
+import { Card, MetaLabel, Section, TagList, TagPill, TileGrid } from 'pkg-fe-react-goblin-system'
 
-type FeatureItem = {
-  title: string;
-  image: string;
-  description: ReactNode;
-};
-
-const FeatureList: FeatureItem[] = [
+const FeatureList = [
   {
-    title: 'Portfolio Fidelity',
-    image: require('@site/static/img/home-rapid.png').default,
-    description: (
-      <>
-        Gradients, fog layers and ambient shadows come from the same theme that powers the original portfolio, so every screen instantly feels bespoke.
-      </>
-    ),
+    label: 'Theme synced',
+    title: 'Portfolio fidelity',
+    description:
+      'Gradients, fog layers and ambient shadows come from the same theme helper, so docs and Storybook always match.',
+    tags: ['Fog layers', 'Ambient shadows', 'Accent tokens'],
+    variant: 'gradient' as const,
   },
   {
-    title: 'Shared Primitives',
-    image: require('@site/static/img/home-modular.png').default,
-    description: (
-      <>
-        Cards, sections, overlays and tags live in one shared folder—mix and match them to build narrative case studies in minutes.
-      </>
-    ),
+    label: 'Composable atoms',
+    title: 'Shared primitives',
+    description:
+      'Cards, Sections, overlays and tags live in one shared folder—mix them to build narrative case studies in minutes.',
+    tags: ['Cards', 'Sections', 'Tags'],
   },
   {
+    label: 'DX ready',
     title: 'Docs + Storybook',
-    image: require('@site/static/img/home-modern.png').default,
-    description: (
-      <>
-        Storybook controls theme accents while Docusaurus explains the building blocks, keeping design and implementation perfectly aligned.
-      </>
-    ),
+    description:
+      'Documentation renders the same components that Storybook controls, keeping tone switches, accents and density aligned.',
+    tags: ['Live examples', 'MDX shortcodes', 'Story controls'],
   },
-];
-
-function Feature({ title, image, description }: FeatureItem) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <img src={image} alt={title} className={styles.featureImg} />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
+]
 
 export default function HomepageFeatures(): ReactNode {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+    <Section
+      id="features"
+      title="Inside the toolkit"
+      description="Every block reuses the exact React components that power the portfolio hero."
+      subtle
+    >
+      <TileGrid $min="260px">
+        {FeatureList.map((feature) => (
+          <Card key={feature.title} $variant={feature.variant ?? 'surface'} $interactive>
+            <MetaLabel $variant="badge" $tone="accent">
+              {feature.label}
+            </MetaLabel>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+            <TagList>
+              {feature.tags.map((tag) => (
+                <TagPill key={tag}>{tag}</TagPill>
+              ))}
+            </TagList>
+          </Card>
+        ))}
+      </TileGrid>
+    </Section>
+  )
 }
-
-
-

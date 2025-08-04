@@ -4,7 +4,12 @@ export * from './buttons/TextLink'
 
 export * from './layout/Card'
 export * from './layout/Section'
+export * from './layout/Split'
+export * from './layout/TileGrid'
 export * from './layout/ScreenLoader'
+export * from './layout/HeroOrbit'
+export * from './layout/PageFrame'
+export * from './layout/Canvas'
 
 export * from './metadata/MetaLabel'
 export * from './metadata/TagList'

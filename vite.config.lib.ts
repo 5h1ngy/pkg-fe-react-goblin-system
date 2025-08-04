@@ -42,6 +42,7 @@ export default defineConfig(({ mode }) => {
                     "index": path.resolve(__dirname, "src/index.tsx"),
                     "components/index": path.resolve(__dirname, "src/components/index.ts"),
                     "styles/index": path.resolve(__dirname, "src/styles/index.ts"),
+                    "data/index": path.resolve(__dirname, "src/data/index.ts"),
                 },
             },
             rollupOptions: {

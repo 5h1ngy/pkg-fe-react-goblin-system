@@ -1,4 +1,5 @@
 import type { Config } from '@docusaurus/types';
+import path from 'path';
 
 const config: Config = {
   title: 'Goblin System Docs',
@@ -62,6 +63,31 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} 5h1ngy.`,
     },
   },
+  plugins: [
+    function goblinSystemAlias() {
+      return {
+        name: 'goblin-system-alias',
+        configureWebpack() {
+          return {
+            resolve: {
+              alias: {
+                'pkg-fe-react-goblin-system': path.resolve(__dirname, '..', 'src'),
+                'pkg-fe-react-goblin-system/components': path.resolve(__dirname, '..', 'src/components'),
+                'pkg-fe-react-goblin-system/styles': path.resolve(__dirname, '..', 'src/styles'),
+                'pkg-fe-react-goblin-system/data': path.resolve(__dirname, '..', 'src/data'),
+                '@': path.resolve(__dirname, '..', 'src'),
+                '@components': path.resolve(__dirname, '..', 'src/components'),
+                '@styles': path.resolve(__dirname, '..', 'src/styles'),
+                '@data': path.resolve(__dirname, '..', 'src/data'),
+                '@hooks': path.resolve(__dirname, '..', 'src/hooks'),
+                '@assets': path.resolve(__dirname, '..', 'src/assets'),
+              },
+            },
+          };
+        },
+      };
+    },
+  ],
 };
 
 export default config;
