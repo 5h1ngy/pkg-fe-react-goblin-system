@@ -1,9 +1,19 @@
 import { useState } from "react"
 
+import { AddIcon } from '../../../foundations'
+
 import { SpeedDialActions, SpeedDialButton, SpeedDialRoot } from './SpeedDial.style'
 import type { SpeedDialProps } from './SpeedDial.types'
 
-export const SpeedDial = ({ icon, open, defaultOpen = false, direction = 'up', ariaLabel, children, ...rest }: SpeedDialProps) => {
+export const SpeedDial = ({
+  icon = <AddIcon aria-hidden />,
+  open,
+  defaultOpen = false,
+  direction = 'up',
+  ariaLabel,
+  children,
+  ...rest
+}: SpeedDialProps) => {
   const [internalOpen, setInternalOpen] = useState(defaultOpen)
   const isOpen = open ?? internalOpen
 

@@ -1,4 +1,4 @@
-import { useMaterialTheme } from '../../../foundations'
+import { CloseIcon, useMaterialTheme } from '../../../foundations'
 import { resolveSx } from '../../../system'
 
 import { ChipRoot } from './Chip.style'
@@ -16,8 +16,9 @@ export const Chip = ({ label, onDelete, color = 'default', variant = 'filled', s
           type="button"
           onClick={onDelete}
           style={{ border: 'none', background: 'transparent', color: 'inherit', cursor: 'pointer' }}
+          aria-label="Delete"
         >
-          ×
+          <CloseIcon size={16} aria-hidden />
         </button>
       )}
     </ChipRoot>

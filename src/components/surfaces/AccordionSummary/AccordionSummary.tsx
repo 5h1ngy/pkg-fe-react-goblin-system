@@ -1,8 +1,9 @@
+import { ExpandMoreIcon } from '../../../foundations'
 import { useAccordionContext } from '../Accordion/Accordion.context'
 import { AccordionSummaryRoot } from './AccordionSummary.style'
 import type { AccordionSummaryProps } from './AccordionSummary.types'
 
-export const AccordionSummary = ({ expandIcon = '?', children, ...rest }: AccordionSummaryProps) => {
+export const AccordionSummary = ({ expandIcon = <ExpandMoreIcon />, children, ...rest }: AccordionSummaryProps) => {
   const ctx = useAccordionContext()
 
   return (

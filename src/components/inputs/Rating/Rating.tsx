@@ -1,6 +1,6 @@
 import { MouseEvent, useState } from 'react'
 
-import { useMaterialTheme } from '../../../foundations'
+import { StarBorderIcon, StarIcon, useMaterialTheme } from '../../../foundations'
 import { resolveSx } from '../../../system'
 
 import { RatingRoot } from './Rating.style'
@@ -14,8 +14,8 @@ export const Rating = ({
   readOnly,
   onChange,
   size = 'medium',
-  icon = '?',
-  emptyIcon = '?',
+  icon = <StarIcon aria-hidden />,
+  emptyIcon = <StarBorderIcon aria-hidden />,
   sx,
   style,
   className,

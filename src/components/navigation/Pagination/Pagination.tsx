@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-import { useMaterialTheme } from '../../../foundations'
+import { ChevronLeftIcon, ChevronRightIcon, MoreHorizIcon, useMaterialTheme } from '../../../foundations'
 import { resolveSx } from '../../../system'
 
 import { PaginationButton, PaginationRoot } from './Pagination.style'
@@ -48,20 +48,38 @@ export const Pagination = ({
 
   return (
     <PaginationRoot role="navigation" style={resolvedStyle} {...rest}>
-      <PaginationButton disabled={currentPage === 1} onClick={(event) => handleChange(event, currentPage - 1)}>
-        Prev
+      <PaginationButton
+        type="button"
+        aria-label="Previous page"
+        disabled={currentPage === 1}
+        onClick={(event) => handleChange(event, currentPage - 1)}
+      >
+        <ChevronLeftIcon size={18} aria-hidden />
       </PaginationButton>
       {pages.map((item, index) =>
         typeof item === 'string' ? (
-          <span key={`${item}-${index}`}>…</span>
+          <span key={String(item) + '-' + index}>
+            <MoreHorizIcon size={18} aria-hidden />
+          </span>
         ) : (
-          <PaginationButton key={`page-${item}`} $selected={item === currentPage} onClick={(event) => handleChange(event, item)}>
+          <PaginationButton
+            type="button"
+            key={'page-' + item}
+            $selected={item === currentPage}
+            aria-current={item === currentPage ? 'page' : undefined}
+            onClick={(event) => handleChange(event, item)}
+          >
             {item}
           </PaginationButton>
         ),
       )}
-      <PaginationButton disabled={currentPage === count} onClick={(event) => handleChange(event, currentPage + 1)}>
-        Next
+      <PaginationButton
+        type="button"
+        aria-label="Next page"
+        disabled={currentPage === count}
+        onClick={(event) => handleChange(event, currentPage + 1)}
+      >
+        <ChevronRightIcon size={18} aria-hidden />
       </PaginationButton>
     </PaginationRoot>
   )
