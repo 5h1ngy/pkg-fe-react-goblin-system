@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react'
 
 import { List, ListItem, ListItemIcon, ListItemText } from '../../components'
 import { FolderIcon, StarIcon } from '../../foundations'

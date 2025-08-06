@@ -60,7 +60,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start:storybook": "storybook dev --no-open",
+    "start:storybook": "storybook dev --no-open --port 6006",
     "start:docs": "yarn workspace react-goblin-system-docs docusaurus start",
     "build:storybook": "storybook build --output-dir build-storybook",
     "build:docs": "yarn workspace react-goblin-system-docs docusaurus build && rm -rf build-docusaurus && mv docs/build build-docusaurus && rm -rf docs/build",

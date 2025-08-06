@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react'
 
 import { SpeedDial, SpeedDialAction } from '../../components'
 import { AddIcon, MailIcon, PhoneIcon } from '../../foundations'

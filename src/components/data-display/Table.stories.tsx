@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react'
 
 import { Table, TableHead, TableRow, TableCell, TableBody } from '../../components'
 

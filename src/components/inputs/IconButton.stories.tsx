@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react'
 
 import { IconButton } from '../../components'
 import { FavoriteIcon } from '../../foundations'
