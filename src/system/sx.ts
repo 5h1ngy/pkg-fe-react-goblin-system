@@ -1,15 +1,9 @@
 import { CSSProperties } from 'react'
 
 import type { MaterialTheme } from '../foundations'
+import type { SxInput, SxProps } from './sx.types'
 
-export type SxInput =
-  | CSSProperties
-  | ((theme: MaterialTheme) => CSSProperties)
-  | false
-  | null
-  | undefined
-
-export type SxProps = SxInput | SxInput[]
+export type { SxInput, SxProps } from './sx.types'
 
 const SPACING_KEYS: Array<keyof CSSProperties> = [
   'margin',

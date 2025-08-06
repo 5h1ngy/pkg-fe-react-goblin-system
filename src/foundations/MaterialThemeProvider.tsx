@@ -1,12 +1,9 @@
-import { ReactNode, useMemo } from 'react'
+import { useMemo } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { createMaterialTheme, MaterialTheme, MaterialThemeOptions } from './theme'
-
-export interface MaterialThemeProviderProps {
-  children: ReactNode
-  theme?: MaterialThemeOptions | MaterialTheme
-}
+import { createMaterialTheme } from './theme'
+import type { MaterialTheme, MaterialThemeOptions } from './theme'
+import type { MaterialThemeProviderProps } from './MaterialThemeProvider.types'
 
 const isMaterialTheme = (value: MaterialThemeOptions | MaterialTheme | undefined): value is MaterialTheme =>
   typeof value === 'object' && value !== null && 'palette' in value && 'typography' in value
