@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { ChevronLeftIcon, ChevronRightIcon, MoreHorizIcon, useMaterialTheme } from '../../foundations'
+import { ChevronLeftIcon, ChevronRightIcon, MoreHorizIcon, useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { PaginationButton, PaginationRoot } from './Pagination.style'
@@ -20,7 +20,7 @@ export const Pagination = ({
   ...rest
 }: PaginationProps) => {
   const [internalPage, setInternalPage] = useState(defaultPage)
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const currentPage = page ?? internalPage
 

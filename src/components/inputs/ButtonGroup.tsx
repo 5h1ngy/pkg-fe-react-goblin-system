@@ -1,6 +1,6 @@
 import { Children, ReactElement, cloneElement, isValidElement } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import type { ButtonProps } from './Button.types'
@@ -18,7 +18,7 @@ export const ButtonGroup = ({
   style,
   ...rest
 }: ButtonGroupProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   const enhancedChildren = Children.map(children, (child) => {

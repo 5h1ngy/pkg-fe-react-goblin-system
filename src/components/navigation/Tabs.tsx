@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { TabsContext, TabsValue } from './Tabs.context'
@@ -9,7 +9,7 @@ import type { TabsProps } from './Tabs.types'
 
 export const Tabs = ({ value, defaultValue = 0, onChange, variant = 'standard', sx, style, children, ...rest }: TabsProps) => {
   const [internalValue, setInternalValue] = useState<TabsValue>(defaultValue)
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const currentValue = value ?? internalValue
 

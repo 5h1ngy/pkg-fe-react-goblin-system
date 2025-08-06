@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { Button } from './Button'
@@ -8,7 +8,7 @@ import { TransferListContainer, TransferListPanel } from './TransferList.style'
 import type { TransferListItem, TransferListProps } from './TransferList.types'
 
 export const TransferList = ({ left, right, onChange, sx }: TransferListProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx)
   const [leftItems, setLeft] = useState(left)
   const [rightItems, setRight] = useState(right)

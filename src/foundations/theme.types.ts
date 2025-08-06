@@ -49,7 +49,7 @@ export interface TypographyVariant {
   textTransform?: string
 }
 
-export interface MaterialTypography {
+export interface GoblinTypography {
   fontFamily: string
   fontSize: number
   fontWeightLight: number
@@ -130,9 +130,9 @@ export interface Transitions {
   ) => string
 }
 
-export interface MaterialTheme {
+export interface GoblinTheme {
   palette: Palette
-  typography: MaterialTypography
+  typography: GoblinTypography
   shape: Shape
   spacing: Spacing
   shadows: string[]
@@ -148,8 +148,8 @@ export type DeepPartial<T> = {
 
 export type PaletteOverrides = DeepPartial<Palette> & { mode?: PaletteMode }
 
-export interface MaterialThemeOptions
-  extends DeepPartial<Omit<MaterialTheme, 'spacing' | 'breakpoints' | 'transitions'>> {
+export interface GoblinThemeOptions
+  extends DeepPartial<Omit<GoblinTheme, 'spacing' | 'breakpoints' | 'transitions'>> {
   palette?: PaletteOverrides
   spacing?: number | Spacing
   breakpoints?: Partial<{ values: Partial<BreakpointValues> }>

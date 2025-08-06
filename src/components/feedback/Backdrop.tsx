@@ -1,11 +1,11 @@
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { BackdropRoot } from './Backdrop.style'
 import type { BackdropProps } from './Backdrop.types'
 
 export const Backdrop = ({ open, children, sx, style, ...rest }: BackdropProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   if (!open) return null
   return (

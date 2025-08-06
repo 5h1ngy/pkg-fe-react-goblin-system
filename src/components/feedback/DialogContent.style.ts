@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
 export const DialogContentRoot = styled.div`
-  padding: 1rem 1.5rem;
+  padding: ${({ theme }) => `${theme.spacing(2)} ${theme.spacing(3)}`};
   flex: 1;
 `

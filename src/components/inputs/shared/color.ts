@@ -1,4 +1,4 @@
-import type { MaterialTheme } from '../../../foundations'
+import type { GoblinTheme } from '../../../foundations'
 
 export type ColorToken = 'inherit' | 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error'
 export type ActiveColor = Exclude<ColorToken, 'inherit' | 'default'>
@@ -9,7 +9,7 @@ export interface ColorSwatch {
   dark: string
 }
 
-export const getColor = (theme: MaterialTheme, color: ColorToken): ColorSwatch => {
+export const getColor = (theme: GoblinTheme, color: ColorToken): ColorSwatch => {
   if (color === 'inherit') {
     return {
       main: 'inherit',

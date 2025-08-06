@@ -1,4 +1,4 @@
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { CircularProgressSvg } from './CircularProgress.style'
@@ -13,7 +13,7 @@ export const CircularProgress = ({
   style,
   ...rest
 }: CircularProgressProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const radius = (size - thickness) / 2
   const circumference = 2 * Math.PI * radius

@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react'
-import { MaterialThemeProvider, CssBaseline, createMaterialTheme } from '../src/foundations'
+import { GoblinThemeProvider, CssBaseline, createGoblinTheme } from '../src/foundations'
 
 const preview: Preview = {
   parameters: {
@@ -33,14 +33,14 @@ const preview: Preview = {
     primary: {
       name: 'Primary',
       description: 'Primary palette color',
-      defaultValue: '#1976d2',
+      defaultValue: '#1677ff',
       toolbar: {
         icon: 'paintbrush',
         items: [
-          { value: '#1976d2', title: 'Blue' },
-          { value: '#9c27b0', title: 'Purple' },
-          { value: '#2e7d32', title: 'Green' },
-          { value: '#ed6c02', title: 'Orange' },
+          { value: '#1677ff', title: 'Blue' },
+          { value: '#722ed1', title: 'Purple' },
+          { value: '#52c41a', title: 'Green' },
+          { value: '#faad14', title: 'Amber' },
         ],
       },
     },
@@ -49,7 +49,7 @@ const preview: Preview = {
     (Story, context) => {
       const mode = context.globals.mode as 'light' | 'dark'
       const primary = context.globals.primary as string
-      const theme = createMaterialTheme({
+      const theme = createGoblinTheme({
         palette: {
           mode,
           primary: { main: primary },
@@ -57,16 +57,15 @@ const preview: Preview = {
       })
 
       return (
-        <MaterialThemeProvider theme={theme}>
+        <GoblinThemeProvider theme={theme}>
           <CssBaseline />
           <div style={{ minHeight: '100vh', padding: '2rem' }}>
             <Story />
           </div>
-        </MaterialThemeProvider>
+        </GoblinThemeProvider>
       )
     },
   ],
 }
 
 export default preview
-

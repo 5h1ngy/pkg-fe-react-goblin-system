@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { mergeSx, resolveSx } from '../../system'
 
 import { ContainerRoot } from './Container.style'
@@ -10,7 +10,7 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(function Con
   { maxWidth = 'lg', disableGutters = false, fixed = false, sx, style, ...rest },
   ref
 ) {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const widthValue = maxWidth ? `${theme.breakpoints.values[maxWidth]}px` : undefined
   const baseStyles = {
     width: '100%',

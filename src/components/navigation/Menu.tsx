@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { Backdrop } from './shared/Backdrop'
@@ -9,7 +9,7 @@ import type { MenuProps } from './Menu.types'
 
 export const Menu = ({ anchorEl, open, onClose, children, sx, style, ...rest }: MenuProps) => {
   const [position, setPosition] = useState({ top: 0, left: 0 })
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   useEffect(() => {

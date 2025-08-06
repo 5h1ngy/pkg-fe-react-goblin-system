@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { AccordionContext } from './Accordion.context'
@@ -10,7 +10,7 @@ import type { AccordionProps } from './Accordion.types'
 export const Accordion = ({ expanded, defaultExpanded = false, onChange, disabled, children, sx, style, ...rest }: AccordionProps) => {
   const [internalExpanded, setInternalExpanded] = useState(defaultExpanded)
   const isExpanded = expanded ?? internalExpanded
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   const toggle = (event: React.SyntheticEvent) => {

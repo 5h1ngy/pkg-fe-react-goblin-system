@@ -1,8 +1,8 @@
-import type { MaterialTheme } from '../../../foundations'
+import type { GoblinTheme } from '../../../foundations'
 
 export type PaletteIntent = 'inherit' | 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error'
 
-export const getIntentColor = (theme: MaterialTheme, color: PaletteIntent) => {
+export const getIntentColor = (theme: GoblinTheme, color: PaletteIntent) => {
   if (color === 'inherit') {
     return { main: 'inherit', contrastText: 'inherit' }
   }

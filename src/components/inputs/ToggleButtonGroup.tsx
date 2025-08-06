@@ -1,6 +1,6 @@
 import { Children, ReactElement, cloneElement, isValidElement, useState } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import type { ToggleButtonProps } from './ToggleButton.types'
@@ -18,7 +18,7 @@ export const ToggleButtonGroup = ({
   style,
   ...rest
 }: ToggleButtonGroupProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const [internalValue, setInternalValue] = useState<string | string[] | undefined>(defaultValue)
 

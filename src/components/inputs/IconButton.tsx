@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { mergeSx, resolveSx } from '../../system'
 
 import { IconButtonRoot } from './IconButton.style'
@@ -10,7 +10,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
   { variant = 'text', color = 'primary', size = 'medium', disableElevation, sx, style, ...rest },
   ref,
 ) {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, mergeSx({ width: 40, height: 40, borderRadius: '50%', padding: 0 }, sx), style)
 
   return (

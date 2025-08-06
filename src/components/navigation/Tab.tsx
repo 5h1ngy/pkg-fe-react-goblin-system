@@ -1,4 +1,4 @@
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { useTabsContext } from './Tabs.context'
@@ -7,7 +7,7 @@ import type { TabProps } from './Tab.types'
 
 export const Tab = ({ label, value, icon, sx, style, ...rest }: TabProps) => {
   const ctx = useTabsContext()
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const tabValue = value ?? label?.toString() ?? ''
   const selected = ctx.value === tabValue

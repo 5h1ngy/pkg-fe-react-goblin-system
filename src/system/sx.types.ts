@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react'
 
-import type { MaterialTheme } from '../foundations'
+import type { GoblinTheme } from '../foundations'
 
 export type SxInput =
   | CSSProperties
-  | ((theme: MaterialTheme) => CSSProperties)
+  | ((theme: GoblinTheme) => CSSProperties)
   | false
   | null
   | undefined

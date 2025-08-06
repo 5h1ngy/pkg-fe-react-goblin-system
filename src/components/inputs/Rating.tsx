@@ -1,6 +1,6 @@
 import { MouseEvent, useState } from 'react'
 
-import { StarBorderIcon, StarIcon, useMaterialTheme } from '../../foundations'
+import { StarBorderIcon, StarIcon, useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { RatingRoot } from './Rating.style'
@@ -20,7 +20,7 @@ export const Rating = ({
   style,
   className,
 }: RatingProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const [internal, setInternal] = useState(defaultValue)
 

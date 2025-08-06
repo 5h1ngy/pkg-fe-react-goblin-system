@@ -1,6 +1,6 @@
 import { forwardRef, useState } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { SliderTrack } from './Slider.style'
@@ -10,7 +10,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(function Slider(
   { sx, style, valueLabelDisplay = 'auto', ...rest },
   ref,
 ) {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const [hover, setHover] = useState(false)
 

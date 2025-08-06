@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 
+import type { GoblinTheme } from '../../foundations'
 import { getColor } from './shared/color'
 import type { ButtonProps, ButtonSize, ButtonVariant } from './Button.types'
 
@@ -11,23 +12,33 @@ interface ButtonStyleProps {
   $disableElevation?: boolean
 }
 
-const buttonPadding: Record<ButtonSize, string> = {
-  small: '0.25rem 0.75rem',
-  medium: '0.5rem 1.25rem',
-  large: '0.75rem 1.5rem',
+const buttonFontSize: Record<ButtonSize, string> = {
+  small: '0.8125rem',
+  medium: '0.875rem',
+  large: '0.9375rem',
+}
+
+const paddingScale: Record<ButtonSize, [number, number]> = {
+  small: [1.1, 2.6],
+  medium: [1.4, 3.2],
+  large: [1.7, 3.8],
+}
+
+const getPadding = (theme: GoblinTheme, size: ButtonSize) => {
+  const [vertical, horizontal] = paddingScale[size]
+  return `${theme.spacing(vertical)} ${theme.spacing(horizontal)}`
 }
 
 export const ButtonRoot = styled.button<ButtonStyleProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
+  gap: ${({ theme }) => theme.spacing(1.4)};
   border-radius: ${({ theme }) => theme.shape.borderRadius}px;
   border: 1px solid transparent;
   font-weight: ${({ theme }) => theme.typography.fontWeightMedium};
-  font-size: ${({ $size }) =>
-    $size === 'small' ? '0.8125rem' : $size === 'large' ? '0.9375rem' : '0.875rem'};
-  padding: ${({ $size }) => buttonPadding[$size]};
+  font-size: ${({ $size }) => buttonFontSize[$size]};
+  padding: ${({ theme, $size }) => getPadding(theme, $size)};
   text-transform: ${({ theme }) => theme.typography.button.textTransform};
   cursor: pointer;
   transition: ${({ theme }) => theme.transitions.create(['background-color', 'box-shadow', 'transform'])};
@@ -44,7 +55,9 @@ export const ButtonRoot = styled.button<ButtonStyleProps>`
           background: transparent;
 
           &:hover {
-            background: ${palette.main}14;
+            background: ${theme.palette.action.hover};
+            color: ${palette.dark};
+            border-color: ${palette.dark};
           }
         `
       case 'contained':
@@ -64,7 +77,8 @@ export const ButtonRoot = styled.button<ButtonStyleProps>`
           color: ${palette.main};
 
           &:hover {
-            background: ${palette.main}14;
+            background: ${theme.palette.action.hover};
+            color: ${palette.dark};
           }
         `
     }
@@ -73,15 +87,18 @@ export const ButtonRoot = styled.button<ButtonStyleProps>`
   ${({ $variant, $disableElevation, theme }) =>
     $variant === 'contained' &&
     css`
-      box-shadow: ${$disableElevation ? 'none' : theme.shadows[2]};
+      box-shadow: ${$disableElevation ? 'none' : theme.shadows[Math.min(2, theme.shadows.length - 1)]};
 
       &:hover {
-        box-shadow: ${$disableElevation ? 'none' : theme.shadows[3]};
+        box-shadow: ${$disableElevation ? 'none' : theme.shadows[Math.min(3, theme.shadows.length - 1)]};
       }
     `}
 
   &:disabled {
-    opacity: 0.5;
+    background: ${({ theme }) => theme.palette.action.disabledBackground};
+    border-color: ${({ theme }) => theme.palette.action.disabledBackground};
+    color: ${({ theme }) => theme.palette.action.disabled};
+    opacity: 1;
     cursor: not-allowed;
     pointer-events: none;
   }

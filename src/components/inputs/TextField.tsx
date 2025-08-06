@@ -1,6 +1,6 @@
 import { forwardRef, InputHTMLAttributes, TextareaHTMLAttributes, Ref, useId } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { Adornment, HelperText, InputField, InputWrapper } from './shared/fieldBase'
@@ -25,7 +25,7 @@ export const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
   ref,
 ) {
   const id = useId()
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const inputProps = rest as InputHTMLAttributes<HTMLInputElement>
   const textareaProps = rest as TextareaHTMLAttributes<HTMLTextAreaElement>

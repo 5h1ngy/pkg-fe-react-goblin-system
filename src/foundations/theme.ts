@@ -2,9 +2,9 @@ import {
   BreakpointValues,
   Breakpoints,
   DeepPartial,
-  MaterialTheme,
-  MaterialThemeOptions,
-  MaterialTypography,
+  GoblinTheme,
+  GoblinThemeOptions,
+  GoblinTypography,
   Mixins,
   Palette,
   PaletteMode,
@@ -17,70 +17,70 @@ import {
 const lightPaletteBase: Palette = {
   mode: 'light',
   primary: {
-    main: '#1976d2',
-    light: '#63a4ff',
-    dark: '#004ba0',
+    main: '#1677ff',
+    light: '#69b1ff',
+    dark: '#0958d9',
     contrastText: '#ffffff',
   },
   secondary: {
-    main: '#9c27b0',
-    light: '#d05ce3',
-    dark: '#6a0080',
+    main: '#722ed1',
+    light: '#b37feb',
+    dark: '#531dab',
     contrastText: '#ffffff',
   },
   error: {
-    main: '#d32f2f',
-    light: '#ff6659',
-    dark: '#9a0007',
+    main: '#ff4d4f',
+    light: '#ff7875',
+    dark: '#a8071a',
     contrastText: '#ffffff',
   },
   warning: {
-    main: '#ed6c02',
-    light: '#ff9800',
-    dark: '#e65100',
-    contrastText: '#ffffff',
+    main: '#faad14',
+    light: '#ffd666',
+    dark: '#d48806',
+    contrastText: '#141414',
   },
   info: {
-    main: '#0288d1',
-    light: '#03a9f4',
-    dark: '#01579b',
-    contrastText: '#ffffff',
+    main: '#36cfc9',
+    light: '#5cdbd3',
+    dark: '#08979c',
+    contrastText: '#083c4a',
   },
   success: {
-    main: '#2e7d32',
-    light: '#60ad5e',
-    dark: '#005005',
+    main: '#52c41a',
+    light: '#73d13d',
+    dark: '#237804',
     contrastText: '#ffffff',
   },
   grey: {
-    50: '#fafafa',
-    100: '#f5f5f5',
-    200: '#eeeeee',
-    300: '#e0e0e0',
-    400: '#bdbdbd',
-    500: '#9e9e9e',
-    600: '#757575',
-    700: '#616161',
-    800: '#424242',
-    900: '#212121',
+    50: '#f6f8fb',
+    100: '#eef2f8',
+    200: '#dbe3f1',
+    300: '#c0cde4',
+    400: '#a6b6d4',
+    500: '#8c9fc1',
+    600: '#7384a6',
+    700: '#5b6886',
+    800: '#424a63',
+    900: '#2b3142',
   },
   background: {
-    default: '#f5f5f5',
+    default: '#f7f9fc',
     paper: '#ffffff',
   },
   text: {
-    primary: '#1f1f1f',
-    secondary: '#4d4d4d',
-    disabled: 'rgba(0,0,0,0.38)',
+    primary: '#1f2333',
+    secondary: '#5c6273',
+    disabled: 'rgba(31,35,51,0.35)',
   },
-  divider: 'rgba(0,0,0,0.12)',
+  divider: 'rgba(34,41,57,0.12)',
   action: {
-    active: 'rgba(0,0,0,0.54)',
-    hover: 'rgba(0,0,0,0.04)',
-    selected: 'rgba(0,0,0,0.08)',
-    disabled: 'rgba(0,0,0,0.26)',
-    disabledBackground: 'rgba(0,0,0,0.12)',
-    focus: 'rgba(0,0,0,0.12)',
+    active: 'rgba(17,25,40,0.65)',
+    hover: 'rgba(22,119,255,0.08)',
+    selected: 'rgba(114,46,209,0.12)',
+    disabled: 'rgba(31,35,51,0.3)',
+    disabledBackground: 'rgba(31,35,51,0.1)',
+    focus: 'rgba(22,119,255,0.18)',
   },
 }
 
@@ -88,62 +88,62 @@ const darkPaletteBase: Palette = {
   ...lightPaletteBase,
   mode: 'dark',
   primary: {
-    main: '#90caf9',
-    light: '#e3f2fd',
-    dark: '#42a5f5',
-    contrastText: 'rgba(0,0,0,0.87)',
+    main: '#4096ff',
+    light: '#69b1ff',
+    dark: '#165996',
+    contrastText: '#0b1220',
   },
   secondary: {
-    main: '#ce93d8',
-    light: '#f3e5f5',
-    dark: '#ab47bc',
-    contrastText: 'rgba(0,0,0,0.87)',
+    main: '#a871ff',
+    light: '#c8a8ff',
+    dark: '#6c3cd4',
+    contrastText: '#0b1220',
   },
   error: {
-    main: '#f44336',
-    light: '#e57373',
-    dark: '#d32f2f',
-    contrastText: 'rgba(0,0,0,0.87)',
+    main: '#ff7875',
+    light: '#ffa39e',
+    dark: '#a8071a',
+    contrastText: '#2a0608',
   },
   warning: {
-    main: '#ffa726',
-    light: '#ffb74d',
-    dark: '#f57c00',
-    contrastText: 'rgba(0,0,0,0.87)',
+    main: '#ffc53d',
+    light: '#ffd666',
+    dark: '#ad6800',
+    contrastText: '#1f1604',
   },
   info: {
-    main: '#29b6f6',
-    light: '#4fc3f7',
-    dark: '#0288d1',
-    contrastText: 'rgba(0,0,0,0.87)',
+    main: '#5cdbd3',
+    light: '#87e8de',
+    dark: '#08979c',
+    contrastText: '#0a1f24',
   },
   success: {
-    main: '#66bb6a',
-    light: '#81c784',
-    dark: '#388e3c',
-    contrastText: 'rgba(0,0,0,0.87)',
+    main: '#73d13d',
+    light: '#95de64',
+    dark: '#3f8618',
+    contrastText: '#051b11',
   },
   background: {
-    default: '#121212',
-    paper: '#1e1e1e',
+    default: '#0e1116',
+    paper: '#151b24',
   },
   text: {
-    primary: 'rgba(255,255,255,0.87)',
-    secondary: 'rgba(255,255,255,0.6)',
-    disabled: 'rgba(255,255,255,0.38)',
+    primary: 'rgba(244,247,255,0.92)',
+    secondary: 'rgba(244,247,255,0.65)',
+    disabled: 'rgba(244,247,255,0.4)',
   },
-  divider: 'rgba(255,255,255,0.12)',
+  divider: 'rgba(86,99,125,0.22)',
   action: {
-    active: 'rgba(255,255,255,0.56)',
-    hover: 'rgba(255,255,255,0.08)',
-    selected: 'rgba(255,255,255,0.16)',
-    disabled: 'rgba(255,255,255,0.3)',
-    disabledBackground: 'rgba(255,255,255,0.12)',
-    focus: 'rgba(255,255,255,0.12)',
+    active: 'rgba(244,247,255,0.74)',
+    hover: 'rgba(64,150,255,0.12)',
+    selected: 'rgba(64,150,255,0.18)',
+    disabled: 'rgba(244,247,255,0.4)',
+    disabledBackground: 'rgba(244,247,255,0.12)',
+    focus: 'rgba(64,150,255,0.24)',
   },
 }
 
-const defaultTypography: MaterialTypography = {
+const defaultTypography: GoblinTypography = {
   fontFamily:
     'Inter, "Roboto", "Helvetica Neue", "Segoe UI", -apple-system, BlinkMacSystemFont, "Noto Sans", sans-serif',
   fontSize: 14,
@@ -234,7 +234,7 @@ const defaultTypography: MaterialTypography = {
 }
 
 const defaultShape: Shape = {
-  borderRadius: 8,
+  borderRadius: 12,
 }
 
 const defaultBreakpointValues: BreakpointValues = {
@@ -247,11 +247,13 @@ const defaultBreakpointValues: BreakpointValues = {
 
 const defaultShadows = [
   'none',
-  '0px 1px 3px rgba(0,0,0,0.12),0px 1px 2px rgba(0,0,0,0.24)',
-  '0px 3px 6px rgba(0,0,0,0.16),0px 3px 6px rgba(0,0,0,0.23)',
-  '0px 10px 20px rgba(0,0,0,0.19),0px 6px 6px rgba(0,0,0,0.23)',
-  '0px 14px 28px rgba(0,0,0,0.25),0px 10px 10px rgba(0,0,0,0.22)',
-  '0px 19px 38px rgba(0,0,0,0.3),0px 15px 12px rgba(0,0,0,0.22)',
+  '0 6px 14px rgba(15,23,42,0.05)',
+  '0 12px 24px rgba(15,23,42,0.08)',
+  '0 16px 32px rgba(15,23,42,0.1)',
+  '0 20px 40px rgba(15,23,42,0.12)',
+  '0 24px 48px rgba(15,23,42,0.14)',
+  '0 28px 56px rgba(15,23,42,0.16)',
+  '0 32px 64px rgba(15,23,42,0.18)',
 ] as const
 
 const defaultZIndex: ZIndex = {
@@ -282,9 +284,11 @@ const defaultTransitionsBase: Omit<Transitions, 'create'> = {
 
 const defaultMixins: Mixins = {
   toolbar: {
-    minHeight: 56,
+    minHeight: 60,
+    padding: '0 1.5rem',
     '@media (min-width:600px)': {
-      minHeight: 64,
+      minHeight: 72,
+      padding: '0 2rem',
     },
   },
 }
@@ -320,7 +324,7 @@ const createSpacing = (spacing?: number | Spacing): Spacing => {
     return spacing
   }
 
-  const base = typeof spacing === 'number' ? spacing : 8
+  const base = typeof spacing === 'number' ? spacing : 10
   return (factor: number) => `${(factor * base) / 16}rem`
 }
 
@@ -345,7 +349,7 @@ const createTransitions = (
   duration: mergeDeep(defaultTransitionsBase.duration, overrides?.duration),
 })
 
-export const createMaterialTheme = (options: MaterialThemeOptions = {}): MaterialTheme => {
+export const createGoblinTheme = (options: GoblinThemeOptions = {}): GoblinTheme => {
   const mode: PaletteMode = options.palette?.mode ?? 'light'
 
   const paletteBase = mode === 'dark' ? darkPaletteBase : lightPaletteBase

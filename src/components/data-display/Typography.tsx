@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { TypographyRoot } from './Typography.style'
@@ -34,7 +34,7 @@ export const Typography = ({
   children,
   ...rest
 }: TypographyProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const Component = useMemo(() => component ?? defaultMapping[variant] ?? 'span', [component, variant])
 

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import type { MaterialTheme } from '../../foundations'
+import type { GoblinTheme } from '../../foundations'
 import type { ChipColor, ChipProps } from './Chip.types'
 
-const getChipColors = (theme: MaterialTheme, color: ChipColor) => {
+const getChipColors = (theme: GoblinTheme, color: ChipColor) => {
   if (color === 'default') {
     return {
       main: theme.palette.grey[300],
@@ -26,8 +26,8 @@ export const ChipRoot = styled.div<{
 }>`
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.25rem 0.75rem;
+  gap: ${({ theme }) => theme.spacing(0.9)};
+  padding: ${({ theme }) => `${theme.spacing(0.8)} ${theme.spacing(1.8)}`};
   border-radius: 999px;
   font-size: 0.875rem;
   border: 1px solid transparent;

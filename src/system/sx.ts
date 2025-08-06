@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react'
 
-import type { MaterialTheme } from '../foundations'
+import type { GoblinTheme } from '../foundations'
 import type { SxInput, SxProps } from './sx.types'
 
 export type { SxInput, SxProps } from './sx.types'
@@ -33,7 +33,7 @@ const SPACING_KEYS: Array<keyof CSSProperties> = [
   'rowGap',
 ]
 
-const normalizeSpacing = (style: CSSProperties, theme: MaterialTheme) => {
+const normalizeSpacing = (style: CSSProperties, theme: GoblinTheme) => {
   const normalized: Record<string, unknown> = { ...style }
   SPACING_KEYS.forEach((key) => {
     const value = normalized[key as string]
@@ -58,11 +58,11 @@ const toArray = (value?: SxProps): SxInput[] => {
 }
 
 export const resolveSx = (
-  theme: MaterialTheme,
+  theme: GoblinTheme,
   sx?: SxProps,
   style?: CSSProperties
 ): CSSProperties | undefined => {
-  const values = toArray(sx).filter(Boolean) as Array<CSSProperties | ((theme: MaterialTheme) => CSSProperties)>
+  const values = toArray(sx).filter(Boolean) as Array<CSSProperties | ((theme: GoblinTheme) => CSSProperties)>
 
   if (!values.length) {
     return style

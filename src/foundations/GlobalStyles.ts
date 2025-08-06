@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${({ theme }) => theme.typography.fontSize}px;
     background: ${({ theme }) => theme.palette.background.default};
     color: ${({ theme }) => theme.palette.text.primary};
+    color-scheme: ${({ theme }) => (theme.palette.mode === 'dark' ? 'dark' : 'light')};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -31,5 +32,6 @@ export const GlobalStyles = createGlobalStyle`
   textarea,
   select {
     font: inherit;
+    border-radius: ${({ theme }) => theme.shape.borderRadius / 1.5}px;
   }
 `

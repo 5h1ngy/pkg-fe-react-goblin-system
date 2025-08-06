@@ -1,11 +1,11 @@
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { AlertRoot } from './Alert.style'
 import type { AlertProps } from './Alert.types'
 
 export const Alert = ({ severity = 'success', variant = 'standard', action, icon, onClose, children, sx, style, ...rest }: AlertProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   return (

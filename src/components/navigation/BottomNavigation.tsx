@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { BottomNavigationContext } from './BottomNavigation.context'
@@ -10,7 +10,7 @@ import type { BottomNavigationProps } from './BottomNavigation.types'
 export const BottomNavigation = ({ value, defaultValue = 0, onChange, children, sx, style, ...rest }: BottomNavigationProps) => {
   const [internalValue, setInternalValue] = useState<string | number>(defaultValue)
   const currentValue = value ?? internalValue
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   const handleChange = (event: React.MouseEvent<HTMLElement>, newValue: string | number) => {

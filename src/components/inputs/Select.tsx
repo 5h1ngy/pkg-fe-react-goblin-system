@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { HelperText, InputWrapper } from './shared/fieldBase'
@@ -8,7 +8,7 @@ import type { SelectProps } from './Select.types'
 
 export const Select = ({ label, helperText, error, fullWidth, variant = 'outlined', options, sx, style, ...rest }: SelectProps) => {
   const id = useId()
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { ModalBackdrop } from './shared/ModalBackdrop'
@@ -10,7 +10,7 @@ import type { PopoverProps } from './Popover.types'
 
 export const Popover = ({ open, anchorEl, onClose, children, sx, style, ...rest }: PopoverProps) => {
   const [position, setPosition] = useState({ top: 0, left: 0 })
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   useEffect(() => {

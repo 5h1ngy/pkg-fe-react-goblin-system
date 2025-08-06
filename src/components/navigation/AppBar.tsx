@@ -1,4 +1,4 @@
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { AppBarRoot } from './AppBar.style'
@@ -13,7 +13,7 @@ export const AppBar = ({
   children,
   ...rest
 }: AppBarProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   return (

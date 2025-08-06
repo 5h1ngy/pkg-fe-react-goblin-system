@@ -1,6 +1,6 @@
 import { Children, Fragment, ReactElement, cloneElement, forwardRef, isValidElement } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { StackRoot } from './Stack.style'
@@ -10,7 +10,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   { direction = 'column', spacing = 0, divider, alignItems, justifyContent, sx, style, children, ...rest },
   ref,
 ) {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const gapValue = theme.spacing(spacing)
   const resolvedStyle = resolveSx(theme, sx, style)
 

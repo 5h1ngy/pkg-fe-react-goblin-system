@@ -1,4 +1,4 @@
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { DividerRoot } from './Divider.style'
@@ -11,7 +11,7 @@ export const Divider = ({
   style,
   ...rest
 }: DividerProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   return <DividerRoot $orientation={orientation} $flex={flexItem} style={resolvedStyle} {...rest} />

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { BoxRoot } from './Box.style'
@@ -10,7 +10,7 @@ export const Box = forwardRef<HTMLElement, BoxProps>(function Box(
   { component: Component = 'div', sx, style, ...rest },
   ref
 ) {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   return <BoxRoot as={Component} ref={ref} style={resolvedStyle} {...rest} />

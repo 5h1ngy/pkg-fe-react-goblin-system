@@ -1,7 +1,7 @@
 import 'styled-components'
 
-import type { MaterialTheme } from './theme'
+import type { GoblinTheme } from './theme'
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends MaterialTheme {}
+  export interface DefaultTheme extends GoblinTheme {}
 }

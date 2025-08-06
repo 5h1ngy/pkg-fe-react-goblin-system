@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 
 import { ImageListContext } from './ImageList.hooks'
 import { ImageListRoot } from './ImageList.style'
@@ -10,7 +10,7 @@ export const ImageList = forwardRef<HTMLUListElement, ImageListProps>(function I
   { cols = 3, gap = 2, rowHeight = 164, variant = 'standard', children, ...rest },
   ref,
 ) {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const gapValue = theme.spacing(gap)
 
   const list = (

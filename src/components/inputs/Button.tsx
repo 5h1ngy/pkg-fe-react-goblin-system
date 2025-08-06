@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { ButtonRoot } from './Button.style'
@@ -10,7 +10,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   { variant = 'text', color = 'primary', size = 'medium', fullWidth, startIcon, endIcon, disableElevation, sx, style, children, ...rest },
   ref,
 ) {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
   return (

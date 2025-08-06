@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { GridContext, useGridContext } from './Grid.hooks'
@@ -28,7 +28,7 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
   },
   ref,
 ) {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const parent = useGridContext()
   const resolvedColumns = container ? columns : parent.columns
   const resolvedSpacing = spacing ?? parent.spacing ?? 0

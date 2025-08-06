@@ -1,6 +1,6 @@
 import { ChangeEvent, useMemo, useState } from 'react'
 
-import { useMaterialTheme } from '../../foundations'
+import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { TextField } from './TextField'
@@ -8,7 +8,7 @@ import { AutocompleteMenu } from './Autocomplete.style'
 import type { AutocompleteOption, AutocompleteProps } from './Autocomplete.types'
 
 export const Autocomplete = ({ options, onChange, sx, style, ...rest }: AutocompleteProps) => {
-  const theme = useMaterialTheme()
+  const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
   const [query, setQuery] = useState(rest.value ?? '')
   const [open, setOpen] = useState(false)
