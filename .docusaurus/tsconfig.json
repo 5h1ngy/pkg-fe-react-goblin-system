@@ -5,7 +5,7 @@
   },
   "include": [
     "src",
-    "docs",
+    "../docs",
     "static"
   ],
   "exclude": [

@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
             tsconfigPaths(),
             // Genera automaticamente i file .d.ts durante la build
             dts({
-                outDir: 'dist/types',
+                outDir: 'dist/lib/types',
                 exclude: ['**/*.test.ts', '**/*.test.tsx', '**/*.stories.tsx'],
                 // Utilizziamo solo le opzioni supportate
                 compilerOptions: {
@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
             }),
         ],
         build: {
-            outDir: 'dist',
+            outDir: 'dist/lib',
             sourcemap: mode === 'development',
             minify: mode === 'production' ? 'terser' : false,
             lib: {

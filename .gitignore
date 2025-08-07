@@ -37,7 +37,7 @@ build-docusaurus/
 build-storybook/
 build-ssr/
 # Additional build or temporary artifacts
-.docusaurus/
+.docusaurus/.docusaurus/
 coverage/
 *.bundle.js
 *.min.js

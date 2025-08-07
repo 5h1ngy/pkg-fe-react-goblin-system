@@ -34,25 +34,25 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Build Docusaurus
-        run: yarn build:docs
+      - name: Build documentation
+        run: yarn docs:build
 
-      - name: Deploy Docusaurus to GitHub Pages
+      - name: Deploy documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build-docusaurus
+          publish_dir: ./dist/docusaurus
           publish_branch: gh-pages
           destination_dir: ./
 
       - name: Build Storybook
-        run: yarn build:storybook
+        run: yarn storybook:build
 
       - name: Deploy Storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build-storybook
+          publish_dir: ./dist/storybook
           publish_branch: gh-pages
           destination_dir: storybook
           keep_files: true

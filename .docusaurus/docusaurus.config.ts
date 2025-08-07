@@ -35,6 +35,7 @@ const config: Config = {
       {
         blog: false,
         docs: {
+          path: '../docs',
           sidebarPath: require.resolve('./sidebars.ts'),
         },
         theme: {

@@ -4,7 +4,7 @@ import type { GoblinTheme } from '../../foundations'
 import { getColor } from './shared/color'
 import type { ButtonProps, ButtonSize, ButtonVariant } from './Button.types'
 
-interface ButtonStyleProps {
+export interface ButtonStyleProps {
   $variant: ButtonVariant
   $color: ButtonProps['color']
   $size: ButtonSize
