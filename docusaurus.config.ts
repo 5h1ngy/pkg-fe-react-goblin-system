@@ -1,4 +1,19 @@
 import type { Config } from '@docusaurus/types';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url) as NodeJS.Require & {
+  resolveWeak?: NodeJS.RequireResolve;
+};
+
+if (!require.resolveWeak) {
+  require.resolveWeak = require.resolve;
+}
+
+if (!(globalThis as unknown as { require?: typeof require }).require) {
+  (globalThis as unknown as { require: typeof require }).require = require;
+} else if (!(globalThis as unknown as { require: typeof require }).require.resolveWeak) {
+  (globalThis as unknown as { require: typeof require }).require.resolveWeak = require.resolve;
+}
 
 const config: Config = {
   title: 'Goblin System Docs',

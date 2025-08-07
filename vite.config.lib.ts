@@ -39,9 +39,8 @@ export default defineConfig(({ mode }) => {
                 fileName: (format, entryName) => `${entryName}.mjs`,
                 // Usa un approccio più modulare per gli entry points - solo quelli che sappiamo esistere
                 entry: {
-                    "index": path.resolve(__dirname, "src/index.tsx"),
-                    "components/index": path.resolve(__dirname, "src/components/index.ts"),
-                    "styles/index": path.resolve(__dirname, "src/styles/index.ts"),
+                    "index": path.resolve(__dirname, "packages/index.ts"),
+                    "components/index": path.resolve(__dirname, "packages/components/index.ts"),
                 },
             },
             rollupOptions: {
@@ -59,12 +58,12 @@ export default defineConfig(({ mode }) => {
                     },
                     // Preserva la struttura delle directory nel bundle
                     preserveModules: true,
-                    preserveModulesRoot: 'src',
+                    preserveModulesRoot: 'packages',
                     // Formatta il nome dei chunks in modo più leggibile
                     chunkFileNames: (chunkInfo) => {
                         const id = chunkInfo.facadeModuleId || '';
                         if (!id) return 'chunks/[name]-[hash].mjs';
-                        const match = id.match(/src\/(.+?)\.tsx?$/);
+                        const match = id.match(/packages\/(.+?)\.tsx?$/);
                         return match ? `chunks/${match[1]}.mjs` : 'chunks/[name]-[hash].mjs';
                     },
                     // Ottimizza i nomi dei file asset

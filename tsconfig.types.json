@@ -1,7 +1,7 @@
 {
     "extends": "./tsconfig.app.json",
     "compilerOptions": {
-      "rootDir": "src",
+      "rootDir": "packages",
       "noEmit": false,
       "declaration": true,
       "emitDeclarationOnly": true,
@@ -10,6 +10,6 @@
       "types": ["node",]
     },
     "include": [
-      "src"
+      "packages"
     ]
   }

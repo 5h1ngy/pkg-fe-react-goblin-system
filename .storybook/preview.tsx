@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react'
-import { GoblinThemeProvider, CssBaseline, createGoblinTheme } from '../src/foundations'
+import { GoblinThemeProvider, CssBaseline, createGoblinTheme } from '../packages/foundations'
 
 const preview: Preview = {
   parameters: {

@@ -21,11 +21,8 @@
   },
   "author": "5h1ngy",
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=20.18.0 <21"
   },
-  "workspaces": [
-    "docs"
-  ],
   "private": true,
   "type": "module",
   "exports": {
@@ -61,15 +58,21 @@
   "scripts": {
     "lint": "eslint .",
     "start:storybook": "storybook dev --no-open --port 6006",
-    "start:docs": "yarn workspace react-goblin-system-docs docusaurus start",
     "build:storybook": "storybook build --output-dir build-storybook",
-    "build:docs": "yarn workspace react-goblin-system-docs docusaurus build && rm -rf build-docusaurus && mv docs/build build-docusaurus && rm -rf docs/build",
     "build:lib": "vite build --config vite.config.lib.ts --mode prod && tsc --project tsconfig.types.json && npm pack && mkdir build-lib/ && mv *.tgz build-lib/ && rm -rfdv dist/",
-    "reset": "rm -rfdv .yarn node_modules dist build-docusaurus build-storybook build-lib docs/node_modules docs/.docusaurus",
-    "clean": "rm -rfdv dist build-docusaurus build-storybook build-lib"
+    "reset": "rm -rfdv .yarn node_modules dist build build-storybook build-lib .docusaurus",
+    "clean": "rm -rfdv dist build build-storybook build-lib",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve"
   },
   "dependencies": {
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/preset-classic": "^3.0.0",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "prism-react-renderer": "^2.0.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -109,7 +112,10 @@
     "typescript-eslint": "^8.26.0",
     "vite": "^5.1.5",
     "vite-plugin-dts": "^4.5.3",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "@docusaurus/module-type-aliases": "^3.0.0",
+    "@docusaurus/tsconfig": "^3.0.0",
+    "@docusaurus/types": "^3.0.0"
   },
   "browserslist": {
     "production": [
