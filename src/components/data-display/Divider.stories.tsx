@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Divider, Typography } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Divider> = {
   title: 'Data Display/Divider',
   component: Divider,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Divider,
+      },
+    },
+  },
 }
 
 export default meta

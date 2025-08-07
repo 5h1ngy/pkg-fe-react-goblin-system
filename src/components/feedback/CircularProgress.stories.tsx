@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { CircularProgress } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof CircularProgress> = {
   title: 'Feedback/CircularProgress',
   component: CircularProgress,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.CircularProgress,
+      },
+    },
+  },
   args: {
     color: 'primary',
   },

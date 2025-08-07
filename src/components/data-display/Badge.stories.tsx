@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Avatar, Badge } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Badge> = {
   title: 'Data Display/Badge',
   component: Badge,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Badge,
+      },
+    },
+  },
   args: {
     badgeContent: 4,
     color: 'primary',

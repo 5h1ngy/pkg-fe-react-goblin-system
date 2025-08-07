@@ -2,10 +2,19 @@ import { useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Backdrop, Button } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Backdrop> = {
   title: 'Feedback/Backdrop',
   component: Backdrop,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Backdrop,
+      },
+    },
+  },
 }
 
 export default meta

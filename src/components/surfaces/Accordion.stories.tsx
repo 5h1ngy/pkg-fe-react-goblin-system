@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Surfaces/Accordion',
   component: Accordion,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Accordion,
+      },
+    },
+  },
 }
 
 export default meta

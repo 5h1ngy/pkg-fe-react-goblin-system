@@ -2,10 +2,19 @@ import { useRef, useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Menu, MenuItem } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Menu> = {
   title: 'Navigation/Menu',
   component: Menu,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Menu,
+      },
+    },
+  },
 }
 
 export default meta

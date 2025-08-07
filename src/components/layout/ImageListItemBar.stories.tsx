@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { ImageList, ImageListItem, ImageListItemBar } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof ImageListItemBar> = {
   title: 'Layout/ImageListItemBar',
   component: ImageListItemBar,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.ImageListItemBar,
+      },
+    },
+  },
 }
 
 export default meta

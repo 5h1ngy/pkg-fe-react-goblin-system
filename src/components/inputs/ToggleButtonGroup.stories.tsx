@@ -2,10 +2,19 @@ import { useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { ToggleButton, ToggleButtonGroup } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof ToggleButtonGroup> = {
   title: 'Inputs/ToggleButtonGroup',
   component: ToggleButtonGroup,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.ToggleButtonGroup,
+      },
+    },
+  },
 }
 
 export default meta

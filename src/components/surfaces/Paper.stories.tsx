@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Paper, Typography } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Paper> = {
   title: 'Surfaces/Paper',
   component: Paper,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Paper,
+      },
+    },
+  },
   args: {
     elevation: 2,
   },

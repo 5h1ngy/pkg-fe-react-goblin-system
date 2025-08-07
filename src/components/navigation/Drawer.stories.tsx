@@ -2,10 +2,19 @@ import { useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Drawer, Typography } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Drawer> = {
   title: 'Navigation/Drawer',
   component: Drawer,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Drawer,
+      },
+    },
+  },
 }
 
 export default meta

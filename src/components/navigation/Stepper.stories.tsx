@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Step, StepLabel, Stepper } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Stepper> = {
   title: 'Navigation/Stepper',
   component: Stepper,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Stepper,
+      },
+    },
+  },
 }
 
 export default meta

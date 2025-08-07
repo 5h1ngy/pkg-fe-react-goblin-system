@@ -2,10 +2,19 @@ import { useRef, useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Button, Popover } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Popover> = {
   title: 'Utils/Popover',
   component: Popover,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Popover,
+      },
+    },
+  },
 }
 
 export default meta

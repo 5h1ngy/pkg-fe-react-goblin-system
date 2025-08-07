@@ -2,10 +2,19 @@ import { useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Button, Snackbar } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Snackbar> = {
   title: 'Feedback/Snackbar',
   component: Snackbar,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Snackbar,
+      },
+    },
+  },
 }
 
 export default meta

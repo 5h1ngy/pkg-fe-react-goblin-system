@@ -3,10 +3,19 @@ import {Meta, StoryObj} from '@storybook/react'
 
 import { SpeedDial, SpeedDialAction } from '../../components'
 import { AddIcon, MailIcon, PhoneIcon } from '../../foundations'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof SpeedDial> = {
   title: 'Navigation/SpeedDial',
   component: SpeedDial,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.SpeedDial,
+      },
+    },
+  },
   args: {
     icon: <AddIcon aria-hidden />,
     ariaLabel: 'Speed dial',

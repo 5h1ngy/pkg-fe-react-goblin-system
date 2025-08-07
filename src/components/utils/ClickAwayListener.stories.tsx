@@ -2,10 +2,19 @@ import { useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { ClickAwayListener } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof ClickAwayListener> = {
   title: 'Utils/ClickAwayListener',
   component: ClickAwayListener,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.ClickAwayListener,
+      },
+    },
+  },
 }
 
 export default meta

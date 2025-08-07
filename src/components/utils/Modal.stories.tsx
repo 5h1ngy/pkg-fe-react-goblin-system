@@ -2,10 +2,19 @@ import { useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Button, Modal } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Modal> = {
   title: 'Utils/Modal',
   component: Modal,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Modal,
+      },
+    },
+  },
 }
 
 export default meta
@@ -24,4 +33,3 @@ export const Basic: Story = {
     )
   },
 }
-

@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Box, Stack } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Stack> = {
   title: 'Layout/Stack',
   component: Stack,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Stack,
+      },
+    },
+  },
   args: {
     direction: 'row',
     spacing: 2,

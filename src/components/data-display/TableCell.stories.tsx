@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Table, TableBody, TableRow, TableCell } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof TableCell> = {
   title: 'Data Display/TableCell',
   component: TableCell,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.TableCell,
+      },
+    },
+  },
   args: {
     children: 'Cell content',
   },

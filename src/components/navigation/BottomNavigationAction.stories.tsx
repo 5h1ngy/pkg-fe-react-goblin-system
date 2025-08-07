@@ -2,10 +2,19 @@ import { useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { BottomNavigation, BottomNavigationAction } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof BottomNavigationAction> = {
   title: 'Navigation/BottomNavigationAction',
   component: BottomNavigationAction,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.BottomNavigationAction,
+      },
+    },
+  },
 }
 
 export default meta

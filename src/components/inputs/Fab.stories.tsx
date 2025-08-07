@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Fab } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Fab> = {
   title: 'Inputs/Fab',
   component: Fab,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Fab,
+      },
+    },
+  },
   args: {
     color: 'secondary',
     children: '+',

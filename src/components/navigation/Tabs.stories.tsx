@@ -2,10 +2,19 @@ import { useState } from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Tab, TabPanel, Tabs } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Tabs> = {
   title: 'Navigation/Tabs',
   component: Tabs,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Tabs,
+      },
+    },
+  },
 }
 
 export default meta

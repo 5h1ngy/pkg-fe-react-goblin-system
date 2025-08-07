@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Typography } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Typography> = {
   title: 'Data Display/Typography',
   component: Typography,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Typography,
+      },
+    },
+  },
   args: {
     children: 'Typography sample',
     variant: 'h6',

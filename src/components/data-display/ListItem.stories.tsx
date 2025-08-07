@@ -2,10 +2,19 @@ import {Meta, StoryObj} from '@storybook/react'
 
 import { List, ListItem, ListItemIcon, ListItemText } from '../../components'
 import { FolderIcon } from '../../foundations'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof ListItem> = {
   title: 'Data Display/ListItem',
   component: ListItem,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.ListItem,
+      },
+    },
+  },
 }
 
 export default meta

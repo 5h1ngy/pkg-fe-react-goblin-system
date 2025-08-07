@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Portal } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Portal> = {
   title: 'Utils/Portal',
   component: Portal,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Portal,
+      },
+    },
+  },
 }
 
 export default meta

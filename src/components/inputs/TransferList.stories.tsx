@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { TransferList } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof TransferList> = {
   title: 'Inputs/TransferList',
   component: TransferList,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.TransferList,
+      },
+    },
+  },
 }
 
 export default meta

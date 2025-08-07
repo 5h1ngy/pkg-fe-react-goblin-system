@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Button, Dialog, DialogActions } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof DialogActions> = {
   title: 'Feedback/DialogActions',
   component: DialogActions,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.DialogActions,
+      },
+    },
+  },
 }
 
 export default meta

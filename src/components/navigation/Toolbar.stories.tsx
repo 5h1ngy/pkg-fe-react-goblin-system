@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Toolbar, Typography } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Toolbar> = {
   title: 'Navigation/Toolbar',
   component: Toolbar,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Toolbar,
+      },
+    },
+  },
 }
 
 export default meta

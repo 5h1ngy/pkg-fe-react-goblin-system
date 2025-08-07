@@ -8,6 +8,9 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
   ],
+  docs: {
+    autodocs: 'tagged',
+  },
   framework: {
     name: "@storybook/react-vite",
     options: {},

@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Alert } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Alert> = {
   title: 'Feedback/Alert',
   component: Alert,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Alert,
+      },
+    },
+  },
   args: {
     severity: 'info',
     children: 'This is an alert message.',

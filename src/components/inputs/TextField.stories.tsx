@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { TextField } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof TextField> = {
   title: 'Inputs/TextField',
   component: TextField,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.TextField,
+      },
+    },
+  },
   args: {
     label: 'Name',
     placeholder: 'Enter your name',

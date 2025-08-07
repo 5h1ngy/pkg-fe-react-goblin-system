@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Box, Grid } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof Grid> = {
   title: 'Layout/Grid',
   component: Grid,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.Grid,
+      },
+    },
+  },
 }
 
 export default meta

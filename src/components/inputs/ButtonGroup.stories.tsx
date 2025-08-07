@@ -1,10 +1,19 @@
 import {Meta, StoryObj} from '@storybook/react'
 
 import { Button, ButtonGroup } from '../../components'
+import { componentDocs } from '../componentDocs';
 
 const meta: Meta<typeof ButtonGroup> = {
   title: 'Inputs/ButtonGroup',
   component: ButtonGroup,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: componentDocs.ButtonGroup,
+      },
+    },
+  },
   args: {
     variant: 'outlined',
     color: 'primary',
