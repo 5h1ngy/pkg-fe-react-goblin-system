@@ -15,8 +15,7 @@ Portfolio-grade React components plus the exact theme and fog gradients used in 
 ## Install
 
 ```bash
-yarn add pkg-fe-react-goblin-system styled-components
-# npm or pnpm work the same
+npm install pkg-fe-react-goblin-system styled-components
 ```
 
 ## Usage
@@ -74,12 +73,12 @@ All exports are available from the package root (`import { Card } from 'pkg-fe-r
 
 | Command | Description |
 | --- | --- |
-| `yarn start:storybook` | Run Storybook with theming controls. |
-| `yarn build:storybook` | Generate the static Storybook site. |
-| `yarn start:docs` | Launch the Docusaurus docs with hot reload. |
-| `yarn build:docs` | Produce the static docs under `build-docusaurus`. |
-| `yarn build:lib` | Build the library bundle + type definitions. |
-| `yarn lint` | Run ESLint across the repo. |
+| `npm run storybook:dev` | Run Storybook with theming controls. |
+| `npm run storybook:build` | Generate the static Storybook site. |
+| `npm run docs:dev` | Launch the Docusaurus docs with hot reload. |
+| `npm run docs:build` | Produce the static docs under `dist/docs`. |
+| `npm run lib:build` | Build the library bundle + type definitions. |
+| `npm run lint` | Run ESLint across the repo. |
 
 ## Documentation & Storybook
 

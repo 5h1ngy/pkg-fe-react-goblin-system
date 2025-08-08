@@ -57,14 +57,14 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "storybook:dev": "storybook dev --no-open --port 6006",
-    "storybook:build": "storybook build --output-dir dist/storybook",
+    "storybook:dev": "storybook dev --no-open --port 6006 --config-dir .story",
+    "storybook:build": "storybook build --output-dir dist/storybook --config-dir .story",
     "lib:build": "node -e \"require('fs').mkdirSync('dist/lib',{recursive:true})\" && vite build --config vite.config.lib.ts --mode prod && tsc --project tsconfig.types.json && npm pack --pack-destination dist/lib",
-    "docs:dev": "docusaurus start .docusaurus",
-    "docs:build": "docusaurus build .docusaurus --out-dir dist/docusaurus",
-    "docs:serve": "docusaurus serve .docusaurus --dir dist/docusaurus",
+    "docs:dev": "docusaurus start .docs",
+    "docs:build": "docusaurus build .docs --out-dir dist/docs",
+    "docs:serve": "docusaurus serve .docs --dir dist/docs",
     "workspace:clean": "rm -rfdv dist",
-    "workspace:reset": "rm -rfdv .yarn node_modules dist .docusaurus/.docusaurus"
+    "workspace:reset": "rm -rfdv node_modules dist .docs/.docusaurus"
   },
   "dependencies": {
     "styled-components": "^6.1.8",
@@ -129,5 +129,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@4.8.1"
+  "packageManager": "npm@10.8.2"
 }

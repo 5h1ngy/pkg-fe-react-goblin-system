@@ -19,8 +19,6 @@ Every piece in the library lives inside `src/components/shared` and speaks the s
 
 ```bash
 npm install pkg-fe-react-goblin-system styled-components
-# or
-yarn add pkg-fe-react-goblin-system styled-components
 ```
 
 ## Minimal Setup

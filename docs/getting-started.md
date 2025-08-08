@@ -9,8 +9,7 @@ This guide takes you from an empty React entry point to a foggy, glowing interfa
 ## 1. Install
 
 ```bash
-yarn add pkg-fe-react-goblin-system styled-components
-# npm / pnpm work the same
+npm install pkg-fe-react-goblin-system styled-components
 ```
 
 The runtime surface only depends on React 18+ and `styled-components`.
