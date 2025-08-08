@@ -10,10 +10,10 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'surface',
+      default: 'surface-dark',
       values: [
-        { name: 'surface', value: '#121212' },
-        { name: 'paper', value: '#ffffff' },
+        { name: 'surface-dark', value: '#121212' },
+        { name: 'paper-light', value: '#ffffff' },
       ],
     },
   },
@@ -21,13 +21,16 @@ const preview: Preview = {
     mode: {
       name: 'Mode',
       description: 'Theme mode',
-      defaultValue: 'light',
+      defaultValue: 'dark',
       toolbar: {
         icon: 'contrast',
         items: [
           { value: 'light', title: 'Light' },
           { value: 'dark', title: 'Dark' },
-        ],
+        ].map((item) => ({
+          ...item,
+          title: `${item.title} mode`,
+        })),
       },
     },
     primary: {
@@ -55,11 +58,21 @@ const preview: Preview = {
           primary: { main: primary },
         },
       })
+      const background = theme.palette.background?.default ?? '#121212'
+      const color = theme.palette.text?.primary ?? '#ffffff'
 
       return (
         <GoblinThemeProvider theme={theme}>
           <CssBaseline />
-          <div style={{ minHeight: '100vh', padding: '2rem' }}>
+          <div
+            style={{
+              minHeight: '100vh',
+              padding: '2rem',
+              backgroundColor: background,
+              color,
+              transition: 'background-color 200ms ease, color 200ms ease',
+            }}
+          >
             <Story />
           </div>
         </GoblinThemeProvider>
