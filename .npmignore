@@ -67,10 +67,6 @@ Gruntfile.js
 ##############################################
 # 6. Exclude Logs, Environment Files, and Dependency Directories
 ##############################################
-# Do not include environment variable files (avoid publishing sensitive info).
-.env
-.env.*
-
 # Exclude log files.
 *.log
 

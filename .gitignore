@@ -47,17 +47,6 @@ coverage/
 # bower-lock.json
 
 #################################
-# Environment and Configuration Files
-#################################
-# Environment variables files (do not store sensitive information in VCS)
-.env
-.env.local
-.env.*.local
-.env.development
-.env.production
-.env.test
-
-#################################
 # Editor and IDE Files
 #################################
 # Visual Studio Code settings (excluding shared extensions configuration)

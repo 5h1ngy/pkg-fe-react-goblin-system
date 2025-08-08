@@ -50,21 +50,16 @@
   "files": [
     "dist/lib"
   ],
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
-  },
   "scripts": {
-    "lint": "eslint .",
-    "storybook:dev": "storybook dev --no-open --port 6006 --config-dir .story",
-    "storybook:build": "storybook build --output-dir dist/storybook --config-dir .story",
-    "lib:build": "node -e \"require('fs').mkdirSync('dist/lib',{recursive:true})\" && vite build --config vite.config.lib.ts --mode prod && tsc --project tsconfig.types.json && npm pack --pack-destination dist/lib",
-    "docs:dev": "docusaurus start .docs",
-    "docs:build": "docusaurus build .docs --out-dir dist/docs",
-    "docs:serve": "docusaurus serve .docs --dir dist/docs",
-    "workspace:clean": "rm -rfdv dist",
-    "workspace:reset": "rm -rfdv node_modules dist .docs/.docusaurus"
+    "lint": "eslint",
+    "storybook:dev": "node scripts/storybook-dev.mjs",
+    "storybook:build": "node scripts/storybook-build.mjs",
+    "lib:build": "vite build --config vite.config.lib.ts && tsc --project tsconfig.types.json && npm pack --pack-destination dist/lib",
+    "docs:dev": "node scripts/docs-dev.mjs",
+    "docs:build": "node scripts/docs-build.mjs",
+    "docs:serve": "node scripts/docs-serve.mjs",
+    "workspace:clean": "node scripts/workspace-clean.mjs",
+    "workspace:reset": "node scripts/workspace-reset.mjs"
   },
   "dependencies": {
     "styled-components": "^6.1.8",
@@ -99,7 +94,6 @@
     "@typescript-eslint/eslint-plugin": "^8.26.0",
     "@typescript-eslint/parser": "^8.26.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "dotenv": "^16.4.7",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
@@ -116,18 +110,6 @@
     "@docusaurus/module-type-aliases": "^3.0.0",
     "@docusaurus/tsconfig": "^3.0.0",
     "@docusaurus/types": "^3.0.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "packageManager": "npm@10.8.2"
 }
