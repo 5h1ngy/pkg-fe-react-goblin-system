@@ -4,6 +4,7 @@ import { useCallback } from 'react';
 
 import { useHistory } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
@@ -17,10 +18,11 @@ const heroBackground = (mode: 'light' | 'dark'): string =>
 const HeroSection = (): JSX.Element => {
   const { siteConfig } = useDocusaurusContext();
   const history = useHistory();
+  const docsEntryUrl = useBaseUrl('/docs/getting-started');
 
   const handleNavigate = useCallback(() => {
-    history.push('/docs/getting-started');
-  }, [history]);
+    history.push(docsEntryUrl);
+  }, [history, docsEntryUrl]);
 
   return (
     <Box
