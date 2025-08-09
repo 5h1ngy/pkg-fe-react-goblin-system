@@ -1,9 +1,9 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import storybook from 'eslint-plugin-storybook'
-import tseslint from 'typescript-eslint'
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import storybook from 'eslint-plugin-storybook';
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   { ignores: ['dist', '.docs/dist', '.docs/.docusaurus'] },
@@ -55,4 +55,4 @@ export default tseslint.config(
       'storybook/no-uninstalled-addons': 'error',
     },
   },
-)
+);

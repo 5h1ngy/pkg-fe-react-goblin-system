@@ -12,10 +12,14 @@ const config: Config = {
   url: 'https://5h1ngy.github.io',
   baseUrl: '/pkg-fe-react-goblin-system/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: '5h1ngy',
   projectName: 'pkg-fe-react-goblin-system',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],

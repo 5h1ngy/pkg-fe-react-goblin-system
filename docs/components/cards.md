@@ -73,4 +73,4 @@ import { ScreenLoader } from 'pkg-fe-react-goblin-system'
 | `accentColor` | `string` | `theme.colors.accent` | Override the glow + pulse color. |
 | `label` | `string` | `'Preparing the experience'` | Title shown above the progress bar. |
 | `progressLabel` | `string` | `'Loading progress'` | `aria-label` for the internal progress bar. |
-| `formatPercent` | `(percent: number) => string` | `(value) => \`${value}% ready\`` | Customize the percentage copy beneath the bar. |
+| `formatPercent` | `(percent: number) => string` | ``(value) => `${value}% ready` `` | Customize the percentage copy beneath the bar. |
