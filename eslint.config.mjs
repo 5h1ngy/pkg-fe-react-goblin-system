@@ -4,9 +4,12 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import storybook from 'eslint-plugin-storybook';
 import tseslint from 'typescript-eslint';
+import { fileURLToPath } from 'node:url';
+
+const docsRootDir = fileURLToPath(new URL('./.docs', import.meta.url));
 
 export default tseslint.config(
-  { ignores: ['dist', '.docs/dist', '.docs/.docusaurus'] },
+  { ignores: ['dist', '.docs/dist', '.docs/.docusaurus', '.docs/static'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
@@ -24,6 +27,19 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+    },
+  },
+  {
+    files: ['.docs/src/**/*.{ts,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parserOptions: {
+        tsconfigRootDir: docsRootDir,
+        projectService: true,
+      },
     },
   },
   {

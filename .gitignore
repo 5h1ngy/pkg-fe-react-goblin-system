@@ -110,3 +110,6 @@ temp/
 #################################
 # Additional log variants or custom files to ignore
 *.log.*
+.docs/static/storybook-static
+*.tgz
+

@@ -1,18 +1,25 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import type { JSX } from 'react';
+import type { JSX } from 'react'
 
-import { Box, Card, Container, Grid, Stack, Typography } from '@site/src/goblin-system';
+import {
+  Box,
+  Card,
+  Container,
+  Grid,
+  Stack,
+  Typography,
+} from 'pkg-fe-react-goblin-system/components'
 
 type FeatureItem = {
-  title: string;
-  image: string;
-  description: string;
-};
+  title: string
+  image: string
+  description: string
+}
 
 const featureSectionBackground = (mode: 'light' | 'dark'): string =>
   mode === 'dark'
     ? 'linear-gradient(180deg, rgba(11, 13, 19, 0.9) 0%, rgba(9, 12, 18, 0.94) 100%)'
-    : 'linear-gradient(180deg, rgba(237, 242, 252, 0.65) 0%, rgba(255, 255, 255, 0.92) 100%)';
+    : 'linear-gradient(180deg, rgba(237, 242, 252, 0.65) 0%, rgba(255, 255, 255, 0.92) 100%)'
 
 const featureCardSurface = (mode: 'light' | 'dark'): { background: string; border: string } =>
   mode === 'dark'
@@ -23,7 +30,7 @@ const featureCardSurface = (mode: 'light' | 'dark'): { background: string; borde
     : {
         background: 'rgba(255, 255, 255, 0.75)',
         border: '1px solid rgba(148, 163, 184, 0.2)',
-      };
+      }
 
 const features: FeatureItem[] = [
   {
@@ -44,7 +51,7 @@ const features: FeatureItem[] = [
     description:
       'Storybook controls fine-tune the theme accents while Docusaurus explains the building blocks, keeping design and implementation aligned.',
   },
-];
+]
 
 const FeatureCard = ({ title, image, description }: FeatureItem): JSX.Element => (
   <Card
@@ -83,7 +90,7 @@ const FeatureCard = ({ title, image, description }: FeatureItem): JSX.Element =>
       </Stack>
     </Stack>
   </Card>
-);
+)
 
 const SectionHeader = (): JSX.Element => (
   <Stack spacing={2} alignItems="center" sx={{ textAlign: 'center' }}>
@@ -92,11 +99,11 @@ const SectionHeader = (): JSX.Element => (
     </Typography>
     <Typography variant="h3">Everything wired for thematic storytelling</Typography>
     <Typography variant="body1" color="textSecondary" sx={{ maxWidth: '60ch' }}>
-      Use the same primitives that shipped the original portfolio. Layouts, surfaces and feedback elements
-      are coordinated so every project inherits the same cinematic tone.
+      Use the same primitives that shipped the original portfolio. Layouts, surfaces and feedback
+      elements are coordinated so every project inherits the same cinematic tone.
     </Typography>
   </Stack>
-);
+)
 
 const HomepageFeatures = (): JSX.Element => (
   <Box
@@ -119,6 +126,6 @@ const HomepageFeatures = (): JSX.Element => (
       </Stack>
     </Container>
   </Box>
-);
+)
 
-export default HomepageFeatures;
+export default HomepageFeatures

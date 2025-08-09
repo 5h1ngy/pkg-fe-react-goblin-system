@@ -1,22 +1,21 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from 'react'
 
-import { ThemeClassNames, useThemeConfig, ErrorCauseBoundary } from '@docusaurus/theme-common';
-import {
-  splitNavbarItems,
-  useNavbarMobileSidebar,
-} from '@docusaurus/theme-common/internal';
-import NavbarItem, { type Props as NavbarItemConfig } from '@theme/NavbarItem';
-import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
-import NavbarLogo from '@theme/Navbar/Logo';
-import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
-import NavbarSearch from '@theme/Navbar/Search';
-import SearchBar from '@theme/SearchBar';
+import { ThemeClassNames, useThemeConfig, ErrorCauseBoundary } from '@docusaurus/theme-common'
+import { splitNavbarItems, useNavbarMobileSidebar } from '@docusaurus/theme-common/internal'
+import NavbarItem, { type Props as NavbarItemConfig } from '@theme/NavbarItem'
+import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle'
+import NavbarLogo from '@theme/Navbar/Logo'
+import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle'
+import NavbarSearch from '@theme/Navbar/Search'
+import SearchBar from '@theme/SearchBar'
 
-import { Box, Container, Stack } from '@site/src/goblin-system';
-import type { GoblinTheme } from '@site/src/goblin-system';
+import clsx from 'clsx'
+
+import { Box, Container, Stack } from 'pkg-fe-react-goblin-system/components'
+import type { GoblinTheme } from 'pkg-fe-react-goblin-system'
 
 function useNavbarItems(): NavbarItemConfig[] {
-  return useThemeConfig().navbar.items as NavbarItemConfig[];
+  return useThemeConfig().navbar.items as NavbarItemConfig[]
 }
 
 function NavbarItems({ items }: { items: NavbarItemConfig[] }): ReactNode {
@@ -38,7 +37,7 @@ ${JSON.stringify(item, null, 2)}`,
         </ErrorCauseBoundary>
       ))}
     </>
-  );
+  )
 }
 
 const primaryRowSx = () => (theme: GoblinTheme) => ({
@@ -49,7 +48,7 @@ const primaryRowSx = () => (theme: GoblinTheme) => ({
   justifyContent: 'space-between',
   gap: theme.spacing(4),
   paddingBlock: theme.spacing(2),
-});
+})
 
 const desktopLinksSx =
   (displayFrom: 'md' | 'lg' = 'md') =>
@@ -68,7 +67,7 @@ const desktopLinksSx =
     [theme.breakpoints.up(displayFrom)]: {
       display: 'flex',
     },
-  });
+  })
 
 const actionTraySx = () => (theme: GoblinTheme) => ({
   display: 'flex',
@@ -77,26 +76,31 @@ const actionTraySx = () => (theme: GoblinTheme) => ({
   '& .clean-btn': {
     borderRadius: theme.shape.borderRadius,
   },
-});
+})
 
 export default function NavbarContent(): JSX.Element {
-  const mobileSidebar = useNavbarMobileSidebar();
-  const items = useNavbarItems();
-  const [leftItems, rightItems] = splitNavbarItems(items);
+  const mobileSidebar = useNavbarMobileSidebar()
+  const items = useNavbarItems()
+  const [leftItems, rightItems] = splitNavbarItems(items)
 
-  const searchBarItem = items.find((item) => item.type === 'search');
+  const searchBarItem = items.find((item) => item.type === 'search')
 
   return (
     <Container
       maxWidth="lg"
-      className={`${ThemeClassNames.layout.navbar.containerInner} goblin-navbar__container`}
+      className={clsx(
+        ThemeClassNames.layout.navbar.containerInner,
+        'navbar__inner',
+        'goblin-navbar__container',
+      )}
     >
-      <Stack component="div" direction="row" sx={primaryRowSx()}>
+      <Stack component="div" direction="row" className="navbar__items" sx={primaryRowSx()}>
         <Stack
           component="div"
           direction="row"
           alignItems="center"
           spacing={3}
+          className="navbar__items"
           sx={(theme: GoblinTheme) => ({
             flex: 1,
             minWidth: 0,
@@ -117,12 +121,11 @@ export default function NavbarContent(): JSX.Element {
           direction="row"
           alignItems="center"
           spacing={2.5}
+          className="navbar__items navbar__items--right"
           sx={(theme: GoblinTheme) => ({
-            '& .navbar__items--right': {
-              display: 'flex',
-              alignItems: 'center',
-              gap: theme.spacing(2),
-            },
+            display: 'flex',
+            alignItems: 'center',
+            gap: theme.spacing(2),
           })}
         >
           <Box component="div" sx={desktopLinksSx('lg')}>
@@ -139,5 +142,5 @@ export default function NavbarContent(): JSX.Element {
         </Stack>
       </Stack>
     </Container>
-  );
+  )
 }

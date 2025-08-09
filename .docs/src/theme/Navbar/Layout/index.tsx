@@ -1,19 +1,18 @@
-import type { ComponentProps, ReactNode } from 'react';
-import { useMemo } from 'react';
+import type { ComponentProps, ReactNode } from 'react'
+import { useMemo } from 'react'
+import clsx from 'clsx'
 
-import { ThemeClassNames, useThemeConfig } from '@docusaurus/theme-common';
-import { translate } from '@docusaurus/Translate';
-import {
-  useHideableNavbar,
-  useNavbarMobileSidebar,
-} from '@docusaurus/theme-common/internal';
-import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar';
+import { ThemeClassNames, useThemeConfig } from '@docusaurus/theme-common'
+import { translate } from '@docusaurus/Translate'
+import { useHideableNavbar, useNavbarMobileSidebar } from '@docusaurus/theme-common/internal'
+import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar'
 
-import { Box } from '@site/src/goblin-system';
+import { Box } from 'pkg-fe-react-goblin-system/components'
+import type { GoblinTheme } from 'pkg-fe-react-goblin-system'
 
 const backdropSx =
   (visible: boolean): ComponentProps<typeof Box>['sx'] =>
-  (theme) => ({
+  (theme: GoblinTheme) => ({
     position: 'fixed',
     inset: 0,
     background: theme.palette.mode === 'dark' ? 'rgba(5, 8, 15, 0.64)' : 'rgba(15, 19, 33, 0.48)',
@@ -22,22 +21,22 @@ const backdropSx =
     pointerEvents: visible ? 'auto' : 'none',
     transition: 'opacity 160ms ease',
     zIndex: theme.zIndex.modal - 1,
-  });
+  })
 
 const navbarSurface = (mode: 'light' | 'dark') =>
   mode === 'dark'
     ? 'linear-gradient(180deg, rgba(10, 15, 23, 0.92) 0%, rgba(10, 14, 22, 0.86) 100%)'
-    : 'linear-gradient(180deg, rgba(247, 249, 255, 0.94) 0%, rgba(255, 255, 255, 0.86) 100%)';
+    : 'linear-gradient(180deg, rgba(247, 249, 255, 0.94) 0%, rgba(255, 255, 255, 0.86) 100%)'
 
 export default function NavbarLayout({ children }: { children: ReactNode }): JSX.Element {
   const {
     navbar: { hideOnScroll },
-  } = useThemeConfig();
-  const mobileSidebar = useNavbarMobileSidebar();
-  const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll);
+  } = useThemeConfig()
+  const mobileSidebar = useNavbarMobileSidebar()
+  const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll)
 
   const navbarStyles = useMemo<ComponentProps<typeof Box>['sx']>(
-    () => (theme) => ({
+    () => (theme: GoblinTheme) => ({
       position: 'sticky',
       top: 0,
       width: '100%',
@@ -56,7 +55,7 @@ export default function NavbarLayout({ children }: { children: ReactNode }): JSX
           : '1px solid rgba(80, 104, 154, 0.12)',
     }),
     [hideOnScroll, isNavbarVisible],
-  );
+  )
 
   return (
     <>
@@ -68,13 +67,27 @@ export default function NavbarLayout({ children }: { children: ReactNode }): JSX
           message: 'Main navigation',
           description: 'The ARIA label for the main navigation',
         })}
-        className={ThemeClassNames.layout.navbar.container}
+        className={clsx(
+          ThemeClassNames.layout.navbar.container,
+          'navbar',
+          'navbar--fixed-top',
+          hideOnScroll && 'navbar--hideable',
+          hideOnScroll && !isNavbarVisible && 'navbar--hidden',
+          mobileSidebar.shown && 'navbar-sidebar--show',
+        )}
         sx={navbarStyles}
       >
         {children}
       </Box>
-      <Box component="button" type="button" onClick={mobileSidebar.toggle} sx={backdropSx(mobileSidebar.shown)} />
+      <Box
+        component="button"
+        type="button"
+        className="navbar-sidebar__backdrop"
+        aria-hidden="true"
+        onClick={mobileSidebar.toggle}
+        sx={backdropSx(mobileSidebar.shown)}
+      />
       <NavbarMobileSidebar />
     </>
-  );
+  )
 }

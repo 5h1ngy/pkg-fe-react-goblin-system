@@ -1,10 +1,11 @@
-﻿import type { Config } from '@docusaurus/types';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import type { Config } from '@docusaurus/types'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const sidebarsPath = resolve(__dirname, './sidebars.ts');
-const customCssPath = resolve(__dirname, './src/css/custom.css');
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const sidebarsPath = resolve(__dirname, './sidebars.ts')
+const customCssPath = resolve(__dirname, './src/css/custom.css')
+const packagesDir = resolve(__dirname, '../packages')
 
 const config: Config = {
   title: 'Goblin System Docs',
@@ -57,7 +58,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook',
+          to: '/storybook',
           label: 'Storybook',
           position: 'left',
         },
@@ -70,11 +71,37 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} 5h1ngy.`,
+      copyright: `Copyright Â© ${new Date().getFullYear()} 5h1ngy.`,
     },
   },
-};
+  plugins: [
+    async function goblinSystemAlias() {
+      return {
+        name: 'goblin-system-alias',
+        configureWebpack() {
+          return {
+            resolve: {
+              alias: {
+                'pkg-fe-react-goblin-system$': resolve(packagesDir, 'index.ts'),
+                'pkg-fe-react-goblin-system/components$': resolve(
+                  packagesDir,
+                  'components/index.ts',
+                ),
+                'pkg-fe-react-goblin-system/foundations$': resolve(
+                  packagesDir,
+                  'foundations/index.ts',
+                ),
+                'pkg-fe-react-goblin-system/system$': resolve(packagesDir, 'system/index.ts'),
+                'pkg-fe-react-goblin-system/components': resolve(packagesDir, 'components'),
+                'pkg-fe-react-goblin-system/foundations': resolve(packagesDir, 'foundations'),
+                'pkg-fe-react-goblin-system/system': resolve(packagesDir, 'system'),
+              },
+            },
+          }
+        },
+      }
+    },
+  ],
+}
 
-export default config;
-
-
+export default config
