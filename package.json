@@ -21,7 +21,7 @@
   },
   "author": "5h1ngy",
   "engines": {
-    "node": ">=20.18.0 <=25"
+    "node": ">=20.18.0 <21"
   },
   "private": true,
   "type": "module",
@@ -51,15 +51,15 @@
     "dist/lib"
   ],
   "scripts": {
-    "lint": "eslint",
-    "storybook:dev": "node scripts/storybook-dev.mjs",
-    "storybook:build": "node scripts/storybook-build.mjs",
+    "lint": "eslint .",
+    "storybook:dev": "storybook dev --config-dir .story --port 6006 --no-open",
+    "storybook:build": "storybook build --config-dir .story --output-dir dist/storybook",
     "lib:build": "vite build --config vite.config.lib.ts && tsc --project tsconfig.types.json && npm pack --pack-destination dist/lib",
-    "docs:dev": "node scripts/docs-dev.mjs",
-    "docs:build": "node scripts/docs-build.mjs",
-    "docs:serve": "node scripts/docs-serve.mjs",
-    "workspace:clean": "node scripts/workspace-clean.mjs",
-    "workspace:reset": "node scripts/workspace-reset.mjs"
+    "docs:dev": "docusaurus start .docs --no-open",
+    "docs:build": "docusaurus build .docs --out-dir dist/docs",
+    "docs:serve": "docusaurus serve .docs --dir dist/docs",
+    "workspace:clean": "rm -rf dist",
+    "workspace:reset": "rm -rf node_modules dist .docs/.docusaurus"
   },
   "dependencies": {
     "styled-components": "^6.1.8",

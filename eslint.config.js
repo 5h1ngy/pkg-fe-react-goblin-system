@@ -6,7 +6,7 @@ import storybook from 'eslint-plugin-storybook'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  { ignores: ['dist', '.docs/dist', '.docs/.docusaurus'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
