@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "pkg-fe-react-goblin-system",
   "version": "2.1.0",
   "license": "MIT",
@@ -61,7 +61,7 @@
     "docs:serve": "docusaurus serve .docs --dir dist/docs",
     "build": "npm run lib:build && npm run storybook:build && npm run docs:build",
     "workspace:clean": "rm -rf dist .docs/static/storybook-static",
-    "workspace:reset": "rm -rf node_modules dist .docs/.docusaurus .docs/static/storybook-static"
+    "workspace:reset": "rm -rf node_modules dist .docs/.docusaurus .docs/dist .docs/static/storybook-static"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",
