@@ -17,7 +17,13 @@ export const AppBar = ({
   const resolvedStyle = resolveSx(theme, sx, style)
 
   return (
-    <AppBarRoot $position={position} $color={color} $elevation={elevation} style={resolvedStyle} {...rest}>
+    <AppBarRoot
+      $position={position}
+      $color={color}
+      $elevation={elevation}
+      style={resolvedStyle}
+      {...rest}
+    >
       {children}
     </AppBarRoot>
   )

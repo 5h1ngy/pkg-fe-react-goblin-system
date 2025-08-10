@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Drawer, Typography } from '../../components'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof Drawer> = {
   title: 'Navigation/Drawer',

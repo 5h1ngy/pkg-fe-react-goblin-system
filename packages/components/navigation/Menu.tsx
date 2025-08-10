@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
 import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
@@ -40,7 +40,11 @@ export const Menu = ({ anchorEl, open, onClose, children, sx, style, ...rest }: 
   return (
     <>
       <Backdrop onClick={onClose} />
-      <MenuRoot role="menu" style={{ top: position.top, left: position.left, position: 'absolute', ...resolvedStyle }} {...rest}>
+      <MenuRoot
+        role="menu"
+        style={{ top: position.top, left: position.left, position: 'absolute', ...resolvedStyle }}
+        {...rest}
+      >
         {children}
       </MenuRoot>
     </>

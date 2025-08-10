@@ -17,7 +17,13 @@ export type TypographyVariant =
   | 'caption'
   | 'overline'
 
-export type TypographyColor = 'initial' | 'primary' | 'secondary' | 'textPrimary' | 'textSecondary' | 'error'
+export type TypographyColor =
+  | 'initial'
+  | 'primary'
+  | 'secondary'
+  | 'textPrimary'
+  | 'textSecondary'
+  | 'error'
 
 export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   variant?: TypographyVariant

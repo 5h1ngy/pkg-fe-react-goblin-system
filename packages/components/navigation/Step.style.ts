@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const StepRoot = styled.div<{ $completed?: boolean; $active?: boolean }>`
   flex: 1;

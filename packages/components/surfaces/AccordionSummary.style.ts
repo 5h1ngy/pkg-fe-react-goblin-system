@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const AccordionSummaryRoot = styled.button<{ $expanded?: boolean }>`
   width: 100%;

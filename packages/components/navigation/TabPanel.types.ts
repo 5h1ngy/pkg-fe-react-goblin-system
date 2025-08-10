@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react"
+import { HTMLAttributes } from 'react'
 
 import type { TabsValue } from './Tabs.context'
 

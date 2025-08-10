@@ -50,9 +50,10 @@
     "dist/lib"
   ],
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs}\" --max-warnings=0",
+    "lint:fix": "eslint \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs}\" --fix",
     "format": "prettier --write \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs,json,md}\"",
+    "format:check": "prettier --check \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs,json,md}\"",
     "storybook:dev": "storybook dev --config-dir .story --port 6006 --no-open --ci",
     "storybook:build": "storybook build --config-dir .story --output-dir .docs/static/storybook-static",
     "lib:build": "vite build --config vite.config.lib.ts && tsc --project tsconfig.types.json && npm pack --pack-destination dist/lib",

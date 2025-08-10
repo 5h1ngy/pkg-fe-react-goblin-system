@@ -8,7 +8,7 @@ import type { ContainerProps } from './Container.types'
 
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(function Container(
   { maxWidth = 'lg', disableGutters = false, fixed = false, sx, style, ...rest },
-  ref
+  ref,
 ) {
   const theme = useGoblinTheme()
   const widthValue = maxWidth ? `${theme.breakpoints.values[maxWidth]}px` : undefined

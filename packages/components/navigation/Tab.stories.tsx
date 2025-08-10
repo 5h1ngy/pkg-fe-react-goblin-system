@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Tab, Tabs } from '../../components'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof Tab> = {
   title: 'Navigation/Tab',

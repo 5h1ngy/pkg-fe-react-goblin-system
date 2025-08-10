@@ -7,7 +7,17 @@ import { StackRoot } from './Stack.style'
 import type { StackProps } from './Stack.types'
 
 export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
-  { direction = 'column', spacing = 0, divider, alignItems, justifyContent, sx, style, children, ...rest },
+  {
+    direction = 'column',
+    spacing = 0,
+    divider,
+    alignItems,
+    justifyContent,
+    sx,
+    style,
+    children,
+    ...rest
+  },
   ref,
 ) {
   const theme = useGoblinTheme()
@@ -27,10 +37,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
               ? cloneElement(divider as ReactElement, { key: `divider-${index}` })
               : divider
 
-          return [
-            child,
-            <Fragment key={`stack-divider-${index}`}>{dividerNode}</Fragment>,
-          ]
+          return [child, <Fragment key={`stack-divider-${index}`}>{dividerNode}</Fragment>]
         })
       : children
 

@@ -1,8 +1,11 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-export const SnackbarRoot = styled.div<{ $anchor: { vertical: 'top' | 'bottom'; horizontal: 'left' | 'center' | 'right' } }>`
+export const SnackbarRoot = styled.div<{
+  $anchor: { vertical: 'top' | 'bottom'; horizontal: 'left' | 'center' | 'right' }
+}>`
   position: fixed;
-  ${({ $anchor, theme }) => `${$anchor.vertical}: ${theme.spacing(3)}; ${$anchor.horizontal}: ${theme.spacing(3)};`}
+  ${({ $anchor, theme }) =>
+    `${$anchor.vertical}: ${theme.spacing(3)}; ${$anchor.horizontal}: ${theme.spacing(3)};`}
   min-width: 288px;
   max-width: 560px;
   background: ${({ theme }) => theme.palette.secondary.main};

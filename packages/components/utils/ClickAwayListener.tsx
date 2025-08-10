@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from 'react'
 
 import type { ClickAwayListenerProps } from './ClickAwayListener.types'
 

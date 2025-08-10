@@ -1,4 +1,4 @@
-import { ElementType, HTMLAttributes } from "react"
+import { ElementType, HTMLAttributes } from 'react'
 
 import { SxProps } from '../../system'
 

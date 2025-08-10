@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled, { css } from 'styled-components'
 
 export const CardMediaRoot = styled.div<{ $image?: string }>`
   width: 100%;

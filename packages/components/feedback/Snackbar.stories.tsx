@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Button, Snackbar } from '../../components'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof Snackbar> = {
   title: 'Feedback/Snackbar',

@@ -18,7 +18,8 @@ export const TypographyRoot = styled.span<TypographyStyleProps>`
   text-transform: ${({ $variant }) => ($variant === 'overline' ? 'uppercase' : 'inherit')};
   letter-spacing: ${({ theme, $variant }) => theme.typography[$variant].letterSpacing ?? 'normal'};
   font-size: ${({ theme, $variant }) => theme.typography[$variant].fontSize};
-  font-weight: ${({ theme, $variant }) => theme.typography[$variant].fontWeight ?? theme.typography.fontWeightRegular};
+  font-weight: ${({ theme, $variant }) =>
+    theme.typography[$variant].fontWeight ?? theme.typography.fontWeightRegular};
   line-height: ${({ theme, $variant }) => theme.typography[$variant].lineHeight ?? 1.5};
   color: ${({ theme, $color }) => {
     switch ($color) {

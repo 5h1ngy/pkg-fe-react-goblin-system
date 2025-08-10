@@ -1,7 +1,7 @@
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { List, ListItem, ListItemText } from '../../components'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof ListItemText> = {
   title: 'Data Display/ListItemText',

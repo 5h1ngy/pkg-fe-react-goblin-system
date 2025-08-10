@@ -11,7 +11,11 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
   ref,
 ) {
   const theme = useGoblinTheme()
-  const resolvedStyle = resolveSx(theme, mergeSx({ width: 40, height: 40, borderRadius: '50%', padding: 0 }, sx), style)
+  const resolvedStyle = resolveSx(
+    theme,
+    mergeSx({ width: 40, height: 40, borderRadius: '50%', padding: 0 }, sx),
+    style,
+  )
 
   return (
     <IconButtonRoot

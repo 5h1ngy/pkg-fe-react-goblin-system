@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Backdrop, Button } from '../../components'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof Backdrop> = {
   title: 'Feedback/Backdrop',

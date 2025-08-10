@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const PaginationRoot = styled.nav`
   display: inline-flex;
@@ -12,7 +12,8 @@ export const PaginationButton = styled.button<{ $selected?: boolean }>`
   border-radius: 18px;
   border: none;
   background: ${({ $selected, theme }) => ($selected ? theme.palette.primary.main : 'transparent')};
-  color: ${({ $selected, theme }) => ($selected ? theme.palette.primary.contrastText : theme.palette.text.primary)};
+  color: ${({ $selected, theme }) =>
+    $selected ? theme.palette.primary.contrastText : theme.palette.text.primary};
   cursor: pointer;
   font: inherit;
   padding: 0 0.5rem;

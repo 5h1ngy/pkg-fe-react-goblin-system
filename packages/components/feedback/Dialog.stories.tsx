@@ -1,8 +1,15 @@
 import { useState } from 'react'
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '../../components'
-import { componentDocs } from '../componentDocs';
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Typography,
+} from '../../components'
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof Dialog> = {
   title: 'Feedback/Dialog',

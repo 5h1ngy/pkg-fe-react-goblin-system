@@ -4,7 +4,17 @@ import { resolveSx } from '../../system'
 import { AlertRoot } from './Alert.style'
 import type { AlertProps } from './Alert.types'
 
-export const Alert = ({ severity = 'success', variant = 'standard', action, icon, onClose, children, sx, style, ...rest }: AlertProps) => {
+export const Alert = ({
+  severity = 'success',
+  variant = 'standard',
+  action,
+  icon,
+  onClose,
+  children,
+  sx,
+  style,
+  ...rest
+}: AlertProps) => {
   const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 
@@ -14,9 +24,10 @@ export const Alert = ({ severity = 'success', variant = 'standard', action, icon
       <div style={{ flex: 1 }}>{children}</div>
       {action}
       {onClose && (
-        <button onClick={onClose} style={{ border: 'none', background: 'transparent', color: 'inherit' }}>
-          
-        </button>
+        <button
+          onClick={onClose}
+          style={{ border: 'none', background: 'transparent', color: 'inherit' }}
+        ></button>
       )}
     </AlertRoot>
   )

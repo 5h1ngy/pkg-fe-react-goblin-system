@@ -126,7 +126,7 @@ export interface Transitions {
   duration: TransitionDuration
   create: (
     props?: string | string[],
-    options?: { duration?: number; easing?: string; delay?: number }
+    options?: { duration?: number; easing?: string; delay?: number },
   ) => string
 }
 

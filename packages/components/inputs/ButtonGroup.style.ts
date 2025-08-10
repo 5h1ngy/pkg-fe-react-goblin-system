@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const ButtonGroupRoot = styled.div<{ $orientation: 'horizontal' | 'vertical'; $fullWidth?: boolean }>`
+export const ButtonGroupRoot = styled.div<{
+  $orientation: 'horizontal' | 'vertical'
+  $fullWidth?: boolean
+}>`
   display: inline-flex;
   flex-direction: ${({ $orientation }) => ($orientation === 'vertical' ? 'column' : 'row')};
   width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'auto')};

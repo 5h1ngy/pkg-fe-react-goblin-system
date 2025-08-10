@@ -8,7 +8,7 @@ import type { BoxProps } from './Box.types'
 
 export const Box = forwardRef<HTMLElement, BoxProps>(function Box(
   { component: Component = 'div', sx, style, ...rest },
-  ref
+  ref,
 ) {
   const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)

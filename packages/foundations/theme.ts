@@ -343,7 +343,7 @@ const createBreakpoints = (valuesOverride?: Partial<BreakpointValues>): Breakpoi
 }
 
 const createTransitions = (
-  overrides?: DeepPartial<Omit<Transitions, 'create'>>
+  overrides?: DeepPartial<Omit<Transitions, 'create'>>,
 ): Omit<Transitions, 'create'> => ({
   easing: mergeDeep(defaultTransitionsBase.easing, overrides?.easing),
   duration: mergeDeep(defaultTransitionsBase.duration, overrides?.duration),

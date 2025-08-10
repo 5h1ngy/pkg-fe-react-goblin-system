@@ -45,7 +45,11 @@ export const TransferList = ({ left, right, onChange, sx }: TransferListProps) =
     setter(next)
   }
 
-  const renderList = (items: TransferListItem[], selected: Set<string>, setter: (set: Set<string>) => void) => (
+  const renderList = (
+    items: TransferListItem[],
+    selected: Set<string>,
+    setter: (set: Set<string>) => void,
+  ) => (
     <ul>
       {items.map((item) => (
         <li

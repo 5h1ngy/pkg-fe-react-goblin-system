@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const CollapseWrapper = styled.div<{ $height: number; $in: boolean; $timeout: number }>`
   overflow: hidden;

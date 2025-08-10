@@ -64,7 +64,8 @@ export const InputWrapper = styled.label<{
 `
 
 export const HelperText = styled.small<{ $error?: boolean }>`
-  color: ${({ $error, theme }) => ($error ? theme.palette.error.main : theme.palette.text.secondary)};
+  color: ${({ $error, theme }) =>
+    $error ? theme.palette.error.main : theme.palette.text.secondary};
 `
 
 export const Adornment = styled.span`

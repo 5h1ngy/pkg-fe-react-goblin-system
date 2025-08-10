@@ -15,7 +15,11 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(function Slider(
   const [hover, setHover] = useState(false)
 
   return (
-    <div style={resolvedStyle} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <div
+      style={resolvedStyle}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
       <SliderTrack type="range" ref={ref} {...rest} />
       {valueLabelDisplay !== 'off' && hover && <small>{rest.value}</small>}
     </div>

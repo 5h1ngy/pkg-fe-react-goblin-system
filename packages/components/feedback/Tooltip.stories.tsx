@@ -1,7 +1,7 @@
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Tooltip, Button } from '../../components'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Feedback/Tooltip',
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof Tooltip>
 export const Basic: Story = {
   render: (args) => (
     <Tooltip {...args}>
-      <Button variant='text'>Hover me</Button>
+      <Button variant="text">Hover me</Button>
     </Tooltip>
   ),
 }

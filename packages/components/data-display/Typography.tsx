@@ -36,7 +36,10 @@ export const Typography = ({
 }: TypographyProps) => {
   const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
-  const Component = useMemo(() => component ?? defaultMapping[variant] ?? 'span', [component, variant])
+  const Component = useMemo(
+    () => component ?? defaultMapping[variant] ?? 'span',
+    [component, variant],
+  )
 
   return (
     <TypographyRoot

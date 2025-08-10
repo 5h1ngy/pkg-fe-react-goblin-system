@@ -9,8 +9,10 @@ export const CheckboxIcon = styled.span<{ $checked?: boolean; $color: ColorToken
   border-radius: 4px;
   border: 2px solid ${({ theme }) => theme.palette.divider};
   transition: ${({ theme }) => theme.transitions.create(['background-color', 'border-color'])};
-  background: ${({ $checked, theme, $color }) => ($checked ? getColor(theme, $color).main : 'transparent')};
-  border-color: ${({ $checked, theme, $color }) => ($checked ? getColor(theme, $color).main : theme.palette.divider)};
+  background: ${({ $checked, theme, $color }) =>
+    $checked ? getColor(theme, $color).main : 'transparent'};
+  border-color: ${({ $checked, theme, $color }) =>
+    $checked ? getColor(theme, $color).main : theme.palette.divider};
   display: flex;
   align-items: center;
   justify-content: center;

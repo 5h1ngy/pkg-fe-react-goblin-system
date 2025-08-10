@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const TabButton = styled.button<{ $selected?: boolean }>`
   appearance: none;
@@ -8,7 +8,8 @@ export const TabButton = styled.button<{ $selected?: boolean }>`
   font: inherit;
   cursor: pointer;
   position: relative;
-  color: ${({ theme, $selected }) => ($selected ? theme.palette.text.primary : theme.palette.text.secondary)};
+  color: ${({ theme, $selected }) =>
+    $selected ? theme.palette.text.primary : theme.palette.text.secondary};
   transition: ${({ theme }) => theme.transitions.create(['color'])};
 
   &::after {

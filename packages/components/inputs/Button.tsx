@@ -7,7 +7,19 @@ import { ButtonRoot } from './Button.style'
 import type { ButtonProps } from './Button.types'
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { variant = 'text', color = 'primary', size = 'medium', fullWidth, startIcon, endIcon, disableElevation, sx, style, children, ...rest },
+  {
+    variant = 'text',
+    color = 'primary',
+    size = 'medium',
+    fullWidth,
+    startIcon,
+    endIcon,
+    disableElevation,
+    sx,
+    style,
+    children,
+    ...rest
+  },
   ref,
 ) {
   const theme = useGoblinTheme()

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const DrawerPanel = styled.aside<{
   $anchor: 'left' | 'right'
@@ -14,8 +14,8 @@ export const DrawerPanel = styled.aside<{
   box-shadow: ${({ theme }) => theme.shadows[4]};
   transform: translateX(
     ${({ $anchor, $open }) => {
-      if ($open) return '0';
-      return $anchor === 'left' ? '-100%' : '100%';
+      if ($open) return '0'
+      return $anchor === 'left' ? '-100%' : '100%'
     }}
   );
   transition: ${({ theme }) => theme.transitions.create(['transform'])};

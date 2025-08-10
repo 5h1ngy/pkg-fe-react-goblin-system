@@ -7,6 +7,6 @@
       "pkg-fe-react-goblin-system/*": ["../packages/*"]
     }
   },
-  "include": ["src", "../docs", "static"],
+  "include": ["src", "../docs", "static", "./*.ts"],
   "exclude": [".docusaurus", "build", "node_modules"]
 }

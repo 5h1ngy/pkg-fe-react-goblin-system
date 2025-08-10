@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react"
+import { HTMLAttributes } from 'react'
 
 import { SxProps } from '../../system'
 import type { PaletteIntent } from './shared/intentColor'

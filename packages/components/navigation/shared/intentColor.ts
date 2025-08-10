@@ -1,6 +1,14 @@
 import type { GoblinTheme } from '../../../foundations'
 
-export type PaletteIntent = 'inherit' | 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error'
+export type PaletteIntent =
+  | 'inherit'
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'info'
+  | 'warning'
+  | 'error'
 
 export const getIntentColor = (theme: GoblinTheme, color: PaletteIntent) => {
   if (color === 'inherit') {
@@ -14,7 +22,10 @@ export const getIntentColor = (theme: GoblinTheme, color: PaletteIntent) => {
     }
   }
 
-  const map: Record<Exclude<PaletteIntent, 'inherit' | 'default'>, 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error'> = {
+  const map: Record<
+    Exclude<PaletteIntent, 'inherit' | 'default'>,
+    'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error'
+  > = {
     primary: 'primary',
     secondary: 'secondary',
     success: 'success',

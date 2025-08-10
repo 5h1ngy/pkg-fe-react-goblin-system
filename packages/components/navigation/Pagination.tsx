@@ -6,7 +6,8 @@ import { resolveSx } from '../../system'
 import { PaginationButton, PaginationRoot } from './Pagination.style'
 import type { PaginationProps } from './Pagination.types'
 
-const range = (start: number, end: number) => Array.from({ length: end - start + 1 }, (_, index) => start + index)
+const range = (start: number, end: number) =>
+  Array.from({ length: end - start + 1 }, (_, index) => start + index)
 
 export const Pagination = ({
   count,

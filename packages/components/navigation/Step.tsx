@@ -1,4 +1,4 @@
-import { cloneElement, isValidElement } from "react"
+import { cloneElement, isValidElement } from 'react'
 
 import { useStepperContext } from './Stepper.context'
 import { StepLabel } from './StepLabel'

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled, { css } from 'styled-components'
 
 export const TooltipBubble = styled.span<{ $placement: 'top' | 'bottom' | 'left' | 'right' }>`
   position: absolute;

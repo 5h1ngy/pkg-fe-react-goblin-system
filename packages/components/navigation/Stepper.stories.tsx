@@ -1,7 +1,7 @@
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Step, StepLabel, Stepper } from '../../components'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof Stepper> = {
   title: 'Navigation/Stepper',
@@ -24,7 +24,9 @@ export const Basic: Story = {
     <Stepper {...args} activeStep={1} alternativeLabel>
       {[0, 1, 2].map((index) => (
         <Step key={index} index={index}>
-          <StepLabel optional={index === 2 ? 'Optional' : undefined}>{`Step ${index + 1}`}</StepLabel>
+          <StepLabel
+            optional={index === 2 ? 'Optional' : undefined}
+          >{`Step ${index + 1}`}</StepLabel>
         </Step>
       ))}
     </Stepper>

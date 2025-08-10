@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes } from 'styled-components'
 
 const indeterminateKey = keyframes`
   0% { transform: translateX(-50%); }
@@ -13,7 +13,10 @@ export const LinearProgressRoot = styled.div`
   overflow: hidden;
 `
 
-export const LinearProgressBar = styled.span<{ $value?: number; $variant: 'determinate' | 'indeterminate' }>`
+export const LinearProgressBar = styled.span<{
+  $value?: number
+  $variant: 'determinate' | 'indeterminate'
+}>`
   display: block;
   height: 100%;
   background: ${({ theme }) => theme.palette.primary.main};

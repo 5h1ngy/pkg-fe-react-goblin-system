@@ -59,4 +59,3 @@ export const ToggleButtonGroup = ({
 }
 
 ToggleButtonGroup.displayName = 'ToggleButtonGroup'
-

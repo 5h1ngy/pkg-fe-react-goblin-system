@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 import { getSeverityColor } from './shared/severity'
 import type { AlertProps } from './Alert.types'

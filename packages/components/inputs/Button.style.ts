@@ -41,7 +41,8 @@ export const ButtonRoot = styled.button<ButtonStyleProps>`
   padding: ${({ theme, $size }) => getPadding(theme, $size)};
   text-transform: ${({ theme }) => theme.typography.button.textTransform};
   cursor: pointer;
-  transition: ${({ theme }) => theme.transitions.create(['background-color', 'box-shadow', 'transform'])};
+  transition: ${({ theme }) =>
+    theme.transitions.create(['background-color', 'box-shadow', 'transform'])};
   width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'auto')};
 
   ${({ $variant, theme, $color }) => {
@@ -87,10 +88,14 @@ export const ButtonRoot = styled.button<ButtonStyleProps>`
   ${({ $variant, $disableElevation, theme }) =>
     $variant === 'contained' &&
     css`
-      box-shadow: ${$disableElevation ? 'none' : theme.shadows[Math.min(2, theme.shadows.length - 1)]};
+      box-shadow: ${$disableElevation
+        ? 'none'
+        : theme.shadows[Math.min(2, theme.shadows.length - 1)]};
 
       &:hover {
-        box-shadow: ${$disableElevation ? 'none' : theme.shadows[Math.min(3, theme.shadows.length - 1)]};
+        box-shadow: ${$disableElevation
+          ? 'none'
+          : theme.shadows[Math.min(3, theme.shadows.length - 1)]};
       }
     `}
 

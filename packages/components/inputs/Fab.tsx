@@ -26,4 +26,3 @@ export const Fab = forwardRef<HTMLButtonElement, FabProps>(function Fab(
 })
 
 Fab.displayName = 'Fab'
-

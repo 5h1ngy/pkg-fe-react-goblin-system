@@ -4,7 +4,15 @@ import { resolveSx } from '../../system'
 import { ChipRoot } from './Chip.style'
 import type { ChipProps } from './Chip.types'
 
-export const Chip = ({ label, onDelete, color = 'default', variant = 'filled', sx, style, ...rest }: ChipProps) => {
+export const Chip = ({
+  label,
+  onDelete,
+  color = 'default',
+  variant = 'filled',
+  sx,
+  style,
+  ...rest
+}: ChipProps) => {
   const theme = useGoblinTheme()
   const resolvedStyle = resolveSx(theme, sx, style)
 

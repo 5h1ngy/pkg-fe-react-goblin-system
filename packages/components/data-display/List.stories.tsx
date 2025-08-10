@@ -1,8 +1,8 @@
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { List, ListItem, ListItemIcon, ListItemText } from '../../components'
 import { FolderIcon, StarIcon } from '../../foundations'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof List> = {
   title: 'Data Display/List',

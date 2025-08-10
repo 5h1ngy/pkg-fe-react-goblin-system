@@ -1,6 +1,14 @@
 import type { GoblinTheme } from '../../../foundations'
 
-export type ColorToken = 'inherit' | 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error'
+export type ColorToken =
+  | 'inherit'
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'info'
+  | 'warning'
+  | 'error'
 export type ActiveColor = Exclude<ColorToken, 'inherit' | 'default'>
 
 export interface ColorSwatch {
@@ -26,7 +34,10 @@ export const getColor = (theme: GoblinTheme, color: ColorToken): ColorSwatch => 
     }
   }
 
-  const paletteMap: Record<ActiveColor, 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error'> = {
+  const paletteMap: Record<
+    ActiveColor,
+    'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error'
+  > = {
     primary: 'primary',
     secondary: 'secondary',
     success: 'success',

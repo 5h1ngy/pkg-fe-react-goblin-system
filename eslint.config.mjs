@@ -1,21 +1,36 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import storybook from 'eslint-plugin-storybook';
-import tseslint from 'typescript-eslint';
-import { fileURLToPath } from 'node:url';
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import storybook from 'eslint-plugin-storybook'
+import tseslint from 'typescript-eslint'
+import { fileURLToPath } from 'node:url'
 
-const docsRootDir = fileURLToPath(new URL('./.docs', import.meta.url));
+const projectRoot = fileURLToPath(new URL('.', import.meta.url))
+const docsRootDir = fileURLToPath(new URL('./.docs', import.meta.url))
 
 export default tseslint.config(
-  { ignores: ['dist', '.docs/dist', '.docs/.docusaurus', '.docs/static'] },
+  {
+    ignores: [
+      'dist',
+      'node_modules',
+      '.docs/dist',
+      '.docs/.docusaurus',
+      '.docs/static',
+      '.docs/static/storybook-static',
+    ],
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
+    files: [
+      'packages/**/*.{ts,tsx,js,jsx,mjs,cjs}',
+      '.docs/**/*.{ts,tsx,js,jsx,mjs,cjs}',
+      '.story/**/*.{ts,tsx,js,jsx,mjs,cjs}',
+    ],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 'latest',
       globals: globals.browser,
+      sourceType: 'module',
     },
     plugins: {
       'react-hooks': reactHooks,
@@ -28,6 +43,20 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
+  {
+    files: ['packages/**/*.{ts,tsx}'],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: projectRoot,
+      },
+    },
   },
   {
     files: ['.docs/src/**/*.{ts,tsx}'],
@@ -37,8 +66,9 @@ export default tseslint.config(
         ...globals.node,
       },
       parserOptions: {
-        tsconfigRootDir: docsRootDir,
         projectService: true,
+        tsconfigRootDir: docsRootDir,
+        allowDefaultProject: true,
       },
     },
   },
@@ -63,7 +93,17 @@ export default tseslint.config(
     },
   },
   {
-    files: ['.story/main.@(js|jsx|ts|tsx|mjs|cjs)'],
+    files: [
+      '**/*.config.{js,ts,mjs,cjs}',
+      'vite.config.ts',
+      'vite.config.lib.ts',
+      '.docs/docusaurus.config.ts',
+      '.story/main.{js,jsx,ts,tsx,mjs,cjs}',
+      '.story/manager.{js,jsx,ts,tsx,mjs,cjs}',
+    ],
+    languageOptions: {
+      globals: globals.node,
+    },
     plugins: {
       storybook,
     },
@@ -71,4 +111,4 @@ export default tseslint.config(
       'storybook/no-uninstalled-addons': 'error',
     },
   },
-);
+)

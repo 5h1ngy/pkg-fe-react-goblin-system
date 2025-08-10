@@ -35,7 +35,12 @@ export const ButtonGroup = ({
   })
 
   return (
-    <ButtonGroupRoot $orientation={orientation} $fullWidth={fullWidth} style={resolvedStyle} {...rest}>
+    <ButtonGroupRoot
+      $orientation={orientation}
+      $fullWidth={fullWidth}
+      style={resolvedStyle}
+      {...rest}
+    >
       {enhancedChildren}
     </ButtonGroupRoot>
   )

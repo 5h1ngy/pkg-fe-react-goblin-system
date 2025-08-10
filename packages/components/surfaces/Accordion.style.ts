@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const AccordionRoot = styled.div<{ $disabled?: boolean; $expanded?: boolean }>`
   border: 1px solid ${({ theme }) => theme.palette.divider};

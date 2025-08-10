@@ -1,8 +1,8 @@
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { SpeedDialAction } from '../../components'
 import { MailIcon } from '../../foundations'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof SpeedDialAction> = {
   title: 'Navigation/SpeedDialAction',

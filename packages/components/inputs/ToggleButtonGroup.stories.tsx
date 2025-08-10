@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import {Meta, StoryObj} from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { ToggleButton, ToggleButtonGroup } from '../../components'
-import { componentDocs } from '../componentDocs';
+import { componentDocs } from '../componentDocs'
 
 const meta: Meta<typeof ToggleButtonGroup> = {
   title: 'Inputs/ToggleButtonGroup',
@@ -24,7 +24,10 @@ export const Exclusive: Story = {
   render: () => {
     const [value, setValue] = useState('left')
     return (
-      <ToggleButtonGroup value={value} onChange={(_, newValue) => typeof newValue === 'string' && setValue(newValue)}>
+      <ToggleButtonGroup
+        value={value}
+        onChange={(_, newValue) => typeof newValue === 'string' && setValue(newValue)}
+      >
         <ToggleButton value="left">Left</ToggleButton>
         <ToggleButton value="center">Center</ToggleButton>
         <ToggleButton value="right">Right</ToggleButton>

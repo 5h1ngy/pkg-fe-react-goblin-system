@@ -1,6 +1,9 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-export const DialogContainer = styled.div<{ $fullWidth?: boolean; $maxWidth: NonNullable<'xs' | 'sm' | 'md' | 'lg'> }>`
+export const DialogContainer = styled.div<{
+  $fullWidth?: boolean
+  $maxWidth: NonNullable<'xs' | 'sm' | 'md' | 'lg'>
+}>`
   background: ${({ theme }) => theme.palette.background.paper};
   color: ${({ theme }) => theme.palette.text.primary};
   border-radius: ${({ theme }) => theme.shape.borderRadius}px;

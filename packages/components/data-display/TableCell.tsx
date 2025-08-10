@@ -6,4 +6,3 @@ export const TableCell = ({ variant, ...rest }: TableCellProps) => (
 )
 
 TableCell.displayName = 'TableCell'
-

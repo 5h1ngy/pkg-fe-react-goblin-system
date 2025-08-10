@@ -60,9 +60,11 @@ const toArray = (value?: SxProps): SxInput[] => {
 export const resolveSx = (
   theme: GoblinTheme,
   sx?: SxProps,
-  style?: CSSProperties
+  style?: CSSProperties,
 ): CSSProperties | undefined => {
-  const values = toArray(sx).filter(Boolean) as Array<CSSProperties | ((theme: GoblinTheme) => CSSProperties)>
+  const values = toArray(sx).filter(Boolean) as Array<
+    CSSProperties | ((theme: GoblinTheme) => CSSProperties)
+  >
 
   if (!values.length) {
     return style
@@ -86,5 +88,5 @@ export const resolveSx = (
   return merged
 }
 
-export const mergeSx = (...inputs: Array<SxProps | undefined>): SxProps => inputs.filter(Boolean) as SxProps
-
+export const mergeSx = (...inputs: Array<SxProps | undefined>): SxProps =>
+  inputs.filter(Boolean) as SxProps

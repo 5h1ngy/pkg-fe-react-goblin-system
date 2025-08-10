@@ -51,7 +51,3 @@ export const Autocomplete = ({ options, onChange, sx, style, ...rest }: Autocomp
 }
 
 Autocomplete.displayName = 'Autocomplete'
-
-
-
-

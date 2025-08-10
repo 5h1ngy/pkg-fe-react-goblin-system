@@ -1,4 +1,4 @@
-import { createPortal } from "react-dom"
+import { createPortal } from 'react-dom'
 
 import type { PortalProps } from './Portal.types'
 

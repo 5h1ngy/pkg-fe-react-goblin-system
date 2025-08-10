@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes } from "react"
+import { AnchorHTMLAttributes } from 'react'
 
 import { SxProps } from '../../system'
 import type { PaletteIntent } from './shared/intentColor'

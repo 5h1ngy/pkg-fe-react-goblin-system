@@ -1,4 +1,4 @@
-import { cloneElement, useState } from "react"
+import { cloneElement, useState } from 'react'
 
 import { TooltipBubble } from './Tooltip.style'
 import type { TooltipProps } from './Tooltip.types'
@@ -19,7 +19,11 @@ export const Tooltip = ({ title, placement = 'top', children }: TooltipProps) =>
   return (
     <span style={{ position: 'relative', display: 'inline-flex' }}>
       {trigger}
-      {open && <TooltipBubble $placement={placement} role="tooltip">{title}</TooltipBubble>}
+      {open && (
+        <TooltipBubble $placement={placement} role="tooltip">
+          {title}
+        </TooltipBubble>
+      )}
     </span>
   )
 }

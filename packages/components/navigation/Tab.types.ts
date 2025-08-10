@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from "react"
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 
 import { SxProps } from '../../system'
 import type { TabsValue } from './Tabs.context'

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from 'react'
 
 import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
@@ -6,7 +6,14 @@ import { resolveSx } from '../../system'
 import { CollapseWrapper } from './Collapse.style'
 import type { CollapseProps } from './Collapse.types'
 
-export const Collapse = ({ in: inProp = false, timeout = 300, children, sx, style, ...rest }: CollapseProps) => {
+export const Collapse = ({
+  in: inProp = false,
+  timeout = 300,
+  children,
+  sx,
+  style,
+  ...rest
+}: CollapseProps) => {
   const ref = useRef<HTMLDivElement | null>(null)
   const [height, setHeight] = useState(0)
   const theme = useGoblinTheme()
@@ -19,7 +26,13 @@ export const Collapse = ({ in: inProp = false, timeout = 300, children, sx, styl
   }, [children])
 
   return (
-    <CollapseWrapper $in={inProp} $height={height} $timeout={timeout} style={resolvedStyle} {...rest}>
+    <CollapseWrapper
+      $in={inProp}
+      $height={height}
+      $timeout={timeout}
+      style={resolvedStyle}
+      {...rest}
+    >
       <div ref={ref}>{children}</div>
     </CollapseWrapper>
   )

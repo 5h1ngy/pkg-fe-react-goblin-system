@@ -11,7 +11,8 @@ export const RadioIcon = styled.span<{ $checked?: boolean; $color: ColorToken }>
   display: grid;
   place-items: center;
   transition: ${({ theme }) => theme.transitions.create(['border-color'])};
-  border-color: ${({ $checked, theme, $color }) => ($checked ? getColor(theme, $color).main : theme.palette.divider)};
+  border-color: ${({ $checked, theme, $color }) =>
+    $checked ? getColor(theme, $color).main : theme.palette.divider};
 
   &::after {
     content: '';

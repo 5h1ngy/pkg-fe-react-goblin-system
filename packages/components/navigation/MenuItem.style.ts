@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const MenuItemRoot = styled.li<{ $disabled?: boolean }>`
   padding: ${({ theme }) => `${theme.spacing(1.2)} ${theme.spacing(2.4)}`};
