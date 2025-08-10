@@ -21,7 +21,7 @@
   },
   "author": "5h1ngy",
   "engines": {
-    "node": ">=20.18.0 <=25"
+    "node": ">=20.18.0"
   },
   "private": true,
   "exports": {
