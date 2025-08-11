@@ -13,18 +13,19 @@ import { DocsPreferredVersionContextProvider } from '@docusaurus/plugin-content-
 import type { Props } from '@theme/Layout/Provider'
 
 import { CssBaseline, GoblinThemeProvider } from 'pkg-fe-react-goblin-system'
+import type { GoblinThemeOptions, PaletteMode } from 'pkg-fe-react-goblin-system'
 
 const GoblinThemeBridge = ({ children }: { children: ReactNode }): JSX.Element => {
   const { colorMode } = useColorMode()
 
-  const themeOptions = useMemo(
-    () => ({
+  const themeOptions = useMemo<GoblinThemeOptions>(() => {
+    const paletteMode: PaletteMode = colorMode === 'dark' ? 'dark' : 'light'
+    return {
       palette: {
-        mode: colorMode === 'dark' ? 'dark' : 'light',
+        mode: paletteMode,
       },
-    }),
-    [colorMode],
-  )
+    }
+  }, [colorMode])
 
   return (
     <GoblinThemeProvider theme={themeOptions}>

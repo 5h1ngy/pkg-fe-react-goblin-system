@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { HTMLAttributeAnchorTarget, ReactNode } from 'react'
 
 import {
   isMultiColumnFooterLinks,
@@ -26,7 +26,7 @@ const groupTitleSx = () => (theme: GoblinTheme) => ({
   fontSize: theme.typography.pxToRem?.(13) ?? '0.8125rem',
   fontWeight: theme.typography.fontWeightMedium,
   letterSpacing: '0.08em',
-  textTransform: 'uppercase',
+  textTransform: 'uppercase' as const,
   color: theme.palette.text.secondary,
 })
 
@@ -65,44 +65,62 @@ function FooterLink({ item }: { item: FooterLinkItem }): ReactNode {
     )
   }
 
-  const linkProps = hrefUrl
-    ? {
-        href: hrefUrl,
-        target: item.target,
-        rel: item.rel ?? (isExternal ? 'noopener noreferrer' : undefined),
-      }
-    : {
-        to: toUrl!,
-      }
+  const linkContent = (
+    <Stack
+      component="span"
+      direction="row"
+      spacing={1}
+      alignItems="center"
+      sx={(theme: GoblinTheme) => ({
+        color: theme.palette.text.secondary,
+        fontWeight: theme.typography.fontWeightMedium,
+        transition: theme.transitions.create('color'),
+        '&:hover': {
+          color: theme.palette.text.primary,
+        },
+      })}
+    >
+      <Typography component="span" variant="body2" color="inherit">
+        {item.label}
+      </Typography>
+      {isExternal && <IconExternalLink width={14} height={14} />}
+    </Stack>
+  )
+
+  if (hrefUrl) {
+    const targetAttr: HTMLAttributeAnchorTarget | undefined =
+      (typeof item.target === 'string' ? item.target : undefined) ??
+      (isExternal ? '_blank' : undefined)
+    const relAttr =
+      (typeof item.rel === 'string' ? item.rel : undefined) ??
+      (isExternal ? 'noopener noreferrer' : undefined)
+
+    return (
+      <Link
+        href={hrefUrl}
+        target={targetAttr}
+        rel={relAttr}
+        style={{
+          textDecoration: 'none',
+          display: 'inline-flex',
+          alignItems: 'center',
+        }}
+      >
+        {linkContent}
+      </Link>
+    )
+  }
 
   return (
     <Link
-      {...linkProps}
+      to={toUrl!}
       style={{
         textDecoration: 'none',
         display: 'inline-flex',
         alignItems: 'center',
       }}
     >
-      <Stack
-        component="span"
-        direction="row"
-        spacing={1}
-        alignItems="center"
-        sx={(theme: GoblinTheme) => ({
-          color: theme.palette.text.secondary,
-          fontWeight: theme.typography.fontWeightMedium,
-          transition: theme.transitions.create('color'),
-          '&:hover': {
-            color: theme.palette.text.primary,
-          },
-        })}
-      >
-        <Typography component="span" variant="body2" color="inherit">
-          {item.label}
-        </Typography>
-        {isExternal && <IconExternalLink width={14} height={14} />}
-      </Stack>
+      {linkContent}
     </Link>
   )
 }
@@ -216,7 +234,7 @@ export default function Footer(): JSX.Element | null {
           </Grid>
         )}
 
-        <Stack spacing={3} alignItems="center" textAlign="center">
+        <Stack spacing={3} alignItems="center" sx={{ textAlign: 'center' }}>
           {footer.logo && <FooterLogoBlock logo={footer.logo} />}
           {footer.copyright && (
             <Typography variant="caption" color="textSecondary" sx={{ maxWidth: '72ch' }}>

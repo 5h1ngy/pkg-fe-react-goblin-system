@@ -89,7 +89,7 @@ export default function NavbarContent(): JSX.Element {
     <Container
       maxWidth="lg"
       className={clsx(
-        ThemeClassNames.layout.navbar.containerInner,
+        ThemeClassNames.layout.navbar.container,
         'navbar__inner',
         'goblin-navbar__container',
       )}

@@ -29,7 +29,7 @@ export const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
     const theme = useGoblinTheme()
     const resolvedStyle = resolveSx(theme, sx, style)
     const inputProps = rest as InputHTMLAttributes<HTMLInputElement>
-    const textareaProps = rest as TextareaHTMLAttributes<HTMLTextAreaElement>
+    const textareaProps = rest as unknown as TextareaHTMLAttributes<HTMLTextAreaElement>
 
     return (
       <InputWrapper

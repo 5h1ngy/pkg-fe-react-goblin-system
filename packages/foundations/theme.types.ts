@@ -56,6 +56,7 @@ export interface GoblinTypography {
   fontWeightRegular: number
   fontWeightMedium: number
   fontWeightBold: number
+  pxToRem?: (size: number) => string
   h1: TypographyVariant
   h2: TypographyVariant
   h3: TypographyVariant

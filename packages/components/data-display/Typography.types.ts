@@ -19,6 +19,7 @@ export type TypographyVariant =
 
 export type TypographyColor =
   | 'initial'
+  | 'inherit'
   | 'primary'
   | 'secondary'
   | 'textPrimary'

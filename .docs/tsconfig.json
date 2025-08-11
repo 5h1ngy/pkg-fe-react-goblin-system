@@ -4,9 +4,11 @@
     "baseUrl": ".",
     "paths": {
       "pkg-fe-react-goblin-system": ["../packages/index.ts"],
-      "pkg-fe-react-goblin-system/*": ["../packages/*"]
-    }
+      "pkg-fe-react-goblin-system/*": ["../packages/*"],
+      "@site/*": ["./*"]
+    },
+    "types": ["@docusaurus/module-type-aliases"]
   },
-  "include": ["src", "../docs", "static", "./*.ts"],
+  "include": ["src", "../docs", "static", "./*.ts", "../packages/foundations/styled.d.ts"],
   "exclude": [".docusaurus", "build", "node_modules"]
 }

@@ -1,13 +1,23 @@
-import { Children, Fragment, ReactElement, cloneElement, forwardRef, isValidElement } from 'react'
+import {
+  Children,
+  Fragment,
+  ReactElement,
+  cloneElement,
+  forwardRef,
+  isValidElement,
+  type ElementType,
+  type ForwardRefRenderFunction,
+} from 'react'
 
 import { useGoblinTheme } from '../../foundations'
 import { resolveSx } from '../../system'
 
 import { StackRoot } from './Stack.style'
-import type { StackProps } from './Stack.types'
+import type { StackComponent, StackProps, StackRef } from './Stack.types'
 
-export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
+function InnerStack<E extends ElementType = 'div'>(
   {
+    component,
     direction = 'column',
     spacing = 0,
     divider,
@@ -17,9 +27,10 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
     style,
     children,
     ...rest
-  },
-  ref,
+  }: StackProps<E>,
+  ref: StackRef<E>,
 ) {
+  const Component = component ?? ('div' as ElementType)
   const theme = useGoblinTheme()
   const gapValue = theme.spacing(spacing)
   const resolvedStyle = resolveSx(theme, sx, style)
@@ -43,6 +54,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
 
   return (
     <StackRoot
+      as={Component}
       ref={ref}
       $direction={direction}
       $gap={gapValue}
@@ -54,6 +66,10 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
       {content}
     </StackRoot>
   )
-})
+}
+
+export const Stack = forwardRef(
+  InnerStack as unknown as ForwardRefRenderFunction<unknown>,
+) as StackComponent & { displayName?: string }
 
 Stack.displayName = 'Stack'
