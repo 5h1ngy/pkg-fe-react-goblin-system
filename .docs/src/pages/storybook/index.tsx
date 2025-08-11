@@ -3,7 +3,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 import { Box, Container, Stack, Typography } from 'pkg-fe-react-goblin-system/components'
 
 const StorybookPage = (): JSX.Element => {
-  const storybookUrl = useBaseUrl('/storybook-static/index.html')
+  const storybookStaticUrl = useBaseUrl('/storybook/index.html')
+  const storybookUrl =
+    process.env.NODE_ENV === 'production' ? storybookStaticUrl : 'http://localhost:6006'
 
   return (
     <Layout title="Storybook" description="Interactive component explorer">

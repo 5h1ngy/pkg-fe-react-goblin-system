@@ -17,7 +17,7 @@ export default tseslint.config(
       '.docs/dist',
       '.docs/.docusaurus',
       '.docs/static',
-      '.docs/static/storybook-static',
+      'dist/storybook',
     ],
   },
   {

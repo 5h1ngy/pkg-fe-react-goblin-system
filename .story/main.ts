@@ -22,7 +22,7 @@ const config: StorybookConfig = {
     const projectDir = dirname(fileURLToPath(new URL('../', import.meta.url)))
 
     return mergeConfig(config, {
-      base: '/pkg-fe-react-goblin-system/storybook-static/',
+      base: '/pkg-fe-react-goblin-system/storybook/',
       resolve: {
         alias: {
           'pkg-fe-react-goblin-system': resolve(projectDir, 'packages/index.ts'),

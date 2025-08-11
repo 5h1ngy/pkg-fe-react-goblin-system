@@ -55,14 +55,14 @@
     "format": "prettier --write \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs,json,md}\"",
     "format:check": "prettier --check \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs,json,md}\"",
     "storybook:dev": "storybook dev --config-dir .story --port 6006 --no-open --ci",
-    "storybook:build": "storybook build --config-dir .story --output-dir .docs/static/storybook-static",
+    "storybook:build": "storybook build --config-dir .story --output-dir dist/storybook",
     "lib:build": "vite build --config vite.config.lib.ts && tsc --project tsconfig.types.json && npm pack --pack-destination dist/lib",
     "docs:dev": "docusaurus start .docs --no-open",
-    "docs:build": "docusaurus build .docs --out-dir dist/docs",
+    "docs:build": "docusaurus build .docs --out-dir dist/docs && node scripts/copy-storybook-into-docs.mjs",
     "docs:serve": "docusaurus serve .docs --dir dist/docs",
     "build": "npm run lib:build && npm run storybook:build && npm run docs:build",
-    "workspace:clean": "rm -rf dist .docs/static/storybook-static",
-    "workspace:reset": "rm -rf node_modules dist .docs/.docusaurus .docs/dist .docs/static/storybook-static"
+    "workspace:clean": "rm -rf dist",
+    "workspace:reset": "rm -rf node_modules dist .docs/.docusaurus .docs/dist"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",
