@@ -58,11 +58,12 @@
     "storybook:build": "storybook build --config-dir .story --output-dir dist/storybook",
     "lib:build": "vite build --config vite.config.lib.ts && tsc --project tsconfig.types.json && npm pack --pack-destination dist/lib",
     "docs:dev": "docusaurus start .docs --no-open",
-    "docs:build": "docusaurus build .docs --out-dir dist/docs && node scripts/copy-storybook-into-docs.mjs",
+    "docs:build": "docusaurus build .docs --out-dir dist/docs && npm run copy:storybook",
     "docs:serve": "docusaurus serve .docs --dir dist/docs",
     "build": "npm run lib:build && npm run storybook:build && npm run docs:build",
-    "workspace:clean": "rm -rf dist",
-    "workspace:reset": "rm -rf node_modules dist .docs/.docusaurus .docs/dist"
+    "copy:storybook": "shx test -d dist/storybook && rimraf dist/docs/storybook && cpy \"**/*\" \"../docs/storybook\" --cwd=dist/storybook || shx echo \"[copy:storybook] dist/storybook not found; skipping\"",
+    "workspace:clean": "rimraf dist",
+    "workspace:reset": "rimraf node_modules dist .docs/.docusaurus .docs/dist"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",
@@ -82,6 +83,7 @@
     "@docusaurus/tsconfig": "^3.0.0",
     "@docusaurus/types": "^3.0.0",
     "@eslint/js": "^9.22.0",
+    "cpy-cli": "^5.0.0",
     "@storybook/addon-essentials": "^8.6.4",
     "@storybook/addon-interactions": "^8.6.4",
     "@storybook/addon-onboarding": "^8.6.4",
@@ -103,7 +105,9 @@
     "typescript": "^5.4.2",
     "typescript-eslint": "^8.26.0",
     "vite": "^5.1.5",
-    "vite-plugin-dts": "^4.5.3"
+    "vite-plugin-dts": "^4.5.3",
+    "rimraf": "^5.0.5",
+    "shx": "^0.3.4"
   },
   "packageManager": "npm@10.8.2"
 }
