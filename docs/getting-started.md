@@ -1,91 +1,112 @@
 ---
 sidebar_position: 2
+title: Getting Started
 ---
 
 # Getting Started
 
-This guide takes you from an empty React entry point to a foggy, glowing interface powered by Goblin System.
+Follow these steps to plug Goblin System into a fresh React/Vite project.  
+All examples assume React 18+, TypeScript, and `styled-components@^6`.
 
-## 1. Install
+## 1. Install the packages
 
 ```bash
 npm install pkg-fe-react-goblin-system styled-components
 ```
 
-The runtime surface only depends on React 18+ and `styled-components`.
+`styled-components` is the only peer dependency required at runtime. Development tooling (linting, Storybook, Docusaurus) already lives in this repository.
 
-## 2. Create a Theme
+## 2. Create a theme instance
 
 ```ts title="theme.ts"
-import { createTheme } from 'pkg-fe-react-goblin-system'
+import { createGoblinTheme } from 'pkg-fe-react-goblin-system'
 
-export const theme = createTheme('dark', '#ffb422')
+const SECONDARY_OCHRE = '#c9971f'
+
+export const theme = createGoblinTheme({
+  palette: {
+    mode: 'dark',
+    secondary: { main: SECONDARY_OCHRE },
+  },
+})
 ```
 
-- `mode` can be either `'light'` or `'dark'`.
-- `accent` feeds pills, borders, outlines, gradients and ambient shadows.
+- `mode` supports `'light'` and `'dark'`.
+- Only `secondary.main` is required—the rest of the palette is merged from Goblin defaults.
+- You can swap the `secondary` swatch at runtime (see the neon pickers in the docs header for inspiration).
 
-Storybook and the docs use this dark/amber combo by default so you can copy the exact look.
+## 3. Wrap your application
 
-## 3. Wire the Provider
-
-```tsx title="main.tsx"
-import { ThemeProvider } from 'styled-components'
-import { GlobalStyle } from 'pkg-fe-react-goblin-system'
+```tsx title="App.tsx"
+import { GoblinThemeProvider, CssBaseline } from 'pkg-fe-react-goblin-system'
 import { theme } from './theme'
 
-export function AppRoot() {
+export function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      {/* screens */}
-    </ThemeProvider>
+    <GoblinThemeProvider theme={theme}>
+      <CssBaseline />
+      {/* routes, layouts, modals... */}
+    </GoblinThemeProvider>
   )
 }
 ```
 
-`GlobalStyle` brings the typography stack, smooth scrolling and link resets you see inside the portfolio scaffold.
+`CssBaseline` injects the global reset, typography stack, scrollbar styling, and smooth scroll behaviour that mirror the portfolio.
 
-## 4. Compose Sections
+## 4. Compose with components
 
-```tsx title="Hero.tsx"
+```tsx title="ExampleCard.tsx"
 import {
-  Section,
-  SurfaceButton,
-  ActionLink,
   Card,
-  TagList,
-  TagPill,
-} from 'pkg-fe-react-goblin-system'
+  CardContent,
+  CardHeader,
+  Button,
+  Stack,
+  Typography,
+  Chip,
+} from 'pkg-fe-react-goblin-system/components'
 
-export function Hero() {
+export function ExampleCard() {
   return (
-    <Section id="hero" accent="Featured Work" description="Atoms tuned for narrative portfolios.">
-      <Card $variant="gradient" $interactive>
-        <p>Blend gradient cards, badges and pills to describe each case study.</p>
-        <TagList>
-          <TagPill>Motion</TagPill>
-          <TagPill>DX</TagPill>
-          <TagPill>3D</TagPill>
-        </TagList>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <SurfaceButton $tone="accent">Open project</SurfaceButton>
-          <ActionLink href="#">See process →</ActionLink>
-        </div>
-      </Card>
-    </Section>
+    <Card $variant="elevated" sx={{ maxWidth: 360 }}>
+      <CardHeader title="Neon UI kit" subheader="Goblin System" />
+      <CardContent>
+        <Stack spacing={2}>
+          <Typography variant="body1">
+            Compose surfaces, inputs, navigation and feedback primitives tuned for dark mode.
+          </Typography>
+          <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap' }}>
+            <Chip label="Design systems" color="primary" />
+            <Chip label="Vite + TS" color="secondary" variant="outlined" />
+            <Chip label="Accessibility" color="info" />
+          </Stack>
+          <Button variant="contained" color="secondary">
+            Explore Storybook
+          </Button>
+        </Stack>
+      </CardContent>
+    </Card>
   )
 }
 ```
 
-## 5. Optional Enhancements
+Every component accepts either semantic props (e.g. `$variant`, `color`) or an `sx` prop for theme-aware styling overrides.
 
-- **Dark mode toggle** – Call `createTheme('dark', accent)` when the user flips a switch and feed it back into `ThemeProvider`.
-- **Accent switcher** – rotate the accent with `SECONDARY_COLORS` for per-section highlights.
-- **Type safety** – `AppTheme` is exported, so custom styled-components automatically infer the palette.
+## 5. Access tokens from anywhere
 
-## Next Steps
+```ts title="useSpacing.ts"
+import { useGoblinTheme } from 'pkg-fe-react-goblin-system'
 
-- Explore every atom in [Components > Overview](./components/index.md).
-- Learn how gradients, fog and borders are generated in [Theme tokens](./styles/theme.md).
-- Review the global reset in [Styles > Global Style](./styles/global-style.md).
+export function useSpacing(multiplier = 1) {
+  const theme = useGoblinTheme()
+  return theme.spacing(multiplier)
+}
+```
+
+The `useGoblinTheme` hook exposes the fully merged theme, including breakpoints, mixins, shadows and typography helpers.
+
+## continue exploring
+
+- Dive into [Foundations](./components/foundations.md) to understand the theme contract.
+- Browse Storybook via the header link to inspect every component live.
+- Learn how to [extend tokens](./styles/theme.md) or tweak the [global style sheet](./styles/global-style.md).

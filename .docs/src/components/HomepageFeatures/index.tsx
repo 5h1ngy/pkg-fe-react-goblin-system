@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
+import Translate, { translate } from '@docusaurus/Translate'
 import type { JSX } from 'react'
 
 import {
@@ -9,11 +10,16 @@ import {
   Stack,
   Typography,
 } from 'pkg-fe-react-goblin-system/components'
+import React from 'react'
 
 type FeatureItem = {
-  title: string
   image: string
-  description: string
+  titleId: string
+  titleDefault: string
+  titleDescription: string
+  descriptionId: string
+  descriptionDefault: string
+  descriptionDescription: string
 }
 
 const featureSectionBackground = (mode: 'light' | 'dark'): string =>
@@ -34,26 +40,46 @@ const featureCardSurface = (mode: 'light' | 'dark'): { background: string; borde
 
 const features: FeatureItem[] = [
   {
-    title: 'Portfolio Fidelity',
     image: require('@site/static/img/home-rapid.png').default,
-    description:
-      'Gradients, fog layers and ambient shadows come from the same theme powering the original portfolio, so every screen feels bespoke.',
+    titleId: 'homepage.features.foundations.title',
+    titleDefault: 'Dark-first foundations',
+    titleDescription: 'Feature title highlighting theme foundations',
+    descriptionId: 'homepage.features.foundations.description',
+    descriptionDefault:
+      'Gradients, palette tokens, typography and spacing come from a single theme so every surface feels cinematic out of the box.',
+    descriptionDescription: 'Feature description about design tokens',
   },
   {
-    title: 'Shared Primitives',
     image: require('@site/static/img/home-modular.png').default,
-    description:
-      'Cards, sections, overlays and tags live in a single toolkit - compose them to build narrative case studies in minutes.',
+    titleId: 'homepage.features.components.title',
+    titleDefault: 'Composable components',
+    titleDescription: 'Feature title highlighting component families',
+    descriptionId: 'homepage.features.components.description',
+    descriptionDefault:
+      'Layout, data display, inputs, navigation, surfaces and utilities share the same API conventions and `sx` entry point.',
+    descriptionDescription: 'Feature description about component families',
   },
   {
-    title: 'Docs + Storybook',
     image: require('@site/static/img/home-modern.png').default,
-    description:
-      'Storybook controls fine-tune the theme accents while Docusaurus explains the building blocks, keeping design and implementation aligned.',
+    titleId: 'homepage.features.docs.title',
+    titleDefault: 'Docs + Storybook synergy',
+    titleDescription: 'Feature title about documentation & Storybook',
+    descriptionId: 'homepage.features.docs.description',
+    descriptionDefault:
+      'Storybook stories expose real props and theme controls, while the docs focus on architecture, localisation and design guidance.',
+    descriptionDescription: 'Feature description about docs & Storybook relationship',
   },
 ]
 
-const FeatureCard = ({ title, image, description }: FeatureItem): JSX.Element => (
+const FeatureCard = ({
+  image,
+  titleId,
+  titleDefault,
+  titleDescription,
+  descriptionId,
+  descriptionDefault,
+  descriptionDescription,
+}: FeatureItem): JSX.Element => (
   <Card
     variant="outlined"
     sx={(theme) => ({
@@ -71,7 +97,11 @@ const FeatureCard = ({ title, image, description }: FeatureItem): JSX.Element =>
       <Box
         component="img"
         src={image}
-        alt={title}
+        alt={translate({
+          id: `${titleId}.alt`,
+          message: titleDefault,
+          description: `${titleDescription} (alt text)`,
+        })}
         sx={(theme) => ({
           width: theme.spacing(18),
           height: theme.spacing(18),
@@ -83,9 +113,19 @@ const FeatureCard = ({ title, image, description }: FeatureItem): JSX.Element =>
         })}
       />
       <Stack spacing={2}>
-        <Typography variant="h4">{title}</Typography>
+        <Typography variant="h4">
+          {translate({
+            id: titleId,
+            message: titleDefault,
+            description: titleDescription,
+          })}
+        </Typography>
         <Typography variant="body2" color="textSecondary">
-          {description}
+          {translate({
+            id: descriptionId,
+            message: descriptionDefault,
+            description: descriptionDescription,
+          })}
         </Typography>
       </Stack>
     </Stack>
@@ -95,12 +135,19 @@ const FeatureCard = ({ title, image, description }: FeatureItem): JSX.Element =>
 const SectionHeader = (): JSX.Element => (
   <Stack spacing={2} alignItems="center" sx={{ textAlign: 'center' }}>
     <Typography variant="overline" color="secondary">
-      Build expressive case studies
+      <Translate id="homepage.features.overline">Build expressive case studies</Translate>
     </Typography>
-    <Typography variant="h3">Everything wired for thematic storytelling</Typography>
+    <Typography variant="h3">
+      <Translate id="homepage.features.heading">
+        Everything wired for thematic storytelling
+      </Translate>
+    </Typography>
     <Typography variant="body1" color="textSecondary" sx={{ maxWidth: '60ch' }}>
-      Use the same primitives that shipped the original portfolio. Layouts, surfaces and feedback
-      elements are coordinated so every project inherits the same cinematic tone.
+      <Translate id="homepage.features.intro">
+        Use the same primitives that shipped the original portfolio. Layouts, surfaces, navigation,
+        inputs and feedback elements are coordinated so every project inherits the same cinematic
+        tone.
+      </Translate>
     </Typography>
   </Stack>
 )
@@ -118,7 +165,7 @@ const HomepageFeatures = (): JSX.Element => (
         <SectionHeader />
         <Grid container spacing={4}>
           {features.map((feature) => (
-            <Grid item xs={12} md={4} key={feature.title}>
+            <Grid item xs={12} md={4} key={feature.titleId}>
               <FeatureCard {...feature} />
             </Grid>
           ))}

@@ -23,7 +23,15 @@ const config: Config = {
   },
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'it'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+      },
+      it: {
+        label: 'Italiano',
+      },
+    },
   },
   presets: [
     [
@@ -61,6 +69,10 @@ const config: Config = {
           to: '/storybook',
           label: 'Storybook',
           position: 'left',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
         {
           href: 'https://github.com/5h1ngy/pkg-fe-react-goblin-system',

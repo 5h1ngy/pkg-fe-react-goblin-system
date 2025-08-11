@@ -1,72 +1,91 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Theme Tokens
 ---
 
-`src/styles/theme.ts` exports `createTheme(mode, accent)` plus the `AppTheme` typing. The function stitches together color palettes, gradients and shadows that every component consumes through `styled-components`.
+# Theme Tokens
 
-## Structure
+`createGoblinTheme` is the entry point for generating a fully-typed theme object.  
+It merges your overrides with Goblin defaults and returns a structure consumed by every component.
 
-```ts
-export interface AppTheme {
-  mode: 'dark' | 'light'
-  colors: {
-    background: string
-    surface: string
-    surfaceMuted: string
-    surfaceElevated: string
-    textPrimary: string
-    textSecondary: string
-    textMuted: string
-    accent: string
-    accentSoft: string
-    accentOutline: string
-    accentOutlineMuted: string
-    border: string
-  }
-  gradients: {
-    background: string
-    overlay: string
-    fog: string
-  }
-  layout: {
-    maxWidth: string
-    gutter: string
-  }
-  shadows: {
-    ambient: string
-    accent: string
-  }
+## Theme shape
+
+```ts title="theme shape"
+import type { GoblinTheme } from 'pkg-fe-react-goblin-system'
+
+declare const theme: GoblinTheme
+
+theme.palette.primary.main
+theme.typography.h3.fontWeight
+theme.spacing(4)
+theme.breakpoints.up('md')
+theme.transitions.create('opacity', { duration: 160 })
+theme.shadows[8]
+theme.mixins.toolbar.minHeight
+theme.zIndex.modal
+```
+
+The shape is intentionally close to Material UI, with additional Goblin flair for gradients and shadows.
+
+## Overriding tokens
+
+```ts title="theme.ts"
+import { createGoblinTheme } from 'pkg-fe-react-goblin-system'
+
+export const theme = createGoblinTheme({
+  palette: {
+    mode: 'dark',
+    secondary: { main: '#c9971f' },
+    info: { main: '#00f0ff' },
+  },
+  typography: {
+    fontFamily: "'Inter', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    h4: { fontWeight: 600 },
+  },
+  spacing: 12, // base unit -> 0.75rem
+  shadows: [
+    'none',
+    '0 10px 30px rgba(0, 240, 255, 0.25)',
+    // ...
+  ],
+})
+```
+
+- **Palette**: supply partial objects (`primary`, `secondary`, etc.) to override colours. Only `main` is required; the rest is interpolated.
+- **Typography**: override individual variants, weights, or the global font family.
+- **Spacing**: pass either a function `(factor) => string` or a base number—Goblin converts it to rem.
+- **Shadows**: replace the preset array to match your brand.
+
+## Responsive helpers
+
+- `theme.breakpoints.up('md')` returns a media query string.
+- `theme.breakpoints.between('sm', 'lg')` helps with composition in `sx` objects or styled components.
+- `theme.mixins.toolbar` keeps headers aligned with the App Bar height.
+
+## Using tokens in `sx`
+
+```tsx
+import { Card, Typography } from 'pkg-fe-react-goblin-system/components'
+
+export function HighlightCard() {
+  return (
+    <Card
+      sx={(theme) => ({
+        padding: theme.spacing(4),
+        background: theme.palette.mode === 'dark' ? theme.palette.background.paper : theme.palette.grey[100],
+        border: `1px solid ${theme.palette.secondary.main}`,
+        boxShadow: theme.shadows[9],
+      })}
+    >
+      <Typography variant="h5">Secondary colour ready</Typography>
+      <Typography variant="body2" color="textSecondary">
+        The fluorescent palette in the header updates <code>theme.palette.secondary</code> instantly.
+      </Typography>
+    </Card>
+  )
 }
 ```
 
-## Accent helpers
+## Remember Storybook
 
-Storybook and the docs boot with `createTheme('dark', '#ffb422')` to mirror the default amber glow from the portfolio.  
-`SECONDARY_COLORS` exposes a curated palette of four additional accents. Combine it with Storybook toolbar controls or build your own color picker:
-
-```ts
-import { SECONDARY_COLORS, createTheme } from 'pkg-fe-react-goblin-system'
-
-const accent = SECONDARY_COLORS[2]
-const theme = createTheme('dark', accent)
-```
-
-`accentSoft`, `accentOutline` and `accentOutlineMuted` are generated via `withAlpha`, so outlines always match the base accent without manual tweaking.
-
-## Layout tokens
-
-- `layout.maxWidth` – aligns with the original portfolio content width (`880px`).
-- `layout.gutter` – horizontal spacing used by grid wrappers.
-
-## Using in custom components
-
-```ts
-import styled from 'styled-components'
-
-export const FrostedPanel = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
-  background: ${({ theme }) => theme.colors.surfaceMuted};
-  box-shadow: ${({ theme }) => theme.shadows.ambient};
-`
-```
+The Storybook toolbar exposes the same `mode` and `primary` controls found in the docs header. Use it to test different palettes, then copy the resulting values into your theme overrides.

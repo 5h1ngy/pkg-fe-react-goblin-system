@@ -1,31 +1,37 @@
 ---
 sidebar_position: 1
+title: Components Overview
 ---
 
 # Components Overview
 
-Goblin System ships a focused set of shared components. Every piece is theme-aware and designed to snap together for portfolio sections.  
-The codebase mirrors the documentation: `src/components/shared/buttons`, `layout`, `metadata`, and `overlays` each host the assets for their respective chapters.
+Goblin System components are organised by intent, not by visual style.  
+Every primitive is powered by the shared theme contract and exposes an `sx` prop for fine-grained control.
 
-| Component | Description |
+## Component families
+
+| Category | Highlights |
 | --- | --- |
-| `ActionLink`, `TextLink` | Inline actions with accent hover states. |
-| `SurfaceButton`, `IconButton`, `PillButton` | Density-friendly call-to-actions with tone modifiers. |
-| `Backdrop` | Blurred full-screen overlay that respects the current mode. |
-| `Card` | Gradient/surface containers with interactive elevation. |
-| `MenuSurface` | Floating surface for quick menus or command palettes. |
-| `MetaLabel` | Eyebrow, badge or counter metadata. |
-| `ModalOverlay`, `ModalContainer`, `ModalScrollArea` | Composable modal shell. |
-| `Section` | Spacing + header scaffold used across the portfolio. |
-| `ScreenLoader` | Full-viewport progress overlay with accent glow + progress bar. |
-| `TagList`, `TagPill` | Responsive skill or stack metadata list. |
-| `VisuallyHidden` | Accessibility helper for off-screen text. |
-| `Header`, `Footer` | Portfolio shell with locale/theme controls and social links. |
+| [Foundations](./foundations.md) | Theme provider, global styles, icon set, and helper hooks. |
+| [Layout](./layout.md) | `Container`, `Stack`, responsive `Grid`, image lists. |
+| [Data display](./data-display.md) | `Avatar`, `Badge`, `Chip`, `List`, `Table`, `Typography`. |
+| [Inputs & controls](./inputs.md) | Button set, toggles, selectors, text inputs. |
+| [Feedback & overlays](./feedback.md) | Alerts, dialogs, snackbar, progress indicators, `Tooltip`. |
+| [Navigation](./navigation.md) | App bars, drawers, menus, pagination, steppers, tabs. |
+| [Utilities & portals](./utilities.md) | Collapse, modal, popover, portal utilities. |
 
-Use the sub-pages to see code snippets and design guidance for each category:
+Each detail page lists the most important components in that family, including usage guidelines and links to Storybook stories.
 
-- [Buttons & Links](./buttons.md)
-- [Cards & Sections](./cards.md)
-- [Metadata & Tags](./metadata.md)
-- [Overlays](./overlays.md)
-- [Header & Footer](./site-shell.md)
+## Component anatomy
+
+Most components follow the same conventions:
+
+- **Variant props** with `$` prefix (e.g. `$variant`, `$interactive`) to avoid collisions.
+- **`color` props** respecting palette keys (`primary`, `secondary`, `info`, `success`, `warning`, `error`).
+- **`sx` prop** to feed theme-aware style objects or functions.
+- **Forwarded refs** so you can integrate with form libraries, `react-hook-form`, or custom animations.
+
+## Keep Storybook close
+
+The fastest way to explore behaviour is to open Storybook from the header.  
+You can then copy/paste code snippets directly into your application while the documentation stays focused on design and architecture guidelines.

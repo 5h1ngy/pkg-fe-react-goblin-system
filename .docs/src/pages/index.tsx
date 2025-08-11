@@ -2,6 +2,7 @@
 import type { ReactNode } from 'react'
 import { useCallback } from 'react'
 
+import Translate, { translate } from '@docusaurus/Translate'
 import { useHistory } from '@docusaurus/router'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
@@ -37,7 +38,11 @@ const HeroSection = (): JSX.Element => {
           <Box
             component="img"
             src={require('@site/static/img/logo.png').default}
-            alt="Goblin System logo"
+            alt={translate({
+              id: 'homepage.hero.logoAlt',
+              message: 'Goblin System logo',
+              description: 'Alt text for the Goblin System logo in the hero',
+            })}
             sx={(theme) => ({
               width: theme.spacing(16),
               height: theme.spacing(16),
@@ -51,23 +56,27 @@ const HeroSection = (): JSX.Element => {
 
           <Stack spacing={3} alignItems="center" sx={{ textAlign: 'center' }}>
             <Typography variant="overline" color="secondary">
-              Portfolio-grade theme
+              <Translate id="homepage.hero.overline">Dark-first design system</Translate>
             </Typography>
             <Typography variant="h2" component="h1">
               {siteConfig.title}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              {siteConfig.tagline}
+              <Translate id="homepage.hero.tagline">
+                Portfolio-grade React components and theme.
+              </Translate>
             </Typography>
             <Typography variant="body1" color="textSecondary" sx={{ maxWidth: '38ch' }}>
-              Extracted from the original portfolio, Goblin System pairs React 18 and
-              styled-components to deliver foggy gradients, ambient cards, tags and overlays for
-              expressive case studies.
+              <Translate id="homepage.hero.body">
+                Goblin System mette in scena componenti React e token condivisi per costruire
+                interfacce narrative: superfici ambient, controlli neon e librerie di dati pensati
+                per ambienti dark.
+              </Translate>
             </Typography>
           </Stack>
 
           <Button variant="contained" size="large" color="primary" onClick={handleNavigate}>
-            Start building
+            <Translate id="homepage.hero.cta">Start building</Translate>
           </Button>
         </Stack>
       </Container>
@@ -79,7 +88,14 @@ export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext()
 
   return (
-    <Layout title={siteConfig.title} description="Goblin System documentation">
+    <Layout
+      title={siteConfig.title}
+      description={translate({
+        id: 'homepage.meta.description',
+        message: 'Goblin System documentation',
+        description: 'Meta description for the homepage',
+      })}
+    >
       <HeroSection />
       <main>
         <HomepageFeatures />

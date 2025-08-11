@@ -19,11 +19,13 @@ const sidebars: SidebarsConfig = {
       label: 'Components',
       items: [
         'components/index',
-        'components/buttons',
-        'components/cards',
-        'components/metadata',
-        'components/overlays',
-        'components/site-shell',
+        'components/foundations',
+        'components/layout',
+        'components/data-display',
+        'components/inputs',
+        'components/feedback',
+        'components/navigation',
+        'components/utilities',
       ],
     },
     {

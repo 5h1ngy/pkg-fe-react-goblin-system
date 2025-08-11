@@ -1,6 +1,9 @@
 import type { Preview } from '@storybook/react'
 import { GoblinThemeProvider, CssBaseline, createGoblinTheme } from '../packages/foundations'
 
+const DEFAULT_MODE = 'dark' as const
+const DEFAULT_SECONDARY = '#c9971f'
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -21,7 +24,7 @@ const preview: Preview = {
     mode: {
       name: 'Mode',
       description: 'Theme mode',
-      defaultValue: 'dark',
+      defaultValue: DEFAULT_MODE,
       toolbar: {
         icon: 'contrast',
         items: [
@@ -50,12 +53,13 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      const mode = context.globals.mode as 'light' | 'dark'
+      const mode = (context.globals.mode as 'light' | 'dark' | undefined) ?? DEFAULT_MODE
       const primary = context.globals.primary as string
       const theme = createGoblinTheme({
         palette: {
           mode,
           primary: { main: primary },
+          secondary: { main: DEFAULT_SECONDARY },
         },
       })
       const background = theme.palette.background?.default ?? '#121212'
