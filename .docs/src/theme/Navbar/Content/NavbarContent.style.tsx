@@ -18,6 +18,7 @@ export const navbarContentRowSx = () => (theme: GoblinTheme) => ({
   gap: theme.spacing(3),
   flexWrap: 'wrap' as const,
   rowGap: theme.spacing(2),
+  padding: '1rem'
 })
 
 export const navbarBrandSectionSx: ComponentProps<typeof Stack>['sx'] = (theme: GoblinTheme) => ({
@@ -40,7 +41,6 @@ export const navbarRightSectionSx: ComponentProps<typeof Stack>['sx'] = (theme: 
 export const navbarDesktopLinksSx =
   (displayFrom: 'md' | 'lg' = 'md') =>
   (theme: GoblinTheme) => ({
-    display: 'none',
     alignItems: 'center',
     gap: theme.spacing(3),
     '& .navbar__link, & .navbar__item': {

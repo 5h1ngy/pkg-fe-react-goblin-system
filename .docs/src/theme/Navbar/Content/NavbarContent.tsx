@@ -15,14 +15,12 @@ import {
   Box,
   Container,
   IconButton,
-  Select,
   Stack,
   Typography,
 } from 'pkg-fe-react-goblin-system/components'
 import { SECONDARY_COLOR_OPTIONS, useSecondaryColor } from '@site/src/theme/Layout/Provider'
 
 import { useNavbarContentState } from './NavbarContent.hooks'
-import type { NavbarLocaleOption } from './NavbarContent.types'
 import {
   navbarAccentCodeSx,
   navbarAccentLabelSx,
@@ -31,7 +29,6 @@ import {
   navbarColorSwatchSx,
   navbarContentRowSx,
   navbarDesktopLinksSx,
-  navbarLocaleSelectSx,
   navbarRightSectionSx,
 } from './NavbarContent.style'
 
@@ -92,50 +89,10 @@ const NavbarContentSecondaryColorPicker = ({
   )
 }
 
-const NavbarContentLocaleSelect = ({
-  options,
-  currentLocale,
-  ariaLabel,
-  onChange,
-}: {
-  options: NavbarLocaleOption[]
-  currentLocale: string
-  ariaLabel: string
-  onChange: (option: NavbarLocaleOption) => void
-}): JSX.Element => (
-  <Select
-    aria-label={ariaLabel}
-    value={currentLocale}
-    onChange={(event) => {
-      const target = options.find((option) => option.value === event.target.value)
-      if (target) {
-        onChange(target)
-      }
-    }}
-    options={options.map((option) => ({
-      value: option.value,
-      label: option.label,
-    }))}
-    variant="outlined"
-    sx={navbarLocaleSelectSx}
-  />
-)
-
 const NavbarContent = (): JSX.Element => {
   const mobileSidebar = useNavbarMobileSidebar()
   const { secondary, setSecondary } = useSecondaryColor()
-  const {
-    leftItems,
-    rightItems,
-    showSearchInput,
-    localeOptions,
-    localeAriaLabel,
-    currentLocale,
-  } = useNavbarContentState()
-
-  const handleLocaleChange = (option: NavbarLocaleOption) => {
-    window.location.href = option.url
-  }
+  const { leftItems, rightItems, showSearchInput } = useNavbarContentState()
 
   return (
     <Container
@@ -171,19 +128,15 @@ const NavbarContent = (): JSX.Element => {
           sx={navbarRightSectionSx}
         >
           <Box component="div" sx={navbarDesktopLinksSx('lg')}>
+            <NavbarContentSecondaryColorPicker
+              options={SECONDARY_COLOR_OPTIONS}
+              selected={secondary}
+              onSelect={setSecondary}
+            />
+          </Box>
+          <Box component="div" sx={navbarDesktopLinksSx('lg')}>
             <NavbarContentItems items={rightItems} />
           </Box>
-          <NavbarContentSecondaryColorPicker
-            options={SECONDARY_COLOR_OPTIONS}
-            selected={secondary}
-            onSelect={setSecondary}
-          />
-          <NavbarContentLocaleSelect
-            options={localeOptions}
-            currentLocale={currentLocale}
-            ariaLabel={localeAriaLabel}
-            onChange={handleLocaleChange}
-          />
           <NavbarColorModeToggle />
           {showSearchInput && (
             <NavbarSearch>
