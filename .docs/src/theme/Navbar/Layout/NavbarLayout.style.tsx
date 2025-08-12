@@ -8,6 +8,7 @@ export const createNavbarLayoutSx =
   (theme: GoblinTheme) => ({
     position: 'sticky',
     top: 0,
+    height: 'fit-content',
     width: '100%',
     zIndex: theme.zIndex.appBar,
     backdropFilter: 'blur(20px)',

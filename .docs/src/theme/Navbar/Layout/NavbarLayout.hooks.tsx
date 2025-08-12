@@ -1,16 +1,27 @@
 import { useMemo } from 'react'
 
-import type { ComponentProps } from 'react'
+import { useHideableNavbar, useNavbarMobileSidebar } from '@docusaurus/theme-common/internal'
 
-import { Box } from 'pkg-fe-react-goblin-system/components'
+import { createNavbarBackdropSx, createNavbarLayoutSx } from './NavbarLayout.style'
 
-import { createNavbarLayoutSx } from './NavbarLayout.style'
+export const useNavbarLayoutState = (hideOnScroll: boolean) => {
+  const mobileSidebar = useNavbarMobileSidebar()
+  const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll)
 
-export const useNavbarLayoutSx = (
-  hideOnScroll: boolean,
-  isNavbarVisible: boolean,
-): ComponentProps<typeof Box>['sx'] =>
-  useMemo(
+  const navbarSx = useMemo(
     () => createNavbarLayoutSx(hideOnScroll, isNavbarVisible),
     [hideOnScroll, isNavbarVisible],
   )
+  const backdropSx = useMemo(
+    () => createNavbarBackdropSx(mobileSidebar.shown),
+    [mobileSidebar.shown],
+  )
+
+  return {
+    navbarRef,
+    isNavbarVisible,
+    navbarSx,
+    backdropSx,
+    mobileSidebar,
+  }
+}

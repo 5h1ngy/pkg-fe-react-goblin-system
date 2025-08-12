@@ -3,40 +3,20 @@ import type { JSX } from 'react'
 
 import { ThemeClassNames, useThemeConfig } from '@docusaurus/theme-common'
 import { translate } from '@docusaurus/Translate'
-import { useHideableNavbar, useNavbarMobileSidebar } from '@docusaurus/theme-common/internal'
 import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar'
 
 import { Box } from 'pkg-fe-react-goblin-system/components'
 
 import type { NavbarLayoutProps } from './NavbarLayout.types'
-import { createNavbarBackdropSx } from './NavbarLayout.style'
-import { useNavbarLayoutSx } from './NavbarLayout.hooks'
+import { useNavbarLayoutState } from './NavbarLayout.hooks'
 
-const NavbarBackdrop = ({
-  visible,
-  onClick,
-}: {
-  visible: boolean
-  onClick: () => void
-}): JSX.Element => (
-  <Box
-    component="button"
-    type="button"
-    className="navbar-sidebar__backdrop"
-    aria-hidden="true"
-    onClick={onClick}
-    sx={createNavbarBackdropSx(visible)}
-  />
-)
-
-export default function NavbarLayout({ children }: NavbarLayoutProps): JSX.Element {
+const NavbarLayout = ({ children }: NavbarLayoutProps): JSX.Element => {
   const {
     navbar: { hideOnScroll },
   } = useThemeConfig()
-  const mobileSidebar = useNavbarMobileSidebar()
-  const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll)
 
-  const navbarStyles = useNavbarLayoutSx(hideOnScroll, isNavbarVisible)
+  const { navbarRef, navbarSx, backdropSx, mobileSidebar, isNavbarVisible } =
+    useNavbarLayoutState(hideOnScroll)
 
   return (
     <>
@@ -56,12 +36,21 @@ export default function NavbarLayout({ children }: NavbarLayoutProps): JSX.Eleme
           hideOnScroll && !isNavbarVisible && 'navbar--hidden',
           mobileSidebar.shown && 'navbar-sidebar--show',
         )}
-        sx={navbarStyles}
+        sx={navbarSx}
       >
         {children}
       </Box>
-      <NavbarBackdrop visible={mobileSidebar.shown} onClick={mobileSidebar.toggle} />
+      <Box
+        component="button"
+        type="button"
+        className="navbar-sidebar__backdrop"
+        aria-hidden="true"
+        onClick={mobileSidebar.toggle}
+        sx={backdropSx}
+      />
       <NavbarMobileSidebar />
     </>
   )
 }
+
+export default NavbarLayout

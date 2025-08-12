@@ -1,10 +1,9 @@
-import Translate, { translate } from '@docusaurus/Translate'
+import { translate } from '@docusaurus/Translate'
 import clsx from 'clsx'
 import type { JSX } from 'react'
 
 import { ErrorCauseBoundary, ThemeClassNames } from '@docusaurus/theme-common'
-import { splitNavbarItems, useNavbarMobileSidebar } from '@docusaurus/theme-common/internal'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import { useNavbarMobileSidebar } from '@docusaurus/theme-common/internal'
 import NavbarItem, { type Props as NavbarItemConfig } from '@theme/NavbarItem'
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle'
 import NavbarLogo from '@theme/Navbar/Logo'
@@ -22,7 +21,7 @@ import {
 } from 'pkg-fe-react-goblin-system/components'
 import { SECONDARY_COLOR_OPTIONS, useSecondaryColor } from '@site/src/theme/Layout/Provider'
 
-import { useNavbarContentItems, useNavbarContentLocaleOptions } from './NavbarContent.hooks'
+import { useNavbarContentState } from './NavbarContent.hooks'
 import type { NavbarLocaleOption } from './NavbarContent.types'
 import {
   navbarAccentCodeSx,
@@ -62,41 +61,36 @@ const NavbarContentSecondaryColorPicker = ({
   selected,
   onSelect,
 }: {
-  options: string[]
+  options: readonly string[]
   selected: string
   onSelect: (value: string) => void
-}): JSX.Element => (
-  <Stack direction="row" alignItems="center" sx={navbarColorPickerContainerSx}>
-    <Typography variant="caption" color="textSecondary" sx={navbarAccentLabelSx}>
-      <Translate id="navbar.secondaryColorPicker.label" description="Label for secondary color picker in navbar">
-        Accent
-      </Translate>
-      <Box component="span" sx={navbarAccentCodeSx}>
-        {selected.toUpperCase()}
-      </Box>
-    </Typography>
-    {options.map((color) => {
-      const accentLabel = translate({
-        id: 'navbar.secondaryColorPicker.option',
-        message: 'Set secondary color to {color}',
-        description: 'Aria label for the secondary color picker button',
-      }).replace('{color}', color.toUpperCase())
+}): JSX.Element => {
+  const accentLabelTemplate = translate({
+    id: 'navbar.secondaryColorPicker.option',
+    message: 'Set secondary color to {color}',
+    description: 'Aria label for the secondary color picker button',
+  })
 
-      return (
+  return (
+    <Stack direction="row" alignItems="center" sx={navbarColorPickerContainerSx}>
+      <Typography variant="caption" color="textSecondary" sx={navbarAccentLabelSx}>
+        <Box component="span" sx={navbarAccentCodeSx}>
+          {selected.toUpperCase()}
+        </Box>
+      </Typography>
+      {options.map((color) => (
         <IconButton
           key={color}
           variant="contained"
-          aria-label={accentLabel}
+          aria-label={accentLabelTemplate.replace('{color}', color.toUpperCase())}
           data-active={selected === color}
           onClick={() => onSelect(color)}
           sx={navbarColorSwatchSx(color, selected === color)}
-        >
-          <span className="sr-only">{color}</span>
-        </IconButton>
-      )
-    })}
-  </Stack>
-)
+        />
+      ))}
+    </Stack>
+  )
+}
 
 const NavbarContentLocaleSelect = ({
   options,
@@ -127,22 +121,17 @@ const NavbarContentLocaleSelect = ({
   />
 )
 
-export default function NavbarContent(): JSX.Element {
+const NavbarContent = (): JSX.Element => {
   const mobileSidebar = useNavbarMobileSidebar()
-  const items = useNavbarContentItems()
-  const [leftItems, rightItems] = splitNavbarItems(items)
   const { secondary, setSecondary } = useSecondaryColor()
   const {
-    i18n: { currentLocale },
-  } = useDocusaurusContext()
-  const localeOptions = useNavbarContentLocaleOptions()
-
-  const searchBarItem = items.find((item) => item.type === 'search')
-  const localeAriaLabel = translate({
-    id: 'navbar.localeSelect.aria',
-    message: 'Select language',
-    description: 'ARIA label for the locale select component in the navbar',
-  })
+    leftItems,
+    rightItems,
+    showSearchInput,
+    localeOptions,
+    localeAriaLabel,
+    currentLocale,
+  } = useNavbarContentState()
 
   const handleLocaleChange = (option: NavbarLocaleOption) => {
     window.location.href = option.url
@@ -185,7 +174,7 @@ export default function NavbarContent(): JSX.Element {
             <NavbarContentItems items={rightItems} />
           </Box>
           <NavbarContentSecondaryColorPicker
-            options={[...SECONDARY_COLOR_OPTIONS]}
+            options={SECONDARY_COLOR_OPTIONS}
             selected={secondary}
             onSelect={setSecondary}
           />
@@ -196,7 +185,7 @@ export default function NavbarContent(): JSX.Element {
             onChange={handleLocaleChange}
           />
           <NavbarColorModeToggle />
-          {!searchBarItem && (
+          {showSearchInput && (
             <NavbarSearch>
               <SearchBar />
             </NavbarSearch>
@@ -206,3 +195,5 @@ export default function NavbarContent(): JSX.Element {
     </Container>
   )
 }
+
+export default NavbarContent

@@ -11,12 +11,11 @@ import {
 
 export const navbarContentRowSx = () => (theme: GoblinTheme) => ({
   width: '100%',
-  minHeight: theme.spacing(12),
+  minHeight: 'fit-content',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   gap: theme.spacing(3),
-  paddingBlock: theme.spacing(3),
   flexWrap: 'wrap' as const,
   rowGap: theme.spacing(2),
 })
@@ -96,8 +95,8 @@ export const navbarColorSwatchSx =
     boxShadow: active ? '0 0 12px rgba(255, 255, 255, 0.35)' : '0 10px 18px rgba(0, 0, 0, 0.35)',
     transition: 'transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease',
     color: active ? theme.palette.background.paper : theme.palette.text.primary,
-    width: theme.spacing(4.5),
-    height: theme.spacing(4.5),
+    width: theme.spacing(2.5),
+    height: theme.spacing(2.5),
     '&:hover': {
       transform: 'scale(1.05)',
     },
