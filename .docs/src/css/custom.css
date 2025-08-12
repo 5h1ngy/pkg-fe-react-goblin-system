@@ -24,3 +24,43 @@
   --ifm-color-primary-lightest: #A0C7EC;
   --docusaurus-highlighted-code-line-bg: rgba(20, 20, 50, 0.3);
 }
+:root {
+  --goblin-docs-background-light: radial-gradient(circle at top, rgba(235, 240, 255, 0.85) 0%, rgba(230, 235, 255, 0.45) 35%, rgba(250, 251, 255, 0.2) 65%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, rgba(245, 247, 255, 0.85) 0%, rgba(239, 243, 255, 0.5) 40%, rgba(255, 255, 255, 0) 100%);
+  --goblin-docs-background-dark: radial-gradient(circle at top, rgba(28, 35, 58, 0.88) 0%, rgba(18, 22, 38, 0.75) 35%, rgba(12, 16, 28, 0.45) 70%, rgba(4, 6, 12, 0.85) 100%);
+}
+
+html,
+body {
+  background: none;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--goblin-docs-background-light);
+  pointer-events: none;
+}
+
+[data-theme='dark'] body::before {
+  background: var(--goblin-docs-background-dark);
+}
+
+.main-wrapper {
+  background: transparent;
+}
+
+.navbar,
+.menu,
+.theme-doc-content,
+.theme-doc-sidebar-container,
+.theme-doc-sidebar-menu {
+  background-color: transparent;
+}
+
+.theme-doc-sidebar-item-link,
+.theme-doc-sidebar-item-link--active {
+  background-color: transparent;
+}
