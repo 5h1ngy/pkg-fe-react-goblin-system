@@ -86,7 +86,7 @@ export const useNavbarContentState = () => {
     leftItems,
     rightItems,
     showSearchInput: !hasSearchItem,
-    showColorPicker: isDesktop,
+    isDesktop,
   }
 }
 

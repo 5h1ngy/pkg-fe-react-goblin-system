@@ -1,9 +1,7 @@
 import type { ComponentProps } from 'react'
 
-import type { GoblinTheme } from 'pkg-fe-react-goblin-system'
+import { withAlpha, type GoblinTheme } from 'pkg-fe-react-goblin-system'
 import { Box, Stack, Typography } from 'pkg-fe-react-goblin-system/components'
-
-import { withAlpha } from '@site/src/theme/utils/color'
 
 const heroBackground = (theme: GoblinTheme): string => {
   const {

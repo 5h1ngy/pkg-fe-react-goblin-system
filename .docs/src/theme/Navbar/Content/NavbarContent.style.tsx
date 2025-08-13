@@ -32,25 +32,6 @@ export const navbarRightSectionSx: ComponentProps<typeof Stack>['sx'] = (theme: 
   rowGap: theme.spacing(1),
 })
 
-export const navbarDesktopLinksSx =
-  (displayFrom: 'sm' | 'md' | 'lg' = 'md') =>
-  (theme: GoblinTheme) => ({
-    display: 'none',
-    alignItems: 'center',
-    gap: theme.spacing(3),
-    '& .navbar__link, & .navbar__item': {
-      fontWeight: theme.typography.fontWeightMedium,
-      color: theme.palette.text.secondary,
-      transition: theme.transitions.create('color'),
-    },
-    '& .navbar__link:hover, & .navbar__link--active': {
-      color: theme.palette.text.primary,
-    },
-    [theme.breakpoints.up(displayFrom)]: {
-      display: 'flex',
-    },
-  })
-
 export const navbarColorPickerContainerSx: ComponentProps<typeof Stack>['sx'] = (
   theme: GoblinTheme,
 ) => ({
@@ -61,7 +42,6 @@ export const navbarColorPickerContainerSx: ComponentProps<typeof Stack>['sx'] = 
   rowGap: theme.spacing(1),
   paddingInlineEnd: theme.spacing(1.5),
   borderInlineEnd: '1px solid rgba(148, 163, 184, 0.18)',
-  marginInlineEnd: theme.spacing(1.5),
 })
 
 export const navbarAccentLabelSx: ComponentProps<typeof Typography>['sx'] = (

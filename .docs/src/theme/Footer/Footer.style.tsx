@@ -1,9 +1,7 @@
 import type { ComponentProps } from 'react'
 
-import type { GoblinTheme } from 'pkg-fe-react-goblin-system'
+import { withAlpha, type GoblinTheme } from 'pkg-fe-react-goblin-system'
 import { Box, Grid, Stack, Typography } from 'pkg-fe-react-goblin-system/components'
-
-import { withAlpha } from '@site/src/theme/utils/color'
 
 const footerSurface = (theme: GoblinTheme) => {
   const {

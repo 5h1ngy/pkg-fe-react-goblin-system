@@ -13,6 +13,7 @@ import {
   Transitions,
   ZIndex,
 } from './theme.types'
+import { darkenHex, getContrastText, lightenHex, normalizeHex, withAlpha } from './color'
 
 const lightPaletteBase: Palette = {
   mode: 'light',
@@ -293,6 +294,21 @@ const defaultMixins: Mixins = {
   },
 }
 
+const ACCENT_LIGHTEN_AMOUNT = 0.24
+const ACCENT_DARKEN_AMOUNT = 0.28
+const ACTION_ALPHA = {
+  light: {
+    hover: 0.08,
+    selected: 0.18,
+    focus: 0.24,
+  },
+  dark: {
+    hover: 0.18,
+    selected: 0.28,
+    focus: 0.32,
+  },
+} as const
+
 const isObject = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value)
 
@@ -317,6 +333,50 @@ const mergeDeep = <T>(target: T, source?: DeepPartial<T>): T => {
   })
 
   return result as T
+}
+
+const applySecondaryAugmentations = (palette: Palette, options: GoblinThemeOptions) => {
+  const secondaryOverrides = options.palette?.secondary ?? {}
+  const actionOverrides = options.palette?.action ?? {}
+
+  const normalizedMain = normalizeHex(palette.secondary.main) ?? palette.secondary.main
+  const computedLight =
+    lightenHex(normalizedMain, ACCENT_LIGHTEN_AMOUNT) ?? palette.secondary.light ?? normalizedMain
+  const computedDark =
+    darkenHex(normalizedMain, ACCENT_DARKEN_AMOUNT) ?? palette.secondary.dark ?? normalizedMain
+  const computedContrast = getContrastText(normalizedMain)
+
+  palette.secondary = {
+    ...palette.secondary,
+    main: normalizedMain,
+    light:
+      secondaryOverrides.light !== undefined ? palette.secondary.light : computedLight,
+    dark: secondaryOverrides.dark !== undefined ? palette.secondary.dark : computedDark,
+    contrastText:
+      secondaryOverrides.contrastText !== undefined
+        ? palette.secondary.contrastText
+        : computedContrast,
+  }
+
+  const modeKey = palette.mode === 'dark' ? 'dark' : 'light'
+  const accent = palette.secondary.main
+  const accentForAlpha = normalizeHex(accent) ?? accent
+
+  palette.action = {
+    ...palette.action,
+    hover:
+      actionOverrides.hover !== undefined
+        ? palette.action.hover
+        : withAlpha(accentForAlpha, ACTION_ALPHA[modeKey].hover),
+    selected:
+      actionOverrides.selected !== undefined
+        ? palette.action.selected
+        : withAlpha(accentForAlpha, ACTION_ALPHA[modeKey].selected),
+    focus:
+      actionOverrides.focus !== undefined
+        ? palette.action.focus
+        : withAlpha(accentForAlpha, ACTION_ALPHA[modeKey].focus),
+  }
 }
 
 const createSpacing = (spacing?: number | Spacing): Spacing => {
@@ -355,6 +415,7 @@ export const createGoblinTheme = (options: GoblinThemeOptions = {}): GoblinTheme
   const paletteBase = mode === 'dark' ? darkPaletteBase : lightPaletteBase
   const palette = mergeDeep(paletteBase, options.palette ?? { mode })
   palette.mode = mode
+  applySecondaryAugmentations(palette, options)
 
   const typography = mergeDeep(defaultTypography, options.typography)
   const shape = mergeDeep(defaultShape, options.shape)
