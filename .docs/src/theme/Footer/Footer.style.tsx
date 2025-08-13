@@ -9,9 +9,8 @@ const footerSurface = (mode: 'light' | 'dark') =>
     : 'radial-gradient(140% 140% at 50% 0%, rgba(114, 46, 209, 0.18) 0%, rgba(248, 250, 255, 0.92) 52%, rgba(255, 255, 255, 0.96) 100%)'
 
 export const footerContainerSx: ComponentProps<typeof Box>['sx'] = (theme: GoblinTheme) => ({
-  marginTop: theme.spacing(12),
   background: footerSurface(theme.palette.mode),
-  paddingBlock: theme.spacing(10),
+  paddingBlock: theme.spacing(3),
   borderTop:
     theme.palette.mode === 'dark'
       ? '1px solid rgba(148, 163, 184, 0.12)'

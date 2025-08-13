@@ -92,7 +92,7 @@ const NavbarContentSecondaryColorPicker = ({
 const NavbarContent = (): JSX.Element => {
   const mobileSidebar = useNavbarMobileSidebar()
   const { secondary, setSecondary } = useSecondaryColor()
-  const { leftItems, rightItems, showSearchInput } = useNavbarContentState()
+  const { leftItems, rightItems, showSearchInput, showColorPicker } = useNavbarContentState()
 
   return (
     <Container
@@ -127,13 +127,13 @@ const NavbarContent = (): JSX.Element => {
           className="navbar__items navbar__items--right"
           sx={navbarRightSectionSx}
         >
-          <Box component="div" sx={navbarDesktopLinksSx('lg')}>
+          {showColorPicker && (
             <NavbarContentSecondaryColorPicker
               options={SECONDARY_COLOR_OPTIONS}
               selected={secondary}
               onSelect={setSecondary}
             />
-          </Box>
+          )}
           <Box component="div" sx={navbarDesktopLinksSx('lg')}>
             <NavbarContentItems items={rightItems} />
           </Box>

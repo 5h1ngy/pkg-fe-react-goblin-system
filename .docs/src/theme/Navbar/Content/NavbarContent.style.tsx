@@ -1,13 +1,7 @@
 import type { ComponentProps } from 'react'
 
 import type { GoblinTheme } from 'pkg-fe-react-goblin-system'
-import {
-  Box,
-  IconButton,
-  Select,
-  Stack,
-  Typography,
-} from 'pkg-fe-react-goblin-system/components'
+import { Box, IconButton, Select, Stack, Typography } from 'pkg-fe-react-goblin-system/components'
 
 export const navbarContentRowSx = () => (theme: GoblinTheme) => ({
   width: '100%',
@@ -18,7 +12,7 @@ export const navbarContentRowSx = () => (theme: GoblinTheme) => ({
   gap: theme.spacing(3),
   flexWrap: 'wrap' as const,
   rowGap: theme.spacing(2),
-  padding: '1rem'
+  padding: '1rem',
 })
 
 export const navbarBrandSectionSx: ComponentProps<typeof Stack>['sx'] = (theme: GoblinTheme) => ({
@@ -41,6 +35,7 @@ export const navbarRightSectionSx: ComponentProps<typeof Stack>['sx'] = (theme: 
 export const navbarDesktopLinksSx =
   (displayFrom: 'md' | 'lg' = 'md') =>
   (theme: GoblinTheme) => ({
+    display: 'none',
     alignItems: 'center',
     gap: theme.spacing(3),
     '& .navbar__link, & .navbar__item': {
@@ -56,19 +51,22 @@ export const navbarDesktopLinksSx =
     },
   })
 
-export const navbarColorPickerContainerSx: ComponentProps<typeof Stack>['sx'] =
-  (theme: GoblinTheme) => ({
-    display: 'flex',
-    alignItems: 'center',
-    gap: theme.spacing(1),
-    flexWrap: 'wrap' as const,
-    rowGap: theme.spacing(1),
-    paddingInlineEnd: theme.spacing(1.5),
-    borderInlineEnd: '1px solid rgba(148, 163, 184, 0.18)',
-    marginInlineEnd: theme.spacing(1.5),
-  })
+export const navbarColorPickerContainerSx: ComponentProps<typeof Stack>['sx'] = (
+  theme: GoblinTheme,
+) => ({
+  display: 'flex',
+  alignItems: 'center',
+  gap: theme.spacing(1),
+  flexWrap: 'wrap' as const,
+  rowGap: theme.spacing(1),
+  paddingInlineEnd: theme.spacing(1.5),
+  borderInlineEnd: '1px solid rgba(148, 163, 184, 0.18)',
+  marginInlineEnd: theme.spacing(1.5),
+})
 
-export const navbarAccentLabelSx: ComponentProps<typeof Typography>['sx'] = (theme: GoblinTheme) => ({
+export const navbarAccentLabelSx: ComponentProps<typeof Typography>['sx'] = (
+  theme: GoblinTheme,
+) => ({
   display: 'flex',
   alignItems: 'center',
   gap: theme.spacing(0.75),
@@ -82,9 +80,7 @@ export const navbarAccentCodeSx: ComponentProps<typeof Box>['sx'] = (theme: Gobl
   padding: `${theme.spacing(0.25)} ${theme.spacing(0.75)}`,
   borderRadius: theme.shape.borderRadius,
   backgroundColor:
-    theme.palette.mode === 'dark'
-      ? 'rgba(255, 255, 255, 0.08)'
-      : 'rgba(0, 0, 0, 0.06)',
+    theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.06)',
 })
 
 export const navbarColorSwatchSx =
