@@ -5,7 +5,7 @@ export type HomepageFeatureTranslation = {
 }
 
 export type HomepageFeature = {
-  image: string
+  kicker: HomepageFeatureTranslation
   title: HomepageFeatureTranslation
   description: HomepageFeatureTranslation
 }

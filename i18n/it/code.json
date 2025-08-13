@@ -56,8 +56,12 @@
     "description": "Feature title highlighting theme foundations (alt text)"
   },
   "homepage.features.foundations.description": {
-    "message": "Gradiente, palette, tipografia e spaziatura provengono da un unico tema, per superfici cinematografiche gi‡ pronte.",
+    "message": "Gradiente, palette, tipografia e spaziatura provengono da un unico tema, per superfici cinematografiche gi√† pronte.",
     "description": "Feature description about design tokens"
+  },
+  "homepage.features.foundations.kicker": {
+    "message": "Primitivi del tema",
+    "description": "Feature kicker highlighting the theme primitives storyline"
   },
   "homepage.features.components.title": {
     "message": "Componenti componibili",
@@ -71,6 +75,10 @@
     "message": "Layout, data display, input, navigazione, superfici e utility condividono convenzioni API e l'ingresso `sx`.",
     "description": "Feature description about component families"
   },
+  "homepage.features.components.kicker": {
+    "message": "Flussi dei componenti",
+    "description": "Feature kicker emphasising component composition workflows"
+  },
   "homepage.features.docs.title": {
     "message": "Sinergia fra Docs e Storybook",
     "description": "Feature title about documentation & Storybook"
@@ -82,6 +90,10 @@
   "homepage.features.docs.description": {
     "message": "Le storie di Storybook mostrano prop reali e controlli del tema, mentre la documentazione spiega architettura, localizzazione e linee guida di design.",
     "description": "Feature description about docs & Storybook relationship"
+  },
+  "homepage.features.docs.kicker": {
+    "message": "Orchestrazione Docs",
+    "description": "Feature kicker focusing on docs and Storybook orchestration"
   },
   "homepage.features.overline": {
     "message": "Costruisci case study espressivi",

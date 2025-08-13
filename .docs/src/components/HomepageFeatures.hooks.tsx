@@ -1,11 +1,14 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import { useMemo } from 'react'
 
 import type { HomepageFeature } from './HomepageFeatures.types'
 
 const HOMEPAGE_FEATURES: HomepageFeature[] = [
   {
-    image: require('@site/static/img/home-rapid.png').default,
+    kicker: {
+      id: 'homepage.features.foundations.kicker',
+      message: 'Theme primitives',
+      description: 'Feature kicker highlighting the theme primitives storyline',
+    },
     title: {
       id: 'homepage.features.foundations.title',
       message: 'Dark-first foundations',
@@ -19,7 +22,11 @@ const HOMEPAGE_FEATURES: HomepageFeature[] = [
     },
   },
   {
-    image: require('@site/static/img/home-modular.png').default,
+    kicker: {
+      id: 'homepage.features.components.kicker',
+      message: 'Component workflows',
+      description: 'Feature kicker emphasising component composition workflows',
+    },
     title: {
       id: 'homepage.features.components.title',
       message: 'Composable components',
@@ -33,7 +40,11 @@ const HOMEPAGE_FEATURES: HomepageFeature[] = [
     },
   },
   {
-    image: require('@site/static/img/home-modern.png').default,
+    kicker: {
+      id: 'homepage.features.docs.kicker',
+      message: 'Docs orchestration',
+      description: 'Feature kicker focusing on docs and Storybook orchestration',
+    },
     title: {
       id: 'homepage.features.docs.title',
       message: 'Docs + Storybook synergy',
