@@ -64,7 +64,7 @@ const HomepageHero = ({ onNavigate }: HomepageHeroProps): JSX.Element => {
             </Typography>
           </Stack>
 
-          <Button variant="contained" size="large" color="primary" onClick={handleNavigate}>
+          <Button variant="contained" size="large" color="secondary" onClick={handleNavigate}>
             <Translate id="homepage.hero.cta">Start building</Translate>
           </Button>
         </Stack>

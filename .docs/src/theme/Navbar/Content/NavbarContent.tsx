@@ -114,7 +114,7 @@ const NavbarContent = (): JSX.Element => {
         >
           {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
           <NavbarLogo />
-          <Box component="div" sx={navbarDesktopLinksSx('md')}>
+          <Box component="div" sx={navbarDesktopLinksSx('sm')}>
             <NavbarContentItems items={leftItems} />
           </Box>
         </Stack>
@@ -134,7 +134,7 @@ const NavbarContent = (): JSX.Element => {
               onSelect={setSecondary}
             />
           )}
-          <Box component="div" sx={navbarDesktopLinksSx('lg')}>
+          <Box component="div" sx={navbarDesktopLinksSx('md')}>
             <NavbarContentItems items={rightItems} />
           </Box>
           <NavbarColorModeToggle />

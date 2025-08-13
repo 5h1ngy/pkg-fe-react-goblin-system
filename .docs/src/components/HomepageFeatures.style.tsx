@@ -3,10 +3,20 @@ import type { ComponentProps } from 'react'
 import type { GoblinTheme } from 'pkg-fe-react-goblin-system'
 import { Box, Card, Stack, Typography } from 'pkg-fe-react-goblin-system/components'
 
-const featureSectionBackground = (mode: 'light' | 'dark'): string =>
-  mode === 'dark'
-    ? 'linear-gradient(180deg, rgba(11, 13, 19, 0.9) 0%, rgba(9, 12, 18, 0.94) 100%)'
-    : 'linear-gradient(180deg, rgba(237, 242, 252, 0.65) 0%, rgba(255, 255, 255, 0.92) 100%)'
+import { withAlpha } from '@site/src/theme/utils/color'
+
+const featureSectionBackground = (theme: GoblinTheme): string => {
+  const {
+    palette: { mode, secondary, background },
+  } = theme
+  const accentVeil = withAlpha(secondary.main, mode === 'dark' ? 0.22 : 0.16)
+  const baseStart =
+    mode === 'dark' ? withAlpha(background.default, 0.92) : withAlpha(background.default, 0.65)
+  const baseEnd =
+    mode === 'dark' ? withAlpha(background.paper, 0.96) : withAlpha('#ffffff', 0.92)
+
+  return `linear-gradient(180deg, ${accentVeil} 0%, ${baseStart} 40%, ${baseEnd} 100%)`
+}
 
 const featureCardSurface = (mode: 'light' | 'dark'): { background: string; border: string } =>
   mode === 'dark'
@@ -34,7 +44,7 @@ const featureBadgeBackground = (theme: GoblinTheme): string =>
 
 export const homepageFeaturesSectionSx: ComponentProps<typeof Box>['sx'] = (theme: GoblinTheme) => ({
   paddingBlock: theme.spacing(12),
-  background: featureSectionBackground(theme.palette.mode),
+  background: featureSectionBackground(theme),
 })
 
 export const homepageFeatureCardSx: ComponentProps<typeof Card>['sx'] = (theme: GoblinTheme) => ({

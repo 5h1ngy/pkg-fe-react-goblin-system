@@ -33,7 +33,7 @@ export const navbarRightSectionSx: ComponentProps<typeof Stack>['sx'] = (theme: 
 })
 
 export const navbarDesktopLinksSx =
-  (displayFrom: 'md' | 'lg' = 'md') =>
+  (displayFrom: 'sm' | 'md' | 'lg' = 'md') =>
   (theme: GoblinTheme) => ({
     display: 'none',
     alignItems: 'center',

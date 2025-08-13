@@ -4,7 +4,7 @@ import isInternalUrl from '@docusaurus/isInternalUrl'
 import IconExternalLink from '@theme/Icon/ExternalLink'
 import ThemedImage from '@theme/ThemedImage'
 import { useThemeConfig } from '@docusaurus/theme-common'
-import type { JSX } from 'react'
+import type { HTMLAttributeAnchorTarget, JSX } from 'react'
 
 import { Box, Container, Grid, Stack, Typography } from 'pkg-fe-react-goblin-system/components'
 
@@ -47,6 +47,9 @@ const FooterLink = ({ item }: { item: FooterLinkConfig }): JSX.Element | null =>
   }
 
   const isExternal = hrefUrl ? !isInternalUrl(hrefUrl) : false
+  const linkTarget = (item.target ?? (isExternal ? '_blank' : undefined)) as
+    | HTMLAttributeAnchorTarget
+    | undefined
 
   const linkContent = (
     <Stack component="span" direction="row" spacing={1} alignItems="center" sx={footerLinkContentSx}>
@@ -62,8 +65,8 @@ const FooterLink = ({ item }: { item: FooterLinkConfig }): JSX.Element | null =>
       <Box
         component={Link}
         href={hrefUrl}
-        target={item.target ?? (isExternal ? '_blank' : undefined)}
-        rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
+        target={linkTarget}
+        rel={linkTarget === '_blank' ? 'noopener noreferrer' : undefined}
         sx={footerLinkWrapperSx}
       >
         {linkContent}
@@ -108,6 +111,12 @@ const FooterLogo = ({ logo }: { logo: FooterLogoConfig }): JSX.Element => {
     light: withBaseUrl(logo.src),
     dark: withBaseUrl(logo.srcDark ?? logo.src),
   }
+  const logoHeight = typeof logo.height === 'number' ? logo.height : undefined
+  const logoTarget = logo.href
+    ? (logo.target ?? (logo.href?.startsWith('http') ? '_blank' : undefined))
+    : undefined
+
+  const targetAttribute = logoTarget as HTMLAttributeAnchorTarget | undefined
 
   const image = (
     <Box
@@ -116,7 +125,7 @@ const FooterLogo = ({ logo }: { logo: FooterLogoConfig }): JSX.Element => {
       sources={sources}
       width={logo.width}
       height={logo.height}
-      sx={footerLogoImageSx(logo.height)}
+      sx={footerLogoImageSx(logoHeight)}
     />
   )
 
@@ -125,8 +134,8 @@ const FooterLogo = ({ logo }: { logo: FooterLogoConfig }): JSX.Element => {
       <Box
         component={Link}
         href={logo.href}
-        target={logo.target ?? undefined}
-        rel={logo.target === '_blank' ? 'noopener noreferrer' : undefined}
+        target={targetAttribute}
+        rel={targetAttribute === '_blank' ? 'noopener noreferrer' : undefined}
         sx={footerLogoLinkSx}
       >
         {image}

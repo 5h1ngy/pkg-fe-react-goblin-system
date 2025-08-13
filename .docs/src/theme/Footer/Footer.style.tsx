@@ -3,18 +3,28 @@ import type { ComponentProps } from 'react'
 import type { GoblinTheme } from 'pkg-fe-react-goblin-system'
 import { Box, Grid, Stack, Typography } from 'pkg-fe-react-goblin-system/components'
 
-const footerSurface = (mode: 'light' | 'dark') =>
-  mode === 'dark'
-    ? 'radial-gradient(140% 140% at 50% 0%, rgba(86, 78, 206, 0.18) 0%, rgba(6, 8, 14, 0.92) 48%, rgba(4, 6, 12, 0.96) 100%)'
-    : 'radial-gradient(140% 140% at 50% 0%, rgba(114, 46, 209, 0.18) 0%, rgba(248, 250, 255, 0.92) 52%, rgba(255, 255, 255, 0.96) 100%)'
+import { withAlpha } from '@site/src/theme/utils/color'
+
+const footerSurface = (theme: GoblinTheme) => {
+  const {
+    palette: { mode, background, secondary },
+  } = theme
+  const halo = withAlpha(secondary.light ?? secondary.main, mode === 'dark' ? 0.22 : 0.2)
+  const mid = withAlpha(secondary.main, mode === 'dark' ? 0.18 : 0.14)
+  const base =
+    mode === 'dark' ? withAlpha(background.paper, 0.96) : withAlpha('#ffffff', 0.96)
+
+  if (mode === 'dark') {
+    return `radial-gradient(140% 140% at 50% 0%, ${halo} 0%, ${mid} 48%, ${base} 100%)`
+  }
+
+  return `radial-gradient(140% 140% at 50% 0%, ${halo} 0%, ${mid} 52%, ${base} 100%)`
+}
 
 export const footerContainerSx: ComponentProps<typeof Box>['sx'] = (theme: GoblinTheme) => ({
-  background: footerSurface(theme.palette.mode),
+  background: footerSurface(theme),
   paddingBlock: theme.spacing(3),
-  borderTop:
-    theme.palette.mode === 'dark'
-      ? '1px solid rgba(148, 163, 184, 0.12)'
-      : '1px solid rgba(80, 104, 154, 0.12)',
+  borderTop: `1px solid ${withAlpha(theme.palette.secondary.main, theme.palette.mode === 'dark' ? 0.28 : 0.18)}`,
 })
 
 export const footerGroupTitleSx = (): ComponentProps<typeof Typography>['sx'] =>

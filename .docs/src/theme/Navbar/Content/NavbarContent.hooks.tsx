@@ -44,7 +44,7 @@ const useNavbarContentItems = (): NavbarItemConfig[] => {
 
 const useNavbarIsDesktop = (): boolean => {
   const theme = useGoblinTheme()
-  const breakpoint = theme.breakpoints.values.lg
+  const breakpoint = theme.breakpoints.values.md
   const query = `(min-width:${breakpoint}px)`
   const [isDesktop, setIsDesktop] = useState<boolean>(() => {
     if (typeof window === 'undefined') {
