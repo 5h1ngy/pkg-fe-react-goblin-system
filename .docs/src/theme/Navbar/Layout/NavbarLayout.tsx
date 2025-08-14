@@ -2,7 +2,6 @@ import clsx from 'clsx'
 import type { JSX } from 'react'
 
 import { ThemeClassNames, useThemeConfig } from '@docusaurus/theme-common'
-import { translate } from '@docusaurus/Translate'
 import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar'
 
 import { Box } from 'pkg-fe-react-goblin-system/components'
@@ -23,11 +22,7 @@ const NavbarLayout = ({ children }: NavbarLayoutProps): JSX.Element => {
       <Box
         component="nav"
         ref={navbarRef}
-        aria-label={translate({
-          id: 'theme.NavBar.navAriaLabel',
-          message: 'Main navigation',
-          description: 'The ARIA label for the main navigation',
-        })}
+        aria-label="Main navigation"
         className={clsx(
           ThemeClassNames.layout.navbar.container,
           'navbar',

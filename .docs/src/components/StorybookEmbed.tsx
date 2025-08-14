@@ -1,4 +1,3 @@
-import Translate, { translate } from '@docusaurus/Translate'
 import type { JSX } from 'react'
 
 import { Box, Container, Stack, Typography } from 'pkg-fe-react-goblin-system/components'
@@ -13,23 +12,15 @@ const StorybookEmbed = ({ title }: StorybookEmbedProps): JSX.Element => {
   return (
     <Container maxWidth="lg" sx={storybookEmbedContainerSx}>
       <Stack spacing={3}>
-        <Typography variant="h2">
-          <Translate id="storybook.page.heading">Storybook</Translate>
-        </Typography>
+        <Typography variant="h2">Storybook</Typography>
         <Typography variant="body1" color="textSecondary">
-          <Translate id="storybook.page.intro">
-            Explore live component stories that share the exact theme configuration used across the
-            documentation site.
-          </Translate>
+          Explore live component stories that share the exact theme configuration used across the
+          documentation site.
         </Typography>
         <Box
           component="iframe"
           src={storybookUrl}
-          title={title ?? translate({
-            id: 'storybook.page.iframeTitle',
-            message: 'Goblin System Storybook',
-            description: 'Title attribute for the embedded Storybook iframe',
-          })}
+          title={title ?? 'Goblin System Storybook'}
           sx={storybookEmbedFrameSx}
           allowFullScreen
         />

@@ -1,4 +1,3 @@
-import { translate } from '@docusaurus/Translate'
 import clsx from 'clsx'
 import type { JSX } from 'react'
 
@@ -61,12 +60,6 @@ const NavbarContentSecondaryColorPicker = ({
   selected: string
   onSelect: (value: string) => void
 }): JSX.Element => {
-  const accentLabelTemplate = translate({
-    id: 'navbar.secondaryColorPicker.option',
-    message: 'Set secondary color to {color}',
-    description: 'Aria label for the secondary color picker button',
-  })
-
   return (
     <Stack direction="row" alignItems="center" sx={navbarColorPickerContainerSx}>
       <Typography variant="caption" color="textSecondary" sx={navbarAccentLabelSx}>
@@ -78,7 +71,7 @@ const NavbarContentSecondaryColorPicker = ({
         <IconButton
           key={color}
           variant="contained"
-          aria-label={accentLabelTemplate.replace('{color}', color.toUpperCase())}
+          aria-label={`Set secondary color to ${color.toUpperCase()}`}
           data-active={selected === color}
           onClick={() => onSelect(color)}
           sx={navbarColorSwatchSx(color, selected === color)}

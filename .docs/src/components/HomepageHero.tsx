@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import Translate, { translate } from '@docusaurus/Translate'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import type { JSX } from 'react'
 
@@ -32,40 +31,27 @@ const HomepageHero = ({ onNavigate }: HomepageHeroProps): JSX.Element => {
     <Box component="section" sx={homepageHeroSectionSx}>
       <Container maxWidth="md">
         <Stack spacing={6} alignItems="center">
-          <Box
-            component="img"
-            src={logoSource}
-            alt={translate({
-              id: 'homepage.hero.logoAlt',
-              message: 'Goblin System logo',
-              description: 'Alt text for the Goblin System logo in the hero',
-            })}
-            sx={homepageHeroLogoSx}
-          />
+          <Box component="img" src={logoSource} alt="Goblin System logo" sx={homepageHeroLogoSx} />
 
           <Stack spacing={3} alignItems="center" sx={homepageHeroStackSx}>
             <Typography variant="overline" color="secondary">
-              <Translate id="homepage.hero.overline">Dark-first design system</Translate>
+              Dark-first design system
             </Typography>
             <Typography variant="h2" component="h1">
               {siteConfig.title}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              <Translate id="homepage.hero.tagline">
-                Portfolio-grade React components and theme.
-              </Translate>
+              Portfolio-grade React components and theme.
             </Typography>
             <Typography variant="body1" color="textSecondary" sx={homepageHeroBodySx}>
-              <Translate id="homepage.hero.body">
-                Goblin System mette in scena componenti React e token condivisi per costruire
-                interfacce narrative: superfici ambient, controlli neon e librerie di dati pensati
-                per ambienti dark.
-              </Translate>
+              Goblin System pairs reusable tokens with cinematic surfaces, neon controls, and data
+              scaffolding so you can ship immersive dark-mode experiences without reinventing the
+              design language.
             </Typography>
           </Stack>
 
           <Button variant="outlined" size="large" color="secondary" onClick={handleNavigate}>
-            <Translate id="homepage.hero.cta">Start building</Translate>
+            Start building
           </Button>
         </Stack>
       </Container>

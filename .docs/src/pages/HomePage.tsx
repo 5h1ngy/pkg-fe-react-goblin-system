@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 
-import { translate } from '@docusaurus/Translate'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
 
@@ -13,11 +12,7 @@ const HomePage = (): ReactNode => {
   return (
     <Layout
       title={siteConfig.title}
-      description={translate({
-        id: 'homepage.meta.description',
-        message: 'Goblin System documentation',
-        description: 'Meta description for the homepage',
-      })}
+      description="Goblin System documentation"
     >
       <HomepageHero />
       <main>

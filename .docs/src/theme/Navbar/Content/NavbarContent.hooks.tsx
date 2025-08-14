@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
 
-import { translate } from '@docusaurus/Translate'
 import { useThemeConfig } from '@docusaurus/theme-common'
 import { splitNavbarItems } from '@docusaurus/theme-common/internal'
 import { type Props as NavbarItemConfig } from '@theme/NavbarItem'
@@ -17,21 +16,13 @@ const useNavbarContentItems = (): NavbarItemConfig[] => {
           if (route === '/docs') {
             return {
               ...item,
-              label: translate({
-                id: 'navbar.docs',
-                message: 'Docs',
-                description: 'Navbar link to documentation',
-              }),
+              label: 'Docs',
             }
           }
           if (route === '/storybook') {
             return {
               ...item,
-              label: translate({
-                id: 'navbar.storybook',
-                message: 'Storybook',
-                description: 'Navbar link to Storybook',
-              }),
+              label: 'Storybook',
             }
           }
         }
