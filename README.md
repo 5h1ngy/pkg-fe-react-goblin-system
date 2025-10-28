@@ -25,8 +25,21 @@ Fog gradients, neon surfaces, and a dark-first React component system extracted 
 
 ## 🚀 Quick Start
 
+1. Download the latest release archive from GitHub and install it locally (replace the version with the one you need):
+
 ```bash
-npm install pkg-fe-react-goblin-system styled-components
+VERSION=3.2.0
+curl -L -o pkg-fe-react-goblin-system-$VERSION.tgz \
+  "https://github.com/5h1ngy/pkg-fe-react-goblin-system/releases/download/v$VERSION/pkg-fe-react-goblin-system-$VERSION.tgz"
+npm install ./pkg-fe-react-goblin-system-$VERSION.tgz styled-components
+```
+
+You can also install straight from the release URL without downloading first:
+
+```bash
+npm install \
+  https://github.com/5h1ngy/pkg-fe-react-goblin-system/releases/download/v$VERSION/pkg-fe-react-goblin-system-$VERSION.tgz \
+  styled-components
 ```
 
 ```tsx
@@ -144,11 +157,11 @@ export function Shell({ children }: { children: React.ReactNode }) {
 | `npm run docs:build` | Build static docs to `dist/docs` and copy Storybook assets. |
 | `npm run storybook:dev` | Launch Storybook with dark mode + accent controls. |
 | `npm run storybook:build` | Emit static Storybook at `dist/storybook`. |
-| `npm run lib:build` | Produce the component library bundle, types, and npm tarball. |
+| `npm run lib:build` | Produce the component library bundle, types, and npm tarball under `dist/lib`. |
 | `npm run lint` / `lint:fix` | Enforce ESLint across packages, docs, and stories. |
 | `npm run format` | Format the repo with Prettier (TS/TSX/JS/JSON/MD). |
 
-> 📝 Tip: after running `npm run lib:build`, consume the generated tarball from `dist/lib` for local package testing without publishing.
+> 📝 Tip: every push to `main` that bumps the version runs `npm run lib:build`, publishes an updated tarball to the GitHub release, and keeps docs/Storybook in sync. For local work without hitting GitHub, run `npm run lib:build` and install the generated file from `dist/lib`.
 
 ---
 
