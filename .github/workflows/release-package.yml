@@ -33,8 +33,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build package
-        run: npm run lib:build
+      - name: Clean workspace artifacts
+        run: npm run workspace:clean
+
+      - name: Build workspace
+        run: npm run build
+
+      - name: Bundle documentation into package artifacts
+        run: |
+          set -euo pipefail
+          rm -rf dist/lib/docs
+          mkdir -p dist/lib
+          cp -R dist/docs dist/lib/docs
+          rm -f dist/lib/pkg-fe-react-goblin-system-*.tgz
+          npm pack --pack-destination dist/lib
 
       - name: Collect release metadata
         id: release_info

@@ -33,22 +33,28 @@ jobs:
       - name: Clean workspace artifacts
         run: npm run workspace:clean
 
-      - name: Build package
+      - name: Build workspace
         run: npm run build
 
-      - name: Deploy documentation to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/docs
-          publish_branch: gh-pages
-          destination_dir: .
+      - name: Bundle documentation into package artifacts
+        run: |
+          set -euo pipefail
+          rm -rf dist/lib/docs
+          mkdir -p dist/lib
+          cp -R dist/docs dist/lib/docs
 
-      - name: Deploy Storybook to GitHub Pages
+      - name: Prepare Pages payload
+        run: |
+          set -euo pipefail
+          rm -rf dist/pages
+          mkdir -p dist/pages
+          rsync -a dist/docs/ dist/pages/
+          mkdir -p dist/pages/storybook
+          rsync -a dist/storybook/ dist/pages/storybook/
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/storybook
+          publish_dir: ./dist/pages
           publish_branch: gh-pages
-          destination_dir: storybook
-          keep_files: true
