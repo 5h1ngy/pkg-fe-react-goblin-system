@@ -34,13 +34,7 @@ jobs:
         run: npm run workspace:clean
 
       - name: Build package
-        run: npm run lib:build
-
-      - name: Build Storybook
-        run: npm run storybook:build
-
-      - name: Build documentation
-        run: npm run docs:build
+        run: npm run build
 
       - name: Deploy documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -48,8 +42,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/docs
           publish_branch: gh-pages
-          destination_dir: pkg-fe-react-goblin-system
-          keep_files: true
+          destination_dir: .
 
       - name: Deploy Storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -57,5 +50,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/storybook
           publish_branch: gh-pages
-          destination_dir: pkg-fe-react-goblin-system/storybook
+          destination_dir: storybook
           keep_files: true
