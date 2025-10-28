@@ -26,7 +26,12 @@ const useNavbarContentItems = (): NavbarItemConfig[] => {
             }
           }
 
-          if (route === '/storybook' || route === 'storybook/' || route === './storybook/') {
+          if (
+            route === '/storybook' ||
+            route === 'storybook/' ||
+            route === './storybook/' ||
+            route === 'storybook/index.html'
+          ) {
             return {
               ...item,
               label: 'Storybook',
