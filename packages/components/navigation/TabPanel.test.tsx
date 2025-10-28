@@ -18,7 +18,8 @@ describe('TabPanel', () => {
       </TabsContext.Provider>,
     )
 
-    expect(getByText('Visible content')).toBeInTheDocument()
+    const element = getByText('Visible content')
+    expect(element).toBeTruthy()
   })
 
   it('returns null when value does not match and hidden flag is truthy', () => {
@@ -40,7 +41,8 @@ describe('TabPanel', () => {
       </TabsContext.Provider>,
     )
 
-    expect(getByText('Accessible content')).toBeInTheDocument()
-    expect(getByText('Accessible content')).not.toHaveAttribute('hidden')
+    const element = getByText('Accessible content')
+    expect(element).toBeTruthy()
+    expect(element.hasAttribute('hidden')).toBe(false)
   })
 })
