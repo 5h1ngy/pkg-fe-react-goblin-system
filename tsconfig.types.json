@@ -1,15 +1,15 @@
 {
     "extends": "./tsconfig.app.json",
     "compilerOptions": {
-      "rootDir": "src",
+      "rootDir": "packages",
       "noEmit": false,
       "declaration": true,
       "emitDeclarationOnly": true,
-      "outDir": "dist/types",
+      "outDir": "dist/lib/types",
       "esModuleInterop": true,
       "types": ["node",]
     },
     "include": [
-      "src"
+      "packages"
     ]
   }

@@ -27,11 +27,11 @@
     /* Alias */
     "paths": {
       "@/*": [
-        "./src/*"
+        "./packages/*"
       ]
     }
   },
   "include": [
-    "src"
+    "packages"
   ]
 }

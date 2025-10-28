@@ -2,7 +2,7 @@
   "name": "pkg-fe-react-goblin-system",
   "version": "2.1.0",
   "license": "MIT",
-  "description": "Flexible front-end library built on TypeScript. It provides UI components, advanced providers, Redux slices, and an integrated Storybook for fast and modular development.",
+  "description": "Boutique React component kit and theme extracted from the portfolio experience.",
   "keywords": [
     "react",
     "typescript",
@@ -23,160 +23,92 @@
   "engines": {
     "node": ">=20.18.0"
   },
-  "workspaces": [
-    "docs"
-  ],
   "private": true,
-  "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/types/index.d.ts"
+      "import": "./dist/lib/index.mjs",
+      "types": "./dist/lib/types/index.d.ts"
     },
     "./components": {
-      "import": "./dist/components/index.mjs",
-      "types": "./dist/types/components/index.d.ts"
-    },
-    "./pages": {
-      "import": "./dist/pages/index.mjs",
-      "types": "./dist/types/pages/index.d.ts"
-    },
-    "./providers": {
-      "import": "./dist/providers/index.mjs",
-      "types": "./dist/types/providers/index.d.ts"
-    },
-    "./services": {
-      "import": "./dist/services/index.mjs",
-      "types": "./dist/types/services/index.d.ts"
-    },
-    "./store": {
-      "import": "./dist/store/index.mjs",
-      "types": "./dist/types/store/index.d.ts"
-    },
-    "./theme": {
-      "import": "./dist/theme/index.mjs",
-      "types": "./dist/types/theme/index.d.ts"
+      "import": "./dist/lib/components/index.mjs",
+      "types": "./dist/lib/types/components/index.d.ts"
     },
     "./components/*": {
-      "import": "./dist/components/*.mjs",
-      "types": "./dist/types/components/*.d.ts"
+      "import": "./dist/lib/components/*.mjs",
+      "types": "./dist/lib/types/components/*.d.ts"
     },
-    "./pages/*": {
-      "import": "./dist/pages/*.mjs",
-      "types": "./dist/types/pages/*.d.ts"
+    "./system": {
+      "import": "./dist/lib/system/index.mjs",
+      "types": "./dist/lib/types/system/index.d.ts"
     },
-    "./providers/*": {
-      "import": "./dist/providers/*.mjs",
-      "types": "./dist/types/providers/*.d.ts"
-    },
-    "./services/*": {
-      "import": "./dist/services/*.mjs",
-      "types": "./dist/types/services/*.d.ts"
-    },
-    "./store/*": {
-      "import": "./dist/store/*.mjs",
-      "types": "./dist/types/store/*.d.ts"
-    },
-    "./theme/*": {
-      "import": "./dist/theme/*.mjs",
-      "types": "./dist/types/theme/*.d.ts"
+    "./system/*": {
+      "import": "./dist/lib/system/*.mjs",
+      "types": "./dist/lib/types/system/*.d.ts"
     }
   },
   "files": [
-    "dist"
+    "dist/lib"
   ],
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
-  },
   "scripts": {
-    "lint": "eslint .",
-    "start:storybook": "storybook dev --no-open",
-    "start:docs": "yarn workspace react-goblin-system-docs docusaurus start",
-    "build:storybook": "storybook build --output-dir build-storybook",
-    "build:docs": "yarn workspace react-goblin-system-docs docusaurus build && rm -rf build-docusaurus && mv docs/build build-docusaurus && rm -rf docs/build",
-    "build:lib": "vite build --config vite.config.lib.ts --mode prod && tsc --project tsconfig.types.json && npm pack && mkdir build-lib/ && mv *.tgz build-lib/ && rm -rfdv dist/",
-    "reset": "rm -rfdv .yarn node_modules dist build-docusaurus build-storybook build-lib docs/node_modules docs/.docusaurus",
-    "clean": "rm -rfdv dist build-docusaurus build-storybook build-lib"
+    "lint": "eslint \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs}\" --max-warnings=0",
+    "lint:fix": "eslint \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs}\" --fix",
+    "format": "prettier --write \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs,json,md}\"",
+    "format:check": "prettier --check \"{packages,.docs,.story}/**/*.{ts,tsx,js,jsx,mjs,cjs,json,md}\"",
+    "storybook:dev": "storybook dev --config-dir .story --port 6006 --no-open --ci",
+    "storybook:build": "storybook build --config-dir .story --output-dir dist/storybook",
+    "lib:build": "vite build --config vite.config.lib.ts && tsc --project tsconfig.types.json && npm pack --pack-destination dist/lib",
+    "docs:dev": "docusaurus start .docs --no-open",
+    "docs:build": "docusaurus build .docs --out-dir dist/docs && npm run copy:storybook",
+    "docs:serve": "docusaurus serve .docs --dir dist/docs",
+    "build": "npm run lib:build && npm run storybook:build && npm run docs:build",
+    "copy:storybook": "shx test -d dist/storybook && rimraf dist/docs/storybook && cpy \"**/*\" \"../docs/storybook\" --cwd=dist/storybook || shx echo \"[copy:storybook] dist/storybook not found; skipping\"",
+    "workspace:clean": "rimraf dist",
+    "workspace:reset": "rimraf node_modules dist .docs/.docusaurus .docs/dist"
   },
   "dependencies": {
-    "axios": "^1.8.2",
-    "dayzed": "^3.2.3",
-    "dompurify": "^3.2.4",
-    "gsap": "^3.12.7",
-    "lodash": "^4.17.21",
-    "react-markdown": "^10.1.0",
-    "rehype-highlight": "^7.0.2",
-    "remark-gfm": "^4.0.1",
-    "styled-components": "^6.1.8",
-    "zod": "*"
+    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/preset-classic": "^3.0.0",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "styled-components": "^6.1.8"
   },
   "peerDependencies": {
-    "@hookform/resolvers": "*",
-    "@reduxjs/toolkit": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "*",
-    "react-helmet-async": "*",
-    "react-hook-form": "*",
-    "react-redux": "*",
-    "react-router-dom": "*",
-    "zod": "*"
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
+    "@docusaurus/module-type-aliases": "^3.0.0",
+    "@docusaurus/tsconfig": "^3.0.0",
+    "@docusaurus/types": "^3.0.0",
     "@eslint/js": "^9.22.0",
-    "@hookform/resolvers": "^4.1.3",
-    "@reduxjs/toolkit": "^2.6.1",
-    "@storybook/addon-docs": "^8.6.4",
+    "cpy-cli": "^5.0.0",
     "@storybook/addon-essentials": "^8.6.4",
     "@storybook/addon-interactions": "^8.6.4",
-    "@storybook/addon-links": "^8.6.4",
     "@storybook/addon-onboarding": "^8.6.4",
-    "@storybook/addon-themes": "^8.6.4",
-    "@storybook/blocks": "^8.6.4",
-    "@storybook/builder-vite": "^8.6.4",
     "@storybook/react": "^8.6.4",
     "@storybook/react-vite": "^8.6.4",
-    "@storybook/test": "^8.6.4",
-    "@testing-library/dom": "^9.3.4",
-    "@testing-library/react": "^14.2.1",
-    "@testing-library/user-event": "^14.5.2",
-    "@types/lodash": "^4.14.202",
     "@types/node": "^20.11.25",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
-    "@typescript-eslint/eslint-plugin": "^8.26.0",
-    "@typescript-eslint/parser": "^8.26.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "dotenv": "^16.4.7",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-storybook": "^0.8.0",
+    "prettier": "^3.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^5.5.0",
-    "react-redux": "^9.2.0",
-    "react-router-dom": "^6.22.3",
     "storybook": "^8.6.4",
+    "styled-components": "^6.1.8",
     "typescript": "^5.4.2",
+    "typescript-eslint": "^8.26.0",
     "vite": "^5.1.5",
     "vite-plugin-dts": "^4.5.3",
-    "vite-tsconfig-paths": "^5.1.4"
+    "rimraf": "^5.0.5",
+    "shx": "^0.3.4"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "packageManager": "yarn@4.8.1"
+  "packageManager": "npm@10.8.2"
 }
+

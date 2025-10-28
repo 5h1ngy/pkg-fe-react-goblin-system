@@ -20,39 +20,30 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # non usare "cache: yarn", altrimenti gira Yarn 1.x prima di Corepack
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Use the correct Yarn version
-        run: corepack prepare yarn@4.7.0 --activate
-
-      - name: Verify Yarn version
-        run: yarn --version
+          cache: npm
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: npm ci
 
-      - name: Build Docusaurus
-        run: yarn build:docs
+      - name: Build documentation
+        run: npm run docs:build
 
-      - name: Deploy Docusaurus to GitHub Pages
+      - name: Deploy documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build-docusaurus
+          publish_dir: ./dist/docs
           publish_branch: gh-pages
           destination_dir: ./
 
       - name: Build Storybook
-        run: yarn build:storybook
+        run: npm run storybook:build
 
       - name: Deploy Storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build-storybook
+          publish_dir: ./dist/storybook
           publish_branch: gh-pages
           destination_dir: storybook
           keep_files: true
