@@ -64,7 +64,7 @@ Because the overrides subscribe to the theme, the palette adapts automatically w
 ## Fonts and metrics
 
 - Primary font: `Inter`, falling back to `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, `sans-serif`.
-- Base font size: `14px` (0.875rem) with density tuned for portfolio layouts.
+- Base font size: `14px` (0.875rem) with density tuned for product dashboards and content-heavy shells.
 - Line heights follow the typography scale defined in `createGoblinTheme`.
 
 Override these values by passing `typography` overrides into `createGoblinTheme`.

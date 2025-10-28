@@ -5,7 +5,7 @@
 [![Build](https://img.shields.io/badge/build-vite-646cff?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Styling](https://img.shields.io/badge/styling-styled--components-db7093?style=flat&logo=styled-components&logoColor=white)](https://styled-components.com/)
 
-Fog gradients, neon surfaces, and a dark-first React component system extracted from the original Goblin portfolio. This monorepo packages the production UI kit, its theme tooling, a cinematic documentation site, and Storybook playground in one place—ready for you to ship atmospheric case studies without reinventing the design language.
+Goblin System is a dark-first React design system built from scratch with a Material UI-inspired API. The workspace ships the typed theme engine, hundreds of `styled-components` primitives, Storybook playground, and a Docusaurus site driven by the same tokens—ready to drop into any Vite or React build.
 
 <p align="center">
   <img src="assets/logo.png" alt="Goblin System" width="220" />
@@ -15,11 +15,11 @@ Fog gradients, neon surfaces, and a dark-first React component system extracted 
 
 ## 🧭 At a Glance
 
-- **One theme to rule them all** – `createGoblinTheme(mode, accent)` emits coordinated palettes, shadows, transitions, and spacing utilities. Accent changes ripple across docs, Storybook, and runtime via a shared provider.
-- **Atomic + shell primitives** – Layout, surface, navigation, data-display, and feedback components live under `packages/components`, composed atop `styled-components` with consistent `sx` styling props.
-- **Docs + Storybook synergy** – Docusaurus renders the full experience shell with accent picker and quick links, while Storybook exposes interactive knobs for the identical theme setup.
-- **Type-safe, tree-shakeable exports** – Every package ships ES modules and typed entry points (`pkg-fe-react-goblin-system/components`, `/foundations`, `/system`) so you can cherry-pick without bundling debt.
-- **Zero external runtime deps** – React 18+ and `styled-components` are the only peer requirements. Everything else lives in dev dependencies to keep bundles lean.
+- **Theme engine first** – `createGoblinTheme(options)` merges palettes, typography, shadows, breakpoints, and motions without leaking implementation details.
+- **Material UI-style ergonomics** – Components mirror familiar props (`variant`, `color`, `size`, `sx`) while being implemented from scratch with `styled-components`.
+- **Typed surface area** – Every package exports ES modules plus generated declaration files so tree-shaking and IDE tooling stay sharp.
+- **Shared runtime + docs tokens** – Storybook, the Docusaurus docs, and your app all consume the same theme provider and `sx` resolver—no drift.
+- **Runtime kept lean** – Only React 18+ and `styled-components@^6` are required at runtime; all tooling stays in dev dependencies.
 
 ---
 
@@ -137,14 +137,15 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
 ```
 .
-├─ packages/                    # Publishable design system source
-│  ├─ components/               # Layout, navigation, surfaces, data-display, etc.
-│  ├─ foundations/              # Theme creation, providers, icons, global styles
-│  └─ system/                   # sx resolver and tokens
-├─ .docs/                       # Docusaurus site with Goblin shell & accent picker
-├─ .story/                      # Storybook configuration mirroring docs theme
-├─ docs/                        # Markdown guides surfaced by Docusaurus
-└─ scripts/                     # Workspace automation (build, copy, clean)
+├─ packages/          # Publishable source for foundations, components, and system helpers
+│  ├─ components/     # Layout, navigation, inputs, data-display, surfaces, feedback, utilities
+│  ├─ foundations/    # Theme factory, provider, global styles, icon set, color helpers
+│  └─ system/         # `sx` resolver and shared styling utilities
+├─ .docs/             # Docusaurus workspace that renders the documentation site
+├─ .story/            # Storybook configuration mirroring the runtime theme contract
+├─ docs/              # Markdown content consumed by Docusaurus
+├─ dist/              # Build artefacts (`lib`, `storybook`, `docusaurus`)
+└─ assets/            # Project branding and shared imagery
 ```
 
 ---

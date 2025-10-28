@@ -5,16 +5,16 @@ export const componentDocs = {
     'Badge sovrappone contatori o stati secondari all’elemento figlio. Espone colori tematici, varianti “standard” e “dot” e offset automatico, integrandosi con il sistema di z-index e contrasti del Goblin Theme.',
   Chip: 'Chip rappresenta tag e selettori compatti. Gestisce varianti filled/outlined, colori di stato, avatar/icon opzionali e azione di cancellazione con feedback accessibile, con spaziature e raggi coerenti al design 2025.',
   Divider:
-    'Divider separa contenuti in modo neutro o verticale, supportando allineamenti testuali e proprietà decorative. Utilizza colori di bordo adattivi alle palette light/dark e rispetta i ritmi spaziali Ant Design.',
+    'Divider separa contenuti in modo neutro o verticale, supportando allineamenti testuali e proprietà decorative. Utilizza colori di bordo adattivi alle palette light/dark e rispetta i ritmi spaziali tipici dei layout Material UI.',
   List: 'List fornisce il contenitore semantico per elenchi nav/dati con padding responsive, densità configurabile e background governato dal Goblin Theme. Ottimizzata per incapsulare ListItem e componenti accessori.',
   ListItem:
-    'ListItem gestisce righe di elenco interattive o statiche con supporto per stati attivi, disabilitati e selezione. Integra controlli secondari, icone e tipografia coerente con le specifiche Ant Design.',
+    'ListItem gestisce righe di elenco interattive o statiche con supporto per stati attivi, disabilitati e selezione. Integra controlli secondari, icone e tipografia coerente con le specifiche Material UI mantenendo l’impronta Goblin.',
   ListItemIcon:
     'ListItemIcon applica dimensioni e allineamenti ottimali alle icone nei ListItem, assicurando ritmo verticale regolare e contrasto cromatico adeguato in ogni palette.',
   ListItemText:
     'ListItemText presenta titoli e descrizioni con gerarchia tipografica conforme al Goblin Theme. Supporta primary/secondary text e preserva wrapping ed ellissi in modo accessibile.',
   Table:
-    'Table replica la data table MUI ma con stile Ant Design 2025: background modulare, bordi soft, zebra striping opzionale e integrazione con TableHead, TableBody e TableRow per pieno controllo semantico.',
+    'Table replica la data table MUI ma con stile proprietario Goblin 2025: background modulare, bordi soft, zebra striping opzionale e integrazione con TableHead, TableBody e TableRow per pieno controllo semantico.',
   TableBody:
     'TableBody incapsula le righe dati e gestisce hover, selezione e densità. È pensata per lavorare con TableRow e garantire contrasti corretti nelle modalità light/dark.',
   TableCell:
@@ -26,7 +26,7 @@ export const componentDocs = {
   Typography:
     'Typography espone l’intero set di varianti testuali (display, heading, body, caption, overline) con mapping semantico personalizzabile. Integra il nuovo sistema tipografico Goblin con controlli di colore e allineamento.',
   Alert:
-    'Alert comunica messaggi contestuali con severità multipla, icone opzionali e azioni contestuali. Colori, spessori e ombre seguono le direttive Ant Design 2025 per feedback visivi equilibrati.',
+    'Alert comunica messaggi contestuali con severità multipla, icone opzionali e azioni contestuali. Colori, spessori e ombre seguono le direttive del design language Goblin ispirate a Material UI per feedback visivi equilibrati.',
   Backdrop:
     'Backdrop crea layer modali semi-trasparenti con gestione z-index e click-away configurabile. Il colore si adatta alla modalità corrente per enfatizzare la gerarchia visiva.',
   CircularProgress:
@@ -48,7 +48,7 @@ export const componentDocs = {
   Tooltip:
     'Tooltip fornisce contenuti descrittivi su hover/focus con offset dinamico, arrow opzionale e contrasto ottimizzato per leggere in contesti scuri o chiari.',
   Autocomplete:
-    'Autocomplete combina TextField e menu dinamico con filtraggio client, highlighting e supporto per opzioni personalizzate. Le dimensioni e le ombre del pannello richiamano Ant Design.',
+    'Autocomplete combina TextField e menu dinamico con filtraggio client, highlighting e supporto per opzioni personalizzate. Le dimensioni e le ombre del pannello richiamano la libreria Material UI.',
   Button:
     'Button è la call-to-action principale: gestisce varianti text/outlined/contained, dimensioni responsive, colori tematici, stato loading e disabilitazione con focus ring accessibile.',
   ButtonGroup:
@@ -63,7 +63,7 @@ export const componentDocs = {
   Rating:
     'Rating gestisce votazioni con icone custom, precisione frazionata, lettura assistiva e palette tematiche. Pensato per esperienze di feedback rapido.',
   Select:
-    'Select replica i menu a tendina MUI con menu Ant Design style: paddings generosi, arrow morbida, supporto per placeholder e stati di errore/disabled coerenti.',
+    'Select replica i menu a tendina MUI con pannelli modellati sul linguaggio Material UI: paddings generosi, arrow morbida, supporto per placeholder e stati di errore/disabled coerenti.',
   Slider:
     'Slider permette la selezione di valori continui o discreti con thumb arrotondati, track contrastata e tooltips modulari. Supporta intervalli, step e marks personalizzati.',
   Switch:
@@ -78,7 +78,7 @@ export const componentDocs = {
     'TransferList permette lo spostamento di elementi tra due liste con controlli di filtro, selezione multipla e azioni di bulk transfer, seguendo pattern enterprise MUI.',
   Box: 'Box è il wrapper layout flessibile con supporto per proprietà `sx`, spacing, border e background rapidi. È la base per costruire strutture coerenti nel Goblin Theme.',
   Container:
-    'Container fornisce larghezze massime responsive, padding orizzontali e modalità fixed/fluid, centrale per layout a griglia in stile Ant.',
+    'Container fornisce larghezze massime responsive, padding orizzontali e modalità fixed/fluid, centrale per layout a griglia nello stile Material UI.',
   Grid: 'Grid implementa il sistema 12 colonne con breakpoints dinamici, spacing responsive e wrap controllato. Gestisce container/item e colonne auto densità.',
   ImageList:
     'ImageList supporta layout masonry o standard per gallerie, con gestione gap, numero colonne e lazy loading coerente con le linee guida moderne.',
@@ -103,7 +103,7 @@ export const componentDocs = {
   MenuItem:
     'MenuItem rappresenta la singola azione in un menu; include stati hover/selected, icone opzionali e compatibilità con controlli embedded.',
   Pagination:
-    'Pagination permette la navigazione tra pagine con bottoni numerici e frecce, controlla breakpoints e mostra ellissi secondo la densità Ant Design.',
+    'Pagination permette la navigazione tra pagine con bottoni numerici e frecce, controlla breakpoints e mostra ellissi secondo la densità tipica di Material UI.',
   SpeedDial:
     'SpeedDial aggrega azioni secondarie in un FAB espandibile con animazioni radiali e gestione focus/tastiera appropriata.',
   SpeedDialAction:
@@ -112,13 +112,13 @@ export const componentDocs = {
   StepLabel:
     'StepLabel combina iconografia e testo per lo step, allineandosi con la tipografia del tema e mostrando stati secondari (es. opzionale).',
   Stepper:
-    'Stepper crea flussi progressivi orizzontali o verticali, con supporto per alternative label, linearità e contenuti personalizzati Ant Design.',
+    'Stepper crea flussi progressivi orizzontali o verticali, con supporto per alternative label, linearità e contenuti personalizzati in stile Material UI.',
   Tab: 'Tab rappresenta la singola scheda con indicatori morbidi, tipografia compatta e supporto per icone o badge.',
   TabPanel:
     'TabPanel gestisce la visualizzazione condizionale del contenuto associato a ciascuna tab, mantenendo semantica e focus management corretti.',
   Tabs: 'Tabs controlla l’interazione tra soglie, indicatori e scroll. Supporta varianti standard, scrollable e fullWidth con integrazione contestuale.',
   Toolbar:
-    'Toolbar fornisce un contenitore orizzontale centrato per comandi di primo livello, rispettando gli spessori e le densità della top-nav Ant design.',
+    'Toolbar fornisce un contenitore orizzontale centrato per comandi di primo livello, rispettando gli spessori e le densità tipiche delle top-nav Material UI.',
   Accordion:
     'Accordion gestisce contenuti espandibili con animazioni smoothing, icone orientabili e confinamento dei bordi secondo le nuove curvature soft.',
   AccordionDetails:
@@ -131,7 +131,7 @@ export const componentDocs = {
   CardContent:
     'CardContent incapsula contenuti principali della card, con tipografia ottimizzata e gap verticali aggiornati alle specifiche 2025.',
   CardHeader:
-    'CardHeader combina avatar, titolo e sottotitolo con spacing calibrati e supporto per azioni nell’area extra, seguendo il pattern Ant design.',
+    'CardHeader combina avatar, titolo e sottotitolo con spacing calibrati e supporto per azioni nell’area extra, seguendo il pattern Material UI reinterpretato dal tema Goblin.',
   CardMedia:
     'CardMedia visualizza media responsive (immagini, video) con gestione aspect ratio e overlay opzionali in linea con le linee guida moderne.',
   Paper:

@@ -54,16 +54,16 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'storybook/index.html',
-          prependBaseUrlToHref: true,
-          target: '_self',
-          label: 'Storybook',
-          position: 'left',
-        },
-        {
           href: 'https://github.com/5h1ngy/pkg-fe-react-goblin-system',
           label: 'GitHub',
           position: 'right',
+        },
+        {
+          href: 'https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook/',
+          label: 'Storybook',
+          position: 'right',
+          target: '_blank',
+          rel: 'noopener noreferrer',
         },
       ],
     },

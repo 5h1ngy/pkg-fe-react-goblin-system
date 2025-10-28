@@ -6,15 +6,15 @@ title: Welcome
 
 # Goblin System Design Language
 
-Goblin System is a boutique React design system that powers the portfolio experience behind this repository.  
-It packages a cohesive group of foundations, layout primitives, and production-ready components that all speak the same theme contract.
+Goblin System is a dark-first React design system built from scratch, inspired by the ergonomics of Material UI while delivering bespoke tokens, surfaces, and motion.  
+The monorepo bundles the theme engine, layout primitives, and production-ready components that all rely on the same typed contract.
 
 ## What makes it different?
 
 - **Dark-first foundations**  
-  The default theme embraces a cinematic dark surface with an ochre secondary accent. Fluorescent secondary swatches are only a click away inside the docs header.
+  The default theme leans into cinematic dark surfaces with a configurable secondary accent; change the palette at runtime with a single override.
 - **One source of truth**  
-  `createGoblinTheme` generates palette, typography, spacing, mixins, transitions, shadows, and breakpoints that every component consumes via `styled-components`.
+  `createGoblinTheme` emits palette, typography, spacing, mixins, transitions, shadows, and breakpoints that every component consumes via `styled-components`.
 - **Storybook parity**  
   Every documented pattern links to a live Storybook story so you can inspect real implementations and play with props.
 - **TypeScript-first authoring**  

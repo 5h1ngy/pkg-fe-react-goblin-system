@@ -51,7 +51,7 @@ export function App() {
 }
 ```
 
-`CssBaseline` injects the global reset, typography stack, scrollbar styling, and smooth scroll behaviour that mirror the portfolio.
+`CssBaseline` injects the global reset, typography stack, scrollbar styling, and smooth scroll behaviour that mirror the core Goblin design language.
 
 ## 4. Compose with components
 

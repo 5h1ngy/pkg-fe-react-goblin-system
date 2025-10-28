@@ -1,17 +1,19 @@
 {
   "name": "pkg-fe-react-goblin-system",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "license": "MIT",
-  "description": "Boutique React component kit and theme extracted from the portfolio experience.",
+  "description": "Dark-first React design system built from scratch with a Material UI-inspired API and typed theme engine.",
   "keywords": [
     "react",
     "typescript",
     "design-system",
-    "best-practices",
-    "modular",
+    "material-ui",
+    "styled-components",
     "storybook",
     "testing",
     "docs",
+    "theme-engine",
+    "dark-mode",
     "vite",
     "docusaurus"
   ],
