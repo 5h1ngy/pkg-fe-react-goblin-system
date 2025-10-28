@@ -100,7 +100,7 @@ const NavbarContent = (): JSX.Element => {
           component="div"
           direction="row"
           alignItems="center"
-          spacing={3}
+          spacing={1}
           className="navbar__items"
           sx={navbarBrandSectionSx}
         >

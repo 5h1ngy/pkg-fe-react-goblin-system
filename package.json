@@ -1,6 +1,6 @@
 {
   "name": "pkg-fe-react-goblin-system",
-  "version": "3.2.2",
+  "version": "3.2.5",
   "license": "MIT",
   "description": "Dark-first React design system built from scratch with a Material UI-inspired API and typed theme engine.",
   "keywords": [

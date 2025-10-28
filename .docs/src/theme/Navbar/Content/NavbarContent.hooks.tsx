@@ -26,15 +26,22 @@ const useNavbarContentItems = (): NavbarItemConfig[] => {
             }
           }
 
-          if (
-            route === '/storybook' ||
-            route === 'storybook/' ||
-            route === './storybook/' ||
-            route === 'storybook/index.html'
-          ) {
+          const normalizedRoute = route ?? ''
+          const isStorybookRoute =
+            normalizedRoute === '/storybook' ||
+            normalizedRoute === 'storybook/' ||
+            normalizedRoute === './storybook/' ||
+            normalizedRoute === 'storybook/index.html' ||
+            normalizedRoute.endsWith('/storybook/') ||
+            normalizedRoute.includes('storybook/index.html')
+
+          if (isStorybookRoute) {
             return {
               ...item,
               label: 'Storybook',
+              position: 'right',
+              target: '_blank',
+              rel: 'noopener noreferrer',
             }
           }
         }

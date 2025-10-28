@@ -19,7 +19,7 @@ export const navbarBrandSectionSx: ComponentProps<typeof Stack>['sx'] = (theme: 
   flex: 1,
   minWidth: 0,
   '& .navbar__brand': {
-    marginRight: theme.spacing(1.5),
+    marginRight: theme.spacing(0.5),
   },
 })
 

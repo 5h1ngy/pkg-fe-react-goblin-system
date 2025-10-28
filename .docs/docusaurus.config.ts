@@ -42,7 +42,7 @@ const config: Config = {
       disableSwitch: false,
     },
     navbar: {
-      title: 'Goblin System',
+      title: '',
       logo: {
         alt: 'logo',
         src: 'img/logo.png',
