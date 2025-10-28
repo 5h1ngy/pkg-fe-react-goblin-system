@@ -12,14 +12,21 @@ const useNavbarContentItems = (): NavbarItemConfig[] => {
     () =>
       configItems.map((item) => {
         if ('label' in item) {
-          const route = (item as { to?: string }).to
-          if (route === '/docs') {
+          const route =
+            'to' in item && typeof item.to === 'string'
+              ? item.to
+              : 'href' in item && typeof item.href === 'string'
+                ? item.href
+                : undefined
+
+          if (route === '/docs' || route === 'docs/') {
             return {
               ...item,
               label: 'Docs',
             }
           }
-          if (route === '/storybook') {
+
+          if (route === '/storybook' || route === 'storybook/' || route === './storybook/') {
             return {
               ...item,
               label: 'Storybook',

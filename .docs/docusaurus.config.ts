@@ -54,7 +54,9 @@ const config: Config = {
           position: 'left',
         },
         {
-          to: '/storybook',
+          href: 'storybook/',
+          prependBaseUrlToHref: true,
+          target: '_self',
           label: 'Storybook',
           position: 'left',
         },

@@ -58,8 +58,8 @@
     "storybook:build": "storybook build --config-dir .story --output-dir dist/storybook",
     "lib:build": "vite build --config vite.config.lib.ts && tsc --project tsconfig.types.json && npm pack --pack-destination dist/lib",
     "docusaurus:dev": "docusaurus start .docs --no-open",
-    "docusaurus:build": "docusaurus build .docs --out-dir ../dist/docs",
-    "docs:serve": "docusaurus serve .docs --dir dist/docs",
+    "docusaurus:build": "docusaurus build .docs --out-dir ../dist/docusaurus",
+    "docusaurus:serve": "docusaurus serve .docs --dir dist/docusaurus",
     "build": "npm run lib:build && npm run storybook:build && npm run docusaurus:build",
     "workspace:clean": "rimraf dist",
     "workspace:reset": "rimraf node_modules dist .docs/.docusaurus .docs/dist"

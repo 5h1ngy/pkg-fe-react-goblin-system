@@ -154,7 +154,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
 | Command | What it does |
 | --- | --- |
 | `npm run docusaurus:dev` | Start the Docusaurus site with hot reload on port 3000. |
-| `npm run docusaurus:build` | Build static docs to `dist/docs` and copy Storybook assets. |
+| `npm run docusaurus:build` | Build static docs to `dist/docusaurus` and copy Storybook assets. |
 | `npm run storybook:dev` | Launch Storybook with dark mode + accent controls. |
 | `npm run storybook:build` | Emit static Storybook at `dist/storybook`. |
 | `npm run lib:build` | Produce the component library bundle, types, and npm tarball under `dist/lib`. |

@@ -41,14 +41,14 @@ jobs:
           set -euo pipefail
           rm -rf dist/lib/docs
           mkdir -p dist/lib
-          cp -R dist/docs dist/lib/docs
+          cp -R dist/docusaurus dist/lib/docs
 
       - name: Prepare Pages payload
         run: |
           set -euo pipefail
           rm -rf dist/pages
           mkdir -p dist/pages
-          rsync -a dist/docs/ dist/pages/
+          rsync -a dist/docusaurus/ dist/pages/
           mkdir -p dist/pages/storybook
           rsync -a dist/storybook/ dist/pages/storybook/
 

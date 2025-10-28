@@ -44,7 +44,7 @@ jobs:
           set -euo pipefail
           rm -rf dist/lib/docs
           mkdir -p dist/lib
-          cp -R dist/docs dist/lib/docs
+          cp -R dist/docusaurus dist/lib/docs
           rm -f dist/lib/pkg-fe-react-goblin-system-*.tgz
           npm pack --pack-destination dist/lib
 
@@ -53,6 +53,9 @@ jobs:
         run: |
           set -euo pipefail
           VERSION=$(node -p "require('./package.json').version")
+          NAME=$(node -p "require('./package.json').name")
+          DESCRIPTION=$(node -p "require('./package.json').description")
+          DATE=$(date -u +"%Y-%m-%d")
           TAG="v${VERSION}"
           TARBALL=$(find dist/lib -maxdepth 1 -name '*.tgz' -print -quit)
 
@@ -64,6 +67,9 @@ jobs:
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "tarball=$TARBALL" >> "$GITHUB_OUTPUT"
+          echo "package_name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "package_description=$DESCRIPTION" >> "$GITHUB_OUTPUT"
+          echo "release_date=$DATE" >> "$GITHUB_OUTPUT"
 
           if git rev-parse -q --verify "refs/tags/$TAG"; then
             echo "tag_exists=true" >> "$GITHUB_OUTPUT"
@@ -77,10 +83,22 @@ jobs:
         uses: actions/create-release@v1
         with:
           tag_name: ${{ steps.release_info.outputs.tag }}
-          release_name: pkg-fe-react-goblin-system ${{ steps.release_info.outputs.version }}
+          release_name: ${{ steps.release_info.outputs.package_name }} ${{ steps.release_info.outputs.version }}
           target_commitish: ${{ github.sha }}
           body: |
-            Automated release for version ${{ steps.release_info.outputs.version }}.
+            ## Summary
+
+            - Package: **${{ steps.release_info.outputs.package_name }}**
+            - Version: **${{ steps.release_info.outputs.version }}**
+            - Released: **${{ steps.release_info.outputs.release_date }}**
+
+            > ${{ steps.release_info.outputs.package_description }}
+
+            ## Assets
+
+            - Library bundle (`pkg-fe-react-goblin-system-${{ steps.release_info.outputs.version }}.tgz`)
+            - Type declarations & ES modules under `dist/lib/`
+            - Documentation snapshot under `dist/lib/docs/`
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
