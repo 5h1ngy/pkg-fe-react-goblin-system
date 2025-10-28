@@ -1,8 +1,6 @@
 {
-  "extends": "@docusaurus/tsconfig",
+  "extends": "../tsconfig.app.json",
   "compilerOptions": {
-    "incremental": true,
-    "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.docs.tsbuildinfo",
     "baseUrl": ".",
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -27,6 +25,11 @@
     },
     "types": ["@docusaurus/module-type-aliases"]
   },
-  "include": ["src", "../docs", "static", "./*.ts", "../packages/foundations/styled.d.ts"],
-  "exclude": [".docusaurus", "build", "node_modules"]
+  "include": [
+    "src",
+    "static",
+    "../docs",
+    "../packages/foundations/styled.d.ts"
+  ],
+  "exclude": [".docusaurus", "build", "dist", "node_modules"]
 }

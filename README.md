@@ -153,8 +153,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
 | Command | What it does |
 | --- | --- |
-| `npm run docs:dev` | Start the Docusaurus site with hot reload on port 3000. |
-| `npm run docs:build` | Build static docs to `dist/docs` and copy Storybook assets. |
+| `npm run docusaurus:dev` | Start the Docusaurus site with hot reload on port 3000. |
+| `npm run docusaurus:build` | Build static docs to `dist/docs` and copy Storybook assets. |
 | `npm run storybook:dev` | Launch Storybook with dark mode + accent controls. |
 | `npm run storybook:build` | Emit static Storybook at `dist/storybook`. |
 | `npm run lib:build` | Produce the component library bundle, types, and npm tarball under `dist/lib`. |
@@ -178,7 +178,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
 ## 🤝 Contributing
 
 1. `npm install` to hydrate the workspace.
-2. `npm run docs:dev` or `npm run storybook:dev` to iterate on visuals.
+2. `npm run docusaurus:dev` or `npm run storybook:dev` to iterate on visuals.
 3. Update or add stories/docs alongside components—both environments consume the same exports.
 4. `npm run lint` and `npm run format` before opening a PR.
 
