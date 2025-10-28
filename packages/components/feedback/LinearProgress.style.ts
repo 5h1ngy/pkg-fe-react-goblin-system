@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 const indeterminateKey = keyframes`
   0% { transform: translateX(-50%); }
@@ -23,6 +23,11 @@ export const LinearProgressBar = styled.span<{
   transform-origin: left;
   ${({ $variant, $value }) =>
     $variant === 'determinate'
-      ? `width: ${$value ?? 0}%;`
-      : `width: 50%; animation: ${indeterminateKey} 1.2s infinite;`}
+      ? css`
+          width: ${$value ?? 0}%;
+        `
+      : css`
+          width: 50%;
+          animation: ${indeterminateKey} 1.2s infinite;
+        `}
 `

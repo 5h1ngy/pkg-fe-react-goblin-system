@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 const rotateKey = keyframes`
   0% { transform: rotate(0deg); }
@@ -6,6 +6,12 @@ const rotateKey = keyframes`
 `
 
 export const CircularProgressSvg = styled.svg<{ $variant: 'indeterminate' | 'determinate' }>`
-  animation: ${({ $variant }) =>
-    $variant === 'indeterminate' ? `${rotateKey} 1.4s linear infinite` : 'none'};
+  ${({ $variant }) =>
+    $variant === 'indeterminate'
+      ? css`
+          animation: ${rotateKey} 1.4s linear infinite;
+        `
+      : css`
+          animation: none;
+        `}
 `
