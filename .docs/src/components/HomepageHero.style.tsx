@@ -37,8 +37,8 @@ export const homepageHeroStackSx: ComponentProps<typeof Stack>['sx'] = {
 export const homepageHeroBodySx: ComponentProps<typeof Typography>['sx'] = { maxWidth: '38ch' }
 
 export const homepageHeroLogoSx: ComponentProps<typeof Box>['sx'] = (theme: GoblinTheme) => ({
-  width: theme.spacing(16),
-  height: theme.spacing(16),
+  width: theme.spacing(46),
+  height: theme.spacing(46),
   objectFit: 'contain',
   filter:
     theme.palette.mode === 'dark'

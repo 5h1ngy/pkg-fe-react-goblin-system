@@ -1,6 +1,6 @@
 {
   "name": "pkg-fe-react-goblin-system",
-  "version": "3.2.5",
+  "version": "3.4.1",
   "license": "MIT",
   "description": "Dark-first React design system built from scratch with a Material UI-inspired API and typed theme engine.",
   "keywords": [
@@ -64,7 +64,10 @@
     "docusaurus:serve": "docusaurus serve .docs --dir dist/docusaurus",
     "build": "npm run lib:build && npm run storybook:build && npm run docusaurus:build",
     "workspace:clean": "rimraf dist",
-    "workspace:reset": "rimraf node_modules dist .docs/.docusaurus .docs/dist"
+    "workspace:reset": "rimraf node_modules dist .docs/.docusaurus .docs/dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",
@@ -90,6 +93,9 @@
     "@storybook/addon-onboarding": "^8.6.4",
     "@storybook/react": "^8.6.4",
     "@storybook/react-vite": "^8.6.4",
+    "@storybook/test": "^8.6.4",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
     "@types/node": "^20.11.25",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
@@ -98,6 +104,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-storybook": "^0.8.0",
+    "jsdom": "^25.0.0",
     "prettier": "^3.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -107,6 +114,7 @@
     "typescript-eslint": "^8.26.0",
     "vite": "^5.1.5",
     "vite-plugin-dts": "^4.5.3",
+    "vitest": "^2.1.5",
     "rimraf": "^5.0.5",
     "shx": "^0.3.4"
   },

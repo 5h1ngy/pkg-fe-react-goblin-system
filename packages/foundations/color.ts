@@ -54,7 +54,7 @@ const hexToRgb = (value: string): [number, number, number] | null => {
 const rgbToHex = (r: number, g: number, b: number): string => `#${toHex(r)}${toHex(g)}${toHex(b)}`
 
 const mixChannel = (channel: number, target: number, amount: number): number =>
-  clamp(channel + (target - channel) * amount, 0, 255)
+  Math.round(clamp(channel + (target - channel) * amount, 0, 255))
 
 export const lightenHex = (value: string, amount: number): string | null => {
   const rgb = hexToRgb(value)
