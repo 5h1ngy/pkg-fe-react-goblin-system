@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpkg_fe_react_goblin_system=self.webpackChunkpkg_fe_react_goblin_system||[]).push([[235],{8114:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
