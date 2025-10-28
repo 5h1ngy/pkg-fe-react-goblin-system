@@ -5,8 +5,11 @@ import { fireEvent, screen } from '@testing-library/react'
 import { renderWithTheme } from '../../test-utils/renderWithTheme'
 import { Tabs } from './Tabs'
 import { Tab } from './Tab'
+import type { TabsValue } from './Tabs.context'
 
-const renderTabsExample = (onChange?: (event: MouseEvent<HTMLElement>, value: string) => void) =>
+const renderTabsExample = (
+  onChange?: (event: MouseEvent<HTMLElement>, value: TabsValue) => void,
+) =>
   renderWithTheme(
     <Tabs defaultValue="one" onChange={onChange}>
       <Tab value="one" label="First" />
@@ -21,8 +24,8 @@ describe('Tabs', () => {
     const firstTab = screen.getByRole('tab', { name: /first/i })
     const secondTab = screen.getByRole('tab', { name: /second/i })
 
-    expect(firstTab).toHaveAttribute('aria-selected', 'true')
-    expect(secondTab).toHaveAttribute('aria-selected', 'false')
+    expect(firstTab.getAttribute('aria-selected')).toBe('true')
+    expect(secondTab.getAttribute('aria-selected')).toBe('false')
   })
 
   it('invokes onChange when a different tab is selected', () => {
@@ -43,6 +46,6 @@ describe('Tabs', () => {
     const secondTab = screen.getByRole('tab', { name: /second/i })
     fireEvent.click(secondTab)
 
-    expect(secondTab).toHaveAttribute('aria-selected', 'true')
+    expect(secondTab.getAttribute('aria-selected')).toBe('true')
   })
 })

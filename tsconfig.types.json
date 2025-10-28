@@ -9,7 +9,10 @@
       "esModuleInterop": true,
       "types": ["node",]
     },
-    "include": [
-      "packages"
-    ]
-  }
+  "include": [
+    "packages"
+  ],
+  "exclude": [
+    "packages/**/*.test.tsx"
+  ]
+}
