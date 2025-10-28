@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreact_goblin_system_docs=self.webpackChunkreact_goblin_system_docs||[]).push([[647],{7274:(e,s,r)=>{r.r(s),r.d(s,{default:()=>o});r(3696);var c=r(1750),t=r(5545),a=r(7404),n=r(3971),u=r(5202),l=r(2540);function o(e){return(0,l.jsx)(t.e3,{className:(0,c.A)(a.G.wrapper.docsPages),children:(0,l.jsx)(u.A,{children:(0,n.v)(e.route.routes)})})}}}]);
