@@ -1,34 +1,20 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
-import dotenv from 'dotenv';
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-// Configurazione di Vite
-export default defineConfig(({ mode }) => {
-  dotenv.config({ path: `.env.${mode}` });
-  console.log('env', `.env.${mode}`);
+const projectDir = dirname(fileURLToPath(new URL(".", import.meta.url)));
 
-  // Definizione del proxy basato su variabile di ambiente
-  const proxy = process.env.VITE_USE_MOCK === "false"
-    ? {
-      "/api": {
-        target: process.env.VITE_API,
-        changeOrigin: true,
-        secure: false,
-      },
-    }
-    : undefined; // Usa undefined invece di null per compatibilità con Vite
-
-  return {
-    base: process.env.VITE_BASENAME,
-    plugins: [react(), tsconfigPaths()],
-    server: {
-      host: "0.0.0.0", // Consente connessioni da qualsiasi host
-      watch: {
-        usePolling: true, // Usa il polling per il watch
-        interval: 1000,
-      },
-      proxy, // Aggiunge dinamicamente il proxy se definito
+// Minimal Vite configuration for Storybook and playground builds.
+export default defineConfig({
+  base: "",
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "pkg-fe-react-goblin-system": resolve(projectDir, "packages/index.ts"),
+      "pkg-fe-react-goblin-system/components": resolve(projectDir, "packages/components/index.ts"),
+      "pkg-fe-react-goblin-system/foundations": resolve(projectDir, "packages/foundations/index.ts"),
+      "pkg-fe-react-goblin-system/system": resolve(projectDir, "packages/system/index.ts"),
     },
-  };
+  },
 });

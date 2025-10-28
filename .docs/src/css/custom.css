@@ -1,0 +1,66 @@
+/**
+ * Global CSS overrides for Infima with a dark blue/azure sci‑fi style.
+ */
+
+ :root {
+  --ifm-color-primary: #1A2B45;             /* Base dark blue */
+  --ifm-color-primary-dark: #162237;        /* Slightly darker */
+  --ifm-color-primary-darker: #121B2D;      /* More depth */
+  --ifm-color-primary-darkest: #0F1726;     /* Near-black blue for contrast */
+  --ifm-color-primary-light: #233A5E;       /* Lighter blue for accents */
+  --ifm-color-primary-lighter: #2A4371;     /* Additional accent shade */
+  --ifm-color-primary-lightest: #324C85;    /* Soft, glowing highlight */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(10, 10, 30, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #68A0D4;             /* Brighter blue for dark mode */
+  --ifm-color-primary-dark: #5C90C1;
+  --ifm-color-primary-darker: #517FAF;
+  --ifm-color-primary-darkest: #466D9D;
+  --ifm-color-primary-light: #79B2E2;
+  --ifm-color-primary-lighter: #8CB4E6;
+  --ifm-color-primary-lightest: #A0C7EC;
+  --docusaurus-highlighted-code-line-bg: rgba(20, 20, 50, 0.3);
+}
+:root {
+  --goblin-docs-background-light: radial-gradient(circle at top, rgba(235, 240, 255, 0.85) 0%, rgba(230, 235, 255, 0.45) 35%, rgba(250, 251, 255, 0.2) 65%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, rgba(245, 247, 255, 0.85) 0%, rgba(239, 243, 255, 0.5) 40%, rgba(255, 255, 255, 0) 100%);
+  --goblin-docs-background-dark: radial-gradient(circle at top, rgba(28, 35, 58, 0.88) 0%, rgba(18, 22, 38, 0.75) 35%, rgba(12, 16, 28, 0.45) 70%, rgba(4, 6, 12, 0.85) 100%);
+}
+
+html,
+body {
+  background: none;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--goblin-docs-background-light);
+  pointer-events: none;
+}
+
+[data-theme='dark'] body::before {
+  background: var(--goblin-docs-background-dark);
+}
+
+.main-wrapper {
+  background: transparent;
+}
+
+.navbar,
+.menu,
+.theme-doc-content,
+.theme-doc-sidebar-container,
+.theme-doc-sidebar-menu {
+  background-color: transparent;
+}
+
+.theme-doc-sidebar-item-link,
+.theme-doc-sidebar-item-link--active {
+  background-color: transparent;
+}

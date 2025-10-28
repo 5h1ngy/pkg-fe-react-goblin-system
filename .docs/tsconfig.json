@@ -1,0 +1,35 @@
+{
+  "extends": "../tsconfig.app.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "paths": {
+      "pkg-fe-react-goblin-system": ["../packages/index.ts"],
+      "pkg-fe-react-goblin-system/*": ["../packages/*"],
+      "@site/*": ["./*"]
+    },
+    "types": ["@docusaurus/module-type-aliases"]
+  },
+  "include": [
+    "src",
+    "static",
+    "../docs",
+    "../packages/foundations/styled.d.ts"
+  ],
+  "exclude": [".docusaurus", "build", "dist", "node_modules"]
+}

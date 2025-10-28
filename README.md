@@ -1,201 +1,192 @@
-# 🧙‍♂️ pkg-fe-react-goblin-system
+# Goblin System 🧙‍♂️✨
 
-<div align="center">
-  <img src="assets/logo.png" alt="pkg-fe-react-goblin-system Logo" width="500">
-</div>
+[![Docs](https://img.shields.io/badge/docs-live-7f5af0?style=flat&logo=gitbook&logoColor=white)](https://5h1ngy.github.io/pkg-fe-react-goblin-system/docs)
+[![Storybook](https://img.shields.io/badge/storybook-preview-fd4bb3?style=flat&logo=storybook&logoColor=white)](https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook)
+[![Build](https://img.shields.io/badge/build-vite-646cff?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Styling](https://img.shields.io/badge/styling-styled--components-db7093?style=flat&logo=styled-components&logoColor=white)](https://styled-components.com/)
 
-<div align="start">
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License MIT">
-  </a>
-  <a href="package.json">
-    <img src="https://img.shields.io/badge/version-1.7.0-blue" alt="Version 1.7.0">
-  </a>
-  <a href="#">
-    <img src="https://img.shields.io/badge/node-%3E%3D20.18.0-blue" alt="Node >=20.18.0">
-  </a>
-  <a href="#">
-    <img src="https://img.shields.io/badge/react-18.x-blue" alt="React 18.x">
-  </a>
-</div>
+Goblin System is a dark-first React design system built from scratch with a Material UI-inspired API. The workspace ships the typed theme engine, hundreds of `styled-components` primitives, Storybook playground, and a Docusaurus site driven by the same tokens—ready to drop into any Vite or React build.
 
-## 🔗 URLs
+<p align="center">
+  <img src="assets/logo.png" alt="Goblin System" width="220" />
+</p>
 
-| Resource  | URL                                                             |
-|-----------|------------------------------------------------------------------|
-| Website   | https://5h1ngy.github.io/pkg-fe-react-goblin-system/             |
-| Storybook | https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook    |
-| Docs      | https://5h1ngy.github.io/pkg-fe-react-goblin-system/docs         |
+---
 
-## 🔍 Overview
+## 🧭 At a Glance
 
-**pkg-fe-react-goblin-system** (also known as **React Goblin System**) is a comprehensive UI library for React and TypeScript that provides reusable, accessible, and highly customizable components. Built with Styled Components, the library offers a modern component system with a flexible architecture and a powerful theming system.
+- **Theme engine first** – `createGoblinTheme(options)` merges palettes, typography, shadows, breakpoints, and motions without leaking implementation details.
+- **Material UI-style ergonomics** – Components mirror familiar props (`variant`, `color`, `size`, `sx`) while being implemented from scratch with `styled-components`.
+- **Typed surface area** – Every package exports ES modules plus generated declaration files so tree-shaking and IDE tooling stay sharp.
+- **Shared runtime + docs tokens** – Storybook, the Docusaurus docs, and your app all consume the same theme provider and `sx` resolver—no drift.
+- **Runtime kept lean** – Only React 18+ and `styled-components@^6` are required at runtime; all tooling stays in dev dependencies.
 
-## ✨ Key Features
+---
 
-- **🎨 Fully customizable UI components** - Buttons, modals, grids, layouts, and more
-- **🎭 Advanced theming system** - Customize the complete look and feel of your application
-- **📱 Responsive design** - Interfaces optimized for every screen size
-- **♿ Built-in accessibility** - WCAG compliance and support for assistive technologies
-- **🧩 Consistent APIs** - Uniform design patterns across all components
-- **📚 Comprehensive documentation** - Detailed guides and examples for each component
-- **🔒 TypeScript** - Complete type definitions for a better developer experience
-- **🌐 Global Provider** - Easy application of themes and fonts across your entire application
+## 🚀 Quick Start
 
-## 🏗️ Core Architecture
-
-The library is organized into several key modules:
-
-### 🧱 Components
-Reusable UI elements organized by function (buttons, feedback, layout, etc.)
-
-### 🛡️ Providers
-Context providers that manage global state and functionality:
-- **🧙‍♂️ GoblinProvider**: Main provider that applies theme, global styles, and fonts
-- **🎨 ThemeProvider**: Manages theme state with light/dark mode support
-- **🔑 Auth**: Authentication provider for user authentication flows
-
-### ⚙️ Services
-Utility services for common application needs:
-- **🔐 auth**: Authentication services with JWT support
-- **🔄 handlers**: Common HTTP request handlers
-
-### 🗄️ Store
-Redux slices for state management:
-- **👤 auth**: Authentication state management
-- **🔄 shared**: Shared state utilities
-
-### 🎨 Theme
-Comprehensive theming system:
-- **🎭 theme.ts**: Theme definitions and tokens
-- **🌐 GlobalStyles**: Global style definitions
-- **🌓 ThemeProvider**: Theme context provider
-
-## 📚 Documentation
-
-Complete documentation is available in the [docs directory](./docs/docs/intro.md) of the repository.
-
-### 📖 Main Guides
-
-- [🚀 Introduction](./docs/docs/intro.md)
-- [💻 Installation Guide](./docs/docs/getting-started.md)
-- [🧩 Component List](./docs/docs/components/index.md)
-- [🎨 Theme Customization](./docs/docs/theming/index.md)
-
-### 🧱 Components
-
-#### 📐 Layout
-- [📦 Container](./docs/docs/components/layout/container.md) - Container to limit and center content
-- [📏 Grid](./docs/docs/components/layout/grid.md) - Flexible grid system for responsive layouts
-
-#### 🔘 Buttons
-- [👆 Button](./docs/docs/components/buttons/button.md) - Standard buttons with variants and states
-- [🔣 IconButton](./docs/docs/components/buttons/iconbutton.md) - Buttons with integrated icons
-
-#### 💬 Feedback
-- [🪟 Modal](./docs/docs/components/feedback/modal.md) - Modal windows for dialogs and overlaid content
-- [🔄 Spinner](./docs/docs/components/feedback/spinner.md) - Animated loading indicators
-
-#### 📝 Typography
-- [📄 Text](./docs/docs/components/typography/text.md) - Text management components
-- [📑 Heading](./docs/docs/components/typography/heading.md) - Heading components with various levels
-
-## 📥 Installation
+1. Download the latest release archive from GitHub and install it locally (replace the version with the one you need):
 
 ```bash
-# With npm
-npm install pkg-fe-react-goblin-system
-
-# With Yarn
-yarn add pkg-fe-react-goblin-system
-
-# With pnpm
-pnpm add pkg-fe-react-goblin-system
+VERSION=3.2.0
+curl -L -o pkg-fe-react-goblin-system-$VERSION.tgz \
+  "https://github.com/5h1ngy/pkg-fe-react-goblin-system/releases/download/v$VERSION/pkg-fe-react-goblin-system-$VERSION.tgz"
+npm install ./pkg-fe-react-goblin-system-$VERSION.tgz styled-components
 ```
 
-## 🚀 Quick Usage
+You can also install straight from the release URL without downloading first:
 
-```jsx
-import React from 'react';
-import { 
-  GoblinProvider, 
-  Container, 
-  Grid, 
-  Col, 
-  Button, 
-  Text 
-} from 'pkg-fe-react-goblin-system';
+```bash
+npm install \
+  https://github.com/5h1ngy/pkg-fe-react-goblin-system/releases/download/v$VERSION/pkg-fe-react-goblin-system-$VERSION.tgz \
+  styled-components
+```
 
-function App() {
+```tsx
+import { ThemeProvider } from 'styled-components'
+import {
+  GlobalStyle,
+  createGoblinTheme,
+  Section,
+  Card,
+  SurfaceButton,
+  ActionLink,
+  TagList,
+  TagPill,
+} from 'pkg-fe-react-goblin-system'
+
+const theme = createGoblinTheme({
+  palette: { mode: 'dark', secondary: { main: '#ffb422' } },
+})
+
+export function App() {
   return (
-    <GoblinProvider>
-      <Container>
-        <Grid>
-          <Col xs={12} md={6}>
-            <Text variant="h1">Welcome to Goblin System</Text>
-            <Text>A modern React component library for building beautiful UIs</Text>
-            <Button variant="primary">Get Started</Button>
-          </Col>
-        </Grid>
-      </Container>
-    </GoblinProvider>
-  );
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Section id="hero" accent="Featured Work">
+        <Card $variant="gradient" $interactive>
+          <p>Foggy gradients and pill buttons in one import.</p>
+          <TagList>
+            <TagPill>Motion</TagPill>
+            <TagPill>DX</TagPill>
+          </TagList>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <SurfaceButton $tone="accent">Open case study</SurfaceButton>
+            <ActionLink href="#">See process →</ActionLink>
+          </div>
+        </Card>
+      </Section>
+    </ThemeProvider>
+  )
 }
 ```
 
-## 📂 Project Structure
+---
 
-```
-src/
-├── assets/           # Static assets (images, fonts)
-├── components/       # UI components
-│   ├── buttons/      # Button components
-│   ├── feedback/     # Feedback components (modals, alerts)
-│   ├── form/         # Form components and inputs
-│   ├── graphics/     # Visual and graphic components
-│   ├── layout/       # Layout components (grid, container)
-│   ├── navigation/   # Navigation components
-│   └── typography/   # Typography components
-├── hocs/             # Higher-order components
-├── pages/            # Page layouts and templates
-│   ├── Error/        # Error page templates
-│   ├── Loading/      # Loading page templates
-│   └── Transformer/  # Data transformation views
-├── providers/        # Context providers
-│   └── Auth/         # Authentication provider
-├── services/         # Service utilities
-│   └── auth/         # Authentication services
-├── store/            # State management
-│   └── auth/         # Authentication state
-└── theme/            # Theming system
-    ├── GlobalStyles.tsx  # Global styles
-    ├── ThemeProvider.tsx # Theme provider
-    └── theme.ts      # Theme definitions
-```
+## 🧩 Library Surface
 
-## 🛠️ Development
+| Area | Highlights | Location |
+| --- | --- | --- |
+| Foundations | `createGoblinTheme`, `GoblinThemeProvider`, `GlobalStyle`, accent-aware color helpers | `packages/foundations` |
+| Components – Layout & Surfaces | `Section`, `Grid`, `Card`, `Accordion`, `Paper`, `Modal`, `Popover` | `packages/components/{layout,surfaces,utils}` |
+| Components – Data & Feedback | `Typography`, `Badge`, `Chip`, `Snackbar`, `Collapse`, `ClickAwayListener` | `packages/components/{data-display,feedback}` |
+| Navigation & Inputs | `AppBar`, `Tabs`, `SpeedDial`, `Button`, `Select`, `TextField` | `packages/components/{navigation,inputs}` |
+| System | `sx` resolver, spacing normalisation, style merging utilities | `packages/system` |
 
-```bash
-# Start Storybook development server
-npm run start:storybook
+All exports are available from the root, or from scoped paths when you need granular control:
 
-# Start documentation site
-npm run start:docs
+- `pkg-fe-react-goblin-system` – re-exports everything.
+- `pkg-fe-react-goblin-system/components` – component namespaces.
+- `pkg-fe-react-goblin-system/foundations` – theming and icon primitives.
+- `pkg-fe-react-goblin-system/system` – low-level styling helpers.
 
-# Build the library
-npm run build:lib
+---
 
-# Build Storybook
-npm run build:storybook
+## 🌌 Theme Customisation
 
-# Build documentation site
-npm run build:docs
+The accent color powers gradients, badges, focus states, and docs chrome. Update it at runtime:
+
+```tsx
+import { GoblinThemeProvider, CssBaseline } from 'pkg-fe-react-goblin-system'
+
+const secondary = '#39ff14' // neon green
+
+export function Shell({ children }: { children: React.ReactNode }) {
+  return (
+    <GoblinThemeProvider
+      theme={{
+        palette: {
+          mode: 'dark',
+          secondary: { main: secondary },
+        },
+      }}
+    >
+      <CssBaseline />
+      {children}
+    </GoblinThemeProvider>
+  )
+}
 ```
 
-## 👥 Contributing
+- `light` / `dark` variants, contrast text, and action overlays (`hover`, `selected`, `focus`) are generated automatically from the main color.
+- Docs and Storybook ship with an accent picker that writes to `localStorage`; reuse the same hook in your app if you want end-user accent control.
 
-We welcome contributions! Please see our [contributing guidelines](CONTRIBUTING.md) for details.
+---
+
+## 📁 Repository Layout
+
+```
+.
+├─ packages/          # Publishable source for foundations, components, and system helpers
+│  ├─ components/     # Layout, navigation, inputs, data-display, surfaces, feedback, utilities
+│  ├─ foundations/    # Theme factory, provider, global styles, icon set, color helpers
+│  └─ system/         # `sx` resolver and shared styling utilities
+├─ .docs/             # Docusaurus workspace that renders the documentation site
+├─ .story/            # Storybook configuration mirroring the runtime theme contract
+├─ docs/              # Markdown content consumed by Docusaurus
+├─ dist/              # Build artefacts (`lib`, `storybook`, `docusaurus`)
+└─ assets/            # Project branding and shared imagery
+```
+
+---
+
+## 🧪 Tooling & Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm run docusaurus:dev` | Start the Docusaurus site with hot reload on port 3000. |
+| `npm run docusaurus:build` | Build static docs to `dist/docusaurus` and copy Storybook assets. |
+| `npm run storybook:dev` | Launch Storybook with dark mode + accent controls. |
+| `npm run storybook:build` | Emit static Storybook at `dist/storybook`. |
+| `npm run lib:build` | Produce the component library bundle, types, and npm tarball under `dist/lib`. |
+| `npm run lint` / `lint:fix` | Enforce ESLint across packages, docs, and stories. |
+| `npm run format` | Format the repo with Prettier (TS/TSX/JS/JSON/MD). |
+
+> 📝 Tip: every push to `main` that bumps the version runs `npm run lib:build`, publishes an updated tarball to the GitHub release, and keeps docs/Storybook in sync. For local work without hitting GitHub, run `npm run lib:build` and install the generated file from `dist/lib`.
+
+---
+
+## 📚 Learning Resources
+
+- **Live Docs** – cross-sections the architecture, theming model, and integration patterns.<br />
+  👉 https://5h1ngy.github.io/pkg-fe-react-goblin-system/docs
+- **Storybook** – hands-on playground with controls wired to the same theme provider.<br />
+  👉 https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook
+- **Source Walkthrough** – check `docs/getting-started.md` and `docs/styles/theme.md` for code-focused tutorials inside the repo.
+
+---
+
+## 🤝 Contributing
+
+1. `npm install` to hydrate the workspace.
+2. `npm run docusaurus:dev` or `npm run storybook:dev` to iterate on visuals.
+3. Update or add stories/docs alongside components—both environments consume the same exports.
+4. `npm run lint` and `npm run format` before opening a PR.
+
+We keep the git history human-first: use descriptive commits, prefer smaller PRs, and include before/after screenshots or Storybook links when touching visuals.
+
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT © 5h1ngy — feel free to remix, extend, and deploy the Goblin aesthetic in your own projects.
