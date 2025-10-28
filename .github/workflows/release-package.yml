@@ -44,19 +44,19 @@ jobs:
           TAG="v${VERSION}"
           TARBALL=$(find dist/lib -maxdepth 1 -name '*.tgz' -print -quit)
 
-          if [ -z \"$TARBALL\" ]; then
-            echo \"Tarball not found in dist/lib\" >&2
+          if [ -z "$TARBALL" ]; then
+            echo "Tarball not found in dist/lib" >&2
             exit 1
           fi
 
-          echo \"version=$VERSION\" >> \"$GITHUB_OUTPUT\"
-          echo \"tag=$TAG\" >> \"$GITHUB_OUTPUT\"
-          echo \"tarball=$TARBALL\" >> \"$GITHUB_OUTPUT\"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "tarball=$TARBALL" >> "$GITHUB_OUTPUT"
 
-          if git rev-parse -q --verify \"refs/tags/$TAG\"; then
-            echo \"tag_exists=true\" >> \"$GITHUB_OUTPUT\"
+          if git rev-parse -q --verify "refs/tags/$TAG"; then
+            echo "tag_exists=true" >> "$GITHUB_OUTPUT"
           else
-            echo \"tag_exists=false\" >> \"$GITHUB_OUTPUT\"
+            echo "tag_exists=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Create GitHub release
